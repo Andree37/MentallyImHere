@@ -36,7 +36,7 @@ export default function Faqs() {
                     <div
                         className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-800 dark:border-gray-800">
                         {content.faqs.map(({question, answer}, index) => (
-                                <div>
+                                <div key={index}>
                                     <dl className="faq mx-auto max-w-2xl">
                                         <dt className="text-lg">
                                             <button type="button"

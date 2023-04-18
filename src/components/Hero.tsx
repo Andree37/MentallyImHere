@@ -6,15 +6,10 @@ export default function Hero() {
             <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                 <div className="relative">
                     <h1 className="text-center text-5xl font-bold text-blue-900 dark:text-white sm:text-6xl lg:text-left lg:text-7xl">
-                        Design, Build,
+                        {'Explorar, Conectar, '}
                         <span className="relative">
                             <svg className="absolute inset-x-0 -bottom-1 w-full opacity-50"
                                  xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 260 15.6">
-                                <style>
-                                   {/* .st0 {
-                                @apply fill-secondaryLight;
-                                }*/}
-                                </style>
                                 <path className="st0"
                                       d="M206.8 7.3l-.1.3c.1-.2.2-.3.1-.3zM234.7 10h-.1c-.2.4-.1.3.1 0zM54.8 4.2l-.6-.4c.2.4.4.5.6.4zM17.1 5.1zM34.5 9.6l.1.3c0-.2 0-.3-.1-.3zM22.4 10.8c-.3-.1-.7-.1-1-.1.2.1.7.1 1 .1zM17.5 5c-.1.1-.2.1-.4.2.2-.1.3-.2.4-.2zM52.7 9.8l.5.9c-.1-.3-.3-.6-.5-.9zM19.5 11.6c-.2-.2-.4-.2-.6-.3 0 .2.3.3.6.3zM120.9 11.4c-.1.1-.2.2-.2.3.3-.1.3-.2.2-.3zM80.9 10.4h-.1s.1.1.2.1l-.1-.1zM92.6 10.4l-.2.2c.2-.1.2-.1.2-.2zM72.1 11.3c-.1.1-.3.2-.4.3l.4-.3z"/>
                                 <path
@@ -25,47 +20,29 @@ export default function Hero() {
                                       d="M58.1 11.1c-1 0-1.9 0-2.3.2.2.2 2.3.6 2.3-.2zM208.2 13.3c-.1 0-.3.1-.4.1.1 0 .3 0 .4-.1zM216.3 12.9c-.1-.1-.2-.2-.4-.3 0 .3.1.5.4.3zM132.6 11.5zM178.5 13.7c.7-.4 1-.7 1-1-.4.1-.7.3-1 1zM163 12.6c-.1.1-.2.1-.3.2.3-.1.3-.2.3-.2zM130.2 12c.7-.4 1.6-.3 2.4-.5-.7.2-1.9-.3-2.4.5zM226.1 11.4l-.7.6.8-.4zM218.6 12c-.3-.1-1.7.3-1.3.6.4-.3.9-.5 1.3-.6zM189.6 11.4l-.3.6.7-.5z"/>
                             </svg>
                             <span
-                                className="relative bg-gradient-to-r from-primary to-secondaryLight bg-clip-text text-transparent dark:from-primaryLight dark:to-secondaryLight md:px-2">Scale</span>
+                                className="relative bg-gradient-to-r from-primary to-secondaryLight bg-clip-text text-transparent dark:from-primaryLight dark:to-secondaryLight md:px-2">Cuidar</span>
                         </span>
                     </h1>
 
                     <div className="relative items-center gap-12 lg:flex">
                         <div
                             className="text-center sm:mx-auto sm:w-11/12 md:mt-12 md:w-4/5 lg:mt-0 lg:mr-auto lg:w-6/12 lg:text-left">
-                            <p className="mt-12 text-lg text-gray-600 dark:text-gray-300 sm:text-xl">Computers used
-                                to be magical. But much of that magic has been lost over time, replaced by subpar
-                                tools and practices that slow teams down and hold great work back.</p>
-                            <form action="" className="mt-12">
-                                <div
-                                    className="relative flex items-center rounded-full border border-primary/20 bg-white p-1 px-2 shadow-md focus-within:ring-2 dark:border-white/10 dark:bg-dark md:p-2 lg:pr-3">
-                                    <div className="py-3 pl-4 lg:pl-5">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             className="m-auto h-6 w-6 fill-gray-500 dark:fill-gray-400"
-                                             viewBox="0 0 20 20" fill="currentColor">
-                                            <path
-                                                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                                        </svg>
-                                    </div>
-                                    <input aria-label="your email" autoComplete="email"
-                                           placeholder="Your mail address"
-                                           className="w-full rounded-full bg-transparent p-4 placeholder-gray-600 outline-none dark:text-white dark:placeholder-white"
-                                           type="email"/>
-                                    <div className="md:pr-1.5 lg:pr-0">
-                                        <button type="button" title="Start buying"
-                                                className="relative ml-auto h-12 w-16 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight sm:w-auto sm:px-6">
+                            <p className="mt-12 text-lg text-gray-600 dark:text-gray-300 sm:text-xl">Explore e
+                                conecte-se com terapeutas compassivos e melhore através de sessões de terapia
+                                fortalecedoras.</p>
+                            <a href="#email-cta">
+                                <button title="Start buying"
+                                        className="relative mt-12  p-1 px-2 ml-auto h-12 w-16 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight sm:w-auto sm:px-6">
                                                 <span
                                                     className="relative hidden w-max font-semibold text-white dark:text-gray-900 md:block"> Get Started </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                 fill="currentColor"
-                                                 className="relative mx-auto h-6 w-6 text-white dark:text-gray-900 md:hidden">
-                                                <path
-                                                    d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                         fill="currentColor"
+                                         className="relative mx-auto h-6 w-6 text-white dark:text-gray-900 md:hidden">
+                                        <path
+                                            d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/>
+                                    </svg>
+                                </button>
+                            </a>
                             <div className="mt-12 hidden lg:block">
                                     <span className="text-gray-700 dark:text-white">From the most talented <a
                                         href="customers.html"
@@ -86,27 +63,8 @@ export default function Hero() {
                             </div>
                         </div>
                         <div className="mt-12 w-full overflow-hidden sm:mt-20 lg:-mt-8 lg:w-6/12">
-                            <Image className="w-full" src="/images/team.svg" alt="project illustration"
+                            <Image className="w-full" src="/images/team.jpg" alt="project illustration"
                                    height="600" width="800"/>
-                        </div>
-                    </div>
-                    <div
-                        className="mt-12 border-y border-gray-100 py-8 text-center dark:border-gray-800 md:py-12 xl:mt-20">
-                        <a href="customers.html"
-                           className="text-sm font-semibold tracking-wider text-gray-800 dark:text-white">TRUSTED BY
-                            YOUR FAVORED TOP TECHS COMPANIES</a>
-                        <div
-                            className="mt-8 flex flex-wrap justify-center gap-6 brightness-75 contrast-200 grayscale dark:brightness-200 dark:contrast-0 sm:justify-between lg:gap-24">
-                            <img className="h-8 w-auto lg:h-10 lg:w-auto" src="/images/clients/airbnb.svg"
-                                 loading="lazy" alt="airbnb" width="" height=""/>
-                            <img className="h-8 w-auto lg:h-10 lg:w-auto" src="/images/clients/coty.svg"
-                                 loading="lazy" alt="bissell" width="" height=""/>
-                            <img className="h-8 w-auto lg:h-10 lg:w-auto" src="/images/clients/ge.svg"
-                                 loading="lazy" alt="ge" width="100" height="100"/>
-                            <img className="h-8 w-auto lg:h-10 lg:w-auto" src="/images/clients/lilly.png"
-                                 loading="lazy" alt="lilly" width="" height=""/>
-                            <img className="h-8 w-auto lg:h-10 lg:w-auto" src="/images/clients/microsoft.svg"
-                                 loading="lazy" alt="microsoft" width="" height=""/>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,20 @@ body {
     font-family: "Urbanist", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#down {
+    margin-top: 100%;
+    padding-bottom: 25%;
+}
+
 @layer components {
     .navbar-active #hamburger div:first-child {
         @apply translate-y-1.5 rotate-45;

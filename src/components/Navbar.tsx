@@ -53,31 +53,25 @@ export default function Navbar() {
                                         <a
                                             href="#solutions"
                                             className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Solutions</span>
+                                            <span>Produto</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#company"
+                                        <a href="#email-cta"
                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Company</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#features"
-                                           className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Features</span>
+                                            <span>Entre em contacto</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#testimonials"
                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Testimonials</span>
+                                            <span>Testimonios</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#pricing"
+                                        <a href="#faqs"
                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Pricing</span>
+                                            <span>FAQ</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -85,10 +79,10 @@ export default function Navbar() {
 
                             <div
                                 className="mt-12 -ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:mt-0 lg:mr-6 lg:space-y-0 lg:border-l lg:pl-6">
-                                <a href="/contact"
+                                <a href="#email-cta"
                                    className="relative ml-auto flex h-9 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-primaryLight sm:px-4 lg:before:border lg:before:border-gray-200 lg:before:bg-gray-100 lg:dark:before:bg-gray-800">
                   <span
-                      className="relative text-sm font-semibold text-white dark:text-gray-900 lg:text-primary lg:dark:text-white">Get started</span>
+                      className="relative text-sm font-semibold text-white dark:text-gray-900 lg:text-primary lg:dark:text-white">Comece</span>
                                 </a>
                             </div>
                         </div>

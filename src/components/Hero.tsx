@@ -34,7 +34,7 @@ export default function Hero() {
                                 <button title="Start buying"
                                         className="relative mt-12  p-1 px-2 ml-auto h-12 w-16 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight sm:w-auto sm:px-6">
                                                 <span
-                                                    className="relative hidden w-max font-semibold text-white dark:text-gray-900 md:block"> Get Started </span>
+                                                    className="relative hidden w-max font-semibold text-white dark:text-gray-900 md:block"> Comece aqui </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                          fill="currentColor"
                                          className="relative mx-auto h-6 w-6 text-white dark:text-gray-900 md:hidden">

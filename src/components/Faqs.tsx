@@ -52,6 +52,10 @@ const content = {
             question: 'Como posso entrar em contato caso tenha alguma questão?',
             answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o email info@potato.com . A nossa equipa responderá prontamente para ajudá-lo.'
         },
+        {
+            question: 'Como posso instalar a aplicação?',
+            answer: 'De momento, estamos em fase de construção da aplicação. Entretanto, queremos conectar clientes e profissionais através dos nosso recursos humanos.'
+        }
     ]
 }
 

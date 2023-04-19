@@ -53,6 +53,10 @@ const content = {
             answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o email info@potato.com . A nossa equipa responderá prontamente para ajudá-lo.'
         },
         {
+            question: 'Como encontro o terapeuta certo para mim?',
+            answer: 'Encontramos o melhor candidato para si com ajuda de inteligência artificial, utilizando o seu estilo de terapia e outros fatores relevantes.'
+        },
+        {
             question: 'Como posso instalar a aplicação?',
             answer: 'De momento, estamos em fase de construção da aplicação. Entretanto, queremos conectar clientes e profissionais através dos nosso recursos humanos.'
         }

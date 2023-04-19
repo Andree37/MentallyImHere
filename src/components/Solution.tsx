@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Image from "next/image";
 
 export default function Solution() {
     return (
@@ -216,23 +217,23 @@ tabs.forEach((tab) => {
                                     <div className="relative h-96 overflow-clip py-10 sm:h-[32rem] lg:p-20">
                                         <div data-target="panel-0"
                                              className="panel-preview absolute inset-0 z-10 flex translate-y-0 scale-100 items-end overflow-hidden px-6 opacity-100 transition duration-500 sm:px-10">
-                                            <img src="/images/screenshots/tailus-home.webp"
-                                                 className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
-                                                 alt="tailus screenshot" loading="lazy" width="850" height="1926"/>
+                                            <Image src="/images/therapists/sittingonline.jpg"
+                                                   className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
+                                                   alt="tailus screenshot" loading="lazy" width="850" height="1926"/>
                                         </div>
                                         <div data-target="panel-1"
                                              className="panel-preview absolute inset-0 z-0 flex translate-y-[100%] scale-100 items-end overflow-hidden px-6 opacity-50 transition duration-500 sm:px-10">
-                                            <img src="/images/screenshots/tailus-home-dark.webp"
-                                                 className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
-                                                 alt="tailus screenshot dark-mode" loading="lazy" width="850"
-                                                 height="1780"/>
+                                            <Image src="/images/therapists/online.png"
+                                                   className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
+                                                   alt="tailus screenshot dark-mode" loading="lazy" width="850"
+                                                   height="1780"/>
                                         </div>
                                         <div data-target="panel-2"
                                              className="panel-preview absolute inset-0 z-0 flex translate-y-[100%] scale-100 items-end overflow-hidden px-6 opacity-50 transition duration-500 sm:px-10">
-                                            <img src="/images/screenshots/tailus-contact.webp"
-                                                 className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
-                                                 alt="tailus contact screenshot" loading="lazy" width="850"
-                                                 height="1780"/>
+                                            <Image src="/images/therapists/sittingtogether.png"
+                                                   className="mx-auto h-80 w-96 rounded-t-3xl border object-cover object-top shadow-2xl dark:border-transparent sm:h-[28rem]"
+                                                   alt="tailus contact screenshot" loading="lazy" width="850"
+                                                   height="1780"/>
                                         </div>
                                     </div>
                                 </div>

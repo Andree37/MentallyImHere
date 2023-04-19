@@ -43,27 +43,9 @@ export default function Hero() {
                                     </svg>
                                 </button>
                             </a>
-                            <div className="mt-12 hidden lg:block">
-                                    <span className="text-gray-700 dark:text-white">From the most talented <a
-                                        href="customers.html"
-                                        className="text-primary underline dark:text-primaryLight">Team</a> !</span>
-                                <div
-                                    className="mt-5 flex -space-x-1 children:h-10 children:w-10 children:rounded-full children:object-cover children:ring-4 children:ring-gray-100 dark:children:ring-gray-900">
-                                    <Image src="/images/avatars/avatar.webp" alt="user avatar" width="400"
-                                           height="400"/>
-                                    <Image src="/images/avatars/avatar-1.webp" alt="user avatar" width="200"
-                                           height="200"/>
-                                    <Image src="/images/avatars/avatar-2.webp" alt="user avatar" width="200"
-                                           height="200"/>
-                                    <Image src="/images/avatars/avatar-3.webp" alt="user avatar" width="200"
-                                           height="200"/>
-                                    <Image src="/images/avatars/avatar-4.webp" alt="user avatar" width="200"
-                                           height="200"/>
-                                </div>
-                            </div>
                         </div>
                         <div className="mt-12 w-full overflow-hidden sm:mt-20 lg:-mt-8 lg:w-6/12">
-                            <Image className="w-full" src="/images/team.jpg" alt="project illustration"
+                            <Image className="w-full" src="/images/hero.png" alt="project illustration"
                                    height="600" width="800"/>
                         </div>
                     </div>

@@ -7,20 +7,44 @@ const initialState = {}
 const content = {
     faqs: [
         {
-            question: 'What included in the pack ?',
-            answer: 'A Potato'
+            question: 'Como encontro o terapeuta certo para mim?',
+            answer: 'Para encontrar o terapeuta certo, explore o nosso diretório e aplique filtros, como especialidade, localização e estilo de terapia. Leia os perfis dos terapeutas para encontrar uma combinação que atenda às suas necessidades.'
         },
         {
-            question: 'Are you hot?',
-            answer: 'Super hot man'
+            question: 'Quais são os custos envolvidos nas sessões de terapia?',
+            answer: 'Os custos das sessões de terapia variam de acordo com o terapeuta e o tipo de sessão. As informações sobre preços estarão disponíveis no perfil de cada terapeuta.'
         },
         {
-            question: 'Are you a potato?',
-            answer: 'A hot potato'
+            question: 'Como posso agendar uma sessão com um terapeuta?',
+            answer: 'De momento, ara agendar uma sessão, insira as suas informações no formulário em cima e de seguida entraremos em contacto consigo. No futuro poderá selecionar o terapeuta de sua escolha e usar o nosso sistema de agendamento seguro na aplicação para marcar uma consulta.'
         },
         {
-            question: 'What is your favorite potato?',
-            answer: 'youuuuu'
+            question: 'A aplicação oferece sessões de terapia presenciais, por vídeo ou áudio?',
+            answer: 'A aplicação oferece sessões de terapia por vídeo e áudio, dependendo das preferências do terapeuta e do cliente.'
+        },
+        {
+            question: 'Posso alterar ou cancelar uma sessão de terapia agendada?',
+            answer: 'Para alterar ou cancelar uma sessão de terapia agendada, envie-nos um email ao mesmo que lhe responder com a disponibildade. Observe a política de cancelamento do terapeuta para evitar possíveis taxas.'
+        },
+        {
+            question: 'Como a aplicação garante a segurança e privacidade das minhas informações?',
+            answer: 'A aplicação garante a segurança e privacidade das suas informações, utilizando criptografia e medidas de segurança rigorosas. Consulte nossa Política de Privacidade para obter mais detalhes.'
+        },
+        {
+            question: 'Quais são os métodos de pagamento aceites?',
+            answer: 'Os métodos de pagamento aceites incluem cartões de crédito, débito e outros meios de pagamento eletrónicos. As opções disponíveis serão exibidas durante o processo de pagamento.'
+        },
+        {
+            question: 'Os terapeutas disponíveis na aplicação são licenciados e qualificados?',
+            answer: 'Sim, todos os terapeutas disponíveis na aplicação são licenciados e qualificados, com experiência nas áreas em que atuam.'
+        },
+        {
+            question: 'A aplicação oferece recursos adicionais para auxiliar no meu progresso terapêutico?',
+            answer: 'A aplicação oferece recursos adicionais, como dicas e exercícios terapêuticos, para auxiliar no seu progresso e crescimento pessoal.'
+        },
+        {
+            question: 'Como posso entrar em contato com o suporte ao cliente para esclarecer dúvidas ou resolver problemas?',
+            answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o mesmo email que lhe responder depois de preencher o formulário. A nossa equipa responderá prontamente para ajudá-lo.'
         }
     ]
 }
@@ -31,8 +55,8 @@ export default function Faqs() {
         <>
             <section id="faqs" className="my-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-5xl xl:px-0">
-                    <h2 className="mb-12 text-center text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Frequently
-                        Asked Questions</h2>
+                    <h2 className="mb-12 text-center text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Perguntas
+                        Frequentes</h2>
                     <div
                         className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-800 dark:border-gray-800">
                         {content.faqs.map(({question, answer}, index) => (

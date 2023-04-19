@@ -20,9 +20,9 @@ export default function EmailCTA() {
                             </div>
                         </div>
 
-                        <div className="md:w-[5%] lg:w-1/2">
-                            <img src="/images/cta-cards.webp" alt="tailus stat cards components"
-                                 loading="lazy" width="1299" height="678"/>
+                        <div className="md:w-[55%] lg:w-1/2">
+                            <img src="/images/cta.png" alt="tailus stat cards components"
+                                 loading="lazy" width="1000" height="1000"/>
                         </div>
                     </div>
                 </div>

@@ -50,9 +50,22 @@ export default function Navbar() {
                             <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
                                 <ul className="space-y-6 text-base font-medium tracking-wide lg:flex lg:space-y-0 lg:text-sm">
                                     <li>
+                                        <a
+                                            href="#solutions"
+                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
+                                            <span>Produto</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="#email-cta"
                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
                                             <span>Entre em contacto</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#faqs"
+                                           className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
+                                            <span>FAQ</span>
                                         </a>
                                     </li>
                                 </ul>

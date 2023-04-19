@@ -102,7 +102,7 @@ export default function InfoForm() {
                                 }}
                                        className="peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"/>
                                 <span
-                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira a sua idade</span>
+                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira a sua idade em números</span>
                             </div>
                             <div>
                                 <label htmlFor="email"

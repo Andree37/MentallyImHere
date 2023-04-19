@@ -25,7 +25,6 @@ export default function InfoForm() {
     const [userData, setUserData] = useState(initialuser)
     const handleSubmit = useCallback(async () => {
         if (userData.email === '' || userData.name === '' || userData.motivation === '' || userData.age === '' || !validateEmail(userData.email)) {
-            console.log(userData)
             await toast({
                 title: 'Preencha todos os campos.',
                 description: 'Por favor preencha todos os campos e verifique se o email está correto.',

@@ -60,7 +60,7 @@ tabs.forEach((tab) => {
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">O que
-                            pode fazer com a nossa plataforma</h2>
+                            oferecemos</h2>
                         <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Pesquisar
                             terapeutas qualificados, agendar sessões de terapia, conectar-se com profissionais
                             compatíveis e acompanhar o progresso no caminho para o bem-estar.</p>
@@ -127,8 +127,7 @@ tabs.forEach((tab) => {
                                             Sessões</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Marque consultas com seu
                                             profissional de saúde escolhido diretamente através do nosso sistema de
-                                            agendamento. Receba lembretes e controle facilmente as suas sessões num só
-                                            lugar.</p>
+                                            agendamento.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div

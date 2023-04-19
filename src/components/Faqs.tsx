@@ -5,7 +5,7 @@ import Script from "next/script";
 const initialState = {}
 
 const content = {
-    faqs: [
+    old_faqs: [
         {
             question: 'Como encontro o terapeuta certo para mim?',
             answer: 'Para encontrar o terapeuta certo, explore o nosso diretório e aplique filtros, como especialidade, localização e estilo de terapia. Leia os perfis dos terapeutas para encontrar uma combinação que atenda às suas necessidades.'
@@ -46,6 +46,12 @@ const content = {
             question: 'Como posso entrar em contato com o suporte ao cliente para esclarecer dúvidas ou resolver problemas?',
             answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o mesmo email que lhe responder depois de preencher o formulário. A nossa equipa responderá prontamente para ajudá-lo.'
         }
+    ],
+    faqs: [
+        {
+            question: 'Como posso entrar em contato caso tenha alguma questão?',
+            answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o email info@potato.com . A nossa equipa responderá prontamente para ajudá-lo.'
+        },
     ]
 }
 

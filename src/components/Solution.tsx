@@ -126,8 +126,7 @@ tabs.forEach((tab) => {
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Agende
                                             Sessões</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Marque consultas com seu
-                                            profissional de saúde escolhido diretamente através do nosso sistema de
-                                            agendamento.</p>
+                                            profissional de saúde escolhido.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -171,9 +170,9 @@ tabs.forEach((tab) => {
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Inicie
                                             a sua Jornada</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Participe em sessões de
-                                            terapia significativas e transformadoras por meio de chamadas de vídeo ou
-                                            áudio seguras. Acompanhe o seu progresso e o seu caminho para o
-                                            bem-estar.</p>
+                                            terapia significativas e transformadoras por meio de chamadas de vídeo,
+                                            pessoalmente, ou áudio seguras. Acompanhe o seu progresso e o seu caminho
+                                            para o bem-estar.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -186,7 +185,7 @@ tabs.forEach((tab) => {
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Sessões</h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">Participe em
-                                                        sessões de vídeo ou de voz.</p>
+                                                        sessões de vídeo, pessoalmente, ou de voz.</p>
                                                 </div>
                                             </div>
 

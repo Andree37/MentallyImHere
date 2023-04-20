@@ -107,7 +107,7 @@ export default function InfoForm() {
                                 <label htmlFor="email"
                                        className="mb-2 block text-gray-600 dark:text-gray-300">Email <span
                                     className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <input required type="email" name="email" id="email" autoComplete="email"
+                                <input type="email" name="email" id="email" autoComplete="email"
                                        placeholder="Email" value={userData.email} onChange={(e) => {
                                     setUserData({...userData, email: e.target.value})
                                 }}

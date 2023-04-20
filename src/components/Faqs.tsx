@@ -57,8 +57,8 @@ const content = {
             answer: 'Encontramos o melhor candidato para si com ajuda de inteligência artificial, utilizando o seu estilo de terapia e outros fatores relevantes.'
         },
         {
-            question: 'Como posso instalar a aplicação?',
-            answer: 'De momento, estamos em fase de construção da aplicação. Entretanto, queremos conectar clientes e profissionais através dos nosso recursos humanos.'
+            question: 'Existe alguma aplicação, ou website para conseguir seguir o meu progresso?',
+            answer: 'De momento, estamos em fase de construção da plataforma. Entretanto, queremos conectar clientes e profissionais de modo a que consiga começar as suas sessões.'
         }
     ]
 }

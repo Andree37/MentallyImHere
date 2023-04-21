@@ -28,7 +28,7 @@ export default function Hero() {
                         <div
                             className="text-center sm:mx-auto sm:w-11/12 md:mt-12 md:w-4/5 lg:mt-0 lg:mr-auto lg:w-6/12 lg:text-left">
                             <p className="mt-12 text-lg text-gray-600 dark:text-gray-300 sm:text-xl">Explore e
-                                conecte-se com terapeutas compassivos e melhore através de sessões de terapia
+                                conecte-se com psicologos compassivos e melhore através de sessões de terapia
                                 fortalecedoras.</p>
                             <a href="#email-cta">
                                 <button title="Start buying"

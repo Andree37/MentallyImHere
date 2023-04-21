@@ -8,7 +8,7 @@ const content = {
     old_faqs: [
         {
             question: 'Como encontro o terapeuta certo para mim?',
-            answer: 'Para encontrar o terapeuta certo, explore o nosso diretório e aplique filtros, como especialidade, localização e estilo de terapia. Leia os perfis dos terapeutas para encontrar uma combinação que atenda às suas necessidades.'
+            answer: 'Para encontrar o terapeuta certo, explore o nosso diretório e aplique filtros, como especialidade, localização e estilo de terapia. Leia os perfis dos psicologos para encontrar uma combinação que atenda às suas necessidades.'
         },
         {
             question: 'Quais são os custos envolvidos nas sessões de terapia?',
@@ -35,8 +35,8 @@ const content = {
             answer: 'Os métodos de pagamento aceites incluem cartões de crédito, débito e outros meios de pagamento eletrónicos. As opções disponíveis serão exibidas durante o processo de pagamento.'
         },
         {
-            question: 'Os terapeutas disponíveis na aplicação são licenciados e qualificados?',
-            answer: 'Sim, todos os terapeutas disponíveis na aplicação são licenciados e qualificados, com experiência nas áreas em que atuam.'
+            question: 'Os psicologos disponíveis na aplicação são licenciados e qualificados?',
+            answer: 'Sim, todos os psicologos disponíveis na aplicação são licenciados e qualificados, com experiência nas áreas em que atuam.'
         },
         {
             question: 'A aplicação oferece recursos adicionais para auxiliar no meu progresso terapêutico?',

@@ -62,7 +62,7 @@ tabs.forEach((tab) => {
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">O que
                             oferecemos</h2>
                         <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Pesquisar
-                            terapeutas qualificados, agendar sessões de terapia, conectar-se com profissionais
+                            psicologos qualificados, agendar sessões de terapia, conectar-se com profissionais
                             compatíveis e acompanhar o progresso no caminho para o bem-estar.</p>
 
                         <div role="tablist" aria-label="tabs"

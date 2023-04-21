@@ -14,7 +14,7 @@ export default function EmailCTA() {
                                     Encontre profissionais de saúde
                                 </h2>
                                 <p className="mb-8 mt-6 text-gray-600 dark:text-gray-300">Preencha este formulário e
-                                    ajude-nos a encontrar o melhor profissional, explicando a motivaçāo da
+                                    ajude-nos a encontrar o melhor profissional, explicando a motivaçāo da sua
                                     consulta.</p>
                                 <InfoForm/>
                             </div>

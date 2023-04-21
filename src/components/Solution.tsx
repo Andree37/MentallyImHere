@@ -60,11 +60,10 @@ tabs.forEach((tab) => {
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">O que
-                            oferecemos</h2>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Pesquisar
-                            psicologos qualificados, agendar sessões de terapia, conectar-se com profissionais
-                            compatíveis e acompanhar o progresso no caminho para o bem-estar.</p>
-
+                            podemos oferecer</h2>
+                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Agendar sessões
+                            de terapia com Psicologos qualificados compatíveis consigo com ajjuda de algoritmos de
+                            pesquisa inteligente e personalizado para cada utilizador.</p>
                         <div role="tablist" aria-label="tabs"
                              className="relative mx-auto mt-12 grid h-12 w-auto grid-cols-3 items-center gap-x-1 overflow-hidden rounded-full border border-gray-200 bg-gray-100 px-[3px] text-gray-600 dark:border-gray-700 dark:border-opacity-60 dark:bg-darker dark:text-gray-300 dark:shadow-none sm:w-max">
                             <div

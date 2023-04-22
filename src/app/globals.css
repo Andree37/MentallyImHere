@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    [data-nextjs-scroll-focus-boundary] {
+        display: contents;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Urbanist", sans-serif;
 }

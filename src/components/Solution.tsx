@@ -60,7 +60,7 @@ tabs.forEach((tab) => {
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">O que
-                            podemos oferecer</h2>
+                            oferecemos</h2>
                         <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Agendar sessões
                             de terapia com Psicologos qualificados compatíveis consigo com ajjuda de algoritmos de
                             pesquisa inteligente e personalizado para cada utilizador.</p>

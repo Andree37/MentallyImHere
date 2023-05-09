@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
-    title: 'Mentally I am Here',
-    description: 'Mentally I am Here and not there',
+    title: 'Genipsi',
+    description: 'Genipsi - Mental Health Platform',
 }
 
 export default function RootLayout({

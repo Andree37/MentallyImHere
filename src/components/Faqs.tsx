@@ -50,11 +50,14 @@ const content = {
     faqs: [
         {
             question: 'Como posso entrar em contato caso tenha alguma questão?',
-            answer: 'Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o email info@potato.com . A nossa equipa responderá prontamente para ajudá-lo.'
+            answer: <>`Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o
+                email {' '}
+                <a href="mailto:infogenipsi@gmail.com">infogenipsi@gmail.com</a>. A nossa equipa responderá
+                prontamente para ajudá-lo.</>
         },
         {
             question: 'Como encontro o terapeuta certo para mim?',
-            answer: 'Encontramos o melhor candidato para si com ajuda de inteligência artificial, utilizando o seu estilo de terapia e outros fatores relevantes.'
+            answer: 'Encontramos o melhor candidato para si com ajuda de inteligência artificial, utilizando a motivação descrita para a consulta.'
         },
         {
             question: 'Existe alguma aplicação, ou website para conseguir seguir o meu progresso?',

@@ -80,7 +80,9 @@ export default function InfoForm() {
                             informação</h2>
                         <div className="mt-8 mb-6 space-y-4">
                             <div>
-                                <label htmlFor="name" className="mb-2 block text-gray-600 dark:text-gray-300">O seu nome
+                                <label htmlFor="name"
+                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">O seu
+                                    nome
                                     <span
                                         className="text-xl text-red-500 dark:text-red-400">*</span></label>
                                 <input type="text" name="name" id="name" autoComplete="name" placeholder="Nome"
@@ -92,7 +94,8 @@ export default function InfoForm() {
                                     className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira o seu nome</span>
                             </div>
                             <div>
-                                <label htmlFor="age" className="mb-2 block text-gray-600 dark:text-gray-300">A sua idade
+                                <label htmlFor="age" className="mb-2 block text-gray-600 dark:text-gray-300 text-left">A
+                                    sua idade
                                     <span
                                         className="text-xl text-red-500 dark:text-red-400">*</span></label>
                                 <input type="number" name="age" id="age" autoComplete="age" placeholder="Idade"
@@ -105,7 +108,7 @@ export default function InfoForm() {
                             </div>
                             <div>
                                 <label htmlFor="email"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300">Email <span
+                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">Email <span
                                     className="text-xl text-red-500 dark:text-red-400">*</span></label>
                                 <input type="email" name="email" id="email" autoComplete="email"
                                        placeholder="Email" value={userData.email} onChange={(e) => {
@@ -117,7 +120,7 @@ export default function InfoForm() {
                             </div>
                             <div>
                                 <label htmlFor="message"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300">Motivação <span
+                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">Motivação <span
                                     className="text-xl text-red-500 dark:text-red-400">*</span></label>
                                 <textarea name="message" id="message" placeholder="Motivação para a consulta"
                                           value={userData.motivation} onChange={(e) => {

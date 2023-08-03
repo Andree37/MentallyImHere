@@ -1,18 +1,22 @@
 // mongodb.js
 
-import {MongoClient} from 'mongodb'
+import {MongoClient, ServerApiVersion} from 'mongodb'
 
 const uri = process.env.MONGODB_URI || ""
 
-let client
-let clientPromise
 
 if (!process.env.MONGODB_URI) {
     throw new Error('Add Mongo URI to .env.local')
 }
 
-client = new MongoClient(uri, {})
-clientPromise = client.connect()
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    }
+})
+const clientPromise = client.connect()
 
 
 export default clientPromise as Promise<MongoClient>

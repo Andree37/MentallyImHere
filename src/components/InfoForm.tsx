@@ -1,5 +1,5 @@
 "use client";
-import React, {useCallback, useMemo, useState} from "react";
+import React, {useCallback, useState} from "react";
 import {ChakraProvider, Spinner, useToast} from "@chakra-ui/react";
 import {useRouter} from "next/navigation";
 import {PhoneInput, usePhoneValidation} from "react-international-phone";
@@ -26,17 +26,18 @@ export default function InfoForm() {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [userData, setUserData] = useState(initialuser)
-    const isPhoneValid = useMemo(() => {
-        const valid = usePhoneValidation(userData.phone)
-        if (valid.country?.iso2 === 'pt') {
-            return valid.isValid && valid.lengthMatch && userData.phone.length === 14
-        }
-        return valid.isValid && valid.lengthMatch
-    }, [userData]);
+    const [isPhoneValid, setIsPhoneValid] = useState(true)
 
     const handleSubmit = useCallback(async () => {
 
-        if (userData.email === '' || userData.name === '' || userData.motivation === '' || userData.age === '' || !validateEmail(userData.email) || !isPhoneValid) {
+        const validPhone = usePhoneValidation(userData.phone)
+        let valid = false;
+        if (validPhone.country?.iso2 === 'pt') {
+            valid = validPhone.isValid && validPhone.lengthMatch && userData.phone.length === 14
+        } else {
+            valid = validPhone.isValid && validPhone.lengthMatch
+        }
+        if (userData.email === '' || userData.name === '' || userData.motivation === '' || userData.age === '' || !validateEmail(userData.email) || !valid) {
             toast({
                 title: 'Preencha todos os campos.',
                 description: 'Por favor preencha todos os campos e verifique se toda a informação está correta.',
@@ -44,8 +45,11 @@ export default function InfoForm() {
                 duration: 3000,
                 isClosable: false,
             })
+            setIsPhoneValid(false)
+
             return;
         }
+        setIsPhoneValid(true)
         setLoading(true);
         const res = await fetch('/api/client', {
             method: 'POST',

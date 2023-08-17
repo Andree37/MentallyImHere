@@ -31,7 +31,7 @@ export default function InfoForm() {
     const handleSubmit = useCallback(async () => {
 
         const validPhone = usePhoneValidation(userData.phone)
-        let valid = false;
+        let valid;
         if (validPhone.country?.iso2 === 'pt') {
             valid = validPhone.isValid && validPhone.lengthMatch && userData.phone.length === 14
         } else {

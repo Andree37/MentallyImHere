@@ -59,11 +59,15 @@ tabs.forEach((tab) => {
             <section id="solutions" className="pt-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">O que
-                            oferecemos</h2>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Agendar sessões
-                            de terapia com Psicologos qualificados compatíveis consigo com ajuda de algoritmos de
-                            pesquisa inteligente e personalizado para cada utilizador.</p>
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Como
+                            funciona?</h2>
+                        <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
+                            o seu processo terapeutico.
+                        </h3>
+                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Sabemos que
+                            iniciar um processo de consultas psicológicas pode ser difícil. Entre outras
+                            razões, uma das dificuldades é encontrar um psicólogo que se adeque às nossas necessidades
+                            individuais. Nós simplificamos este processo e ajudamo-lo a encontrar o que necessita.</p>
                         <div role="tablist" aria-label="tabs"
                              className="relative mx-auto mt-12 grid h-12 w-auto grid-cols-3 items-center gap-x-1 overflow-hidden rounded-full border border-gray-200 bg-gray-100 px-[3px] text-gray-600 dark:border-gray-700 dark:border-opacity-60 dark:bg-darker dark:text-gray-300 dark:shadow-none sm:w-max">
                             <div
@@ -71,18 +75,18 @@ tabs.forEach((tab) => {
                             <button role="tab" aria-selected="true" aria-controls="panel-0" tabIndex={0}
                                     title="tab item"
                                     className="tab relative block rounded-full py-2.5 px-4 hover:text-primary dark:hover:text-primaryLight">
-                                <span className="m-auto block w-max text-sm font-medium tracking-wider">Explorar</span>
+                                <span className="m-auto block w-max text-sm font-medium tracking-wider">Partilhar</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="panel-1" tabIndex={-1}
                                     title="tab item"
                                     className="tab relative block rounded-full py-2.5 px-4 hover:text-primary dark:hover:text-primaryLight">
                                 <span
-                                    className="m-auto block w-max text-sm font-medium tracking-wider">Agendar</span>
+                                    className="m-auto block w-max text-sm font-medium tracking-wider">Conectar</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="panel-2" tabIndex={-1}
                                     title="tab item"
                                     className="tab relative block rounded-full py-2.5 px-4 hover:text-primary dark:hover:text-primaryLight">
-                                <span className="m-auto block w-max text-sm font-medium tracking-wider">Bem-Estar</span>
+                                <span className="m-auto block w-max text-sm font-medium tracking-wider">Iniciar</span>
                             </button>
                         </div>
                     </div>
@@ -93,26 +97,26 @@ tabs.forEach((tab) => {
                                     className="panel visible inset-0 flex scale-100 flex-col justify-center opacity-100 transition duration-500 md:absolute"
                                     id="panel-0">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Explore
-                                            profissionais de saúde</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Explore profissionais de
-                                            saúde qualificados, adaptados às suas necessidades e preferências
-                                            exclusivas. Filtre a sua procura por especialidade e estilo de terapia para
-                                            encontrar a combinação perfeita.</p>
+                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Partilhe
+                                            as suas preferências e necessidades</h3>
+                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Indique as suas
+                                            preferências e necessidades e nós iremos conectá-lo/a um/a psicólogo/a
+                                            adaptado às mesmas.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
                                                     className="flex h-20 w-20 rounded-3xl border border-gray-200 bg-white p-4 dark:border-gray-600/60 dark:bg-gray-900/40">
-                                                    <img className="m-auto h-8 w-auto"
-                                                         src="https://cdn-icons-png.flaticon.com/512/4727/4727266.png"
-                                                         alt="icon illustration" loading="lazy" width="512"
-                                                         height="512"/>
+                                                    <Image className="m-auto h-auto w-auto"
+                                                           width={512} height={512}
+                                                           src="/images/solutions/checklist.png"
+                                                           alt="icon illustration" loading="lazy"/>
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
-                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Filtrar</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Adapte a sua
-                                                        procura por especialidade, estilo de terapia e
-                                                        disponibilidade</p>
+                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Responda
+                                                        ao formulário</h4>
+                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">fornecendo
+                                                        algumas informações como preferência por sessões presenciais,
+                                                        localização, entre outras.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,10 +126,12 @@ tabs.forEach((tab) => {
                                     className="panel invisible absolute inset-0 flex scale-90 flex-col justify-center opacity-0 transition duration-500"
                                     id="panel-1">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Agende
-                                            Sessões</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Marque consultas com seu
-                                            profissional de saúde escolhido.</p>
+                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Passo
+                                            1: Nós Conectamos</h3>
+                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Com base nas suas respostas
+                                            no Passo 1, faremos uma análise cuidada das suas preferências e necessidades
+                                            de forma a conectá-lo/a ao/à psicólogo/psicóloga quemelhor se adequa às suas
+                                            preferências e necessidades.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -136,8 +142,8 @@ tabs.forEach((tab) => {
                                                          height="512"/>
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
-                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Agende
-                                                        Consultas</h4>
+                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Passo
+                                                        2: Agende Consultas</h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">Facilmente
                                                         agenda consultas com o seu profissional de saúde.</p>
                                                 </div>
@@ -152,8 +158,8 @@ tabs.forEach((tab) => {
                                                          height="512"/>
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
-                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Controle
-                                                        as suas consultas</h4>
+                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Passo
+                                                        3: Inicie o seu processo terapeutico</h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">Connosco
                                                         consegue controlar quando tem as suas consultas e facilmente
                                                         remarcar, caso haja um inconveniente.</p>
@@ -168,10 +174,11 @@ tabs.forEach((tab) => {
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Inicie
                                             a sua Jornada</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Participe em sessões de
-                                            terapia significativas e transformadoras por meio de chamadas de vídeo,
-                                            pessoalmente, ou áudio seguras. Acompanhe o seu progresso e o seu caminho
-                                            para o bem-estar.</p>
+                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Após o/a termos conectado
+                                            ao/à seu/sua psicólogo/psicóloga, irá receber no seu e-mail informações
+                                            acerca
+                                            do/a mesmo/a e da 1a sessão para que possa iniciar o seu processo
+                                            terapêutico</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -182,9 +189,9 @@ tabs.forEach((tab) => {
                                                          height="512"/>
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
-                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Sessões</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Participe em
-                                                        sessões de vídeo, pessoalmente, ou de voz.</p>
+                                                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Pagamento</h4>
+                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Opagamento é
+                                                        realizado em articulacão direta com o/a psicólogo/psicóloga.</p>
                                                 </div>
                                             </div>
 

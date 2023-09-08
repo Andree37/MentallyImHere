@@ -32,13 +32,7 @@ export default function Navbar() {
                                         <a
                                             href="#solutions"
                                             className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Produto</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#email-cta"
-                                           className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4">
-                                            <span>Entre em contacto</span>
+                                            <span>Como Funciona?</span>
                                         </a>
                                     </li>
                                     <li>

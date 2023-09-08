@@ -67,23 +67,17 @@ const content = {
             question: "Como posso entrar em contato caso tenha alguma questão?",
             answer: (
                 <>
-                    Para entrar em contato com o suporte ao cliente, envie a sua pergunta
+                    Para entrar em contato connosco, envie a sua pergunta
                     ou preocupação para o email{" "}
-                    <a href="mailto:info@psiplexus.com">info@psiplexus.com</a>. A
-                    nossa equipa responderá prontamente para ajudá-lo.
+                    <a href="mailto:help@psiplexus.com">help@psiplexus.com</a>. Tentaremos responder o mais rapidamente
+                    possível, no máximo 48h.
                 </>
             ),
         },
         {
-            question: "Como encontram o terapeuta certo para mim?",
+            question: "Como encontram o/a psicólogo/a meu/minha psicólogo/psicóloga?",
             answer:
-                "Encontramos o melhor candidato para si com ajuda de inteligência artificial, utilizando a motivação descrita para a consulta.",
-        },
-        {
-            question:
-                "Existe alguma aplicação, ou website para conseguir seguir o meu progresso?",
-            answer:
-                "De momento, estamos em fase de construção da plataforma. Entretanto, queremos conectar clientes e profissionais de modo a que consiga começar as suas sessões.",
+                "Através de um processo de triagem que procura compreender as necessidades da pessoa que recorra ao nosso serviço. Colocamos questões pertinentes que nos ajudam aencontrar o psicólogo adequado.",
         },
     ],
 };

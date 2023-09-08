@@ -19,7 +19,7 @@ export default function Footer() {
                         <div className="col-span-8 md:col-span-6 lg:col-span-5">
                             <div className="flex justify-between text-sm md:pl-16">
                                 <span>&copy; PsiPlexus 2023</span>
-                                <span>All right reserved</span>
+                                <span>All rights reserved</span>
                             </div>
                         </div>
                     </div>

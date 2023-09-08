@@ -69,7 +69,7 @@ const content = {
                 <>
                     Para entrar em contato com o suporte ao cliente, envie a sua pergunta
                     ou preocupação para o email{" "}
-                    <a href="mailto:infogenipsi@gmail.com">infogenipsi@gmail.com</a>. A
+                    <a href="mailto:info@psiplexus.com">info@psiplexus.com</a>. A
                     nossa equipa responderá prontamente para ajudá-lo.
                 </>
             ),

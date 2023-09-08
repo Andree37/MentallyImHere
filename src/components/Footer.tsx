@@ -10,7 +10,7 @@ export default function Footer() {
                             <div
                                 className="flex h-full items-center justify-between gap-6 border-b border-white py-3 dark:border-gray-800 md:flex-col md:items-start md:justify-between md:space-y-6 md:border-none md:py-2">
                                 <div>
-                                    <a href="#home" aria-label="genipsi logo" className="flex items-center">
+                                    <a href="#home" aria-label="psiplexus logo" className="flex items-center">
                                         <Image src={'/images/logo.png'} alt='logo' width={100} height={100}/>
                                     </a>
                                 </div>
@@ -18,7 +18,7 @@ export default function Footer() {
                         </div>
                         <div className="col-span-8 md:col-span-6 lg:col-span-5">
                             <div className="flex justify-between text-sm md:pl-16">
-                                <span>&copy; Genipsi 2023</span>
+                                <span>&copy; PsiPlexus 2023</span>
                                 <span>All right reserved</span>
                             </div>
                         </div>

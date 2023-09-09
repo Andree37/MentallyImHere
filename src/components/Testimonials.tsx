@@ -3,7 +3,7 @@ export default function Testimonials() {
         <section id="testimonials" className="pt-32">
             <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Testumunhos
+                    <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Testemunhos
                         de utilizadores</h2>
                     <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Aqui estão alguns
                         testemunhos de pessoas que acreditam e nós.</p>

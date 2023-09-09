@@ -62,7 +62,7 @@ tabs.forEach((tab) => {
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Como
                             funciona?</h2>
                         <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
-                            o seu processo terapeutico.
+                            o seu processo terapêutico.
                         </h3>
                         <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Sabemos que
                             iniciar um processo de consultas psicológicas pode ser difícil. Entre outras
@@ -131,8 +131,7 @@ tabs.forEach((tab) => {
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Com base nas suas respostas
                                             no Passo 1, faremos uma análise cuidada das suas preferências e necessidades
                                             de forma a conectá-lo/a ao/à psicólogo/psicóloga que melhor se adequa às
-                                            suas
-                                            preferências e necessidades.</p>
+                                            suas preferências e necessidades.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -160,7 +159,7 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Passo
-                                                        3: Inicie o seu processo terapeutico</h4>
+                                                        3: Inicie o seu processo terapêutico</h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">Connosco
                                                         consegue controlar quando tem as suas consultas e facilmente
                                                         remarcar, caso haja um inconveniente.</p>
@@ -177,8 +176,7 @@ tabs.forEach((tab) => {
                                             a sua Jornada</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Após o/a termos conectado
                                             ao/à seu/sua psicólogo/psicóloga, irá receber no seu e-mail informações
-                                            acerca
-                                            do/a mesmo/a e da 1a sessão para que possa iniciar o seu processo
+                                            acerca do/a mesmo/a e da 1a sessão para que possa iniciar o seu processo
                                             terapêutico</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
@@ -191,7 +189,7 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Pagamento</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Opagamento é
+                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">O pagamento é
                                                         realizado em articulacão direta com o/a psicólogo/psicóloga.</p>
                                                 </div>
                                             </div>

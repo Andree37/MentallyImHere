@@ -18,7 +18,7 @@ export default function EmailCTA() {
                                 </h2>
                                 <p className="mb-8 mt-6 text-gray-600 dark:text-gray-300">Preencha o formulário abaixo
                                     para nos ajudar a compreender as suas necessidades e para que o/a possamos conectar
-                                    com o/a psicólogo/a mais adequado/a para Si</p>
+                                    com o/a psicólogo/a mais adequado/a para si</p>
                                 <InfoForm/>
                             </div>
                         </div>

@@ -130,7 +130,8 @@ tabs.forEach((tab) => {
                                             1: Nós Conectamos</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Com base nas suas respostas
                                             no Passo 1, faremos uma análise cuidada das suas preferências e necessidades
-                                            de forma a conectá-lo/a ao/à psicólogo/psicóloga quemelhor se adequa às suas
+                                            de forma a conectá-lo/a ao/à psicólogo/psicóloga que melhor se adequa às
+                                            suas
                                             preferências e necessidades.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">

@@ -1,55 +1,55 @@
 "use client";
 import React, {useCallback, useState} from "react";
 import {ChakraProvider, Spinner, useToast} from "@chakra-ui/react";
-import {useRouter} from "next/navigation";
-import {PhoneInput, usePhoneValidation} from "react-international-phone";
 import 'react-international-phone/style.css';
+import {z} from "zod";
+import {useForm} from "react-hook-form";
+import {zodResolver} from '@hookform/resolvers/zod';
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/react-hook-form/form";
+import {Input} from "@/components/ui/input";
+import {Separator} from "@/components/ui/separator";
+import {Button} from "@/components/ui/button";
+import {PhoneInput, usePhoneValidation} from "react-international-phone";
+import {Textarea} from "@/components/ui/textarea";
 
-const validateEmail = (email: string) => {
-    return String(email)
-        .toLowerCase()
-        .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
+const userFormSchema = z.object({
+    name: z
+        .string()
+        .min(2, {
+            message: 'Nome deve ter pelo menos 2 caractéres.',
+        })
+        .max(30, {
+            message: 'Nome não pode ter mais do que 30 caractéres.',
+        }),
+    age: z.number().min(8, {message: 'Idade mínima é 8 anos.'}).max(100, {message: 'Idade máxima é 100 anos.'}),
+    email: z.string().email({message: 'Email inválido.'}),
+    phone: z.string().refine((m) => {
+        const validPhone = usePhoneValidation(m)
+        return validPhone.isValid
+    }, {message: 'Número de telemóvel inválido.'}),
+    motivation: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua motivação.'}),
+});
+
+type UserFormValues = z.infer<typeof userFormSchema>;
+
+// This can come from your database or API.
+const defaultValues: Partial<UserFormValues> = {
+    name: "",
+    email: "",
+    phone: "",
+    motivation: "",
 };
-
-const initialuser = {
-    email: '',
-    name: '',
-    motivation: '',
-    age: '',
-    phone: '',
-}
 
 export default function InfoForm() {
     const toast = useToast()
-    const router = useRouter()
+    const [sent, setSent] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [userData, setUserData] = useState(initialuser)
-    const [isPhoneValid, setIsPhoneValid] = useState(true)
+    const form = useForm<UserFormValues>({
+        resolver: zodResolver(userFormSchema),
+        defaultValues,
+    });
 
-    const handleSubmit = useCallback(async () => {
-
-        const validPhone = usePhoneValidation(userData.phone)
-        let valid;
-        if (validPhone.country?.iso2 === 'pt') {
-            valid = validPhone.isValid && validPhone.lengthMatch && userData.phone.length === 14
-        } else {
-            valid = validPhone.isValid && validPhone.lengthMatch
-        }
-        if (userData.email === '' || userData.name === '' || userData.motivation === '' || userData.age === '' || !validateEmail(userData.email) || !valid) {
-            toast({
-                title: 'Preencha todos os campos.',
-                description: 'Por favor preencha todos os campos e verifique se toda a informação está correta.',
-                status: 'error',
-                duration: 3000,
-                isClosable: false,
-            })
-            setIsPhoneValid(false)
-
-            return;
-        }
-        setIsPhoneValid(true)
+    const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
         const res = await fetch('/api/client', {
             method: 'POST',
@@ -71,116 +71,128 @@ export default function InfoForm() {
                 duration: 3000,
                 isClosable: false,
             })
-        } else {
-            toast({
-                title: 'Sucesso!',
-                description: "Entraremos em contacto consigo o mais cedo possível.",
-                status: 'success',
-                duration: 5000,
-                isClosable: false,
-            })
+            return;
         }
+        toast({
+            title: 'Sucesso!',
+            description: "Entraremos em contacto consigo o mais cedo possível.",
+            status: 'success',
+            duration: 5000,
+            isClosable: false,
+        })
+
+        setSent(true);
         setLoading(false);
-        setUserData(initialuser);
-        router.replace(window.location.pathname);
-    }, [userData])
+    }, [form])
+
+    const onErrors = useCallback((e: any) => {
+        console.log(e)
+    }, [])
     return (
         <ChakraProvider>
-            <div className="relative">
-                <div
-                    className="relative rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl shadow-gray-600/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none sm:p-12">
-                    <div
-                        className="absolute inset-0 hidden scale-105 rounded-3xl bg-gradient-to-b from-transparent dark:block dark:to-gray-900/80"></div>
-                    <div className="relative">
-                        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Precisamos de alguma
-                            informação</h2>
-                        <div className="mt-8 mb-6 space-y-4">
-                            <div>
-                                <label htmlFor="name"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">O seu
-                                    nome
-                                    <span
-                                        className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <input type="text" name="name" id="name" autoComplete="name" placeholder="Nome"
-                                       value={userData.name} onChange={(e) => {
-                                    setUserData({...userData, name: e.target.value})
-                                }}
-                                       className="peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"/>
-                                <span
-                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira o seu nome</span>
-                            </div>
-                            <div>
-                                <label htmlFor="age" className="mb-2 block text-gray-600 dark:text-gray-300 text-left">A
-                                    sua idade
-                                    <span
-                                        className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <input type="number" name="age" id="age" autoComplete="age" placeholder="Idade"
-                                       value={userData.age} onChange={(e) => {
-                                    setUserData({...userData, age: e.target.value})
-                                }}
-                                       className="peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"/>
-                                <span
-                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira a sua idade em números</span>
-                            </div>
-                            <div>
-                                <label htmlFor="email"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">Email <span
-                                    className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <input type="email" name="email" id="email" autoComplete="email"
-                                       placeholder="Email" value={userData.email} onChange={(e) => {
-                                    setUserData({...userData, email: e.target.value})
-                                }}
-                                       className="peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"/>
-                                <span
-                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Insira um email válido</span>
-                            </div>
-                            <div>
-                                <label htmlFor="phone"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">Número de
-                                    telemóvel <span
-                                        className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <PhoneInput
-                                    defaultCountry="pt"
-                                    inputProps={{inputMode: 'tel', autoComplete: 'tel', id: 'phone'}}
-                                    inputClassName="p-2 peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"
-                                    value={userData.phone}
-                                    onChange={(phone) => setUserData({...userData, phone})}
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit, onErrors)}
+                      className="relative rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl shadow-gray-600/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none sm:p-12 space-y-4">
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="name"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Nome</FormLabel>
+                                <FormControl>
+                                    <Input autoComplete='name' className="dark:border-gray-500"
+                                           placeholder="Nome próprio" {...field} />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="age"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Idade</FormLabel>
+                                <FormControl>
+                                    <Input type='number' className="dark:border-gray-500" placeholder="Idade" {...field}
+                                           onChange={(e) => field.onChange(+e.target.value)}/>
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="email"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Email</FormLabel>
+                                <FormControl>
+                                    <Input autoComplete='email' className="dark:border-gray-500"
+                                           placeholder="Email" {...field} />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="phone"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Telemóvel</FormLabel>
+                                <FormControl>
+                                    <PhoneInput
+                                        disabled={sent}
+                                        defaultCountry="pt"
+                                        inputProps={{inputMode: 'tel', autoComplete: 'tel', id: 'phone'}}
+                                        inputClassName="p-2 peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"
+                                        value={field.value}
+                                        onChange={(phone) => field.onChange(phone)}
 
-                                />
-                                {!isPhoneValid && <span
-                                    className="mt-1 text-sm text-red-500 peer-invalid:block">Insira um número válido</span>}
-                            </div>
-                            <div>
-                                <label htmlFor="message"
-                                       className="mb-2 block text-gray-600 dark:text-gray-300 text-left">Motivação <span
-                                    className="text-xl text-red-500 dark:text-red-400">*</span></label>
-                                <textarea name="message" id="message" placeholder="Motivação para a consulta"
-                                          value={userData.motivation} onChange={(e) => {
-                                    setUserData({...userData, motivation: e.target.value})
-                                }}
-                                          className="peer block h-28 w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"></textarea>
+                                    />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="motivation"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Motivação da Consulta</FormLabel>
+                                <FormControl>
+                                    <Textarea disabled={sent} name="message" id="message"
+                                              placeholder="Motivação para a consulta"
+                                              value={field.value} onChange={field.onChange}
+                                              className="peer block h-28 w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"></Textarea>
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <Separator/>
+                    <p className="mb-8 text-sm text-gray-600 dark:text-gray-300">Nós respeitamos a sua privacidade e
+                        não
+                        utilizaremos as suas informações pessoais para outros fins além do necessário para a
+                        prestação
+                        dos nossos serviços.</p>
 
-                                <span
-                                    className="mt-1 hidden text-sm text-red-500 peer-invalid:block">Motivação para a consulta</span>
-                            </div>
-                        </div>
-
-                        <p className="mb-8 text-sm text-gray-600 dark:text-gray-300">Nós respeitamos a sua privacidade e
-                            não
-                            utilizaremos as suas informações pessoais para outros fins além do necessário para a
-                            prestação
-                            dos nossos serviços.</p>
-
-                        <button
-                            onClick={handleSubmit}
-                            className="relative ml-auto flex h-11 w-max items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight">
+                    {!sent && <Button
+                        type="submit"
+                        className="relative ml-auto flex h-11 w-max items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight">
                             <span
                                 className="relative text-base font-semibold text-white dark:text-gray-900">{loading ?
                                 <Spinner/> : 'Enviar'}</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                    </Button>}
+                </form>
+            </Form>
         </ChakraProvider>
     )
 }

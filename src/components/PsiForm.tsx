@@ -10,6 +10,8 @@ import {Input} from "@/components/ui/input";
 import {Separator} from "@/components/ui/separator";
 import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
+import {PhoneInput, usePhoneValidation} from "react-international-phone";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 const userFormSchema = z.object({
     name: z
@@ -22,8 +24,14 @@ const userFormSchema = z.object({
         }),
     age: z.number().min(8, {message: 'Idade mínima é 8 anos.'}).max(100, {message: 'Idade máxima é 100 anos.'}),
     specialization: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua especialização.'}),
+    phone: z.string().refine((m) => {
+        const validPhone = usePhoneValidation(m)
+        return validPhone.isValid
+    }, {message: 'Número de telemóvel inválido.'}).optional(),
     email: z.string().email({message: 'Email inválido.'}),
     location: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua localização.'}),
+    experienceYears: z.number().min(0, {message: 'Anos de experiência mínimo é 0.'}).max(50, {message: 'Anos de experiência máximo é 50.'}),
+    consultationType: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira o tipo de consulta.'}),
     availability: z.string().optional(),
     cost: z.number().optional(),
 });
@@ -34,11 +42,16 @@ type UserFormValues = z.infer<typeof userFormSchema>;
 const defaultValues: Partial<UserFormValues> = {
     name: "",
     email: "",
+    phone: "",
     specialization: "",
     location: "",
+    experienceYears: 0,
+    consultationType: "Online",
     availability: "",
     cost: 5,
 };
+
+const consultationTypes = ['Presencial', 'Online', 'Ambos']
 
 export default function PsiForm() {
     const toast = useToast()
@@ -141,6 +154,28 @@ export default function PsiForm() {
                     <FormField
                         disabled={sent}
                         control={form.control}
+                        name="phone"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Telemóvel</FormLabel>
+                                <FormControl>
+                                    <PhoneInput
+                                        disabled={sent}
+                                        defaultCountry="pt"
+                                        inputProps={{inputMode: 'tel', autoComplete: 'tel', id: 'phone'}}
+                                        inputClassName="p-2 peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"
+                                        value={field.value}
+                                        onChange={(phone) => field.onChange(phone)}
+
+                                    />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
                         name="specialization"
                         render={({field}) => (
                             <FormItem className="dark:text-white">
@@ -166,6 +201,47 @@ export default function PsiForm() {
                                     <Input className="dark:border-gray-500"
                                            placeholder="Localização" {...field} />
                                 </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="experienceYears"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Anos de experiência</FormLabel>
+                                <FormControl>
+                                    <Input className="dark:border-gray-500"
+                                           placeholder="Anos de experiência" {...field} />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="consultationType"
+                        render={({field}) => (
+                            <FormItem className="w-full">
+                                <FormLabel className="">Tipo de consultas</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl className="">
+                                        <SelectTrigger>
+                                            <SelectValue/>
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="">
+                                        {consultationTypes.map((value) => (
+                                            <SelectItem className='bg-gray-100 cursor-pointer'
+                                                        key={value}
+                                                        value={value}>
+                                                {value}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
                                 <FormMessage/>
                             </FormItem>
                         )}

@@ -64,6 +64,18 @@ const defaultValues: Partial<UserFormValues> = {
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos']
 
+const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            if (reader.result === null) return reject('could not get the result')
+            return resolve(reader.result.toString().split(',')[1])
+        }
+        reader.onerror = (error) => reject(error);
+    });
+};
+
 export default function PsiForm() {
     const toast = useToast()
     const [sent, setSent] = useState(false)
@@ -75,19 +87,41 @@ export default function PsiForm() {
 
     const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
-        const res = await fetch('/api/psicologist', {
-            method: 'POST',
-            body: JSON.stringify({
-                ...userData
-            }),
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
+        if (form.getValues('opp')) {
+            const base64 = await fileToBase64(form.getValues('opp') as File);
+            const data = {
+                fileData: base64,
+                fileName: (form.getValues('opp') as File).name,
+                fileType: (form.getValues('opp') as File).type,
+            };
 
-        if (!res.ok) {
-            // handle error
+
+            const res = await fetch('/api/psicologist', {
+                method: 'POST',
+                body: JSON.stringify({
+                    ...userData,
+                    ...data
+                }),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            })
+
+            if (!res.ok) {
+                // handle error
+                toast({
+                    title: 'Algo correu mal...',
+                    description: "Por favor tente novamente.",
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: false,
+                })
+                setLoading(false);
+
+                return;
+            }
+        } else {
             toast({
                 title: 'Algo correu mal...',
                 description: "Por favor tente novamente.",
@@ -95,8 +129,11 @@ export default function PsiForm() {
                 duration: 3000,
                 isClosable: false,
             })
+            setLoading(false);
+
             return;
         }
+
         toast({
             title: 'Sucesso!',
             description: "Entraremos em contacto consigo o mais cedo possível.",
@@ -225,7 +262,8 @@ export default function PsiForm() {
                                 <FormLabel className="dark:text-white">Anos de experiência</FormLabel>
                                 <FormControl>
                                     <Input className="dark:border-gray-500"
-                                           placeholder="Anos de experiência" {...field} />
+                                           placeholder="Anos de experiência" {...field}
+                                           onChange={(e) => field.onChange(+e.target.value)}/>
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>

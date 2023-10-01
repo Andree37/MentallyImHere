@@ -12,6 +12,7 @@ import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
 import {PhoneInput, usePhoneValidation} from "react-international-phone";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import Dropzone from "react-dropzone";
 
 const userFormSchema = z.object({
     name: z
@@ -34,6 +35,15 @@ const userFormSchema = z.object({
     consultationType: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira o tipo de consulta.'}),
     availability: z.string().optional(),
     cost: z.number().optional(),
+    opp: z
+        .custom<FileList>()
+        .transform((file) => file.length > 0 && file.item(0))
+        .refine((file) => !file || (!!file && file.size <= 10 * 1024 * 1024), {
+            message: "O PDF não deve exceder os 10MB.",
+        })
+        .refine((file) => !file || (!!file && file.type?.startsWith("pdf")), {
+            message: "Apenas PDFs sao aceites.",
+        }),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -49,6 +59,7 @@ const defaultValues: Partial<UserFormValues> = {
     consultationType: "Online",
     availability: "",
     cost: 5,
+    opp: null,
 };
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos']
@@ -274,6 +285,52 @@ export default function PsiForm() {
                                               placeholder="A sua disponibilidade"
                                               value={field.value} onChange={field.onChange}
                                               className="peer block h-28 w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"></Textarea>
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="opp"
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel className="dark:text-white">Cédula OPP</FormLabel>
+                                <FormControl>
+                                    <Dropzone multiple={false} accept={{'mimeType': ['application/pdf']}}
+                                              onDrop={acceptedFiles => {
+                                                  console.log(acceptedFiles)
+                                                  field.onChange(acceptedFiles[0])
+                                              }}>
+                                        {({getRootProps, getInputProps}) => (
+                                            field.value ? <div>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-300">Ficheiro
+                                                        carregado: {field.value.name}</p>
+                                                    <Button className="mt-2 bg-gray-200 hover:bg-gray-300 w-full"
+                                                            onClick={() => field.onChange(null)}>Remover</Button>
+                                                </div> :
+                                                <div {...getRootProps()}
+                                                     className='relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none cursor-pointer'>
+                                                    <svg
+                                                        className="mx-auto h-12 w-12 text-gray-400"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path
+                                                            vectorEffect="non-scaling-stroke"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                                                        />
+                                                    </svg>
+                                                    <input {...getInputProps()} />
+                                                </div>
+                                        )}
+                                    </Dropzone>
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>

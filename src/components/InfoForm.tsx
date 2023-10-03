@@ -40,6 +40,33 @@ const defaultValues: Partial<UserFormValues> = {
     motivation: "",
 };
 
+async function postUserCard({name, age, email, phone, motivation}: {
+    name: string,
+    age: number,
+    email: string,
+    phone: string,
+    motivation: string
+}) {
+    const response = await fetch('/api/trello/cards', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name,
+            age,
+            email,
+            phone,
+            motivation,
+            count: 1
+        }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
 export default function InfoForm() {
     const toast = useToast()
     const [sent, setSent] = useState(false)
@@ -51,6 +78,18 @@ export default function InfoForm() {
 
     const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
+        const trelloRes = await postUserCard(form.getValues())
+        if (!trelloRes) {
+            toast({
+                title: 'Algo correu mal...',
+                description: "Por favor tente novamente.",
+                status: 'error',
+                duration: 3000,
+                isClosable: false,
+            })
+            setLoading(false);
+            return;
+        }
         const res = await fetch('/api/client', {
             method: 'POST',
             body: JSON.stringify({

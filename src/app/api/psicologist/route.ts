@@ -1,5 +1,6 @@
 import clientPromise from "@/lib/mongo";
 import {GridFSBucket} from "mongodb";
+import {NextResponse} from "next/server";
 
 
 export async function POST(req: Request) {
@@ -28,5 +29,5 @@ export async function POST(req: Request) {
 
     await db.collection("psi").insertOne({otherData, opp: uploadStream.id});
 
-    return new Response(null, {status: 201});
+    return NextResponse.json({data: {otherData, opp: uploadStream.id}})
 }

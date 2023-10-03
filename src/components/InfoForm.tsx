@@ -11,6 +11,7 @@ import {Separator} from "@/components/ui/separator";
 import {Button} from "@/components/ui/button";
 import {PhoneInput, usePhoneValidation} from "react-international-phone";
 import {Textarea} from "@/components/ui/textarea";
+import {InsertOneResult} from "mongodb";
 
 const userFormSchema = z.object({
     name: z
@@ -46,7 +47,7 @@ async function postUserCard({name, age, email, phone, motivation}: {
     email: string,
     phone: string,
     motivation: string
-}) {
+}, id: string) {
     const response = await fetch('/api/trello/cards', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -56,7 +57,7 @@ async function postUserCard({name, age, email, phone, motivation}: {
             email,
             phone,
             motivation,
-            count: 1
+            id
         }),
     });
 
@@ -67,6 +68,33 @@ async function postUserCard({name, age, email, phone, motivation}: {
     return await response.json();
 }
 
+async function postUser({name, age, email, phone, motivation}: {
+    name: string,
+    age: number,
+    email: string,
+    phone: string,
+    motivation: string
+}): Promise<{ document: InsertOneResult } | undefined> {
+    const response = await fetch('/api/client', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name,
+            age,
+            email,
+            phone,
+            motivation,
+        }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+
 export default function InfoForm() {
     const toast = useToast()
     const [sent, setSent] = useState(false)
@@ -76,42 +104,33 @@ export default function InfoForm() {
         defaultValues,
     });
 
+    const errorToast = useCallback(() => {
+        toast({
+            title: 'Algo correu mal...',
+            description: "Por favor tente novamente.",
+            status: 'error',
+            duration: 3000,
+            isClosable: false,
+        })
+        setLoading(false)
+    }, [loading])
+
+
     const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
-        const trelloRes = await postUserCard(form.getValues())
-        if (!trelloRes) {
-            toast({
-                title: 'Algo correu mal...',
-                description: "Por favor tente novamente.",
-                status: 'error',
-                duration: 3000,
-                isClosable: false,
-            })
-            setLoading(false);
-            return;
-        }
-        const res = await fetch('/api/client', {
-            method: 'POST',
-            body: JSON.stringify({
-                ...userData
-            }),
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
 
-        if (!res.ok) {
-            // handle error
-            toast({
-                title: 'Algo correu mal...',
-                description: "Por favor tente novamente.",
-                status: 'error',
-                duration: 3000,
-                isClosable: false,
-            })
+        const res = await postUser(userData)
+        if (!res) {
+            errorToast();
             return;
         }
+
+        const trelloRes = await postUserCard(userData, res.document.insertedId.toString())
+        if (!trelloRes) {
+            errorToast();
+            return;
+        }
+
         toast({
             title: 'Sucesso!',
             description: "Entraremos em contacto consigo o mais cedo possível.",

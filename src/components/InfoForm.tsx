@@ -104,7 +104,7 @@ export default function InfoForm() {
         defaultValues,
     });
 
-    const errorToast = useCallback(() => {
+    const errorToast = useCallback((title: string, description: string) => {
         toast({
             title: 'Algo correu mal...',
             description: "Por favor tente novamente.",
@@ -120,16 +120,14 @@ export default function InfoForm() {
         setLoading(true);
 
         const res = await postUser(userData)
-        if (!res) {
-            errorToast();
+
+        const trelloRes = await postUserCard(userData, res?.document.insertedId.toString() || "Unknown")
+
+        if (!res || !trelloRes) {
+            errorToast('Algo correu mal...', 'Por favor tente novamente.')
             return;
         }
 
-        const trelloRes = await postUserCard(userData, res.document.insertedId.toString())
-        if (!trelloRes) {
-            errorToast();
-            return;
-        }
 
         toast({
             title: 'Sucesso!',

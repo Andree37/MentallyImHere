@@ -120,14 +120,12 @@ export default function InfoForm() {
         setLoading(true);
 
         const res = await postUser(userData)
-
         const trelloRes = await postUserCard(userData, res?.document.insertedId.toString() || "Unknown")
 
         if (!res || !trelloRes) {
             errorToast('Algo correu mal...', 'Por favor tente novamente.')
             return;
         }
-
 
         toast({
             title: 'Sucesso!',

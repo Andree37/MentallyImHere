@@ -76,6 +76,28 @@ const fileToBase64 = (file: File): Promise<string> => {
     });
 };
 
+async function trelloPsicologistCard(data: UserFormValues) {
+    return fetch('/api/trello/cards/attachments', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+}
+
+async function mongoPsicolgist(data: UserFormValues) {
+    return fetch('/api/psicologist', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+}
+
 export default function PsiForm() {
     const toast = useToast()
     const [sent, setSent] = useState(false)
@@ -84,6 +106,17 @@ export default function PsiForm() {
         resolver: zodResolver(userFormSchema),
         defaultValues,
     });
+
+    const onErrorToast = useCallback((message: string) => {
+        toast({
+            title: 'Algo correu mal...',
+            description: message,
+            status: 'error',
+            duration: 3000,
+            isClosable: false,
+        })
+        setLoading(false);
+    }, [])
 
     const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
@@ -95,55 +128,27 @@ export default function PsiForm() {
                 fileType: (form.getValues('opp') as File).type,
             };
 
+            const res = await mongoPsicolgist({...userData, ...data})
+            const resTrello = await trelloPsicologistCard({...userData, ...data})
 
-            const res = await fetch('/api/psicologist', {
-                method: 'POST',
-                body: JSON.stringify({
-                    ...userData,
-                    ...data
-                }),
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                },
-            })
-
-            if (!res.ok) {
-                // handle error
-                toast({
-                    title: 'Algo correu mal...',
-                    description: "Por favor tente novamente.",
-                    status: 'error',
-                    duration: 3000,
-                    isClosable: false,
-                })
-                setLoading(false);
-
+            if (res.status !== 200 || resTrello.status !== 200) {
+                onErrorToast('Não conseguimos processar os seus dados, tente novamente.')
                 return;
             }
-        } else {
+
             toast({
-                title: 'Algo correu mal...',
-                description: "Por favor tente novamente.",
-                status: 'error',
-                duration: 3000,
+                title: 'Sucesso!',
+                description: "Entraremos em contacto consigo o mais cedo possível.",
+                status: 'success',
+                duration: 5000,
                 isClosable: false,
             })
-            setLoading(false);
-
+            setLoading(false)
+            setSent(true)
+        } else {
+            onErrorToast('Não conseguimos processar a sua Cédula OPP.')
             return;
         }
-
-        toast({
-            title: 'Sucesso!',
-            description: "Entraremos em contacto consigo o mais cedo possível.",
-            status: 'success',
-            duration: 5000,
-            isClosable: false,
-        })
-
-        setSent(true);
-        setLoading(false);
     }, [form])
 
     const onErrors = useCallback((e: any) => {
@@ -336,9 +341,8 @@ export default function PsiForm() {
                             <FormItem>
                                 <FormLabel className="dark:text-white">Cédula OPP</FormLabel>
                                 <FormControl>
-                                    <Dropzone multiple={false} accept={{'mimeType': ['application/pdf']}}
+                                    <Dropzone multiple={false} accept={{'pdf': ['application/pdf']}}
                                               onDrop={acceptedFiles => {
-                                                  console.log(acceptedFiles)
                                                   field.onChange(acceptedFiles[0])
                                               }}>
                                         {({getRootProps, getInputProps}) => (

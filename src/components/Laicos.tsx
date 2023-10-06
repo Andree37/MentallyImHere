@@ -9,8 +9,9 @@ export default function Laicos() {
             }}>
                 Laicos
             </h1>
-            <p className="mt-2 mb-8 text-gray-600 dark:text-gray-300">Explicação com a Laicos
-                here.</p>
+            <p className="mt-2 mb-8 text-gray-600 dark:text-gray-300">Em parceria com a Laicos, valorizamos intensamente
+                o suporte psicológico profissional, proporcionando desenvolvimento contínuo aos psicólogos e facilitando
+                conexões confiáveis entre os profissionais e os clientes que necessitam dos seus serviços.</p>
             <div className="flex gap-4">
                 <Image className="h-12 w-auto dark:contrast-100 dark:grayscale dark:invert cursor-pointer"
                        src="/images/clients/laicos.png" alt="microsoft" width="360" height="296"

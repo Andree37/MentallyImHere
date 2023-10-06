@@ -28,7 +28,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
             name: `New Psychologist: ${name}`,
             desc: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSpecialization: ${specialization}\nLocation: ${location}\nExperience Years: ${experienceYears}\nConsultation Type: ${consultationType}\nAvailability: ${availability}\nCost: ${cost}`,
-            idList: '651b50da8e3027a3df31fbb4',
+            idList: '651fe040adbc46b5976d294e',
         }),
     });
     if (!response.ok) {

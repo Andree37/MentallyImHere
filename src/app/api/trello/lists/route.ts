@@ -6,6 +6,7 @@ export async function GET(req: Request) {
     const boardID = 'Oflyc2ub';
 
     const trelloURL = `https://api.trello.com/1/boards/${boardID}/lists?key=${apiKey}&token=${trelloToken}`;
+    console.log(trelloURL)
 
     const response = await fetch(`${trelloURL}`, {
         method: 'GET',

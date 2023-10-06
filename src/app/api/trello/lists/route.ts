@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 
-export async function GET() {
+export async function GET(req: Request) {
     const apiKey = process.env.TRELLO_KEY;
     const trelloToken = process.env.TRELLO_TOKEN;
     const boardID = 'Oflyc2ub';

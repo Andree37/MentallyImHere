@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Laicos() {
     return (
         <div className="relative">
-            <h1 className='text-xl font-bold text-blue-800 dark:text-white sm:text-3xl md:text-4xl' onClick={() => {
+            <h1 className='text-xl font-bold text-indigo-400 dark:text-white sm:text-3xl md:text-4xl' onClick={() => {
                 window.open('https://laicos.pt');
             }}>
                 Laicos

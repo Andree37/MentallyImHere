@@ -12,7 +12,6 @@ export default function Contact() {
                         cliente.</p>
                 </div>
                 <div className="mt-12 grid gap-12 sm:mx-auto sm:max-w-lg lg:max-w-max lg:grid-cols-2">
-
                     <PsiForm/>
                     <div>
                         <div

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -18,8 +19,9 @@ export default function Footer() {
                         </div>
                         <div className="col-span-8 md:col-span-6 lg:col-span-5">
                             <div className="flex justify-between text-sm md:pl-16">
-                                <span>&copy; PsiPlexus 2023</span>
                                 <span>All rights reserved</span>
+                                <Link className="text-sm text-gray-500"
+                                      href="mailto:help@psiplexus.com">help@psiplexus.com</Link>
                             </div>
                         </div>
                     </div>

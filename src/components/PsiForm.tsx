@@ -23,11 +23,13 @@ const userFormSchema = z.object({
         .max(30, {
             message: 'Nome não pode ter mais do que 30 caractéres.',
         }),
-    contactFrom: z.string().refine((m) => m.length > 0, {message: 'Pro favor selecione uma opção.'}).optional(),
     age: z.number().min(8, {message: 'Idade mínima é 8 anos.'}).max(100, {message: 'Idade máxima é 100 anos.'}),
     specialization: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua especialização.'}),
-    phone: z.string().optional(),
-    email: z.string().email({message: 'Email inválido.'}).optional(),
+    phone: z.string().refine((m) => {
+        const validPhone = usePhoneValidation(m)
+        return validPhone.isValid
+    }, {message: 'Número de telemóvel inválido.'}).optional(),
+    email: z.string().email({message: 'Email inválido.'}),
     location: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua localização.'}),
     experienceYears: z.number().min(0, {message: 'Anos de experiência mínimo é 0.'}).max(50, {message: 'Anos de experiência máximo é 50.'}),
     consultationType: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira o tipo de consulta.'}),
@@ -42,24 +44,14 @@ const userFormSchema = z.object({
         .refine((file) => !file || (!!file && file.type?.startsWith("pdf")), {
             message: "Apenas PDFs sao aceites.",
         }),
-}).refine((schema) => {
-    if (schema.contactFrom !== 'Email') {
-        if (!schema.phone) return false
-        const validPhone = usePhoneValidation(schema.phone)
-        return validPhone.isValid
-    } else {
-        if (!schema.email) return false
-    }
-    return true
-}, {message: 'Verifique os seus contactos.'});
+});
 
 type UserFormValues = z.infer<typeof userFormSchema>;
 
 // This can come from your database or API.
 const defaultValues: Partial<UserFormValues> = {
     name: "",
-    contactFrom: "Chamada",
-    email: undefined,
+    email: "",
     phone: "",
     specialization: "",
     location: "",
@@ -71,7 +63,6 @@ const defaultValues: Partial<UserFormValues> = {
 };
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos']
-const contactTypes = ['Chamada', 'Email', 'WhatsApp']
 
 const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -160,8 +151,6 @@ export default function PsiForm() {
         }
     }, [form])
 
-    console.log(form.watch('email'))
-
     const onErrors = useCallback((e: any) => {
         console.log(e)
     }, [])
@@ -201,38 +190,6 @@ export default function PsiForm() {
                         )}
                     />
                     <FormField
-                        control={form.control}
-                        name="contactFrom"
-                        render={({field}) => (
-                            <FormItem className="w-full">
-                                <FormLabel className="">Como deseja ser contactado?</FormLabel>
-                                <Select onValueChange={
-                                    (value) => {
-                                        field.onChange(value)
-                                        if (value === 'Chamada' || value === "WhatsApp") form.setValue('email', undefined)
-                                        if (value === 'Email') form.setValue('phone', '')
-                                    }
-                                } defaultValue={field.value}>
-                                    <FormControl className="">
-                                        <SelectTrigger>
-                                            <SelectValue/>
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="">
-                                        {contactTypes.map((value) => (
-                                            <SelectItem className='bg-gray-100 cursor-pointer'
-                                                        key={value}
-                                                        value={value}>
-                                                {value}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage/>
-                            </FormItem>
-                        )}
-                    />
-                    {form.watch("contactFrom") === "Email" ? <FormField
                         disabled={sent}
                         control={form.control}
                         name="email"
@@ -246,7 +203,8 @@ export default function PsiForm() {
                                 <FormMessage/>
                             </FormItem>
                         )}
-                    /> : <FormField
+                    />
+                    <FormField
                         disabled={sent}
                         control={form.control}
                         name="phone"
@@ -267,7 +225,7 @@ export default function PsiForm() {
                                 <FormMessage/>
                             </FormItem>
                         )}
-                    />}
+                    />
                     <FormField
                         disabled={sent}
                         control={form.control}

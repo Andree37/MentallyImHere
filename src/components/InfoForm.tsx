@@ -12,6 +12,9 @@ import {Button} from "@/components/ui/button";
 import {PhoneInput, usePhoneValidation} from "react-international-phone";
 import {Textarea} from "@/components/ui/textarea";
 import {InsertOneResult} from "mongodb";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+
+const contactFromOptions = ['Email', 'Chamada', 'WhatsApp']
 
 const userFormSchema = z.object({
     name: z
@@ -23,31 +26,33 @@ const userFormSchema = z.object({
             message: 'Nome não pode ter mais do que 30 caractéres.',
         }),
     age: z.number().min(8, {message: 'Idade mínima é 8 anos.'}).max(100, {message: 'Idade máxima é 100 anos.'}),
-    email: z.string().email({message: 'Email inválido.'}),
-    phone: z.string().refine((m) => {
-        const validPhone = usePhoneValidation(m)
-        return validPhone.isValid
-    }, {message: 'Número de telemóvel inválido.'}),
+    contactFrom: z.string().optional(),
+    email: z.string().email({message: 'Email inválido.'}).optional(),
+    phone: z.string().optional(),
     motivation: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua motivação.'}),
-});
+}).refine((schema) => {
+    if (schema.contactFrom !== 'Email') {
+        if (!schema.phone) return false
+        const validPhone = usePhoneValidation(schema.phone)
+        return validPhone.isValid
+    } else {
+        if (!schema.email) return false
+    }
+    return true
+}, {message: 'Verifique os seus contactos.'});
 
 type UserFormValues = z.infer<typeof userFormSchema>;
 
 // This can come from your database or API.
 const defaultValues: Partial<UserFormValues> = {
     name: "",
+    contactFrom: "Chamada",
     email: "",
     phone: "",
     motivation: "",
 };
 
-async function postUserCard({name, age, email, phone, motivation}: {
-    name: string,
-    age: number,
-    email: string,
-    phone: string,
-    motivation: string
-}, id: string) {
+async function postUserCard({name, age, email, phone, motivation, contactFrom}: UserFormValues, id: string) {
     const response = await fetch('/api/trello/cards', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -57,7 +62,8 @@ async function postUserCard({name, age, email, phone, motivation}: {
             email,
             phone,
             motivation,
-            id
+            id,
+            contactFrom,
         }),
     });
 
@@ -68,13 +74,9 @@ async function postUserCard({name, age, email, phone, motivation}: {
     return await response.json();
 }
 
-async function postUser({name, age, email, phone, motivation}: {
-    name: string,
-    age: number,
-    email: string,
-    phone: string,
-    motivation: string
-}): Promise<{ document: InsertOneResult } | undefined> {
+async function postUser({name, age, email, phone, motivation, contactFrom}: UserFormValues): Promise<{
+    document: InsertOneResult
+} | undefined> {
     const response = await fetch('/api/client', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -84,6 +86,7 @@ async function postUser({name, age, email, phone, motivation}: {
             email,
             phone,
             motivation,
+            contactFrom
         }),
     });
 
@@ -104,7 +107,7 @@ export default function InfoForm() {
         defaultValues,
     });
 
-    const errorToast = useCallback((title: string, description: string) => {
+    const errorToast = useCallback(() => {
         toast({
             title: 'Algo correu mal...',
             description: "Por favor tente novamente.",
@@ -123,7 +126,7 @@ export default function InfoForm() {
         const trelloRes = await postUserCard(userData, res?.document.insertedId.toString() || "Unknown")
 
         if (!res || !trelloRes) {
-            errorToast('Algo correu mal...', 'Por favor tente novamente.')
+            errorToast()
             return;
         }
 
@@ -178,42 +181,75 @@ export default function InfoForm() {
                         )}
                     />
                     <FormField
-                        disabled={sent}
                         control={form.control}
-                        name="email"
+                        name="contactFrom"
                         render={({field}) => (
-                            <FormItem className="dark:text-white">
-                                <FormLabel className="dark:text-white">Email</FormLabel>
-                                <FormControl>
-                                    <Input autoComplete='email' className="dark:border-gray-500"
-                                           placeholder="Email" {...field} />
-                                </FormControl>
+                            <FormItem className="w-full">
+                                <FormLabel className="">Como deseja ser contactado?</FormLabel>
+                                <Select onValueChange={
+                                    (value) => {
+                                        field.onChange(value)
+                                        if (value === 'Chamada' || value === "WhatsApp") form.setValue('email', undefined)
+                                        if (value === 'Email') form.setValue('phone', '')
+                                    }
+                                } defaultValue={field.value}>
+                                    <FormControl className="">
+                                        <SelectTrigger>
+                                            <SelectValue/>
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="">
+                                        {contactFromOptions.map((value) => (
+                                            <SelectItem className='bg-gray-100 cursor-pointer'
+                                                        key={value}
+                                                        value={value}>
+                                                {value}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
                                 <FormMessage/>
                             </FormItem>
                         )}
                     />
-                    <FormField
-                        disabled={sent}
-                        control={form.control}
-                        name="phone"
-                        render={({field}) => (
-                            <FormItem className="dark:text-white">
-                                <FormLabel className="dark:text-white">Telemóvel</FormLabel>
-                                <FormControl>
-                                    <PhoneInput
-                                        disabled={sent}
-                                        defaultCountry="pt"
-                                        inputProps={{inputMode: 'tel', autoComplete: 'tel', id: 'phone'}}
-                                        inputClassName="p-2 peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"
-                                        value={field.value}
-                                        onChange={(phone) => field.onChange(phone)}
+                    {form.watch("contactFrom") === "Email" ? <FormField
+                            disabled={sent}
+                            control={form.control}
+                            name="email"
+                            render={({field}) => (
+                                <FormItem className="dark:text-white">
+                                    <FormLabel className="dark:text-white">Email</FormLabel>
+                                    <FormControl>
+                                        <Input autoComplete='email' className="dark:border-gray-500"
+                                               placeholder="Email" {...field} />
+                                    </FormControl>
+                                    <FormMessage/>
+                                </FormItem>
+                            )}
+                        />
+                        : <FormField
+                            disabled={sent}
+                            control={form.control}
+                            name="phone"
+                            render={({field}) => (
+                                <FormItem className="dark:text-white">
+                                    <FormLabel className="dark:text-white">Telemóvel</FormLabel>
+                                    <FormControl>
+                                        <PhoneInput
+                                            disabled={sent}
+                                            defaultCountry="pt"
+                                            inputProps={{inputMode: 'tel', autoComplete: 'tel', id: 'phone'}}
+                                            inputClassName="p-2 peer block w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 text-gray-600 transition-shadow duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 dark:border-gray-700"
+                                            value={field.value}
+                                            onChange={(phone) => field.onChange(phone)}
 
-                                    />
-                                </FormControl>
-                                <FormMessage/>
-                            </FormItem>
-                        )}
-                    />
+                                        />
+                                    </FormControl>
+                                    <FormMessage/>
+                                </FormItem>
+                            )}
+                        />
+                    }
                     <FormField
                         disabled={sent}
                         control={form.control}

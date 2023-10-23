@@ -15,6 +15,7 @@ import {InsertOneResult} from "mongodb";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 const contactFromOptions = ['Email', 'Chamada', 'WhatsApp']
+const consultLocationOptions = ['Presencial', 'Online']
 
 const userFormSchema = z.object({
     name: z
@@ -30,6 +31,8 @@ const userFormSchema = z.object({
     email: z.string().email({message: 'Email inválido.'}).optional(),
     phone: z.string().optional(),
     motivation: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua motivação.'}),
+    consultLocation: z.string().optional(),
+    location: z.string().optional()
 }).refine((schema) => {
     if (schema.contactFrom !== 'Email') {
         if (!schema.phone) return false
@@ -38,7 +41,9 @@ const userFormSchema = z.object({
     } else {
         if (!schema.email) return false
     }
-    return true
+
+    return !(schema.consultLocation === 'Presencial' && !schema.location);
+
 }, {message: 'Verifique os seus contactos.'});
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -47,12 +52,22 @@ type UserFormValues = z.infer<typeof userFormSchema>;
 const defaultValues: Partial<UserFormValues> = {
     name: "",
     contactFrom: "Chamada",
+    consultLocation: "Online",
     email: "",
     phone: "",
     motivation: "",
 };
 
-async function postUserCard({name, age, email, phone, motivation, contactFrom}: UserFormValues, id: string) {
+async function postUserCard({
+                                name,
+                                age,
+                                email,
+                                phone,
+                                motivation,
+                                contactFrom,
+                                consultLocation,
+                                location
+                            }: UserFormValues, id: string) {
     const response = await fetch('/api/trello/cards', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -64,6 +79,8 @@ async function postUserCard({name, age, email, phone, motivation, contactFrom}: 
             motivation,
             id,
             contactFrom,
+            consultLocation,
+            location
         }),
     });
 
@@ -74,7 +91,16 @@ async function postUserCard({name, age, email, phone, motivation, contactFrom}: 
     return await response.json();
 }
 
-async function postUser({name, age, email, phone, motivation, contactFrom}: UserFormValues): Promise<{
+async function postUser({
+                            name,
+                            age,
+                            email,
+                            phone,
+                            motivation,
+                            contactFrom,
+                            consultLocation,
+                            location
+                        }: UserFormValues): Promise<{
     document: InsertOneResult
 } | undefined> {
     const response = await fetch('/api/client', {
@@ -86,7 +112,9 @@ async function postUser({name, age, email, phone, motivation, contactFrom}: User
             email,
             phone,
             motivation,
-            contactFrom
+            contactFrom,
+            consultLocation,
+            location,
         }),
     });
 
@@ -180,6 +208,56 @@ export default function InfoForm() {
                             </FormItem>
                         )}
                     />
+                    <FormField
+                        control={form.control}
+                        name="consultLocation"
+                        render={({field}) => (
+                            <FormItem className="w-full">
+                                <FormLabel className="">Prefere ter a sua consulta Presencial ou Online?</FormLabel>
+                                <Select onValueChange={
+                                    (value) => {
+                                        field.onChange(value)
+                                        if (value !== 'Online') {
+                                            form.setValue('location', '')
+                                        } else {
+                                            form.setValue('location', '')
+                                        }
+                                    }
+                                } defaultValue={field.value}>
+                                    <FormControl className="">
+                                        <SelectTrigger>
+                                            <SelectValue/>
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="">
+                                        {consultLocationOptions.map((value) => (
+                                            <SelectItem className='bg-gray-100 cursor-pointer'
+                                                        key={value}
+                                                        value={value}>
+                                                {value}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    {form.watch("consultLocation") === "Presencial" && <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="location"
+                        render={({field}) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Localização</FormLabel>
+                                <FormControl>
+                                    <Input className="dark:border-gray-500" placeholder="Localização" {...field} />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                    }
                     <FormField
                         control={form.control}
                         name="contactFrom"

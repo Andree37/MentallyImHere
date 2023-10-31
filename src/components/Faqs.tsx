@@ -5,63 +5,6 @@ import Script from "next/script";
 const initialState = {};
 
 const content = {
-    old_faqs: [
-        {
-            question: "Como encontram o terapeuta certo para mim?",
-            answer:
-                "Para encontrar o terapeuta certo, explore o nosso diretório e aplique filtros, como especialidade, localização e estilo de terapia. Leia os perfis dos psicologos para encontrar uma combinação que atenda às suas necessidades.",
-        },
-        {
-            question: "Quais são os custos envolvidos nas sessões de terapia?",
-            answer:
-                "Os custos das sessões de terapia variam de acordo com o terapeuta e o tipo de sessão. As informações sobre preços estarão disponíveis no perfil de cada terapeuta.",
-        },
-        {
-            question: "Como posso agendar uma sessão com um terapeuta?",
-            answer:
-                "De momento, ara agendar uma sessão, insira as suas informações no formulário em cima e de seguida entraremos em contacto consigo. No futuro poderá selecionar o terapeuta de sua escolha e usar o nosso sistema de agendamento seguro na aplicação para marcar uma consulta.",
-        },
-        {
-            question:
-                "A aplicação oferece sessões de terapia presenciais, por vídeo ou áudio?",
-            answer:
-                "A aplicação oferece sessões de terapia por vídeo e áudio, dependendo das preferências do terapeuta e do cliente.",
-        },
-        {
-            question: "Posso alterar ou cancelar uma sessão de terapia agendada?",
-            answer:
-                "Para alterar ou cancelar uma sessão de terapia agendada, envie-nos um email ao mesmo que lhe responder com a disponibildade. Observe a política de cancelamento do terapeuta para evitar possíveis taxas.",
-        },
-        {
-            question:
-                "Como a aplicação garante a segurança e privacidade das minhas informações?",
-            answer:
-                "A aplicação garante a segurança e privacidade das suas informações, utilizando criptografia e medidas de segurança rigorosas. Consulte nossa Política de Privacidade para obter mais detalhes.",
-        },
-        {
-            question: "Quais são os métodos de pagamento aceites?",
-            answer:
-                "Os métodos de pagamento aceites incluem cartões de crédito, débito e outros meios de pagamento eletrónicos. As opções disponíveis serão exibidas durante o processo de pagamento.",
-        },
-        {
-            question:
-                "Os psicologos disponíveis na aplicação são licenciados e qualificados?",
-            answer:
-                "Sim, todos os psicologos disponíveis na aplicação são licenciados e qualificados, com experiência nas áreas em que atuam.",
-        },
-        {
-            question:
-                "A aplicação oferece recursos adicionais para auxiliar no meu progresso terapêutico?",
-            answer:
-                "A aplicação oferece recursos adicionais, como dicas e exercícios terapêuticos, para auxiliar no seu progresso e crescimento pessoal.",
-        },
-        {
-            question:
-                "Como posso entrar em contato com o suporte ao cliente para esclarecer dúvidas ou resolver problemas?",
-            answer:
-                "Para entrar em contato com o suporte ao cliente, envie a sua pergunta ou preocupação para o mesmo email que lhe responder depois de preencher o formulário. A nossa equipa responderá prontamente para ajudá-lo.",
-        },
-    ],
     faqs: [
         {
             question: "Como posso entrar em contato caso tenha alguma questão?",

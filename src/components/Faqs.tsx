@@ -13,7 +13,7 @@ const content = {
                     Para entrar em contato connosco, envie a sua pergunta
                     ou preocupação para o email{" "}
                     <a href="mailto:help@psiplexus.com">help@psiplexus.com</a>. Tentaremos responder o mais rapidamente
-                    possível, no máximo 48h.
+                    possível, no máximo 48h depois do seu contacto inicial.
                 </>
             ),
         },

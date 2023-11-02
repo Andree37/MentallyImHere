@@ -114,7 +114,7 @@ tabs.forEach((tab) => {
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Responda
                                                         ao formulário</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">fornecendo
+                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Fornecendo
                                                         algumas informações como preferência por sessões presenciais,
                                                         localização, entre outras.</p>
                                                 </div>
@@ -128,10 +128,9 @@ tabs.forEach((tab) => {
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Passo
                                             1: Nós Conectamos</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Com base nas suas respostas
-                                            no Passo 1, faremos uma análise cuidada das suas preferências e necessidades
-                                            de forma a conectá-lo/a ao/à psicólogo/psicóloga que melhor se adequa às
-                                            suas preferências e necessidades.</p>
+                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Faremos uma análise cuidada
+                                            das suas preferências e necessidades e conectá-lo/a ao/à
+                                            psicólogo/psicóloga que melhor a si.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -143,9 +142,9 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Passo
-                                                        2: Agende Consultas</h4>
+                                                        2: Agende consulta</h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">Facilmente
-                                                        agenda consultas com o seu profissional de saúde.</p>
+                                                        agende e remarque consultas com o seu profissional de saúde.</p>
                                                 </div>
                                             </div>
 
@@ -159,10 +158,9 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Passo
-                                                        3: Inicie o seu processo terapêutico</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Connosco
-                                                        consegue controlar quando tem as suas consultas e facilmente
-                                                        remarcar, caso haja um inconveniente.</p>
+                                                        3: Inicie o processo terapêutico</h4>
+                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">Marque
+                                                        connosco as suas consultas.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,9 +173,8 @@ tabs.forEach((tab) => {
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Inicie
                                             a sua Jornada</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Após o/a termos conectado
-                                            ao/à seu/sua psicólogo/psicóloga, irá receber no seu e-mail informações
-                                            acerca do/a mesmo/a e da 1a sessão para que possa iniciar o seu processo
-                                            terapêutico</p>
+                                            ao/à seu/sua psicólogo/psicóloga, irá receber informações
+                                            acerca do/a mesmo/a e da sua primeira sessão</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div

@@ -13,6 +13,7 @@ import {PhoneInput, usePhoneValidation} from "react-international-phone";
 import {Textarea} from "@/components/ui/textarea";
 import {InsertOneResult} from "mongodb";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {useSearchParams} from "next/navigation";
 
 const contactFromOptions = ['Email', 'Chamada', 'WhatsApp']
 const consultLocationOptions = ['Presencial', 'Online']
@@ -28,7 +29,7 @@ const userFormSchema = z.object({
         }),
     age: z.number().min(8, {message: 'Idade mínima é 8 anos.'}).max(100, {message: 'Idade máxima é 100 anos.'}),
     contactFrom: z.string().optional(),
-    email: z.string().email({message: 'Email inválido.'}).optional(),
+    email: z.string().email().optional(),
     phone: z.string().optional(),
     motivation: z.string().refine((m) => m.length > 0, {message: 'Pro favor insira a sua motivação.'}),
     consultLocation: z.string().optional(),
@@ -53,7 +54,6 @@ const defaultValues: Partial<UserFormValues> = {
     name: "",
     contactFrom: "Chamada",
     consultLocation: "Online",
-    email: "",
     phone: "",
     motivation: "",
 };
@@ -66,8 +66,9 @@ async function postUserCard({
                                 motivation,
                                 contactFrom,
                                 consultLocation,
-                                location
-                            }: UserFormValues, id: string) {
+                                location,
+                                advertiserID,
+                            }: UserFormValues & { advertiserID: string }, id: string) {
     const response = await fetch('/api/trello/cards', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -80,8 +81,22 @@ async function postUserCard({
             id,
             contactFrom,
             consultLocation,
-            location
+            location,
+            advertiserID
         }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function getAdvertiser(id: string | null) {
+    const response = await fetch(`/api/advertisers?id=${id}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
     });
 
     if (!response.ok) {
@@ -99,8 +114,9 @@ async function postUser({
                             motivation,
                             contactFrom,
                             consultLocation,
-                            location
-                        }: UserFormValues): Promise<{
+                            location,
+                            advertiserID
+                        }: UserFormValues & { advertiserID: string }): Promise<{
     document: InsertOneResult
 } | undefined> {
     const response = await fetch('/api/client', {
@@ -115,6 +131,7 @@ async function postUser({
             contactFrom,
             consultLocation,
             location,
+            advertiserID
         }),
     });
 
@@ -134,6 +151,7 @@ export default function InfoForm() {
         resolver: zodResolver(userFormSchema),
         defaultValues,
     });
+    const params = useSearchParams();
 
     const errorToast = useCallback(() => {
         toast({
@@ -150,8 +168,18 @@ export default function InfoForm() {
     const onSubmit = useCallback(async (userData: UserFormValues) => {
         setLoading(true);
 
-        const res = await postUser(userData)
-        const trelloRes = await postUserCard(userData, res?.document.insertedId.toString() || "Unknown")
+        // fetch advertiser information
+        const advertiserID = params.get('adv')
+        const adv = await getAdvertiser(advertiserID);
+        console.log(adv)
+
+        const advertiserObj = adv ? {advertiserID: adv?.data._id} : {advertiserID: "Unknown"}
+
+        const res = await postUser({...userData, ...advertiserObj});
+        const trelloRes = await postUserCard({
+            ...userData,
+            ...advertiserObj
+        }, res?.document.insertedId.toString() || "Unknown")
 
         if (!res || !trelloRes) {
             errorToast()
@@ -270,7 +298,7 @@ export default function InfoForm() {
                                         if (value === 'Chamada' || value === "WhatsApp") form.setValue('email', undefined)
                                         if (value === 'Email') form.setValue('phone', '')
                                     }
-                                } defaultValue={field.value}>
+                                } value={field.value}>
                                     <FormControl className="">
                                         <SelectTrigger>
                                             <SelectValue/>

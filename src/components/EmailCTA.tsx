@@ -2,6 +2,7 @@ import InfoForm from "@/components/InfoForm";
 import GenderText from "@/components/GenderText";
 
 export default function EmailCTA() {
+
     return (
         <section
             id="email-cta"

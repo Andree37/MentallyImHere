@@ -59,15 +59,27 @@ tabs.forEach((tab) => {
             <section id="solutions" className="pt-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Como
-                            funciona?</h2>
-                        <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
+                        <h3 className="mx-auto mb-4 font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
                             o seu processo terapêutico.
                         </h3>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Sabemos que
-                            iniciar um processo de consultas psicológicas pode ser difícil. Entre outras
-                            razões, uma das dificuldades é encontrar um psicólogo que se adeque às nossas necessidades
-                            individuais. Nós simplificamos este processo e ajudamo-lo a encontrar o que necessita.</p>
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Como
+                            funciona?</h2>
+                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Em apenas 3
+                            passos, garantimos que tem acesso a um/a psicólogo/a mais adequado para si:
+                        </p>
+                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 1:
+                            Partilhe connosco as suas preferências e necessidades, respondendo a um breve
+                            formulário.
+                        </p>
+                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 2: Nós
+                            realizamos uma análise cuidada das suas respostas e conectamo-lo/a o/a psicólogo/a
+                            mais
+                            adequado/a para si.
+                        </p><p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 3:
+                        Receba as informações que necessita para a 1ª sessão com o/a
+                        psicólogo/a e inicie o seu processo terapeutico.
+                    </p>
+
                         <div role="tablist" aria-label="tabs"
                              className="relative mx-auto mt-12 grid h-12 w-auto grid-cols-3 items-center gap-x-1 overflow-hidden rounded-full border border-gray-200 bg-gray-100 px-[3px] text-gray-600 dark:border-gray-700 dark:border-opacity-60 dark:bg-darker dark:text-gray-300 dark:shadow-none sm:w-max">
                             <div

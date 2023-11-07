@@ -46,7 +46,7 @@ const defaultValues: Partial<AdvFormValues> = {
     socialNetwork: "",
 };
 
-async function trelloAdvertiserCard(data: AdvFormValues & { id: string }) {
+async function trelloAdvertiserCard(data: AdvFormValues & { id: string, link: string }) {
     return fetch('/api/trello/cards/advertisers', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -94,7 +94,7 @@ export default function AdvForm() {
         if (document.ok) {
             const documentJSON = await document.json()
             const id = documentJSON.data.insertedId;
-            const trello = await trelloAdvertiserCard({...userData, id})
+            const trello = await trelloAdvertiserCard({...userData, id, link: `${window.location.origin}?adv=${id}`})
             if (!trello.ok) {
                 onErrorToast('Não foi possível criar o cartão no Trello.')
             }

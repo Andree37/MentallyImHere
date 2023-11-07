@@ -6,7 +6,7 @@ export async function POST(req: Request) {
 
     const TRELLO_URL = `https://api.trello.com/1/cards?key=${apiKey}&token=${trelloToken}`;
 
-    const {name, email, phone, socialNetwork, iban, id} = await req.json();
+    const {name, email, phone, socialNetwork, iban, id, link} = await req.json();
 
     const response = await fetch(`${TRELLO_URL}`, {
         method: 'POST',
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
             name: `New Advertiser: ${name} - ${id}`,
-            desc: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSocialNetwork: ${socialNetwork}\nIBAN: ${iban}`,
+            desc: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSocialNetwork: ${socialNetwork}\nIBAN: ${iban}\nLink: ${link}`,
             idList: '654ab657c055755149783e3e',
         }),
     });

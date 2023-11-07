@@ -1,4 +1,5 @@
 import InfoForm from "@/components/InfoForm";
+import GenderText from "@/components/GenderText";
 
 export default function EmailCTA() {
     return (
@@ -16,9 +17,10 @@ export default function EmailCTA() {
                                 <h2 className="text-2xl mt-2 font-medium text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl">
                                     Partilhe aqui as suas necessidades e preferências
                                 </h2>
-                                <p className="mb-8 mt-6 text-gray-600 dark:text-gray-300">Preencha o formulário abaixo
-                                    para nos ajudar a compreender as suas necessidades e para que o/a possamos conectar
-                                    com o/a psicólogo/a mais adequado/a para si</p>
+                                <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300">Preencha o formulário abaixo
+                                    para nos ajudar a compreender as suas necessidades e para que <GenderText
+                                        text={'@ possamos conectar com @ psicólog@ mais adequad@'}/> para si
+                                </div>
                                 <InfoForm/>
                             </div>
                         </div>

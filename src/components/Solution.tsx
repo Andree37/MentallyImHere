@@ -1,5 +1,7 @@
 import Script from "next/script";
 import Image from "next/image";
+import TextTransition from "@/components/TextTransition";
+import GenderText from "@/components/GenderText";
 
 export default function Solution() {
     return (
@@ -59,27 +61,20 @@ tabs.forEach((tab) => {
             <section id="solutions" className="pt-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
-                        <h3 className="mx-auto mb-4 font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
+                        <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Inicie
                             o seu processo terapêutico.
                         </h3>
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">Como
                             funciona?</h2>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Em apenas 3
-                            passos, garantimos que tem acesso a um/a psicólogo/a mais adequado para si:
-                        </p>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 1:
-                            Partilhe connosco as suas preferências e necessidades, respondendo a um breve
-                            formulário.
-                        </p>
-                        <p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 2: Nós
-                            realizamos uma análise cuidada das suas respostas e conectamo-lo/a o/a psicólogo/a
-                            mais
-                            adequado/a para si.
-                        </p><p className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Passo 3:
-                        Receba as informações que necessita para a 1ª sessão com o/a
-                        psicólogo/a e inicie o seu processo terapeutico.
-                    </p>
-
+                        <div className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">Sabemos que
+                            iniciar um processo de consultas psicológicas pode ser difícil. Entre outras
+                            razões, uma das dificuldades é encontrar <TextTransition className={'inline'} prefix={''}
+                                                                                     text1={'um'} text2={'uma'}/>
+                            {' '}<GenderText text={'psicólog@'}/> que se
+                            adeque às nossas necessidades
+                            individuais. Nós simplificamos este processo e <GenderText text={'ajudamo-l@'}/> a encontrar
+                            o que necessita.
+                        </div>
                         <div role="tablist" aria-label="tabs"
                              className="relative mx-auto mt-12 grid h-12 w-auto grid-cols-3 items-center gap-x-1 overflow-hidden rounded-full border border-gray-200 bg-gray-100 px-[3px] text-gray-600 dark:border-gray-700 dark:border-opacity-60 dark:bg-darker dark:text-gray-300 dark:shadow-none sm:w-max">
                             <div
@@ -111,9 +106,13 @@ tabs.forEach((tab) => {
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Partilhe
                                             as suas preferências e necessidades</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Indique as suas
-                                            preferências e necessidades e nós iremos conectá-lo/a um/a psicólogo/a
-                                            adaptado às mesmas.</p>
+                                        <div className="mt-8 text-gray-600 dark:text-gray-300">Indique as suas
+                                            preferências e necessidades e nós iremos <GenderText
+                                                text={'conectá-l@'}/> a <TextTransition className={'inline'} prefix={''}
+                                                                                        text1={'um'}
+                                                                                        text2={'uma'}/>{" "} <GenderText
+                                                text={'psicólog@ adaptad@'}/> às mesmas.
+                                        </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -141,8 +140,11 @@ tabs.forEach((tab) => {
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Passo
                                             1: Nós Conectamos</h3>
                                         <p className="mt-8 text-gray-600 dark:text-gray-300">Faremos uma análise cuidada
-                                            das suas preferências e necessidades e conectá-lo/a ao/à
-                                            psicólogo/psicóloga que melhor a si.</p>
+                                            das suas preferências e necessidades e <GenderText
+                                                text={'conectá-l@'}/> a <TextTransition className={'inline'} prefix={''}
+                                                                                        text1={'ao'}
+                                                                                        text2={'à'}/>{" "} <GenderText
+                                                text={'psicólog@ adaptad@'}/> melhor para si.</p>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -184,9 +186,16 @@ tabs.forEach((tab) => {
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Inicie
                                             a sua Jornada</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Após o/a termos conectado
-                                            ao/à seu/sua psicólogo/psicóloga, irá receber informações
-                                            acerca do/a mesmo/a e da sua primeira sessão</p>
+                                        <div className="mt-8 text-gray-600 dark:text-gray-300">Após <GenderText
+                                            text={'@'}/> termos conectado {' '}
+                                            <TextTransition className={'inline'} prefix={''} text1={'ao'}
+                                                            text2={'à'}/> <TextTransition className={'inline'}
+                                                                                          prefix={''} text1={'seu'}
+                                                                                          text2={'sua'}/> <GenderText
+                                                text={'psicólog@'}/>, irá receber
+                                            informações
+                                            acerca <GenderText text={'d@ mesm@'}/> e da sua primeira sessão
+                                        </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div
@@ -198,8 +207,9 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Pagamento</h4>
-                                                    <p className="mt-1 text-gray-600 dark:text-gray-400">O pagamento é
-                                                        realizado em articulacão direta com o/a psicólogo/psicóloga.</p>
+                                                    <div className="mt-1 text-gray-600 dark:text-gray-400">O pagamento é
+                                                        realizado em articulacão direta com <GenderText
+                                                            text={'@ psicólog@.'}/></div>
                                                 </div>
                                             </div>
 

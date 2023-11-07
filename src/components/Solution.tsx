@@ -139,12 +139,14 @@ tabs.forEach((tab) => {
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">Passo
                                             1: Nós Conectamos</h3>
-                                        <p className="mt-8 text-gray-600 dark:text-gray-300">Faremos uma análise cuidada
+                                        <div className="mt-8 text-gray-600 dark:text-gray-300">Faremos uma análise
+                                            cuidada
                                             das suas preferências e necessidades e <GenderText
                                                 text={'conectá-l@'}/> a <TextTransition className={'inline'} prefix={''}
                                                                                         text1={'ao'}
                                                                                         text2={'à'}/>{" "} <GenderText
-                                                text={'psicólog@ adaptad@'}/> melhor para si.</p>
+                                                text={'psicólog@ adaptad@'}/> melhor para si.
+                                        </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
                                                 <div

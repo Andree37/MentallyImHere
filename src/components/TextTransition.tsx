@@ -35,7 +35,6 @@ export default function TextTransition({prefix, text1, text2, className}: Props)
     return (
         <div className={`relative ` + className}>
             {prefix}
-
             <span
                 ref={text1Ref}
                 className={`relative transition-opacity duration-1000 ease-in-out ${toggle ? 'opacity-0' : 'opacity-100'}`}

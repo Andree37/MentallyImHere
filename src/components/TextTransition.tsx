@@ -1,5 +1,6 @@
 "use client"
 import {useEffect, useRef, useState} from "react";
+import {useToggle} from "@/components/Providers/ToggleProvider";
 
 type Props = {
     prefix: string;
@@ -14,32 +15,7 @@ export default function TextTransition({prefix, text1, text2, className}: Props)
 
     const [rightMargin, setRightMargin] = useState(0);
 
-    const [toggle, setToggle] = useState(false);
-    const [shownText, setShownText] = useState(text1);
-
-    useEffect(() => {
-        const changeID = setInterval(() => {
-            setShownText((t) => t === text1 ? text2 : text1);
-        }, 5500);
-
-        return () => {
-            clearInterval(changeID)
-        };
-    }, []);
-
-    useEffect(() => {
-        if (toggle) {
-            const tID = setTimeout(() => {
-                setToggle(false);
-            }, 1500);
-            return () => clearInterval(tID);
-        } else {
-            const tID = setTimeout(() => {
-                setToggle(true);
-            }, 4000);
-            return () => clearInterval(tID);
-        }
-    }, [toggle]);
+    const {toggle, show} = useToggle();
 
     useEffect(() => {
         if (text1Ref.current) {
@@ -63,7 +39,7 @@ export default function TextTransition({prefix, text1, text2, className}: Props)
             <span
                 ref={text1Ref}
                 className={`relative transition-opacity duration-1000 ease-in-out ${toggle ? 'opacity-0' : 'opacity-100'}`}
-            >{shownText}</span>
+            >{!show ? text1 : text2}</span>
         </div>
     );
 

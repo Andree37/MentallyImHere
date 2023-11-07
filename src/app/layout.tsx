@@ -2,6 +2,7 @@ import "./globals.css";
 import React from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import {ToggleProvider} from "@/components/Providers/ToggleProvider";
 
 export const metadata = {
     title: "PsiPlexus",
@@ -17,11 +18,12 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <ToggleProvider>
+            <Navbar/>
+            {children}
+            <Footer/>
+        </ToggleProvider>
         </body>
-
         </html>
     );
 }

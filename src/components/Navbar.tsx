@@ -2,6 +2,7 @@
 import React from "react";
 import Script from "next/script";
 import Image from "next/image";
+import GenderText from "@/components/GenderText";
 
 export default function Navbar() {
     return (
@@ -50,6 +51,16 @@ export default function Navbar() {
                                    className="nav-link relative ml-auto flex h-9 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-primaryLight sm:px-4 lg:before:border lg:before:border-gray-200 lg:before:bg-gray-100 lg:dark:before:bg-gray-800">
                   <span
                       className="relative text-sm font-semibold text-white dark:text-gray-900 lg:text-primary lg:dark:text-white">Comece Aqui</span>
+                                </a>
+                            </div>
+
+                            <div
+                                className="mt-12 -ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:mt-0 lg:mr-6 lg:space-y-0 lg:border-l lg:pl-6">
+                                <a href="#joinus"
+                                   className="nav-link relative ml-auto flex h-9 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-primaryLight sm:px-4 lg:before:border lg:before:border-gray-200 lg:before:bg-gray-100 lg:dark:before:bg-gray-800">
+                  <span
+                      className="relative text-sm font-semibold text-white dark:text-gray-900 lg:text-secondary lg:dark:text-white">É <GenderText
+                      text={'Psicólog@'}/>?</span>
                                 </a>
                             </div>
                         </div>

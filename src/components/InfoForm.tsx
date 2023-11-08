@@ -212,7 +212,7 @@ export default function InfoForm() {
                         name="name"
                         render={({field}) => (
                             <FormItem className="dark:text-white">
-                                <FormLabel className="dark:text-white">Nome</FormLabel>
+                                <FormLabel className="dark:text-white">Nome e Apelido</FormLabel>
                                 <FormControl>
                                     <Input autoComplete='name' className="dark:border-gray-500"
                                            placeholder="Nome próprio" {...field} />

@@ -1,5 +1,7 @@
-import "./globals.css";
 import React from "react";
+import Footer from "@/components/Footer";
+import {ToggleProvider} from "@/components/Providers/ToggleProvider";
+import SimplerNavbar from "@/components/SimplerNavbar";
 
 export const metadata = {
     title: "PsiPlexus",
@@ -13,11 +15,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang='pt'>
-        <body>
-        {children}
-        </body>
-        </html>
-
+        <>
+            <ToggleProvider>
+                <SimplerNavbar/>
+                {children}
+                <Footer/>
+            </ToggleProvider>
+        </>
     );
 }

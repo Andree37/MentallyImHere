@@ -241,7 +241,7 @@ export default function InfoForm() {
                         name="consultLocation"
                         render={({field}) => (
                             <FormItem className="w-full">
-                                <FormLabel className="">Prefere ter a sua consulta Presencial ou Online?</FormLabel>
+                                <FormLabel className="">Preferência por tipo de sessão:</FormLabel>
                                 <Select onValueChange={
                                     (value) => {
                                         field.onChange(value)

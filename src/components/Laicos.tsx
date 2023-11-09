@@ -21,9 +21,10 @@ export default function Laicos() {
                     </div>
                 </div>
             </h1>
-            <p className="mt-2 text-gray-600 dark:text-gray-300">Em parceria com a Laicos, valorizamos intensamente
-                o suporte psicológico profissional, proporcionando desenvolvimento contínuo aos psicólogos e facilitando
-                conexões confiáveis entre os profissionais e os clientes que necessitam dos seus serviços.</p>
+            <p className="mt-2 text-gray-600 dark:text-gray-300">Em parceria com a Laicos-Behavioural Change,
+                valorizamos o acesso a cuidados da saúde mental para todas as pessoas que o procurem, bem como os
+                serviços prestados por profissionais qualificados e credenciados. Facilitamos, assim, o encontro entre a
+                pessoa que procura e o profissional que presta o serviço.</p>
 
         </div>
     )

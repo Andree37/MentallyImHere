@@ -7,20 +7,19 @@ const initialState = {};
 const content = {
     faqs: [
         {
-            question: "Como posso entrar em contato caso tenha alguma questão?",
+            question: "Como posso entrar em contacto, caso tenha alguma questão, sugestão ou reclamação?",
             answer: (
                 <>
-                    Para entrar em contato connosco, envie a sua pergunta
-                    ou preocupação para o email{" "}
-                    <a href="mailto:help@psiplexus.com">help@psiplexus.com</a>. Tentaremos responder o mais rapidamente
-                    possível, no máximo 48h depois do seu contacto inicial.
+                    Para entrar em contacto connosco, envie e-mail com o seu assunto para o endereço <a
+                    href="mailto:help@psiplexus.com">help@psiplexus.com</a>.
+                    Responderemos o mais rapidamente possível até 48h depois do seu contacto inicial.
                 </>
             ),
         },
         {
-            question: "Como encontram o/a psicólogo/a meu/minha psicólogo/psicóloga?",
+            question: "Como encontram o/a psicólogo/a mais adequado/a para mim?",
             answer:
-                "Através de um processo de triagem que procura compreender as necessidades da pessoa que recorra ao nosso serviço. Colocamos questões pertinentes que nos ajudam aencontrar o psicólogo adequado.",
+                "Com base nas preferências e necessidades partilhadas por si, realizamos um processo de triagem através de uma análise cuidada das mesmas. Este processo permite conectá-lo/a ao/à psicólogo/a mais adaptado para a sua realidade.",
         },
     ],
 };

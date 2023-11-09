@@ -16,11 +16,11 @@ export default function EmailCTA() {
                                     Passo 1:
                                 </h2>
                                 <h2 className="text-2xl mt-2 font-medium text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl">
-                                    Partilhe aqui as suas necessidades e preferências
+                                    Partilhe connosco as suas necessidades e preferências
                                 </h2>
                                 <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300">Preencha o formulário abaixo
-                                    para nos ajudar a compreender as suas necessidades e para que <GenderText
-                                        text={'@ possamos conectar com @ psicólog@ mais adequad@'}/> para si
+                                    e ajude-nos a compreender melhor a sua realidade para que possamos <GenderText
+                                        text={'conectá-l@ ao psicólog@'}/> mais adaptado para si.
                                 </div>
                                 <InfoForm/>
                             </div>

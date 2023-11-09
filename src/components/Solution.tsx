@@ -141,11 +141,11 @@ tabs.forEach((tab) => {
                                 >
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
-                                            Partilhe as suas preferências e necessidades
+                                            Passo 1: Partilhe Connosco
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
-                                            Indique as suas preferências e necessidades e nós iremos{" "}
-                                            <GenderText text={"conectá-l@"}/> a{" "}
+                                            Indique as suas preferências e necessidades para que nós possamos analisar
+                                            de forma cuidada e <GenderText text={"conectá-l@"}/> a{" "}
                                             <TextTransition
                                                 className={"inline"}
                                                 prefix={""}
@@ -172,7 +172,7 @@ tabs.forEach((tab) => {
                                                         Responda ao formulário
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Fornecendo algumas informações como preferência por
+                                                        Fornecendo algumas informações como: preferência por
                                                         sessões presenciais, localização, entre outras.
                                                     </p>
                                                 </div>
@@ -186,7 +186,7 @@ tabs.forEach((tab) => {
                                 >
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
-                                            Passo 1: Nós Conectamos
+                                            Passo 2: Nós Analisamos e Conectamos
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
                                             Faremos uma análise cuidada das suas preferências e
@@ -214,11 +214,12 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                                        Passo 2: Agende consulta
+                                                        Receba as Informações
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Facilmente agende e remarque consultas com o seu
-                                                        profissional de saúde.
+                                                        Após receber toda a informação necessária pela via que facultou
+                                                        no formulário, estará em condições para agendar a sua 1ª sessão
+                                                        e iniciar o seu processo terapêutico!
                                                     </p>
                                                 </div>
                                             </div>
@@ -237,10 +238,12 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                                        Passo 3: Inicie o processo terapêutico
+                                                        Confirme as Informações
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Marque connosco as suas consultas.
+                                                        Para garantir que a informação não se perde pelo caminho,
+                                                        responda pela via por onde recebeu a informação, confirmando o
+                                                        seu interesse em iniciar o processo terapêutico.
                                                     </p>
                                                 </div>
                                             </div>
@@ -253,7 +256,7 @@ tabs.forEach((tab) => {
                                 >
                                     <div>
                                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
-                                            Inicie a sua Jornada
+                                            Passo 3: Inicie o seu Processo Terapêutico
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
                                             Após <GenderText text={"@"}/> termos conectado{" "}
@@ -288,11 +291,12 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                                        Pagamento
+                                                        Agendamento
                                                     </h4>
                                                     <div className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        O pagamento é realizado em articulacão direta com{" "}
-                                                        <GenderText text={"@ psicólog@."}/>
+                                                        O agendamento é articulado diretamente com <GenderText
+                                                        text={'@ psicólog@ após ser conectad@'}/> e receber as
+                                                        informações necessárias para tal.
                                                     </div>
                                                 </div>
                                             </div>
@@ -311,7 +315,7 @@ tabs.forEach((tab) => {
                                                 </div>
                                                 <div className="w-[calc(100%-7.5rem)]">
                                                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                                        Acompanhe o seu progresso
+                                                        Pagamento
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
                                                         Acompanhe o seu progresso para atingir o bem-estar.

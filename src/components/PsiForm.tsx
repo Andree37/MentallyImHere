@@ -281,6 +281,9 @@ export default function PsiForm() {
                             <FormItem className="dark:text-white">
                                 <FormLabel className="dark:text-white">
                                     A sua especialização
+                                    <p className='font-light text-gray-500 mt-2 text-xs'>Indique a sua formação
+                                        académica, se fez ou está a fazer alguma especialização/formação adicional
+                                        relacionada com a prática clínica.</p>
                                 </FormLabel>
                                 <FormControl>
                                     <Textarea
@@ -303,7 +306,9 @@ export default function PsiForm() {
                         name="location"
                         render={({field}) => (
                             <FormItem className="dark:text-white">
-                                <FormLabel className="dark:text-white">Localização</FormLabel>
+                                <FormLabel className="dark:text-white">Localização
+                                    <p className='font-light text-gray-500 mt-2 text-xs'>Zonas preferenciais de atuação/
+                                        realização de sessões presenciais.</p></FormLabel>
                                 <FormControl>
                                     <Input
                                         className="dark:border-gray-500"
@@ -341,7 +346,7 @@ export default function PsiForm() {
                         name="consultationType"
                         render={({field}) => (
                             <FormItem className="w-full">
-                                <FormLabel className="">Tipo de consultas</FormLabel>
+                                <FormLabel className="">Tipo de sessões</FormLabel>
                                 <Select
                                     onValueChange={field.onChange}
                                     defaultValue={field.value}
@@ -375,6 +380,10 @@ export default function PsiForm() {
                             <FormItem className="dark:text-white">
                                 <FormLabel className="dark:text-white">
                                     Custo da sua consulta (em euros)
+                                    <p className='font-light text-gray-500 mt-2 text-xs'>
+                                        Caso tenha flexibilidade no custo das suas sessões, coloque o intervalo de
+                                        preços (mínimo e máximo que pratica)
+                                    </p>
                                 </FormLabel>
                                 <FormControl>
                                     <Input
@@ -397,6 +406,12 @@ export default function PsiForm() {
                             <FormItem className="dark:text-white">
                                 <FormLabel className="dark:text-white">
                                     A sua disponibilidade
+                                    <p className='font-light text-gray-500 mt-2 text-xs'>
+                                        Indique todas as possibilidades de dias da semana e horários em que teria
+                                        disponibilidade para receber novos clientes.
+                                        Indique também se a sua disponibilidade é imediata, caso não seja especifique a
+                                        data a partir da qual poderá começar a seguir novos clientes.
+                                    </p>
                                 </FormLabel>
                                 <FormControl>
                                     <Textarea

@@ -49,7 +49,7 @@ export default function Faqs() {
                       </span>
                                             <span className="ml-6 flex h-7 items-center">
                         <svg
-                            className={`arrow-down h-6 w-6 transform duration-300`}
+                            className='arrow-down h-6 w-6 transform duration-300'
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"

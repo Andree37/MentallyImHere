@@ -61,12 +61,12 @@ tabs.forEach((tab) => {
       <section id="solutions" className="pt-32">
         <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">
-              Como funciona?
-            </h2>
             <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">
               Inicie o seu processo terapêutico.
             </h3>
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">
+              Como funciona?
+            </h2>
             <div className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">
               Sabemos que iniciar um processo de consultas psicológicas pode ser
               difícil. Entre outras razões, uma das dificuldades é encontrar um

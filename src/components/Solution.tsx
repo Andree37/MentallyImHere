@@ -217,9 +217,9 @@ tabs.forEach((tab) => {
                                                         Receba as Informações
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Após receber toda a informação necessária pela via que facultou
-                                                        no formulário, estará em condições para agendar a sua 1ª sessão
-                                                        e iniciar o seu processo terapêutico!
+                                                        Após receber toda a informação necessária estará em condições
+                                                        para agendar a sua 1ª sessão e iniciar o seu processo
+                                                        terapêutico!
                                                     </p>
                                                 </div>
                                             </div>

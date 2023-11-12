@@ -23,7 +23,7 @@ export default async function Solution() {
       }
     );
 
-    console.log('ENTER RESPONSE ', response );
+    console.log('ENTER RESPONSE ', response);
     
   
     return (

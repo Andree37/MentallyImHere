@@ -4,6 +4,25 @@ import TextTransition from '@/components/TextTransition';
 import GenderText from '@/components/GenderText';
 
 export default function Solution() {
+    const apiKey = process.env.TRELLO_KEY;
+    const trelloToken = process.env.TRELLO_TOKEN;
+    const trelloClientBoardId = process.env.TRELLO_CLIENT_BOARD;
+  
+    const response = fetch(
+      `https://api.trello.com/1/tokens/${trelloToken}/webhooks/?key=${apiKey}"`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          description: `Avertiser fee`,
+          callbackURL: `https://www.psiplexus.com/api/trello/webhook`,
+          idModel: trelloClientBoardId,
+        }),
+      }
+    );
+  
     return (
         <>
             <Script id="tabs-script">

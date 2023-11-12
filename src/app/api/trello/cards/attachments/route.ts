@@ -1,4 +1,4 @@
-import {NextResponse} from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
     const apiKey = process.env.TRELLO_KEY;
@@ -39,17 +39,19 @@ export async function POST(req: Request) {
     const cardId = data.id;
 
     const pdfBuffer = Buffer.from(fileData, 'base64');
-    const bufferToBlob = new Blob([pdfBuffer], {type: 'application/pdf'});
+    const bufferToBlob = new Blob([pdfBuffer], { type: 'application/pdf' });
     const formData = new FormData();
     formData.append('file', bufferToBlob, fileName + '.pdf');
 
-    const attachResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/attachments?key=${apiKey}&token=${trelloToken}`, {
-        method: 'POST',
-        body: formData,
-    });
+    const attachResponse = await fetch(
+        `https://api.trello.com/1/cards/${cardId}/attachments?key=${apiKey}&token=${trelloToken}`,
+        {
+            method: 'POST',
+            body: formData,
+        },
+    );
 
     const attachData = await attachResponse.json();
 
-
-    return NextResponse.json({attachData})
+    return NextResponse.json({ attachData });
 }

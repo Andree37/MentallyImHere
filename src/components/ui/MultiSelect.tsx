@@ -27,7 +27,7 @@ export default function MultiSelect({ options, onValueChange, disabled }: MultiS
 
     useEffect(() => {
         onValueChange?.(selected);
-    }, [selected]);
+    }, [selected, onValueChange]);
 
     const handleKeyDown = useCallback((e: KeyboardEvent<HTMLDivElement>) => {
         const input = inputRef.current;

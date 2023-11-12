@@ -1,4 +1,4 @@
-import {NextResponse} from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
     const apiKey = process.env.TRELLO_KEY;
@@ -6,18 +6,8 @@ export async function POST(req: Request) {
 
     const TRELLO_URL = `https://api.trello.com/1/cards?key=${apiKey}&token=${trelloToken}`;
 
-    const {
-        name,
-        age,
-        email,
-        phone,
-        motivation,
-        id,
-        contactFrom,
-        consultLocation,
-        location,
-        advertiserID
-    } = await req.json();
+    const { name, age, email, phone, motivation, id, contactFrom, consultLocation, location, advertiserID } =
+        await req.json();
 
     const response = await fetch(`${TRELLO_URL}`, {
         method: 'POST',
@@ -40,5 +30,5 @@ export async function POST(req: Request) {
         return [];
     }
 
-    return NextResponse.json({data})
+    return NextResponse.json({ data });
 }

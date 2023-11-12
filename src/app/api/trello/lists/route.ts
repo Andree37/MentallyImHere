@@ -1,4 +1,4 @@
-import {NextResponse} from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function GET(_: Request) {
     const apiKey = process.env.TRELLO_KEY;
@@ -23,8 +23,7 @@ export async function GET(_: Request) {
         return [];
     }
 
-    console.log(data)
+    console.log(data);
 
-    return NextResponse.json({data})
-
+    return NextResponse.json({ data });
 }

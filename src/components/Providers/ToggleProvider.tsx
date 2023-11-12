@@ -1,5 +1,5 @@
-"use client"
-import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
+'use client';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 type LogsContextProps = {
     toggle: boolean;
@@ -11,7 +11,7 @@ interface ToggleProviderProps {
     children: ReactNode;
 }
 
-function ToggleProvider({children}: ToggleProviderProps) {
+function ToggleProvider({ children }: ToggleProviderProps) {
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false);
     useEffect(() => {
@@ -20,7 +20,7 @@ function ToggleProvider({children}: ToggleProviderProps) {
         }, 4800);
 
         return () => {
-            clearInterval(changeID)
+            clearInterval(changeID);
         };
     }, []);
 
@@ -38,7 +38,7 @@ function ToggleProvider({children}: ToggleProviderProps) {
         }
     }, [toggle]);
 
-    return <ToggleContext.Provider value={{toggle, show}}>{children}</ToggleContext.Provider>;
+    return <ToggleContext.Provider value={{ toggle, show }}>{children}</ToggleContext.Provider>;
 }
 
 function useToggle(): LogsContextProps {
@@ -49,4 +49,4 @@ function useToggle(): LogsContextProps {
     return context;
 }
 
-export {ToggleProvider, useToggle};
+export { ToggleProvider, useToggle };

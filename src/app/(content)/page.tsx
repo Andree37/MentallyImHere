@@ -12,8 +12,7 @@ export default function Home() {
         <div>
             {GA_TRACKING_ID && <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} />}
             <Hero />
-            {//@ts-ignore
-                <Solution />}
+            <Solution />
             <EmailCTA />
             <Faqs />
             <JoinUs />

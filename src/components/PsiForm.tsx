@@ -353,7 +353,7 @@ export default function PsiForm() {
                                         <Slider
                                             max={100}
                                             defaultValue={field.value}
-                                            step={10}
+                                            step={5}
                                             minStepsBetweenThumbs={1}
                                             value={field.value}
                                             className="&_[role=slider]]:h-4 [&_[role=slider]]:w-4 bg-primary"

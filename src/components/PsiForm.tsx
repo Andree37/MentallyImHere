@@ -12,6 +12,8 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneInput, usePhoneValidation } from 'react-international-phone';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Slider } from '@/components/ui/slider';
+import { Label } from '@/components/ui/label';
 
 const userFormSchema = z.object({
     name: z
@@ -48,7 +50,7 @@ const userFormSchema = z.object({
         message: 'Pro favor insira o tipo de consulta.',
     }),
     availability: z.string().optional(),
-    cost: z.number().optional(),
+    cost: z.array(z.number()),
     opp: z.string().min(5),
 });
 
@@ -64,7 +66,7 @@ const defaultValues: Partial<UserFormValues> = {
     experienceYears: 0,
     consultationType: 'Online',
     availability: '',
-    cost: 0,
+    cost: [10, 30],
     opp: '',
 };
 
@@ -341,13 +343,23 @@ export default function PsiForm() {
                                     </p>
                                 </FormLabel>
                                 <FormControl>
-                                    <Input
-                                        type="number"
-                                        className="dark:border-gray-500"
-                                        placeholder="Custo de consulta"
-                                        {...field}
-                                        onChange={(e) => field.onChange(+e.target.value)}
-                                    />
+                                    <>
+                                        <div className="flex items-center justify-between">
+                                            <Label htmlFor="temperature">Variedade de Preço</Label>
+                                            <span className="w-24 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border">
+                                                {field.value[0]} - {field.value[1]} €
+                                            </span>
+                                        </div>
+                                        <Slider
+                                            max={100}
+                                            defaultValue={field.value}
+                                            step={10}
+                                            minStepsBetweenThumbs={1}
+                                            value={field.value}
+                                            className="&_[role=slider]]:h-4 [&_[role=slider]]:w-4 bg-primary"
+                                            onValueChange={(e) => field.onChange(e)}
+                                        />
+                                    </>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -399,7 +411,7 @@ export default function PsiForm() {
                                     <Input
                                         type="text"
                                         className="dark:border-gray-500"
-                                        placeholder="Custo de consulta"
+                                        placeholder="Número de Cédula"
                                         {...field}
                                     />
                                 </FormControl>

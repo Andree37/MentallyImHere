@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneInput, usePhoneValidation } from 'react-international-phone';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Dropzone from 'react-dropzone';
 
 const userFormSchema = z.object({
     name: z
@@ -50,15 +49,7 @@ const userFormSchema = z.object({
     }),
     availability: z.string().optional(),
     cost: z.number().optional(),
-    opp: z
-        .custom<FileList>()
-        .transform((file) => file.length > 0 && file.item(0))
-        .refine((file) => !file || (!!file && file.size <= 10 * 1024 * 1024), {
-            message: 'O PDF não deve exceder os 10MB.',
-        })
-        .refine((file) => !file || (!!file && file.type?.startsWith('pdf')), {
-            message: 'Apenas PDFs sao aceites.',
-        }),
+    opp: z.string().min(5),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -74,22 +65,10 @@ const defaultValues: Partial<UserFormValues> = {
     consultationType: 'Online',
     availability: '',
     cost: 0,
-    opp: null,
+    opp: '',
 };
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos'];
-
-const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-            if (reader.result === null) return reject('could not get the result');
-            return resolve(reader.result.toString().split(',')[1]);
-        };
-        reader.onerror = (error) => reject(error);
-    });
-};
 
 async function trelloPsicologistCard(data: UserFormValues) {
     return fetch('/api/trello/cards/attachments', {
@@ -139,37 +118,26 @@ export default function PsiForm() {
     const onSubmit = useCallback(
         async (userData: UserFormValues) => {
             setLoading(true);
-            if (form.getValues('opp')) {
-                const base64 = await fileToBase64(form.getValues('opp') as File);
-                const data = {
-                    fileData: base64,
-                    fileName: (form.getValues('opp') as File).name,
-                    fileType: (form.getValues('opp') as File).type,
-                };
 
-                const res = await mongoPsicolgist({ ...userData, ...data });
-                const resTrello = await trelloPsicologistCard({ ...userData, ...data });
+            const res = await mongoPsicolgist({ ...userData });
+            const resTrello = await trelloPsicologistCard({ ...userData });
 
-                if (res.status !== 200 || resTrello.status !== 200) {
-                    onErrorToast('Não conseguimos processar os seus dados, tente novamente.');
-                    return;
-                }
-
-                toast({
-                    title: 'Sucesso!',
-                    description: 'Entraremos em contacto consigo o mais cedo possível.',
-                    status: 'success',
-                    duration: 5000,
-                    isClosable: false,
-                });
-                setLoading(false);
-                setSent(true);
-            } else {
-                onErrorToast('Não conseguimos processar a sua Cédula OPP.');
+            if (res.status !== 200 || resTrello.status !== 200) {
+                onErrorToast('Não conseguimos processar os seus dados, tente novamente.');
                 return;
             }
+
+            toast({
+                title: 'Sucesso!',
+                description: 'Entraremos em contacto consigo o mais cedo possível.',
+                status: 'success',
+                duration: 5000,
+                isClosable: false,
+            });
+            setLoading(false);
+            setSent(true);
         },
-        [form, onErrorToast, toast],
+        [onErrorToast, toast],
     );
 
     const onErrors = useCallback((e: any) => {
@@ -420,54 +388,20 @@ export default function PsiForm() {
                         control={form.control}
                         name="opp"
                         render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="dark:text-white">Cédula OPP</FormLabel>
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">
+                                    Cédula OPP
+                                    <p className="font-light text-gray-500 mt-2 text-xs">
+                                        Indique o número da sua cédula profissional
+                                    </p>
+                                </FormLabel>
                                 <FormControl>
-                                    <Dropzone
-                                        multiple={false}
-                                        accept={{ pdf: ['application/pdf'] }}
-                                        onDrop={(acceptedFiles) => {
-                                            field.onChange(acceptedFiles[0]);
-                                        }}
-                                    >
-                                        {({ getRootProps, getInputProps }) =>
-                                            field.value ? (
-                                                <div>
-                                                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                                                        Ficheiro carregado: {field.value.name}
-                                                    </p>
-                                                    <Button
-                                                        className="mt-2 bg-gray-200 hover:bg-gray-300 w-full"
-                                                        onClick={() => field.onChange(null)}
-                                                    >
-                                                        Remover
-                                                    </Button>
-                                                </div>
-                                            ) : (
-                                                <div
-                                                    {...getRootProps()}
-                                                    className="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none cursor-pointer"
-                                                >
-                                                    <svg
-                                                        className="mx-auto h-12 w-12 text-gray-400"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path
-                                                            vectorEffect="non-scaling-stroke"
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-                                                        />
-                                                    </svg>
-                                                    <input {...getInputProps()} />
-                                                </div>
-                                            )
-                                        }
-                                    </Dropzone>
+                                    <Input
+                                        type="text"
+                                        className="dark:border-gray-500"
+                                        placeholder="Custo de consulta"
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -482,9 +416,9 @@ export default function PsiForm() {
                     {!sent && (
                         <Button
                             type="submit"
-                            className="relative ml-auto flex h-11 w-max items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight"
+                            className="relative ml-auto flex h-11 w-max items-center justify-center px-6 active:duration-75 active:before:scale-95 dark:before:bg-primaryLight"
                         >
-                            <span className="relative text-base font-semibold text-white dark:text-gray-900">
+                            <span className="flex items-center justify-center text-base font-semibold text-white dark:text-gray-900">
                                 {loading ? <Spinner /> : 'Enviar'}
                             </span>
                         </Button>

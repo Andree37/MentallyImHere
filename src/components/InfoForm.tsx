@@ -30,7 +30,7 @@ const userFormSchema = z
             }),
         age: z.number().min(8, { message: 'Idade mínima é 8 anos.' }).max(100, { message: 'Idade máxima é 100 anos.' }),
         contactFrom: z.string().optional(),
-        email: z.string().email().optional(),
+        email: z.string().email(),
         phone: z.string().optional(),
         motivation: z.string().refine((m) => m.length > 0, { message: 'Pro favor insira a sua motivação.' }),
         consultLocation: z.string().optional(),
@@ -48,7 +48,7 @@ const userFormSchema = z
 
             return !(schema.consultLocation === 'Presencial' && !schema.location);
         },
-        { message: 'Verifique os seus contactos.' },
+        { message: 'Verifique os seus contactos.', path: ['phone'] },
     );
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -316,6 +316,25 @@ export default function InfoForm() {
                         />
                     )}
                     <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">Email</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        autoComplete="email"
+                                        className="dark:border-gray-500"
+                                        placeholder="Email"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
                         control={form.control}
                         name="contactFrom"
                         render={({ field }) => (
@@ -324,9 +343,6 @@ export default function InfoForm() {
                                 <Select
                                     onValueChange={(value) => {
                                         field.onChange(value);
-                                        if (value === 'Chamada' || value === 'WhatsApp')
-                                            form.setValue('email', undefined);
-                                        if (value === 'Email') form.setValue('phone', '');
                                     }}
                                     value={field.value}
                                 >
@@ -352,25 +368,7 @@ export default function InfoForm() {
                         )}
                     />
                     {form.watch('contactFrom') === 'Email' ? (
-                        <FormField
-                            disabled={sent}
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem className="dark:text-white">
-                                    <FormLabel className="dark:text-white">Email</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            autoComplete="email"
-                                            className="dark:border-gray-500"
-                                            placeholder="Email"
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                        <></>
                     ) : (
                         <FormField
                             disabled={sent}

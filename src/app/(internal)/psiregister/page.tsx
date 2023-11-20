@@ -10,7 +10,13 @@ export default function Contact() {
                         Encontre o seu próximo <span className="opacity-80">cliente.</span>
                     </h1>
                     <p className="mt-6 text-gray-700 dark:text-gray-300">
-                        Nós ajudamo-lo a encontrar o próximo cliente.
+                        Dedicado a ajudar? Estamos empenhados em conectá-lo com clientes à procura de apoio. Garantimos
+                        a melhor correspondência entre o seu perfil profissional e as necessidades individuais dos
+                        pacientes.
+                    </p>
+                    <p className="mt-3 text-center text-gray-800 dark:text-gray-300">
+                        Junte-se a nós e amplie o seu impacto no campo da saúde mental, mantendo o foco no que realmente
+                        importa: o bem-estar dos seus clientes.
                     </p>
                 </div>
                 <div className="mt-12 grid gap-6 sm:mx-auto sm:max-w-lg lg:max-w-max lg:grid-cols-2">

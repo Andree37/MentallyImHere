@@ -16,7 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useSearchParams } from 'next/navigation';
 
 const contactFromOptions = ['Email', 'Chamada', 'WhatsApp'];
-const consultLocationOptions = ['Presencial', 'Online'];
+const consultLocationOptions = ['Presencial', 'Online', 'Ambos'];
 
 const userFormSchema = z
     .object({
@@ -46,7 +46,10 @@ const userFormSchema = z
                 if (!schema.email) return false;
             }
 
-            return !(schema.consultLocation === 'Presencial' && !schema.location);
+            return !(
+                (schema.consultLocation === 'Presencial' || schema.consultLocation === 'Ambos') &&
+                !schema.location
+            );
         },
         { message: 'Verifique os seus contactos.', path: ['phone'] },
     );
@@ -299,7 +302,7 @@ export default function InfoForm() {
                             </FormItem>
                         )}
                     />
-                    {form.watch('consultLocation') === 'Presencial' && (
+                    {form.watch('consultLocation') !== 'Online' && (
                         <FormField
                             disabled={sent}
                             control={form.control}

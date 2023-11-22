@@ -1,4 +1,5 @@
 import './globals.css';
+import './embla.css';
 import React from 'react';
 
 export const metadata = {

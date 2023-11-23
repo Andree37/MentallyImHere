@@ -51,7 +51,7 @@ const userFormSchema = z.object({
     }),
     availability: z.string().optional(),
     cost: z.array(z.number()),
-    opp: z.string().min(5),
+    opp: z.string(),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;

@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/react-hook-form/form';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 type EmblaCarouselType = {
     title: string;
@@ -17,7 +16,7 @@ type EmblaCarouselType = {
 
 export default function EmblaCarousel({ slides, options, title }: EmblaCarouselType) {
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
-    const form = useForm<z.infer<any>>({});
+    const form = useForm<any>({});
 
     const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
 

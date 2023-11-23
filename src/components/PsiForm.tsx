@@ -72,8 +72,8 @@ const defaultValues: Partial<UserFormValues> = {
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos'];
 
-async function trelloPsicologistCard(data: UserFormValues) {
-    return fetch('/api/trello/cards/attachments', {
+async function trelloPsychologistCard(data: UserFormValues) {
+    return fetch('/api/trello/cards/psychologists', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -83,8 +83,8 @@ async function trelloPsicologistCard(data: UserFormValues) {
     });
 }
 
-async function mongoPsicolgist(data: UserFormValues) {
-    return fetch('/api/psicologist', {
+async function mongoPsychologist(data: UserFormValues) {
+    return fetch('/api/psychologist', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -121,8 +121,8 @@ export default function PsiForm() {
         async (userData: UserFormValues) => {
             setLoading(true);
 
-            const res = await mongoPsicolgist({ ...userData });
-            const resTrello = await trelloPsicologistCard({ ...userData });
+            const res = await mongoPsychologist({ ...userData });
+            const resTrello = await trelloPsychologistCard({ ...userData });
 
             if (res.status !== 200 || resTrello.status !== 200) {
                 onErrorToast('Não conseguimos processar os seus dados, tente novamente.');

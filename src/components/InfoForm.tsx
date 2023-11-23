@@ -79,7 +79,7 @@ async function postUserCard(
     }: UserFormValues & { advertiserID: string },
     id: string,
 ) {
-    const response = await fetch('/api/trello/cards', {
+    const response = await fetch('/api/trello/cards/clients', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

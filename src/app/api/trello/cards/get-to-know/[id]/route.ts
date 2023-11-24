@@ -5,6 +5,16 @@ export async function POST(req: Request, { params }: { params: { id: string } })
     const trelloToken = process.env.TRELLO_TOKEN;
     const boardID = '651b50d48c9594cb06110224';
 
+    const reqData = await req.json();
+
+    let answers = '';
+    reqData.data.forEach((item: any) => {
+        for (const key in item) {
+            const value = item[key];
+            answers += `${key.replace(/-/g, ' ')}: ${Array.isArray(value) ? value.join(', ') : value}\n`;
+        }
+    });
+
     const TRELLO_URL = `https://api.trello.com/1/search?query=${params.id}&key=${apiKey}&token=${trelloToken}&idBoards=${boardID}&modelTypes=cards&card_fields=all`;
     const response = await fetch(`${TRELLO_URL}`, {
         method: 'GET',
@@ -30,7 +40,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                text: 'this is a comment',
+                text: answers,
                 key: apiKey,
                 token: trelloToken,
             }),

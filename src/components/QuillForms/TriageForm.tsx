@@ -8,12 +8,23 @@ type TriageFormProps = {
     id: string;
 };
 
+type Answers = {
+    [key: string]: {
+        value: string | string[] | undefined;
+    };
+};
+
+type TriageData = {
+    answers: Answers;
+};
+
 registerCoreBlocks();
 
-async function getCard(id: string) {
+async function postAnswersOnCard(id: string, data: Answers) {
     const response = await fetch(`/api/trello/cards/get-to-know/${id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data }),
     });
 
     if (!response.ok) {
@@ -28,8 +39,6 @@ export default function TriageForm({ id }: TriageFormProps) {
     const consultationForAnswer = useFieldAnswer('consultation-for') as string;
     const prevExperienceAnswer = useFieldAnswer('previous-experience-therapy') as string;
     const therapyApproachAnswer = useFieldAnswer('therapy-approach') as string;
-
-    getCard(id);
 
     return (
         <div className="h-[90vh] w-full">
@@ -368,8 +377,8 @@ export default function TriageForm({ id }: TriageFormProps) {
                     settings: {
                         animationDirection: 'horizontal',
                         disableWheelSwiping: false,
-                        disableNavigationArrows: false,
-                        disableProgressBar: false,
+                        disableNavigationArrows: true,
+                        disableProgressBar: true,
                     },
                     messages: {
                         'label.hintText.enter': 'Enter ↵',
@@ -378,9 +387,19 @@ export default function TriageForm({ id }: TriageFormProps) {
                         'label.hintText.key': 'Letra',
                         'block.defaultThankYouScreen.label':
                             'Obrigado por ter preenchido o formulário.\n\nEntraremos em contacto consigo o mais brevemente possível.',
+                        'label.submitBtn': 'Submeter',
                     },
                 }}
                 onSubmit={(data, { completeForm, setIsSubmitting }) => {
+                    const triageData = data as TriageData;
+                    const answers = [];
+                    for (const key in triageData.answers) {
+                        answers.push({ [key]: triageData.answers[key].value });
+                    }
+
+                    // I know I am doing some typescript magic, but let me live :(
+                    postAnswersOnCard(id, answers as unknown as Answers);
+
                     setTimeout(() => {
                         setIsSubmitting(false);
                         completeForm();

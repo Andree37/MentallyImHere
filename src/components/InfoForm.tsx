@@ -64,7 +64,7 @@ type UserFormValues = z.infer<typeof userFormSchema>;
 // This can come from your database or API.
 const defaultValues: Partial<UserFormValues> = {
     name: '',
-    contactFrom: 'Chamada',
+    contactFrom: 'Email',
     consultLocation: 'Online',
     phone: '',
     motivation: '',

@@ -45,13 +45,18 @@ const userFormSchema = z
             } else {
                 if (!schema.email) return false;
             }
-
-            return !(
-                (schema.consultLocation === 'Presencial' || schema.consultLocation === 'Ambos') &&
-                !schema.location
-            );
+            return true;
         },
         { message: 'Verifique os seus contactos.', path: ['phone'] },
+    )
+    .refine(
+        (schema) => {
+            if (schema.consultLocation === 'Presencial' || schema.consultLocation === 'Ambos') {
+                return schema.location?.length || 0 > 0;
+            }
+            return true;
+        },
+        { message: 'Por favor indique a sua localização', path: ['location'] },
     );
 
 type UserFormValues = z.infer<typeof userFormSchema>;

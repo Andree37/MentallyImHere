@@ -19,9 +19,8 @@ export async function GET(req: NextRequest) {
 
     const searchParams = req.nextUrl.searchParams;
     const id = searchParams.get('id');
-    const filter = id && id.length ? { _id: new ObjectId(id) } : {};
+    const filter = id && id !== 'null' ? { _id: new ObjectId(id) } : {};
 
-    // @ts-ignore
     const data = await db.collection('advertisers').findOne(filter);
 
     return NextResponse.json({ data });

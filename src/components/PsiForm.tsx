@@ -51,7 +51,7 @@ const userFormSchema = z.object({
     }),
     availability: z.string().optional(),
     cost: z.array(z.number()),
-    opp: z.string(),
+    opp: z.string().min(1, { message: 'Por favor introduza o número da sua cédula OPP' }),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;

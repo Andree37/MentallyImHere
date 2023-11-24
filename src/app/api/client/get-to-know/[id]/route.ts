@@ -18,7 +18,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
     const updateData = { $set: { answers } };
 
     let result;
-    if (params.id && params.id !== 'null') {
+    if (params.id && params.id !== 'null' && params.id.length > 12) {
         result = await db.collection('clients').updateOne({ _id: new ObjectId(params.id) }, updateData);
     }
 

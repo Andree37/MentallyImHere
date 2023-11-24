@@ -403,6 +403,9 @@ export default function TriageForm({ id }: TriageFormProps) {
                             'Obrigado por ter preenchido o formulário.\n\nEntraremos em contacto consigo o mais brevemente possível.',
                         'label.submitBtn': 'Submeter',
                     },
+                    theme: {
+                        buttonsBgColor: '#03045e',
+                    },
                 }}
                 onSubmit={(data, { completeForm, setIsSubmitting }) => {
                     const triageData = data as TriageData;
@@ -414,7 +417,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                     // I know I am doing some typescript magic, but let me live :(
                     postAnswersOnTrello(id, answers as unknown as Answers);
                     postAnswersOnMongo(id, answers as unknown as Answers);
-                    
+
                     setTimeout(() => {
                         setIsSubmitting(false);
                         completeForm();

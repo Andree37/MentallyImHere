@@ -20,8 +20,22 @@ type TriageData = {
 
 registerCoreBlocks();
 
-async function postAnswersOnCard(id: string, data: Answers) {
+async function postAnswersOnTrello(id: string, data: Answers) {
     const response = await fetch(`/api/trello/cards/get-to-know/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function postAnswersOnMongo(id: string, data: Answers) {
+    const response = await fetch(`/api/client/get-to-know/${id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data }),
@@ -398,8 +412,9 @@ export default function TriageForm({ id }: TriageFormProps) {
                     }
 
                     // I know I am doing some typescript magic, but let me live :(
-                    postAnswersOnCard(id, answers as unknown as Answers);
-
+                    postAnswersOnTrello(id, answers as unknown as Answers);
+                    postAnswersOnMongo(id, answers as unknown as Answers);
+                    
                     setTimeout(() => {
                         setIsSubmitting(false);
                         completeForm();

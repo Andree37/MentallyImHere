@@ -52,7 +52,6 @@ export default function TriageForm({ id }: TriageFormProps) {
     const genderAnswer = useFieldAnswer('gender') as string;
     const consultationForAnswer = useFieldAnswer('consultation-for') as string;
     const prevExperienceAnswer = useFieldAnswer('previous-experience-therapy') as string;
-    const therapyApproachAnswer = useFieldAnswer('therapy-approach') as string;
 
     return (
         <div className="h-[90vh] w-full">
@@ -65,11 +64,11 @@ export default function TriageForm({ id }: TriageFormProps) {
                             id: 'welcome',
                             attributes: {
                                 label: 'Bem vind@!',
-                                description: 'Este questionário ajuda-nos a conhecer-te um pouco melhor',
+                                description: 'Este questionário ajuda-nos a conhecer-te um pouco melhor.',
                                 buttonText: 'Começar',
                                 attachment: {
                                     type: 'image',
-                                    url: 'https://quillforms.com/wp-content/uploads/2022/01/4207-ai-1.jpeg',
+                                    url: '/images/hero.png',
                                 },
                             },
                         },
@@ -77,7 +76,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             id: 'welcome-statement',
                             name: 'statement',
                             attributes: {
-                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para ti',
+                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para ti.',
                                 description: '(2 minutos)',
                                 buttonText: 'Continuar',
                                 quotationMarks: false,
@@ -300,52 +299,6 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'therapy-approach',
-                            attributes: {
-                                required: true,
-                                multiple: true,
-                                verticalAlign: false,
-                                label: 'Abordagem Terapêutica Preferida',
-                                description: 'Pode escolher várias respostas',
-                                choices: [
-                                    {
-                                        label: 'Terapia Cognitivo-Comportamental',
-                                        value: 'behavioral-cognitive-therapy',
-                                    },
-                                    {
-                                        label: 'Psicodinâmica',
-                                        value: 'psychodynamic',
-                                    },
-                                    {
-                                        label: 'Existencial',
-                                        value: 'existential',
-                                    },
-                                    {
-                                        label: 'Outra',
-                                        value: 'another',
-                                    },
-                                    {
-                                        label: 'Sem preferência',
-                                        value: 'no-preference',
-                                    },
-                                ],
-                            },
-                        },
-                        ...(therapyApproachAnswer?.includes('another')
-                            ? [
-                                  {
-                                      name: 'short-text',
-                                      id: 'therapy-approach-other',
-                                      attributes: {
-                                          classnames: 'first-block',
-                                          required: false,
-                                          label: 'Qual abordagem prefere?',
-                                      },
-                                  },
-                              ]
-                            : []),
-                        {
-                            name: 'multiple-choice',
                             id: 'financial-availability',
                             attributes: {
                                 required: true,
@@ -391,8 +344,9 @@ export default function TriageForm({ id }: TriageFormProps) {
                     settings: {
                         animationDirection: 'horizontal',
                         disableWheelSwiping: false,
-                        disableNavigationArrows: true,
+                        disableNavigationArrows: false,
                         disableProgressBar: true,
+                        showLettersOnAnswers: false,
                     },
                     messages: {
                         'label.hintText.enter': 'Enter ↵',
@@ -404,11 +358,25 @@ export default function TriageForm({ id }: TriageFormProps) {
                         'label.submitBtn': 'Submeter',
                     },
                     theme: {
-                        buttonsBgColor: '#03045e',
+                        buttonsBgColor: '#1664C0',
+                        answersColor: 'black',
                     },
                 }}
                 onSubmit={(data, { completeForm, setIsSubmitting }) => {
                     const triageData = data as TriageData;
+                    // ensure we remove the previously set fields
+                    if (triageData.answers['gender'].value?.[0] !== 'prefer-auto-describe') {
+                        delete triageData.answers['auto-describe-gender'];
+                    }
+
+                    if (triageData.answers['consultation-for'].value?.[0] !== 'other') {
+                        delete triageData.answers['consultation-for-other'];
+                    }
+
+                    if (triageData.answers['previous-experience-therapy'].value?.[0] !== 'yes') {
+                        delete triageData.answers['prev-experience-yes'];
+                    }
+
                     const answers = [];
                     for (const key in triageData.answers) {
                         answers.push({ [key]: triageData.answers[key].value });

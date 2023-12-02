@@ -362,7 +362,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         answersColor: 'black',
                     },
                 }}
-                onSubmit={(data, { completeForm, setIsSubmitting }) => {
+                onSubmit={async (data, { completeForm, setIsSubmitting }) => {
                     const triageData = data as TriageData;
                     // ensure we remove the previously set fields
                     if (triageData.answers['gender'].value?.[0] !== 'prefer-auto-describe') {
@@ -383,13 +383,12 @@ export default function TriageForm({ id }: TriageFormProps) {
                     }
 
                     // I know I am doing some typescript magic, but let me live :(
-                    postAnswersOnTrello(id, answers as unknown as Answers);
-                    postAnswersOnMongo(id, answers as unknown as Answers);
+                    await postAnswersOnTrello(id, answers as unknown as Answers);
+                    await postAnswersOnMongo(id, answers as unknown as Answers);
 
-                    setTimeout(() => {
-                        setIsSubmitting(false);
-                        completeForm();
-                    }, 500);
+                    // show completed form after submit on trello and mongo
+                    setIsSubmitting(false);
+                    completeForm();
                 }}
                 applyLogic={false}
             />

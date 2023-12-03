@@ -91,11 +91,6 @@ async function postAnswersOnTrello(data: Answers, id: ObjectId | undefined) {
 }
 
 async function getPsis(psiGender: string, consultationType: string) {
-    console.log(
-        'ENTER url get psi',
-        `/api/psychologist?psigender=${psiGender}&consultationPreference=${consultationType}`,
-    );
-
     const response = await fetch(
         `/api/psychologist?psigender=${psiGender}&consultationPreference=${consultationType}`,
         {
@@ -103,6 +98,20 @@ async function getPsis(psiGender: string, consultationType: string) {
             headers: { 'Content-Type': 'application/json' },
         },
     );
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function addPsysSuggestions(cardID: string, psysSuggestion: string) {
+    const response = await fetch(`/api/trello/cards/clients/psychologists`, {
+        method: 'POSt',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cardID, psysSuggestion }),
+    });
 
     if (!response.ok) {
         return;
@@ -680,14 +689,18 @@ export default function RegisterClientForm() {
 
                     // I know I am doing some typescript magic, but let me live :(
                     const mongoRes = await postAnswersOnMongo(answerData);
-                    await postAnswersOnTrello(answerData, mongoRes?.document.insertedId);
+                    const trelloRes = await postAnswersOnTrello(answerData, mongoRes?.document.insertedId);
 
-                    const psis = await getPsis(
+                    const psychologists = await getPsis(
                         answerData['professional-gender'][0],
                         answerData['preferential-consultation-type'][0],
                     );
 
-                    console.log('ENTER psis', psis);
+                    const addPsys = psychologists.data.map((p: Object) => {
+                        addPsysSuggestions(trelloRes?.data?.id, JSON.stringify(p, null, 2));
+                    });
+
+                    await Promise.all(addPsys);
 
                     // show completed form after submit on trello and mongo
                     setIsSubmitting(false);

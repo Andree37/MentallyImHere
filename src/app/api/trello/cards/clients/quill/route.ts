@@ -1,3 +1,4 @@
+import { formatObjectAsText } from '@/lib/jsonFormatter';
 import { sendMail } from '@/services/mailService';
 import { NextResponse } from 'next/server';
 
@@ -55,6 +56,7 @@ export async function POST(req: Request) {
     const TRELLO_URL = `https://api.trello.com/1/cards?key=${apiKey}&token=${trelloToken}`;
 
     const { data, id } = await req.json();
+    const clientDescription = formatObjectAsText(data);
 
     const response = await fetch(`${TRELLO_URL}`, {
         method: 'POST',
@@ -63,7 +65,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
             name: `New User: ${data['name']} - ${id}`,
-            desc: JSON.stringify(data, null, 2),
+            desc: clientDescription,
             idList: '651b50da8e3027a3df31fbb4',
         }),
     });

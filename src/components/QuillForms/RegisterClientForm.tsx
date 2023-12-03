@@ -91,6 +91,11 @@ async function postAnswersOnTrello(data: Answers, id: ObjectId | undefined) {
 }
 
 async function getPsis(psiGender: string, consultationType: string) {
+    console.log(
+        'ENTER url get psi',
+        `/api/psychologist?psigender=${psiGender}&consultationPreference=${consultationType}`,
+    );
+
     const response = await fetch(
         `/api/psychologist?psigender=${psiGender}&consultationPreference=${consultationType}`,
         {
@@ -681,6 +686,8 @@ export default function RegisterClientForm() {
                         answerData['professional-gender'][0],
                         answerData['preferential-consultation-type'][0],
                     );
+
+                    console.log('ENTER psis', psis);
 
                     // show completed form after submit on trello and mongo
                     setIsSubmitting(false);

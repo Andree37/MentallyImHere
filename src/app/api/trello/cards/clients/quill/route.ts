@@ -80,5 +80,42 @@ export async function POST(req: Request) {
         return [];
     }
 
+    console.log('ENTER respData', respData);
+
+    console.log(
+        'ENTER fetch psys',
+        `https://www.psiplexus.com/api/psychologist?psigender=${data.gender[0]}&consultationPreference=${data['preferential-consultation-type'][0]}`,
+    );
+
+    const psychologistsResponse = await fetch(
+        `https://www.psiplexus.com/api/psychologist?psigender=${data.gender[0]}&consultationPreference=${data['preferential-consultation-type'][0]}`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        },
+    );
+
+    console.log('ENTER psys response', psychologistsResponse);
+
+    const psychologists = await psychologistsResponse.json();
+
+    console.log('ENTER psychologists', psychologists);
+
+    const psysSuggestion = psychologists?.length
+        ? JSON.stringify(psychologists, null, 2)
+        : 'Sem sugestões de profissionais';
+
+    try {
+        await fetch(
+            `https://api.trello.com/1/cards/${respData.id}/actions/comments?text=${psysSuggestion}&key=${apiKey}&token=${trelloToken}`,
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                },
+            },
+        );
+    } catch (err) {}
     return NextResponse.json({ data: respData });
 }

@@ -54,8 +54,7 @@ export async function POST(req: Request) {
 
     const TRELLO_URL = `https://api.trello.com/1/cards?key=${apiKey}&token=${trelloToken}`;
 
-    const { name, age, email, phone, motivation, id, contactFrom, consultLocation, location, advertiserID } =
-        await req.json();
+    const { data, id } = await req.json();
 
     const response = await fetch(`${TRELLO_URL}`, {
         method: 'POST',
@@ -63,8 +62,8 @@ export async function POST(req: Request) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            name: `New User: ${name} - ${id}`,
-            desc: `Name: ${name}\nAge: ${age}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${motivation}\nContactar por: ${contactFrom}\nConsulta: ${consultLocation}\nLocalização: ${location}\nAdvertiserID: ${advertiserID}`,
+            name: `New User: ${data['name']} - ${id}`,
+            desc: JSON.stringify(data, null, 2),
             idList: '651b50da8e3027a3df31fbb4',
         }),
     });
@@ -73,13 +72,13 @@ export async function POST(req: Request) {
     }
 
     //send email
-    await sendMail('Bem Vind@ à PsiPlexus!', email, emailHtml(name));
+    await sendMail('Bem Vind@ à PsiPlexus!', data['email'], emailHtml(data['name']));
 
-    const data = await response.json();
+    const respData = await response.json();
 
-    if (data.status === 429) {
+    if (respData.status === 429) {
         return [];
     }
 
-    return NextResponse.json({ data });
+    return NextResponse.json({ data: respData });
 }

@@ -3,6 +3,9 @@ import { Form, useFieldAnswer } from '@quillforms/renderer-core';
 import '@quillforms/renderer-core/build-style/style.css';
 // @ts-ignore
 import { registerCoreBlocks } from '@quillforms/react-renderer-utils';
+import { InsertOneResult, ObjectId } from 'mongodb';
+import mixpanel from 'mixpanel-browser';
+import { v4 as uuidv4 } from 'uuid';
 
 const portugalCities = [
     'Lisboa',
@@ -61,24 +64,55 @@ const portugalCities = [
     'Feira',
 ];
 
-type TriageFormProps = {
-    id: string;
-};
-
 type Answers = {
     [key: string]: {
         value: string | string[] | undefined;
     };
 };
 
-type TriageData = {
+type ClienteResponseData = {
     answers: Answers;
 };
 
 registerCoreBlocks();
 
-async function postAnswersOnTrello(id: string, data: Answers) {
-    const response = await fetch(`/api/trello/cards/get-to-know/${id}`, {
+async function postAnswersOnTrello(data: Answers, id: ObjectId | undefined) {
+    const response = await fetch(`/api/trello/cards/clients/quill`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data, id }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function getPsis(psiGender: string, consultationType: string) {
+    const response = await fetch(
+        `/api/psychologist?psigender=${psiGender}&consultationPreference=${consultationType}`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        },
+    );
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function postAnswersOnMongo(data: Answers): Promise<
+    | {
+          document: InsertOneResult;
+      }
+    | undefined
+> {
+    const response = await fetch(`/api/client/quill`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data }),
@@ -91,48 +125,48 @@ async function postAnswersOnTrello(id: string, data: Answers) {
     return await response.json();
 }
 
-async function postAnswersOnMongo(id: string, data: Answers) {
-    const response = await fetch(`/api/client/get-to-know/${id}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data }),
-    });
+mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN!!, {
+    track_pageview: true,
+    persistence: 'localStorage',
+});
 
-    if (!response.ok) {
-        return;
-    }
+mixpanel.identify(uuidv4());
 
-    return await response.json();
-}
-
-export default function TriageForm({ id }: TriageFormProps) {
-    const genderAnswer = useFieldAnswer('gender') as string;
-    const consultationForAnswer = useFieldAnswer('consultation-for') as string;
-    const prevExperienceAnswer = useFieldAnswer('previous-experience-therapy') as string;
-    const frequencyAnswer = useFieldAnswer('frequency') as string;
-    const immediateAvailabilityAnswer = useFieldAnswer('immediate-availability') as string;
+export default function RegisterClientForm() {
+    const genderAnswer = useFieldAnswer('0-3-gender') as string;
+    const consultationForAnswer = useFieldAnswer('0-8-consultation-for') as string;
+    const prevExperienceAnswer = useFieldAnswer('1-0-previous-experience-therapy') as string;
+    const frequencyAnswer = useFieldAnswer('0-6-frequency') as string;
+    const immediateAvailabilityAnswer = useFieldAnswer('1-1-immediate-availability') as string;
+    const contactPreferenceAnswer = useFieldAnswer('1-6-contact-preference') as string;
 
     return (
-        <div className="h-[90vh] w-full">
+        <div className="h-[70vh] w-full">
             <Form
                 formId={1}
+                beforeGoingNext={({ currentBlockId, goNext }) => {
+                    mixpanel.track('Answer on Form', {
+                        Step: currentBlockId,
+                    });
+                    goNext();
+                }}
                 formObj={{
                     blocks: [
                         {
                             name: 'welcome-screen',
-                            id: 'welcome',
+                            id: '0-welcome',
                             attributes: {
                                 label: 'Bem vind@!',
                                 description: 'Este questionário ajuda-nos a conhecer-te um pouco melhor.',
                                 buttonText: 'Começar',
                                 attachment: {
                                     type: 'image',
-                                    url: '/images/hero.png',
+                                    url: '/images/therapists/sittingonline.jpg',
                                 },
                             },
                         },
                         {
-                            id: 'welcome-statement',
+                            id: '0-1-welcome-statement',
                             name: 'statement',
                             attributes: {
                                 label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para ti.',
@@ -143,7 +177,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'short-text',
-                            id: 'name',
+                            id: '0-2-name',
                             attributes: {
                                 required: true,
                                 label: 'Indique o seu <strong>nome e apelido</strong>',
@@ -151,7 +185,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'gender',
+                            id: '0-3-gender',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -185,7 +219,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             ? [
                                   {
                                       name: 'short-text',
-                                      id: 'auto-describe-gender',
+                                      id: '0-3-1-auto-describe-gender',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
@@ -195,7 +229,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                               ]
                             : []),
                         {
-                            id: 'age',
+                            id: '0-4-age',
                             name: 'number',
                             attributes: {
                                 label: 'Indique a sua <strong>idade</strong>',
@@ -205,7 +239,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             },
                         },
                         {
-                            id: 'after-statement',
+                            id: '0-5-after-statement',
                             name: 'statement',
                             attributes: {
                                 label:
@@ -220,7 +254,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'frequency',
+                            id: '0-6-frequency',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -246,7 +280,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             ? [
                                   {
                                       name: 'short-text',
-                                      id: 'frequency-for-other',
+                                      id: '0-6-1-frequency-for-other',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
@@ -256,7 +290,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                               ]
                             : []),
                         {
-                            id: 'price',
+                            id: '0-7-price',
                             name: 'slider',
                             attributes: {
                                 label: 'Indique o <strong>valor máximo em euros</strong> que estaria disponível para pagar por cada sessão.',
@@ -269,7 +303,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'consultation-for',
+                            id: '0-8-consultation-for',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -295,7 +329,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             ? [
                                   {
                                       name: 'short-text',
-                                      id: 'consultation-for-other',
+                                      id: '0-8-1-consultation-for-other',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
@@ -306,7 +340,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             : []),
                         {
                             name: 'short-text',
-                            id: 'motivation',
+                            id: '0-9-motivation',
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
@@ -315,7 +349,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'previous-experience-therapy',
+                            id: '1-0-previous-experience-therapy',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -337,7 +371,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             ? [
                                   {
                                       name: 'short-text',
-                                      id: 'prev-experience-yes',
+                                      id: '1-0-1-prev-experience-yes',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
@@ -349,7 +383,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             : []),
                         {
                             name: 'multiple-choice',
-                            id: 'immediate-availability',
+                            id: '1-1-immediate-availability',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -371,7 +405,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             ? [
                                   {
                                       name: 'short-text',
-                                      id: 'immediate-availability-other',
+                                      id: '1-1-1-immediate-availability-other',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
@@ -382,7 +416,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             : [
                                   {
                                       name: 'multiple-choice',
-                                      id: 'availability-days',
+                                      id: '1-1-2-availability-days',
                                       attributes: {
                                           required: true,
                                           multiple: true,
@@ -424,7 +458,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                                   },
                                   {
                                       name: 'multiple-choice',
-                                      id: 'availability-hours',
+                                      id: '1-1-3-availability-hours',
                                       attributes: {
                                           required: true,
                                           multiple: true,
@@ -455,7 +489,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                               ]),
                         {
                             name: 'multiple-choice',
-                            id: 'preferential-consultation-type',
+                            id: '1-2-preferential-consultation-type',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -482,7 +516,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             },
                         },
                         {
-                            id: 'location',
+                            id: '1-3-location',
                             name: 'dropdown',
                             attributes: {
                                 label: 'Indique a <strong>localização preferencial</strong> para a realização das consultas?',
@@ -492,7 +526,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'professional-gender',
+                            id: '1-4-professional-gender',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -515,7 +549,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                             },
                         },
                         {
-                            id: 'email',
+                            id: '1-5-email',
                             name: 'email',
                             attributes: {
                                 label: 'Indique o seu <strong>email</strong>.',
@@ -523,7 +557,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         },
                         {
                             name: 'multiple-choice',
-                            id: 'contact-preference',
+                            id: '1-6-contact-preference',
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -545,9 +579,22 @@ export default function TriageForm({ id }: TriageFormProps) {
                                 ],
                             },
                         },
+                        ...(contactPreferenceAnswer?.includes('call') || contactPreferenceAnswer?.includes('whatsapp')
+                            ? [
+                                  {
+                                      name: 'number',
+                                      id: '1-6-1-contact-preference-phone',
+                                      attributes: {
+                                          classnames: 'first-block',
+                                          required: true,
+                                          label: 'Por favor indique o seu numero de telefone para ser contactado.',
+                                      },
+                                  },
+                              ]
+                            : []),
                         {
                             name: 'short-text',
-                            id: 'additional-information',
+                            id: '1-7-additional-information',
                             attributes: {
                                 classnames: 'first-block',
                                 required: false,
@@ -575,6 +622,7 @@ export default function TriageForm({ id }: TriageFormProps) {
                         'label.submitBtn': 'Submeter',
                         'block.dropdown.placeholder': 'Começa a escrever e selecione a sua resposta',
                         'label.errorAlert.email': 'Email inválido',
+                        'label.errorAlert.number': 'Apenas números',
                     },
                     theme: {
                         buttonsBgColor: '#1664C0',
@@ -582,32 +630,57 @@ export default function TriageForm({ id }: TriageFormProps) {
                     },
                 }}
                 onSubmit={async (data, { completeForm, setIsSubmitting }) => {
-                    const triageData = data as TriageData;
+                    const tclienteResponseDataData = data as ClienteResponseData;
                     // ensure we remove the previously set fields
-                    if (triageData.answers['gender'].value?.[0] !== 'prefer-auto-describe') {
-                        delete triageData.answers['auto-describe-gender'];
+                    if (tclienteResponseDataData.answers['0-3-gender'].value?.[0] !== 'prefer-auto-describe') {
+                        delete tclienteResponseDataData.answers['0-3-1-auto-describe-gender'];
                     }
 
-                    if (triageData.answers['consultation-for'].value?.[0] !== 'other') {
-                        delete triageData.answers['consultation-for-other'];
+                    if (tclienteResponseDataData.answers['0-8-consultation-for'].value?.[0] !== 'other') {
+                        delete tclienteResponseDataData.answers['0-8-1-consultation-for-other'];
                     }
 
-                    if (triageData.answers['previous-experience-therapy'].value?.[0] !== 'yes') {
-                        delete triageData.answers['prev-experience-yes'];
+                    if (tclienteResponseDataData.answers['1-0-previous-experience-therapy'].value?.[0] !== 'yes') {
+                        delete tclienteResponseDataData.answers['1-0-1-prev-experience-yes'];
                     }
 
-                    if (triageData.answers['frequency'].value?.[0] !== 'other') {
-                        delete triageData.answers['frequency-for-other'];
+                    if (tclienteResponseDataData.answers['1-1-immediate-availability'].value?.[0] !== 'other') {
+                        delete tclienteResponseDataData.answers['1-1-1-immediate-availability-other'];
+                    }
+
+                    if (tclienteResponseDataData.answers['0-6-frequency'].value?.[0] !== 'other') {
+                        delete tclienteResponseDataData.answers['0-6.1-frequency-for-other'];
+                    }
+
+                    if (
+                        tclienteResponseDataData.answers['1-6-contact-preference'].value?.[0] !== 'call' &&
+                        tclienteResponseDataData.answers['1-6-contact-preference'].value?.[0] !== 'whatsapp'
+                    ) {
+                        delete tclienteResponseDataData.answers['1-6-1-contact-preference-phone'];
                     }
 
                     const answers = [];
-                    for (const key in triageData.answers) {
-                        answers.push({ [key]: triageData.answers[key].value });
+                    for (const key in tclienteResponseDataData.answers) {
+                        answers.push({ [key]: tclienteResponseDataData.answers[key].value });
                     }
 
+                    const answerData: { [k: string]: any } = {};
+                    answers.map((d: { [k: string]: any }) => {
+                        const key = Object.keys(d)[0];
+                        const formattedKeys = Object.keys(d)[0].split('-');
+                        const filteredKeys = formattedKeys.filter((k) => !/^\d+$/.test(k));
+                        const formattedKey = filteredKeys.join('-');
+                        answerData[formattedKey] = d[key];
+                    });
+
                     // I know I am doing some typescript magic, but let me live :(
-                    await postAnswersOnTrello(id, answers as unknown as Answers);
-                    await postAnswersOnMongo(id, answers as unknown as Answers);
+                    const mongoRes = await postAnswersOnMongo(answerData);
+                    await postAnswersOnTrello(answerData, mongoRes?.document.insertedId);
+
+                    const psis = await getPsis(
+                        answerData['professional-gender'][0],
+                        answerData['preferential-consultation-type'][0],
+                    );
 
                     // show completed form after submit on trello and mongo
                     setIsSubmitting(false);

@@ -47,11 +47,14 @@ const userFormSchema = z.object({
         .min(0, { message: 'Anos de experiência mínimo é 0.' })
         .max(50, { message: 'Anos de experiência máximo é 50.' }),
     consultationType: z.string().refine((m) => m.length > 0, {
-        message: 'Pro favor insira o tipo de consulta.',
+        message: 'Por favor insira o tipo de consulta.',
     }),
     availability: z.string().optional(),
     cost: z.array(z.number()),
     opp: z.string().min(1, { message: 'Por favor introduza o número da sua cédula OPP' }),
+    gender: z.string().refine((m) => m.length > 0, {
+        message: 'Por favor insira o seu género.',
+    }),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -68,9 +71,14 @@ const defaultValues: Partial<UserFormValues> = {
     availability: '',
     cost: [10, 30],
     opp: '',
+    gender: 'male',
 };
 
 const consultationTypes = ['Presencial', 'Online', 'Ambos'];
+const genderTypes = [
+    { label: 'Masculino', value: 'male' },
+    { label: 'Feminino', value: 'female' },
+];
 
 async function trelloPsychologistCard(data: UserFormValues) {
     return fetch('/api/trello/cards/psychologists', {
@@ -187,6 +195,34 @@ export default function PsiForm() {
                                         onChange={(e) => field.onChange(+e.target.value)}
                                     />
                                 </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="gender"
+                        render={({ field }) => (
+                            <FormItem className="w-full">
+                                <FormLabel className="">Género</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl className="">
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="">
+                                        {genderTypes.map(({ label, value }) => (
+                                            <SelectItem
+                                                className="bg-gray-100 cursor-pointer"
+                                                key={value}
+                                                value={value}
+                                            >
+                                                {label}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
                                 <FormMessage />
                             </FormItem>
                         )}

@@ -155,7 +155,7 @@ export default function RegisterClientForm() {
     const contactPreferenceAnswer = useFieldAnswer('1-6-contact-preference') as string;
 
     return (
-        <div className="h-[70vh] w-full">
+        <div className="h-[80vh] w-full">
             <Form
                 formId={1}
                 beforeGoingNext={({ currentBlockId, goNext }) => {

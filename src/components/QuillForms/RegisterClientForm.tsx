@@ -423,84 +423,21 @@ export default function RegisterClientForm() {
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
-                                          label: 'Quando pode começar?',
+                                          label: 'Quando poderia começar?',
                                       },
                                   },
                               ]
-                            : [
-                                  {
-                                      name: 'multiple-choice',
-                                      id: '1-1-2-availability-days',
-                                      attributes: {
-                                          required: true,
-                                          multiple: true,
-                                          verticalAlign: false,
-                                          label: 'Dias da semana que prefere.',
-                                          description:
-                                              'Recomendamos que selecione <strong>vários dias</strong> para a disponibilidade com o profissional de saúde',
-                                          choices: [
-                                              {
-                                                  label: '2ª Feira',
-                                                  value: 'monday',
-                                              },
-                                              {
-                                                  label: '3ª Feira',
-                                                  value: 'tuesday',
-                                              },
-                                              {
-                                                  label: '4ª Feira',
-                                                  value: 'wednesday',
-                                              },
-                                              {
-                                                  label: '5ª Feira',
-                                                  value: 'thursday',
-                                              },
-                                              {
-                                                  label: '6ª Feira',
-                                                  value: 'friday',
-                                              },
-                                              {
-                                                  label: 'Sábado',
-                                                  value: 'saturday',
-                                              },
-                                              {
-                                                  label: 'Domingo',
-                                                  value: 'sunday',
-                                              },
-                                          ],
-                                      },
-                                  },
-                                  {
-                                      name: 'multiple-choice',
-                                      id: '1-1-3-availability-hours',
-                                      attributes: {
-                                          required: true,
-                                          multiple: true,
-                                          verticalAlign: false,
-                                          label: 'Períodos do dia que prefere.',
-                                          description:
-                                              'Recomendamos que selecione <strong>vários horários</strong> para a disponibilidade com o profissional de saúde',
-                                          choices: [
-                                              {
-                                                  label: 'Manhã (8h-12h)',
-                                                  value: 'morning',
-                                              },
-                                              {
-                                                  label: 'Almoço (12h-14h)',
-                                                  value: 'lunch',
-                                              },
-                                              {
-                                                  label: 'Tarde (14h-18h)',
-                                                  value: 'afternoon',
-                                              },
-                                              {
-                                                  label: 'Noite (18h-22h)',
-                                                  value: 'evening',
-                                              },
-                                          ],
-                                      },
-                                  },
-                              ]),
+                            : []),
+                        {
+                            name: 'short-text',
+                            id: '1-1-2-availability-describe',
+                            attributes: {
+                                classnames: 'first-block',
+                                required: true,
+                                label: 'Diga-nos os <strong>horários</strong> nos quais tem disponibilidade para ter as suas consultas. Utilize o <strong>formato como no exemplo abaixo</strong>:',
+                                description: '2ª feira - 17h-20h\n\n3ª feira - 14h-15h e 16h-17h\n\n...',
+                            },
+                        },
                         {
                             name: 'multiple-choice',
                             id: '1-2-preferential-consultation-type',

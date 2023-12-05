@@ -4,8 +4,8 @@ interface trelloWebhook {
     action: { data: { list: { id: string }; card: { id: string } } };
 }
 
-export async function POST(_: Request, response: Response) {
-    const res = (await response.json()) as trelloWebhook;
+export async function POST(req: Request, response: Response) {
+    const res = (await req.json()) as trelloWebhook;
     const listId = res.action.data.list.id;
 
     const acceptedPsysListId = '654b64f691952533bd65241d';

@@ -29,23 +29,26 @@ export async function POST(req: Request) {
         },
     });
     if (!cardResponse.ok) {
-        return;
+        throw new Error('cannot get card response');
     }
 
     const card = await cardResponse.json();
     const regex = /Cédula OPP:(\d+)/;
     const match = regex.exec(card.desc);
-    if (!match) return;
-    const oppCedule = match[1].trim();
+    if (!match) throw new Error('cannot get opp');
+    const opp = match[1].trim();
 
     const email = extractEmail(card.desc);
+    if (!email) {
+        throw new Error('cannot get email');
+    }
 
     const client = await clientPromise;
     const db = client.db('Genipsi');
 
     if (acceptedPsysListId === listId) {
-        await db.collection('psi').updateOne({ opp: oppCedule, email }, { $set: { approved: true } });
+        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: true } });
     } else if (firstContactListId === listId) {
-        await db.collection('psi').updateOne({ opp: oppCedule, email }, { $set: { approved: false } });
+        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: false } });
     }
 }

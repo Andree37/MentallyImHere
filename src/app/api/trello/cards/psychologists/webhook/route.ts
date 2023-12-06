@@ -34,6 +34,6 @@ export async function POST(req: Request, response: Response) {
     if (acceptedPsysListId === listId) {
         await db.collection('psi').updateOne({ opp: oppCedule }, { $set: { approved: true } });
     } else {
-        await db.collection('psi').updateOne({ opp: oppCedule }, { $set: { approved: false } });
+        await db.collection('psi').updateOne({ opp: '1' }, { $set: { approved: false } });
     }
 }

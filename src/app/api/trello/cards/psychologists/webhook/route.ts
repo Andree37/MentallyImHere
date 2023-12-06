@@ -8,7 +8,7 @@ function extractEmail(inputString: string) {
     const regex = /Email:\s*(\S+)/;
     const match = regex.exec(inputString);
 
-    return match ? match[1].trim() : null;
+    return match ? match[1] : null;
 }
 
 export async function POST(req: Request) {
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     const regex = /Cédula OPP:(\d+)/;
     const match = regex.exec(card.desc);
     if (!match) throw new Error('cannot get opp');
-    const opp = match[1].trim();
+    const opp = match[1];
 
     const email = extractEmail(card.desc);
     if (!email) {
@@ -50,8 +50,8 @@ export async function POST(req: Request) {
     const db = client.db('Genipsi');
 
     if (acceptedPsysListId === listId) {
-        await db.collection('psi').updateOne({ opp }, { $set: { approved: true } });
+        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: true } });
     } else if (firstContactListId === listId) {
-        await db.collection('psi').updateOne({ opp }, { $set: { approved: false } });
+        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: false } });
     }
 }

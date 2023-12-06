@@ -31,6 +31,8 @@ export async function GET(req: NextRequest) {
 
     if (consultationPreference == 'no-preference' || consultationPreference == 'mixed') {
         filter['consultationType'] = { $in: ['Ambos', 'Online', 'Presencial'] };
+    } else if (consultationPreference == 'presential') {
+        filter['consultationType'] = { $in: ['Presencial'] };
     } else if (consultationPreference) {
         filter['consultationType'] = { $in: [capitalizeFirstLetter(consultationPreference)] };
     }

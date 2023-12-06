@@ -1,7 +1,7 @@
 import clientPromise from '@/lib/mongo';
 
 interface trelloWebhook {
-    action: { data: { listAfter: { id: string }; card: { id: string } } };
+    action: { data: { listAfter: { id: string | undefined }; list: { id: string | undefined }; card: { id: string } } };
 }
 
 function extractEmail(inputString: string) {
@@ -15,7 +15,10 @@ export async function POST(req: Request) {
     const apiKey = process.env.TRELLO_KEY;
     const trelloToken = process.env.TRELLO_TOKEN;
     const res = (await req.json()) as trelloWebhook;
-    const listId = res.action.data.listAfter.id;
+    let listId = res.action.data.listAfter?.id;
+    if (!listId) {
+        listId = res.action.data.list?.id;
+    }
 
     const acceptedPsysListId = '654b64f691952533bd65241d';
     const firstContactListId = '655e4275b5d9aede8814f894';

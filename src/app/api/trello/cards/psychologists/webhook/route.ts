@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const regex = /Cédula OPP:(\d+)/;
     const match = regex.exec(card.desc);
     if (!match) return;
-    const oppCedule = match[1];
+    const oppCedule = match[1].trim();
 
     const email = extractEmail(card.desc);
 

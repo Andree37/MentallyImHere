@@ -35,6 +35,8 @@ export async function GET(req: NextRequest) {
         filter['consultationType'] = { $in: [capitalizeFirstLetter(consultationPreference)] };
     }
 
+    filter['approved'] = true;
+
     const client = await clientPromise;
     const db = client.db('Genipsi');
 

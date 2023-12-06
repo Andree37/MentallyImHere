@@ -35,6 +35,7 @@ export async function POST(req: Request, response: Response) {
     const listId = res.action.data.listAfter.id;
 
     const acceptedPsysListId = '654b64f691952533bd65241d';
+    const firstContactListId = '655e4275b5d9aede8814f894';
 
     const cardId = res.action.data.card.id;
 
@@ -61,7 +62,7 @@ export async function POST(req: Request, response: Response) {
 
     if (acceptedPsysListId === listId) {
         await db.collection('psi').updateOne({ opp: oppCedule, email }, { $set: { approved: true } });
-    } else {
+    } else if (firstContactListId === listId) {
         await db.collection('psi').updateOne({ opp: oppCedule, email }, { $set: { approved: false } });
     }
 }

@@ -5,30 +5,13 @@ interface trelloWebhook {
 }
 
 function extractEmail(inputString: string) {
-    const emailPrefix = 'Email: ';
+    const regex = /Email:\s*(\S+)/;
+    const match = regex.exec(inputString);
 
-    // Find the index of "Email: "
-    const emailIndex = inputString.indexOf(emailPrefix);
-
-    // Check if "Email: " was found
-    if (emailIndex !== -1) {
-        // Extract the email substring
-        const emailSubstring = inputString.substring(emailIndex + emailPrefix.length);
-
-        // Find the end of the email (assuming it ends with a line break)
-        const lineBreakIndex = emailSubstring.indexOf('\n');
-
-        // Extract the email
-        const email = lineBreakIndex !== -1 ? emailSubstring.substring(0, lineBreakIndex) : emailSubstring;
-
-        return email.trim(); // Trim to remove leading/trailing whitespaces
-    } else {
-        // Return null if "Email: " was not found
-        return null;
-    }
+    return match ? match[1].trim() : null;
 }
 
-export async function POST(req: Request, response: Response) {
+export async function POST(req: Request) {
     const apiKey = process.env.TRELLO_KEY;
     const trelloToken = process.env.TRELLO_TOKEN;
     const res = (await req.json()) as trelloWebhook;

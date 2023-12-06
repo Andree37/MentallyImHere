@@ -50,8 +50,8 @@ export async function POST(req: Request) {
     const db = client.db('Genipsi');
 
     if (acceptedPsysListId === listId) {
-        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: true } });
+        await db.collection('psi').updateOne({ opp }, { $set: { approved: true } });
     } else if (firstContactListId === listId) {
-        await db.collection('psi').updateOne({ opp, email }, { $set: { approved: false } });
+        await db.collection('psi').updateOne({ opp }, { $set: { approved: false } });
     }
 }

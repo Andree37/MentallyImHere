@@ -1,12 +1,12 @@
 import clientPromise from '@/lib/mongo';
 
 interface trelloWebhook {
-    action: { data: { list: { id: string }; card: { id: string } } };
+    action: { data: { listAfter: { id: string }; card: { id: string } } };
 }
 
 export async function POST(req: Request, response: Response) {
     const res = (await req.json()) as trelloWebhook;
-    const listId = res.action.data.list.id;
+    const listId = res.action.data.listAfter.id;
 
     const acceptedPsysListId = '654b64f691952533bd65241d';
 

@@ -24,7 +24,8 @@ export async function POST(req: Request, response: Response) {
 
     const card = await cardResponse.json();
     const regex = /Cédula OPP:(\d+)/;
-    const oppCedule = regex.exec(card.desc);
+    const match = regex.exec(card.desc);
+    const oppCedule = match[1];
 
     const client = await clientPromise;
     const db = client.db('Genipsi');

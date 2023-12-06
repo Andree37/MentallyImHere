@@ -5,6 +5,8 @@ interface trelloWebhook {
 }
 
 export async function POST(req: Request, response: Response) {
+    const apiKey = process.env.TRELLO_KEY;
+    const trelloToken = process.env.TRELLO_TOKEN;
     const res = (await req.json()) as trelloWebhook;
     const listId = res.action.data.listAfter.id;
 
@@ -12,7 +14,7 @@ export async function POST(req: Request, response: Response) {
 
     const cardId = res.action.data.card.id;
 
-    const cardResponse = await fetch(`https://api.trello.com/1/cards/${cardId}?key=APIKey&token=APIToken`, {
+    const cardResponse = await fetch(`https://api.trello.com/1/cards/${cardId}?key=${apiKey}&token=${trelloToken}`, {
         method: 'GET',
         headers: {
             Accept: 'application/json',
@@ -34,6 +36,6 @@ export async function POST(req: Request, response: Response) {
     if (acceptedPsysListId === listId) {
         await db.collection('psi').updateOne({ opp: oppCedule }, { $set: { approved: true } });
     } else {
-        await db.collection('psi').updateOne({ opp: '1' }, { $set: { approved: false } });
+        await db.collection('psi').updateOne({ opp: oppCedule }, { $set: { approved: false } });
     }
 }

@@ -7,6 +7,8 @@ import { InsertOneResult, ObjectId } from 'mongodb';
 import mixpanel from 'mixpanel-browser';
 import { v4 as uuidv4 } from 'uuid';
 
+const fontSizes = { sm: '10px', lg: '25px' };
+
 const portugalCities = [
     'Lisboa',
     'Porto',
@@ -578,6 +580,10 @@ export default function RegisterClientForm() {
                     theme: {
                         buttonsBgColor: '#1664C0',
                         answersColor: 'black',
+                        questionsLabelFontSize: { lg: '20px', sm: '15px' },
+                        buttonsFontSize: { lg: '22px', sm: '13px' },
+                        textInputAnswers: { lg: '30px', sm: '17px' },
+                        fontSize: { lg: '20px', sm: '12px' },
                     },
                 }}
                 onSubmit={async (data, { completeForm, setIsSubmitting }) => {

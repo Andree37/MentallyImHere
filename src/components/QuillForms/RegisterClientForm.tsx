@@ -6,8 +6,7 @@ import { registerCoreBlocks } from '@quillforms/react-renderer-utils';
 import { InsertOneResult, ObjectId } from 'mongodb';
 import mixpanel from 'mixpanel-browser';
 import { v4 as uuidv4 } from 'uuid';
-
-const fontSizes = { sm: '10px', lg: '25px' };
+import { useSearchParams } from 'next/navigation';
 
 const portugalCities = [
     'Lisboa',
@@ -78,7 +77,7 @@ type ClienteResponseData = {
 
 registerCoreBlocks();
 
-async function postAnswersOnTrello(data: Answers, id: ObjectId | undefined) {
+async function postAnswersOnTrello(data: Answers & { advertiserID: string }, id: ObjectId | undefined) {
     const response = await fetch(`/api/trello/cards/clients/quill`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -122,7 +121,7 @@ async function addPsysSuggestions(cardID: string, psysSuggestion: string) {
     return await response.json();
 }
 
-async function postAnswersOnMongo(data: Answers): Promise<
+async function postAnswersOnMongo(data: Answers & { advertiserID: string }): Promise<
     | {
           document: InsertOneResult;
       }
@@ -132,6 +131,19 @@ async function postAnswersOnMongo(data: Answers): Promise<
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data }),
+    });
+
+    if (!response.ok) {
+        return;
+    }
+
+    return await response.json();
+}
+
+async function getAdvertiser(id: string | null) {
+    const response = await fetch(`/api/advertisers?id=${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
     });
 
     if (!response.ok) {
@@ -155,6 +167,8 @@ export default function RegisterClientForm() {
     const frequencyAnswer = useFieldAnswer('0-6-frequency') as string;
     const immediateAvailabilityAnswer = useFieldAnswer('1-1-immediate-availability') as string;
     const contactPreferenceAnswer = useFieldAnswer('1-6-contact-preference') as string;
+
+    const params = useSearchParams();
 
     return (
         <div className="h-[80vh] w-full">
@@ -630,9 +644,17 @@ export default function RegisterClientForm() {
                         answerData[formattedKey] = d[key];
                     });
 
-                    // I know I am doing some typescript magic, but let me live :(
-                    const mongoRes = await postAnswersOnMongo(answerData);
-                    const trelloRes = await postAnswersOnTrello(answerData, mongoRes?.document.insertedId);
+                    // fetch advertiser information
+                    const advertiserID = params.get('adv');
+                    const adv = await getAdvertiser(advertiserID);
+
+                    const advertiserObj = adv ? { advertiserID: adv?.data._id } : { advertiserID: 'Unknown' };
+
+                    const mongoRes = await postAnswersOnMongo({ ...answerData, ...advertiserObj });
+                    const trelloRes = await postAnswersOnTrello(
+                        { ...answerData, ...advertiserObj },
+                        mongoRes?.document.insertedId,
+                    );
 
                     const psychologists = await getPsis(
                         answerData['professional-gender'][0],

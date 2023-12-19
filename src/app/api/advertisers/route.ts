@@ -8,7 +8,9 @@ export async function POST(req: Request) {
 
     const { name, email, phone, iban, socialNetwork } = await req.json();
 
-    const data = await db.collection('advertisers').insertOne({ name, email, phone, iban, socialNetwork });
+    const data = await db
+        .collection('advertisers')
+        .insertOne({ name, email, phone, iban, socialNetwork, registrationDate: Date.now() });
 
     return NextResponse.json({ data });
 }

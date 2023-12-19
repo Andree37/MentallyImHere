@@ -2,8 +2,43 @@ import Image from 'next/image';
 
 const stats = [
     { label: 'Clientes atraídos', value: '12' },
+    { label: 'Clientes ainda à espera da primeira consulta', value: '3' },
     { label: 'Rendimento Gerado', value: '2 euros' },
-    { label: 'Data Limite', value: '30/03/2023' },
+    { label: 'Data Limite (renova automaticamente)', value: '30/03/2023' },
+];
+
+const values = [
+    {
+        name: 'Recompensa por Cliente',
+        description:
+            'Nível 1 (1-19 clientes): 10€ por cada cliente indicado.\n' +
+            'Nível 2 (20-29 clientes): 15€ por cada cliente indicado.\n' +
+            'Nível 3 (30+ clientes): 20€ por cada cliente indicado.\n',
+    },
+    {
+        name: 'Detalhes do Programa',
+        description:
+            'Duração: 90 dias (3 meses)\n' +
+            'Período de Qualificação: Data de início até data de fim (por exemplo, de 1 de janeiro de 2023 a 30 de Março de 2023)\n' +
+            'Público-Alvo: Influencers/Companies\n' +
+            'Cálculo da Recompensa: Número total de clientes qualificados indicados pelo anunciante multiplicado pelo valor da recompensa correspondente ao nível alcançado.\n',
+    },
+    {
+        name: 'Renovação do Programa',
+        description:
+            'O programa é renovado automaticamente a cada 3 meses. Qualquer alteração do mesmo todos os intervenientes serão avisados via e-mail das alterações.',
+    },
+    {
+        name: 'Desistir do Programa',
+        description:
+            'Para desistir do programa o anunciante não terá de tomar qualquer medida adicional, se não existirem mais users a chegar por parte desse anunciante, o anunciante não irá receber a recompensa\n' +
+            'Se quiser que apaguemos os seus dados da nossa base de dados, basta enviar-nos um email a partir do qual se inscreveu dizendo: “Quero desistir do programa para anunciantes e quero apagar os meus dados pessoais” e a psiplexus tratará disso o mais breve possível.',
+    },
+    {
+        name: 'Pagamento e Reconhecimento',
+        description:
+            'O pagamento é efetuado mensalmente para o anunciante. Este é feito segundo os dados que são demonstrados para o mesmo nesta página',
+    },
 ];
 
 export default function Page() {
@@ -65,6 +100,10 @@ export default function Page() {
                                 </p>
                                 <p className="relative mt-3 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
                                     Com a sua ajuda podemos chegar a mais pessas que precisem deste produto!
+                                </p>
+
+                                <p className="relative mt-9 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+                                    O seu hyperlink com o código de campanha: (link)
                                 </p>
                             </div>
                             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -178,6 +217,25 @@ export default function Page() {
                     width={2832}
                     height={2832}
                 />
+            </div>
+
+            {/* Values section */}
+            <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:mx-0">
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our values</h2>
+                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate
+                        veritatis in accusamus quisquam.
+                    </p>
+                </div>
+                <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                    {values.map((value) => (
+                        <div key={value.name}>
+                            <dt className="font-semibold text-gray-900">{value.name}</dt>
+                            <dd className="mt-1 text-gray-600">{value.description}</dd>
+                        </div>
+                    ))}
+                </dl>
             </div>
         </main>
     );

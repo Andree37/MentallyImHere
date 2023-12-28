@@ -646,9 +646,9 @@ export default function RegisterClientForm() {
 
                     // fetch advertiser information
                     const advertiserID = params.get('adv');
-                    const adv = await getAdvertiser(advertiserID);
+                    const adv = advertiserID ? await getAdvertiser(advertiserID) : null;
 
-                    const advertiserObj = adv ? { advertiserID: adv?.data._id } : { advertiserID: 'Unknown' };
+                    const advertiserObj = adv ? { advertiserID: adv?.data?._id } : { advertiserID: 'Unknown' };
 
                     const mongoRes = await postAnswersOnMongo({ ...answerData, ...advertiserObj });
                     const trelloRes = await postAnswersOnTrello(

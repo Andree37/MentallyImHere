@@ -173,7 +173,7 @@ export default function InfoForm() {
     const errorToast = useCallback(() => {
         toast({
             title: 'Algo correu mal...',
-            description: 'Por favor tente novamente.',
+            description: 'Por favor tente novamente, mais tarde.',
             status: 'error',
             duration: 3000,
             isClosable: false,

@@ -207,8 +207,8 @@ export default function InfoForm() {
             }
 
             toast({
-                title: 'Sucesso!',
-                description: 'Entraremos em contacto consigo o mais cedo possível.',
+                title: 'Sucesso.',
+                description: 'Verifique o seu email, entraremos em contacto consigo o mais cedo possível.',
                 status: 'success',
                 duration: 5000,
                 isClosable: false,

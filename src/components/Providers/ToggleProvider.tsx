@@ -14,20 +14,12 @@ interface ToggleProviderProps {
 function ToggleProvider({ children }: ToggleProviderProps) {
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false);
-    useEffect(() => {
-        const changeID = setInterval(() => {
-            setShow((t) => !t);
-        }, 4800);
-
-        return () => {
-            clearInterval(changeID);
-        };
-    }, []);
 
     useEffect(() => {
         if (toggle) {
             const tID = setTimeout(() => {
                 setToggle(false);
+                setShow((t) => !t);
             }, 800);
             return () => clearInterval(tID);
         } else {

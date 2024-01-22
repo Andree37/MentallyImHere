@@ -662,7 +662,8 @@ export default function PsiForm() {
                                 <FormLabel className="dark:text-white">
                                     Localização
                                     <p className="font-light text-gray-500 mt-2 text-xs">
-                                        Zonas preferenciais de atuação/ realização de sessões presenciais.
+                                        Zonas preferenciais de atuação/ realização de sessões presenciais. (Por favor
+                                        indique o munícipio para que possamos localizar os clientes mais próximos de si)
                                     </p>
                                 </FormLabel>
                                 <FormControl>

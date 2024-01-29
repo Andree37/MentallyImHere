@@ -11,24 +11,28 @@ interface ToggleProviderProps {
     children: ReactNode;
 }
 
+const MAX_COUNTER = 5;
+
 function ToggleProvider({ children }: ToggleProviderProps) {
+    const [toggleCounter, setToggleCounter] = useState(0);
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        if (toggle) {
-            const tID = setTimeout(() => {
-                setToggle(false);
+        const tID = setTimeout(() => {
+            setToggleCounter((c) => c + 1);
+            if (toggleCounter >= MAX_COUNTER) {
+                setToggleCounter(0);
                 setShow((t) => !t);
-            }, 800);
-            return () => clearInterval(tID);
-        } else {
-            const tID = setTimeout(() => {
-                setToggle(true);
-            }, 4000);
-            return () => clearInterval(tID);
-        }
-    }, [toggle]);
+            } else {
+                setToggle(false);
+                if (toggleCounter >= MAX_COUNTER - 1) {
+                    setToggle(true);
+                }
+            }
+        }, 800);
+        return () => clearInterval(tID);
+    }, [toggle, toggleCounter, show]);
 
     return <ToggleContext.Provider value={{ toggle, show }}>{children}</ToggleContext.Provider>;
 }

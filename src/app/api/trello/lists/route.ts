@@ -14,13 +14,13 @@ export async function GET(_: Request) {
         },
     });
     if (!response.ok) {
-        throw new Error('Network response was not ok');
+        return NextResponse.error();
     }
 
     const data = await response.json();
 
     if (data.status === 429) {
-        return [];
+        return NextResponse.json({ data: [] });
     }
 
     console.log(data);

@@ -1,4 +1,5 @@
 import clientPromise from '@/lib/mongo';
+import { NextResponse } from 'next/server';
 
 interface trelloWebhook {
     action: { data: { listAfter: { id: string | undefined }; list: { id: string | undefined }; card: { id: string } } };
@@ -32,7 +33,7 @@ export async function POST(req: Request) {
         },
     });
     if (!cardResponse.ok) {
-        throw new Error('cannot get card response');
+        return NextResponse.error();
     }
 
     const card = await cardResponse.json();
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
 
     const email = extractEmail(card.desc);
     if (!email) {
-        throw new Error('cannot get email');
+        return NextResponse.error();
     }
 
     const client = await clientPromise;

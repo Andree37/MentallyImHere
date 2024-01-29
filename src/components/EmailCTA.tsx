@@ -1,5 +1,6 @@
 import GenderText from '@/components/GenderText';
 import RegisterClientForm from '@/components/QuillForms/RegisterClientForm';
+import { Suspense } from 'react';
 
 export default function EmailCTA() {
     return (
@@ -19,7 +20,9 @@ export default function EmailCTA() {
                                     Preencha o formulário abaixo e ajude-nos a compreender melhor a sua realidade para
                                     que possamos <GenderText text={'conectá-l@ ao psicólog@'} /> mais adaptado para si.
                                 </div>
-                                <RegisterClientForm />
+                                <Suspense>
+                                    <RegisterClientForm />
+                                </Suspense>
                             </div>
                         </div>
                     </div>

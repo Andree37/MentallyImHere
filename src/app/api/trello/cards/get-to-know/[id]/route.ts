@@ -23,13 +23,13 @@ export async function POST(req: Request, { params }: { params: { id: string } })
         },
     });
     if (!response.ok) {
-        throw new Error('Network response was not ok: ' + response.status);
+        return NextResponse.error();
     }
 
     const data = await response.json();
 
     if (data.status === 429) {
-        return [];
+        NextResponse.json({ data: [] });
     }
     if (data.cards && data.cards.length > 0) {
         const COMMENT_TRELLO_URL = `https://api.trello.com/1/cards/${data.cards[0].id}/actions/comments`;
@@ -46,7 +46,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
             }),
         });
         if (!response.ok) {
-            throw new Error('Network response was not ok: ' + response.status);
+            return NextResponse.error();
         }
 
         const finalData = await response.json();

@@ -69,7 +69,7 @@ export async function POST(req: Request) {
         }),
     });
     if (!response.ok) {
-        throw new Error('Network response was not ok: ' + response.status);
+        return NextResponse.error();
     }
 
     //send email
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     if (data.status === 429) {
-        return [];
+        NextResponse.json({ data: [] });
     }
 
     return NextResponse.json({ data });

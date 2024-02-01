@@ -1,0 +1,114 @@
+_id,age,email,motivation,name,phone,contactFrom,advertiserID,consultLocation,location,answers
+64cbab21b6e9f75610197cdd,12,andre@mail.com,asd,asd,+351 912321232,,,,,
+64de18f92ef968429926dea7,12,andresmribeiro@gmail.com,asd,asd,+351 123,,,,,
+64de1a472ef968429926dea8,12,asd@email.com,asd,asd,+351 910823932,,,,,
+64f5eb280e965f45df197c5a,12,teste@gmail.com,teste,teste,+351 911111111,,,,,
+65134761d22292fe98d46785,12,andre@email.com,"",asd,+351 9108293232,,,,,
+6513479ad22292fe98d46786,12,andre@email.com,asd,asd,+351 9108293232,,,,,
+651347b7d22292fe98d46787,123,asd@email.com,asd,asd,+351 910829322,,,,,
+651347e0d22292fe98d46788,12,asd@email.com,asd,asd,+351 912321321,,,,,
+65134828d22292fe98d46789,12,asd@email.com,asd,asd,+351 910823932,,,,,
+651348bed22292fe98d4678a,22,asd@email.com,potato,asd,+351 910823932,,,,,
+651348ecd22292fe98d4678b,44,asd@email.com,asd,asd,+351 910823123,,,,,
+65134925d22292fe98d4678c,12,asd@email.com,asd,asd,+351 123231321,,,,,
+65134951d22292fe98d4678d,12,asd@email.com,asd,asd,+351 12321321,,,,,
+6513497ed22292fe98d4678e,32,asd@email.com,asd,asd,+351 1232311,,,,,
+651349d7d22292fe98d4678f,12,asd@email.com,asd,asd,+351 123231321,,,,,
+65134a0dd22292fe98d46790,12,asd@email.com,asd,asd,+351 321321321,,,,,
+65134a1fd22292fe98d46791,12,asd@email.com,asd,asdasd,+351 3213213,,,,,
+65134aa7d22292fe98d46792,12,asd@email.com,asd,asd,+351 321321321,,,,,
+651c46d1800f8934a97e925b,12,asd@email.com,asdasd,fffff,+351 32132131,,,,,
+651c4989aeb6e2c3de4d3a9c,12,asd@email.com,asdads,asd,+351 231321312,,,,,
+651c498eaeb6e2c3de4d3a9d,12,asd@email.com,asdads,asd,+351 231321312,,,,,
+651c4a0caeb6e2c3de4d3a9e,12,asd@email.com,asdads,asd,+351 231321312,,,,,
+651c4a38aeb6e2c3de4d3a9f,12,asd@email.com,asdads,asd,+351 231321312,,,,,
+651c4a5daeb6e2c3de4d3aa0,12,asd@email.com,asd,here,+351 2321312312,,,,,
+651c4b10aeb6e2c3de4d3aa1,12,asd@email.com,asd,another,+351 12321312,,,,,
+651c4b53aeb6e2c3de4d3aa2,12,asd@email.com,asdasdasd,bunny,+351 321321312,,,,,
+651c4b69aeb6e2c3de4d3aa3,12,asd@email.com,asdasdasd,bunny,+351 321321312,,,,,
+651c4b83aeb6e2c3de4d3aa4,12,asd@email.com,asdasdasd,bunny,+351 321321312,,,,,
+651c4b91aeb6e2c3de4d3aa5,32,asd@email.com,asd,asdasd,+351 321321321,,,,,
+651c4bbbaeb6e2c3de4d3aa6,12,asd@email.com,asd,ffff,+351 321321321,,,,,
+651c4bd8aeb6e2c3de4d3aa7,12,asd@email.com,asd,aaa,+351 3213213,,,,,
+651c4bf5aeb6e2c3de4d3aa8,12,asd@email.com,asd,asdasd,+351 123123123,,,,,
+651c4c28aeb6e2c3de4d3aa9,12,asd@email.com,asd,asd,+351 123123213,,,,,
+65242d167c71aa0d7579a88f,27,alex@laicos.pt,Teste Alex,Alexandre Vieira,+351 962005875,,,,,
+6526c1e3ae70613810f9c8a0,12,asd@email.com,testesteste,cleinteteste,"",Email,,,,
+6526c1faae70613810f9c8a1,23,,asd,teste2,+351 12321321,WhatsApp,,,,
+6526c453e96f0161925a2426,23,,teste,Teste,+351 913060881,Chamada,,,,
+654ac150814344a6777026a7,12,,asdasd,asd,+351 123123123,Chamada,654ab83fd24bc53ce8c309ed,Online,,
+654ac212814344a6777026a8,12,,asdasd,asd,+351 123123123,Chamada,Unknown,Online,,
+654b5f7c4e06653dae9836c6,22,,moitivalão,tommy,+351 913060881,Chamada,654b5f494e06653dae9836c5,Online,,
+6557872687f60eb4558065b0,52,patricialima1971@gmail.com,Conversa com um profissional ,Patrícia Lima,"",Email,Unknown,Online,,
+65578fe387f60eb4558065b1,53,,"Desabafar, falar sobre o que se vai guardando ao longo da vida",Elsa Santos ,+351 919114014,Chamada,Unknown,Presencial,Alhos vedros,
+6558945d87f60eb4558065b3,54,,Ajuda,Paula Santos,+351 961305353,Chamada,Unknown,Online,,
+6558c6b487f60eb4558065b4,58,,"Gostaria de consultar um Psicólogo comportamento.
+ Também pode ser on line
+ De acordo com diagnóstico psiquiátrico, tenho uma depressão crónica o que me deixa sem vontade para nada. Dificuldade em terminar tarefas, tristeza e por vezes totalmente apagada sem energia para nada.",Olga Pires,+351 966426308,Chamada,Unknown,Presencial,Lisboa/Lumiar,
+6558cb9b87f60eb4558065b5,30,,Estado mental afetado por questões de saúde e profissionais com impacto nas relações familiares,Cláudia Ferreira ,+351 915237110,WhatsApp,Unknown,Online,"",
+6558e30687f60eb4558065b6,41,Anagraca@gmail.com,Workshop’s gratuitos acesso,Ana,"",Email,Unknown,Online,,
+6558e34587f60eb4558065b7,26,patricia240797@hotmail.com,"Sofro muito de ansiedade desde pequena, geralmente externaliza-se por TOCs e ataques de ansiedade que moldam a forma como vivo o meu dia a dia.",Patricia Barros Francisco,"",Email,Unknown,Presencial,Lisboa,
+6558f2ab87f60eb4558065b8,54,,Curiosidade,Carla Silva ,+351 961770676,WhatsApp,Unknown,Online,,
+65592e1187f60eb4558065b9,45,,Depressão major ,Sílvia Vasconcelos,+351 915650437,Chamada,Unknown,Online,,
+65593c9087f60eb4558065ba,28,,"Depois do secundário, comecei a trabalhar como administrativo em empresas da área da banca e tenho, atualmente, um emprego estável, nos escritórios de um banco. Aquilo a que gostava mesmo de dedicar o meu tempo era a escrita de guiões. Tenho inúmeras ideias de projetos cinematográficos, algumas megalómanas e, por não ter tempo para me dedicar a elas nem estudos sobre o assunto, acabo por nunca as iniciar. Gostava de resolver isso mas não vejo uma solução que não envolva sair do emprego em que estou e deixar de ter um salário estável, que tanta falta me faz nos dias que correm.",José Pedro Lopes,+351 936963795,WhatsApp,Unknown,Presencial,Lisboa,
+6559586887f60eb4558065bb,25,,Recomendação da minha médica. Estou diagnosticada com endometriose e vaginismo. A minha genecilogista recomendou me que procurasse uma psicóloga/sexóloga ,Maria Meneses,+351 968302657,Chamada,Unknown,Online,,
+6559675c87f60eb4558065bc,21,,Bem estar geral,Laura Carvalho ,+351 969416391,WhatsApp,Unknown,Presencial,Funchal ,
+6559d79087f60eb4558065bd,25,mariana.carrajola@gmail.com,"Ando desmotivada, perdida e confusa. ",Mariana Carrajola,"",Email,Unknown,Presencial,Lisboa,
+6559fdf987f60eb4558065be,24,mcarolmguimaraes@gmail.com,Gestão da ansiedade,Carolina Guimarães ,"",Email,Unknown,Presencial,Guimarães ,
+655a168987f60eb4558065bf,27,,"Ansiedade e stress
+Gestão do dia a dia - atividade laboral",Ana Carneiro,+351 932928938,WhatsApp,Unknown,Presencial,"Lisboa, Loures, Amadora",
+655a250787f60eb4558065c0,23,marianaosf2000@gmail.com,interesse,Mariana,"",Email,Unknown,Online,,
+655abbff90831ae53a661195,23,,Teste,Tomás test 1,+351 913060881,Chamada,Unknown,Online,,
+655b13ec90831ae53a661196,58,,Informações ,Marcelo Silvério ,+351 964092651,WhatsApp,Unknown,Online,,
+655b6dcee55e0527b5e5aa17,12,t@email.com,teste,Teste 1,"",Email,Unknown,Presencial,Teste,
+655bd1535d29c84f60a4d0a0,23,rebeca.alexandra.paiva@gmail.com,"Ansiedade (SII diagnosticada).
+Preferência por acordos com seguradora ADSE/AdvanceCare",Rebeca Paiva,+351 918887328,WhatsApp,Unknown,Ambos,Lisboa,
+655c9c675d29c84f60a4d0a3,29,bcampomizzi2@gmail.com,Acho que o acompanhamento psicológico é sempre importante em qualquer etapa da vida.,Bárbara Nogueira ,+55 ,Email,Unknown,Online,,
+655d28d55d29c84f60a4d0a8,27,rafaelamatos4@gmail.com,"Acompanhamento para lidar com questões relacionadas a relações familiares, ansiedade e pressão/stress no trabalho. ",Rafaela Matos,+351 938517504,Email,Unknown,Online,,
+655e4cea4f14306d2354b64a,27,angusmiguel21@gmail.com,"Luto.
+Trauma complexo.
+Trauma religioso.
+POC.",Miguel Ferreira,+91 45881-14,Email,Unknown,Ambos,Porto,
+655e4d744f14306d2354b64b,27,angusmiguel21@gmail.com,"Luto, trauma, POC",Miguel Ferreira,"",Email,Unknown,Online,,
+655e5c534f14306d2354b64c,22,analuisasssmachado@gmail.com,"Algumas questões relacionais que gostaria de explorar, e necessidade por ser aluna do 5 ano de psicologia a começar o estágio ",Ana Machado ,+351 968048507,WhatsApp,Unknown,Presencial,Lisboa ,
+655e73ca4f14306d2354b64d,27,anacatreis96@gmail.com,Gerir ansiedade ,Ana Reis,+351 ,Email,Unknown,Presencial,Santa Maria da Feira ,
+655e80664f14306d2354b64e,48,Agomes@activewhere.com,Procurar estratégias que me permitam evitar confrontos. Ferramentas de combate à ansiedade; ajuda na tomadas de atitudes com problemas graves e que não nos conseguimos impor.,Ana,+351 ,Email,Unknown,Online,"",
+655e8ae94f14306d2354b64f,72,ecandeias@meo.pt,Receber informação sobre as causas das minhas inseguranças. Obrigada ,Ester Candeias,+351 966618419,Email,Unknown,Presencial,Av. Francisco Sá Carneiro.  Edifício Riviera 8125-254   ,
+655f510a4f14306d2354b650,52,Claudiagardete@gmail.com,Apoio psicológico ,Claudia correia ,+351 966215048,Chamada,Unknown,Online,,
+655f53734f14306d2354b651,56,a2425@sapo.pt,"Por agora, não vejo necessidade.",Pedro Paiva,+351 ,Email,Unknown,Online,,
+655f58974f14306d2354b652,23,simone.reynolds2000@gmail.com,Compreender os problemas que me acompanham,Simone Reynolds,+351 933469255,WhatsApp,Unknown,Presencial,Lisboa,
+655f80e34f14306d2354b653,52,jorge24rosa@hotmail.com,Controlar os níveis elevados de ansiedade ,Jorge Rosa ,+93 6917645,Email,Unknown,Presencial,Lisboa ,
+655fd8025dded0ca3af6be26,25,tommasini15@gmail.com,Teste email,test tomas,+351 ,Email,Unknown,Online,,
+655fde999d2427659921a855,12,asd@email.com,asd,teste cliente,+351 123231321312,Chamada,Unknown,Online,,
+65607a8087d179d1e05cf384,27,alex@laicos.pt,test,Alex Test,+351 910000000,WhatsApp,Unknown,Ambos,"",
+65608c4909c1db441b37c591,12,asd@email.com,teste,potato,+351 123213123,Chamada,Unknown,Online,"",
+65608c5d09c1db441b37c592,12,asd@email.com,asd,potato2,+351 123123123123,Chamada,Unknown,Presencial,asd,
+65608cdd09c1db441b37c593,12,asd@email.com,asdasd,teste,+351 123123123123,Chamada,Unknown,Online,,
+65608d1e09c1db441b37c594,12,asd@email.com,asd,teste,+351 123213123,Chamada,Unknown,Online,,
+65608d3509c1db441b37c595,12,asd@email.com,asd,teste,+351 123123123,Chamada,Unknown,Online,,
+65608d6209c1db441b37c596,12,asd@email.com,asd,teste,+351 123123123,Chamada,Unknown,Online,,
+65608d8009c1db441b37c597,12,asd@email.com,asd,teste,+351 12312312,Chamada,Unknown,Online,,
+65608dec09c1db441b37c598,12,asd@email.com,asd,teste,+351 12312312,Chamada,Unknown,Online,,
+65608e1109c1db441b37c599,12,asd@email.com,asd,teste,+351 123123123,Chamada,654ab83fd24bc53ce8c309ed,Online,,
+65608f6f23f754174d1be2b9,12,andresmribeiro@gmail.com,asd,teste,+351 123123123,Chamada,654ab83fd24bc53ce8c309ed,Online,,"gender: non-binary
+consultation for: self
+previous experience therapy: yes
+availability days: tuesday, friday
+availability hours: lunch, morning
+professional gender: female
+therapy approach: psychodynamic, behavioral-cognitive-therapy, another
+financial availability: thirty-fifty, fifty-seventy
+additional information: asd
+prev experience yes: asd
+therapy approach other: asdasdasd
+"
+65613150b264004c1587d8a6,12,andresmribeiro@gmail.com,asdasd,teste1,+351 ,Email,654ab83fd24bc53ce8c309ed,Online,,"gender: masculino
+consultation for: self
+previous experience therapy: yes
+availability days: monday, thursday
+availability hours: morning
+professional gender: male
+financial availability: thirty-fifty
+additional information: asdasda
+prev experience yes: sdasdas
+"

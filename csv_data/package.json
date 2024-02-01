@@ -1,0 +1,18 @@
+{
+  "name": "csv_data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongres.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.1",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  }
+}

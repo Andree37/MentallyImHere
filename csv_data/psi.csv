@@ -1,47 +1,21 @@
 _id,age,availability,consultationType,cost,email,experienceYears,location,name,opp,phone,specialization,otherData,approved,gender
-65197553f8b16742fcc6c112,12,asd,Online,5,asd@email.com,12,asd,asd,false,+351 2132312321,as,,,
-65197645f8b16742fcc6c120,,,,,,,,,65197645f8b16742fcc6c11f,,,"{name=userasd, age=12, specialization=asd, phone=+351 123213213, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d82a5df1a5121d10d4a2c,,,,,,,,,651d82a5df1a5121d10d4a2b,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d82e6df1a5121d10d4a3a,,,,,,,,,651d82e6df1a5121d10d4a39,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d82f9df1a5121d10d4a48,,,,,,,,,651d82f9df1a5121d10d4a47,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d832fdf1a5121d10d4a56,,,,,,,,,651d832fdf1a5121d10d4a55,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d834edf1a5121d10d4a64,,,,,,,,,651d834edf1a5121d10d4a63,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d83c0df1a5121d10d4a72,,,,,,,,,651d83c0df1a5121d10d4a71,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d83e9df1a5121d10d4a80,,,,,,,,,651d83e9df1a5121d10d4a7f,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d83fedf1a5121d10d4a8e,,,,,,,,,651d83fedf1a5121d10d4a8d,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d85acdf1a5121d10d4a9c,,,,,,,,,651d85acdf1a5121d10d4a9b,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d85c8df1a5121d10d4aaa,,,,,,,,,651d85c8df1a5121d10d4aa9,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d85f7df1a5121d10d4ab8,,,,,,,,,651d85f7df1a5121d10d4ab7,,,"{name=asd, age=12, specialization=asd, phone=+351 21321321, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d864cdf1a5121d10d4ac6,,,,,,,,,651d864cdf1a5121d10d4ac5,,,"{name=potatman, age=12, specialization=asd, phone=+351 123123123, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-651d8695df1a5121d10d4acb,,,,,,,,,651d8695df1a5121d10d4aca,,,"{name=xxxx, age=12, specialization=asd, phone=+351 12312321312, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-65201aef5350dd7173f9e002,,,,,,,,,65201aef5350dd7173f9e001,,,"{name=asd, age=12, specialization=asdasd, phone=+351 123213213, email=andre@email.com, location=dsa, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-65242e117c71aa0d7579a891,,,,,,,,,65242e117c71aa0d7579a890,,,"{name=Alexandre Vieira, age=27, specialization=Psicólogo
-Psicoterapeuta Existencial, phone=+351 962005875, email=alex@laicos.pt, location=Lisboa, Aveiro, experienceYears=20, consultationType=Ambos, availability=Todas as quartas-feiras, cost=50, opp=false}",,
-65268e2188ba79a2bf01f012,,,,,,,,,65268e2188ba79a2bf01f011,,,"{name=teste1, contactFrom=Email, age=12, specialization=potato, phone=, email=asd@email.com, location=lisboa, experienceYears=2, consultationType=Ambos, availability=de manha, cost=5, opp=false}",,
-65268f6188ba79a2bf01f017,,,,,,,,,65268f6188ba79a2bf01f016,,,"{name=asd, contactFrom=Email, age=12, specialization=asd, phone=, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-6526941788ba79a2bf01f01c,,,,,,,,,6526941788ba79a2bf01f01b,,,"{name=asd, contactFrom=Chamada, age=12, specialization=asd, phone=+351 12321321, location=asd, experienceYears=2, consultationType=Online, availability=asd, cost=5, opp=false}",,
-6526944a88ba79a2bf01f021,,,,,,,,,6526944a88ba79a2bf01f020,,,"{name=test3, contactFrom=Chamada, age=41, specialization=asd, phone=+351 21321321, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-6526946488ba79a2bf01f026,,,,,,,,,6526946488ba79a2bf01f025,,,"{name=test4, contactFrom=Email, age=12, specialization=asd, phone=, email=asd@email.com, location=asd, experienceYears=12, consultationType=Online, availability=asd, cost=5, opp=false}",,
-6526c21eae70613810f9c8a3,,,,,,,,,6526c21eae70613810f9c8a2,,,"{name=psiteste, age=12, specialization=asd, phone=+351 12312312, email=asd@email.com, location=12, experienceYears=4, consultationType=Online, availability=asd, cost=5, opp=false}",,
-655294bc3f7f05949e2f9fbb,12,sempre,Ambos,20,potato@email.com,12,lisboa,potato,nao sei bem,+351 2123212321,potatoing,,,
-65529c71e8d5b5a7889bde5c,12,asd,Online,"[10, 50]",asd@email.com,12,asd,another potato,12312321,+351 12321321,asd,,,
 65539f3987f60eb4558065aa,26,"Dias úteis, das 15h30 às 21h00. Agenda de novembro com poucas vagas. ",Ambos,"[30, 50]",beatrizpires.psi@hotmail.com,3,Coimbra,Beatriz Pires,26235,+351 914550450,"Formação especializada e experiência em intervenção na gravidez e parentalidade, infertilidade e luto (foco no luto perinatal), em aconselhamento em saúde sexual e reprodutiva, e em intervenção com vítimas de violência doméstica. Atendimento exclusivo de mulheres.",,true,female
 65539f7187f60eb4558065ab,32,"Teria disponibilidade imediata para receber novos clientes em qualquer dia da semana entre as 11h00 e as 20h00, dependendo do regime (semanal ou quinzenal), da modalidade (online ou presencial) e da possibilidade de conjugação prévia do dia/horário pretendido com o das pessoas que atualmente acompanho, apenas com exceções pontuais (por exemplo, estou indisponível nas manhãs de segunda-feira).",Ambos,"[30, 60]",lchambelmartins@gmail.com,2,Évora,Luís Chambel Martins,27308,+351 916685497,Formação Académica em Psicologia Clínica (por ora sem Especialização/Formação adicional na área). ,,true,male
-6553a46787f60eb4558065ac,25,"Terças e Sextas das 14h30 ás 19h 
-Possibilidade de outros horários 
-Disponibilidade imediata ",Ambos,"[20, 55]",claudiaabarrocasilva@gmail.com,2,Lisboa,Cláudia Silva,28180,+351 912758088,"1 - Mestrado Integrado em Psicologia Clínica e da Saúde - Área de especialização em Psicologia Clínica Dinâmica. 
-2 - Formação em Intervenção Psicológica com Pessoas LGBTQIA+ - Ordem dos Psicólogos 
-3 - Formação em Intervenção com Crianças e Jovens em Risco - Ordem dos Psicólogos 
+6553a46787f60eb4558065ac,25,"Terças e Sextas das 14h30 ás 19h
+Possibilidade de outros horários
+Disponibilidade imediata ",Ambos,"[20, 55]",claudiaabarrocasilva@gmail.com,2,Lisboa,Cláudia Silva,28180,+351 912758088,"1 - Mestrado Integrado em Psicologia Clínica e da Saúde - Área de especialização em Psicologia Clínica Dinâmica.
+2 - Formação em Intervenção Psicológica com Pessoas LGBTQIA+ - Ordem dos Psicólogos
+3 - Formação em Intervenção com Crianças e Jovens em Risco - Ordem dos Psicólogos
 4 - Formação em Intervenção Psicológica com Pessoas Refugiadas e Requerentes de Asilo - Ordem dos Psicólogos",,true,female
-6553ad0b87f60eb4558065ad,27,"Para sessões presenciais: Quintas-feiras das 16h às 16h50 e/ou das 18h às 18h50. 
+6553ad0b87f60eb4558065ad,27,"Para sessões presenciais: Quintas-feiras das 16h às 16h50 e/ou das 18h às 18h50.
 
 Para sessões online: Terças-feiras das 16h-16h50, e das 17h-17h50.
 
 (provavelmente terei mais horários disponíveis a partir de Janeiro/Fevereiro).",Ambos,"[35, 50]",madalena.wiborg@gmail.com,1,Lisboa,Madalena Wiborg,131660,+351 910352440,"Comecei a minha formação académica no ISCTE, tendo concluído a minha licenciatura em Psicologia. Em seguida, concluí o Mestrado em Psicologia Clínica pelo ISPA.
 
-Fiz o meu estágio curricular no Centro de Saúde de Carnaxide, tendo acompanhado crianças e jovens, individualmente. 
+Fiz o meu estágio curricular no Centro de Saúde de Carnaxide, tendo acompanhado crianças e jovens, individualmente.
 
-Neste momento, encontro-me a concluir o meu estágio profissional para a Ordem dos Psicólogos Portugueses (termina em Janeiro de 2024), em consultório privado, onde acompanho crianças, jovens e adultos. 
+Neste momento, encontro-me a concluir o meu estágio profissional para a Ordem dos Psicólogos Portugueses (termina em Janeiro de 2024), em consultório privado, onde acompanho crianças, jovens e adultos.
 
 Neste momento, estou a fazer a Especialização Avançada em Psicoterapia, no ISPA, que se foca nos factores transversais e princípios transteóricos em psicoterapia e permite o acesso direto à especialidade, no decorrer da sua conclusão. ",,false,female
 6555de0a87f60eb4558065ae,46,"Disponibilidade imediata, de segunda a sexta e sábado de manhã",Online,"[30, 50]",bruno.psi@gmail.com,22,Lisboa,Bruno Pereira Gomes,04353,+351 961213055,"Psicólogo Clínico, Educacional e Psicoterapeuta de Orientação Integrativa",,,male
@@ -89,11 +63,8 @@ Tardes: terça e quinta (14h às 20h) e quarta e sexta (alguns horários das 14h
 Terça-Feira das 14h às 16h (Online)
 Quinta-Feira 14h às 21h (Online)
 Sexta- Feira das 14h às 17h (Online)",Ambos,"[35, 50]",danielamancebo.psicologia@gmail.com,1,Lisboa,Daniela Mancebo,131735,+351 961849002,Mestre em Psicologia Clínica e da Saúde na área de especialização Psicologia Clinica Dinâmica pela Faculdade de Psicologia da Universidade de Lisboa,,true,female
-655cfdf65d29c84f60a4d0a7,26,"Manhãs e início da tarde, de segunda à sexta. 
+655cfdf65d29c84f60a4d0a7,26,"Manhãs e início da tarde, de segunda à sexta.
 Imediata",Ambos,"[35, 40]",catiamolho965@gmail.com,3,Póvoa de Varzim,Cátia Molho,25565,+351 91102854,TCC e Mindfulness,,true,female
-655fdbea5dded0ca3af6be27,24,test,Online,"[10, 30]",tommasini15@gmail.com,2,Alhos Vedros,Tomás Santos test,2,+351 913060881,Especialização test,,,
-655fdedb9d2427659921a856,12,asd,Online,"[10, 30]",asd@email.com,12,asd,asdasd,123,+351 123123123123,potato,,,
-65607b3887d179d1e05cf385,27,"",Ambos,"[40, 60]",alex@laicos.pt,7,Lisboa,Alex test,"",+351 91000000,assadas,,,
 65611473b264004c1587d8a5,27,"Segundas-feiras, quintas-feiras e sextas-feiras ao final do dia,
 Sábados de manhã ",Ambos,"[40, 45]",raquelsantossousa.psicologia@gmail.com,3,Almada ,Raquel Santos Sousa,26536,+351 960497356,Psicologia clínica e da saúde ,,,female
 65631712315fd862829d012a,30,"- Segunda a Sexta das 8h00 às 20h00 (depende do horário pretendido)
@@ -109,10 +80,9 @@ Acompanhamento Psicológico de Adultos
 Mestrado Integrado em Psicologia Clínica pelo ISPA- Instituto Universitário
 Acompanhamento semanal
 Não estou a acompanhar pacientes suicidas",,false,female
-656fb74f5e9f5a8f964f08ae,23,ageqsda,Online,"[10, 30]",tommasini15@gmail.com,4,asd,tomas test,1,+351 913060881,asd,,false,male
-657082ece642c3cc4131cce6,26,"Disponibilidade imediata 
+657082ece642c3cc4131cce6,26,"Disponibilidade imediata
 Sábados (13:30-17:00)",Online,"[45, 75]",inessauderibeiro1@gmail.com,2,Lisboa ,Inês Ribeiro ,28312,+351 926653679,"Psicóloga Clínica e da Saúde
-Acompanhamento de crianças e jovens 
+Acompanhamento de crianças e jovens
 Orientação parental ",,true,female
 6570a92de642c3cc4131cce7,32,"Dias úteis (09:00 - 21:00)
 Sábados (09:00 - 13:00)",Ambos,"[45, 60]",orlandoantunes.psi@gmail.com,7,Lisboa,Orlando Antunes,22188,+351 912275699,"- Mestrado em psicologia clínica e da saúde.
@@ -130,13 +100,13 @@ Sábados (09:00 - 13:00)",Ambos,"[45, 60]",orlandoantunes.psi@gmail.com,7,Lisboa
 Disponibilidade a partir de 3 de Janeiro.",Online,"[40, 50]",tiagofmag.psi@gmail.com,6,Qualquer zona (online),Tiago Magalhães,25314,+351 914046715,"Licenciatura em Ciências Psicológicas
 Mestrado Integrado em Psicologia Clínica e da Saúde de Orientação Psicodinâmica
 Formação em Psicoterapia Existencial pela Sociedade Portuguesa de Psicoterapia Existencial",,,male
-6592afc307e7a79213bdd3f3,49,"Estou disponível em quase todos os dias. 
-Para manhãs e início da tarde tenho disponibilidade quase imediata (2 semanas). 
+6592afc307e7a79213bdd3f3,49,"Estou disponível em quase todos os dias.
+Para manhãs e início da tarde tenho disponibilidade quase imediata (2 semanas).
 Para finais de tarde só a partir do final de janeiro. ",Ambos,"[60, 100]",isabellage.psi@gmail.com,26,Porto,Isabel Lage,8310,+351 912507640,"Psicologia Clínica e da Saúde
 Psicologia Educacional ",,,female
-65958ed607e7a79213bdd3f5,27,A minha disponibilidade é imediata. Tenho o dia de segunda-feira e a tarde de sexta-feira livres. ,Online,"[25, 35]",mariabeatrizmelo@hotmail.com,0,Cascais,Maria Beatriz Henriques,28353,+351 917924110,"Tenho Mestrado Integrado de Psicologia Clínica e da Saúde - área de Dinâmica. 
+65958ed607e7a79213bdd3f5,27,A minha disponibilidade é imediata. Tenho o dia de segunda-feira e a tarde de sexta-feira livres. ,Online,"[25, 35]",mariabeatrizmelo@hotmail.com,0,Cascais,Maria Beatriz Henriques,28353,+351 917924110,"Tenho Mestrado Integrado de Psicologia Clínica e da Saúde - área de Dinâmica.
 
-Realizei diversas formações e workshops, como: 
+Realizei diversas formações e workshops, como:
 - “Perturbações da Personalidade: Avaliar e Intervir” (2020);
 - “Luto: Avaliar e Intervir” (2020);
 - “Consulta Psicológica no Adulto: Entrevista e Métodos de Avaliação” (2021);
@@ -159,7 +129,7 @@ Temáticas com a qual não trabalha: Casos em que a pessoa foi agressor sexual o
 Disponibilidade de segunda-feira às sextas-feiras das 14h00 às 18h00 e aos sábados das 9h00 às 12h00. ",Online,"[30, 40]",sonia.pereira.psicologia@gmail.com,2,Porto,Sónia Pereira,27437,+351 910986837,"Psicologia Clínica e Saúde
 Pós-graduação em Perturbações do Neurodesenvolvimento
 Pós-graduação em Intervenção Psicológica no Luto",,,female
-65b184c78dc11708afdb4d58,26,"Disponibilidade imediata 
+65b184c78dc11708afdb4d58,26,"Disponibilidade imediata
 Sábados de manhã (9h-13h)
 Quintas-feiras (dia inteiro, com possibilidade de pós laboral)
 Sexta-feira (16h-21h)",Ambos,"[40, 45]",patriciafilipaoliveira.psi@gmail.com,2,Cadaval,Patrícia Oliveira,26895,+351 910162161,"Formação em Psicologia Clínica e da Saúde, com Mestrado em Psicoterapia Cognitivo-comportamental e integrativa.

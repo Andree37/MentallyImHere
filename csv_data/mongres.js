@@ -30,7 +30,7 @@ const tables = {
         'availability_describe',
         'preferential_consultation_type',
         'professional_gender',
-        'clientID',
+        'client_id',
     ],
     psis: [
         'id',
@@ -60,15 +60,25 @@ async function insertIntoPg(table, data) {
     const client = await pool.connect();
     try {
         const columns = tables[table];
-        const values = data.map(
-            (d) =>
-                `(${Object.values(d)
-                    .map((val) => `'${val}'`)
-                    .join(',')})`,
-        );
-        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES ${values.join(
-            ',',
-        )} ON CONFLICT (id) DO NOTHING`;
+        const values = data.map((row) => {
+            return `(${columns
+                .map((k) => {
+                    if (!row[k] && k.toLowerCase().includes('id')) {
+                        return 'null';
+                    }
+                    if (typeof row[k] === 'number') {
+                        return row[k];
+                    }
+                    if (typeof row[k] === 'boolean') {
+                        return row[k];
+                    }
+                    return `'${row[k].trim()}'`;
+                })
+                .join(',')})`;
+        });
+
+        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES ${values.join(',')} ON CONFLICT DO NOTHING;`;
+        console.log(query);
         await client.query(query);
     } finally {
         client.release();
@@ -90,14 +100,16 @@ async function loadClients() {
     const clients = await readCsv('clients.csv', (data) => {
         const pData = data;
 
+        const id = uuidv4();
+
         return {
-            id: uuidv4(),
+            id,
             name: pData.name,
             gender: 'plz fix me',
             age: +pData.age,
             email: pData.email,
-            location_district: pData.location, // check this after to pass to district
-            location_municipality: pData.location, // check this after to pass to municipality
+            location_district: pData.location || '', // check this after to pass to district
+            location_municipality: pData.location || '', // check this after to pass to municipality
             contact_preference: pData.contactFrom,
             contact_preference_phone: pData.phone,
             // other fields for client requests
@@ -113,6 +125,7 @@ async function loadClients() {
             preferential_consultation_type: pData.consultLocation,
             professional_gender: 'Any',
             advertiserID: null,
+            client_id: id, // used for client_requests
         };
     });
 
@@ -233,8 +246,8 @@ function parseDataString(dataString) {
 async function run() {
     try {
         await loadClients();
-        await loadClientsQuill();
-        await loadPsis();
+        // await loadClientsQuill();
+        // await loadPsis();
     } catch (e) {
         console.error(e);
     } finally {

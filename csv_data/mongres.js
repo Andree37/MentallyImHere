@@ -63,6 +63,9 @@ async function insertIntoPg(table, data) {
         const values = data.map((row) => {
             return `(${columns
                 .map((k) => {
+                    if (!row[k]) {
+                        return 'null';
+                    }
                     if (!row[k] && k.toLowerCase().includes('id')) {
                         return 'null';
                     }
@@ -141,8 +144,10 @@ async function loadClientsQuill() {
             return null;
         }
 
+        const id = uuidv4();
+
         return {
-            id: uuidv4(),
+            id,
             name: pData.name,
             gender: pData['auto-describe-gender'] || pData.gender[0],
             age: pData.age,
@@ -164,9 +169,10 @@ async function loadClientsQuill() {
                 (pData['immediate-availability'] && pData['immediate-availability'][0] === 'immediate') || false,
             availability_describe: pData['availability-describe'],
             other_availability: pData['immediate-availability-other'],
-            preferential_consultation_type: pData['preferential-consultation-type'], // this is an array, fix it after
-            professional_gender: pData['professional-gender'], // this is an array, fix it after
+            preferential_consultation_type: pData['preferential-consultation-type'][0],
+            professional_gender: pData['professional-gender'][0],
             advertiserID: null,
+            client_id: id, // used for client_requests
         };
     });
 
@@ -245,8 +251,8 @@ function parseDataString(dataString) {
 
 async function run() {
     try {
-        await loadClients();
-        // await loadClientsQuill();
+        // await loadClients();
+        await loadClientsQuill();
         // await loadPsis();
     } catch (e) {
         console.error(e);

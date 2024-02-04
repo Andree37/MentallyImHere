@@ -63,7 +63,7 @@ async function insertIntoPg(table, data) {
         const values = data.map((row) => {
             return `(${columns
                 .map((k) => {
-                    if (!row[k]) {
+                    if (row[k] === null) {
                         return 'null';
                     }
                     if (!row[k] && k.toLowerCase().includes('id')) {
@@ -73,7 +73,7 @@ async function insertIntoPg(table, data) {
                         return row[k];
                     }
                     if (typeof row[k] === 'boolean') {
-                        return row[k];
+                        return `${row[k]}`;
                     }
                     return `'${row[k].trim()}'`;
                 })
@@ -252,8 +252,8 @@ function parseDataString(dataString) {
 async function run() {
     try {
         // await loadClients();
-        await loadClientsQuill();
-        // await loadPsis();
+        // await loadClientsQuill();
+        await loadPsis();
     } catch (e) {
         console.error(e);
     } finally {

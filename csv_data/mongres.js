@@ -4,6 +4,54 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
+const tables = {
+    clients: [
+        'id',
+        'name',
+        'gender',
+        'age',
+        'email',
+        'location_district',
+        'location_municipality',
+        'contact_preference',
+        'contact_preference_phone',
+        'advertiserID',
+    ],
+    client_requests: [
+        'id',
+        'frequency',
+        'price',
+        'consultation_for',
+        'motivation',
+        'had_experience_therapy',
+        'describe_experience_therapy',
+        'immediate_availability',
+        'other_availability',
+        'availability_describe',
+        'preferential_consultation_type',
+        'professional_gender',
+        'clientID',
+    ],
+    psis: [
+        'id',
+        'gender',
+        'age',
+        'specialization',
+        'phone',
+        'email',
+        'location_district',
+        'location_municipality',
+        'experience_years',
+        'consultation_type',
+        'availability',
+        'cost_from',
+        'cost_to',
+        'opp',
+        'approved',
+        'preferred_fee_type',
+    ],
+};
+
 const pool = new Pool({
     connectionString: process.env.PG_URL,
 });
@@ -11,7 +59,7 @@ const pool = new Pool({
 async function insertIntoPg(table, data) {
     const client = await pool.connect();
     try {
-        const columns = Object.keys(data[0]);
+        const columns = tables[table];
         const values = data.map(
             (d) =>
                 `(${Object.values(d)
@@ -40,41 +88,45 @@ function readCsv(filePath, onData) {
 
 async function loadClients() {
     const clients = await readCsv('clients.csv', (data) => {
-        console.log(data);
+        const pData = data;
 
         return {
             id: uuidv4(),
-            name: '',
-            gender: '',
-            age: 0,
-            email: '',
-            location_district: '',
-            location_municipality: '',
-            contact_preference: '',
-            contact_preference_phone: '',
+            name: pData.name,
+            gender: 'plz fix me',
+            age: +pData.age,
+            email: pData.email,
+            location_district: pData.location, // check this after to pass to district
+            location_municipality: pData.location, // check this after to pass to municipality
+            contact_preference: pData.contactFrom,
+            contact_preference_phone: pData.phone,
             // other fields for client requests
             frequency: '',
             price: 0,
-            consultation_for: '',
-            motivation: '',
-            had_experience_therapy: '',
+            consultation_for: 'self',
+            motivation: pData.motivation,
+            had_experience_therapy: false,
             describe_experience_therapy: '',
             immediate_availability: false,
             availability_describe: '',
             other_availability: '',
-            preferential_consultation_type: '[]',
-            professional_gender: '[]',
+            preferential_consultation_type: pData.consultLocation,
+            professional_gender: 'Any',
             advertiserID: null,
         };
     });
-    console.log(clients.length);
-    //await insertIntoPg('clients', clients);
+
+    await insertIntoPg('clients', clients);
+    await insertIntoPg('client_requests', clients);
 }
 
 async function loadClientsQuill() {
     const clients = await readCsv('clients_quill.csv', (data) => {
         const pData = parseDataString(data.data);
-        if (Object.keys(pData).length === 0) return;
+        if (Object.keys(pData).length === 0) {
+            console.error('Something iffy:', data);
+            return null;
+        }
 
         return {
             id: uuidv4(),
@@ -105,9 +157,8 @@ async function loadClientsQuill() {
         };
     });
 
-    console.log(clients.length);
-
-    //await insertIntoPg('clients', clients);
+    await insertIntoPg('clients', clients);
+    await insertIntoPg('client_requests', clients);
 }
 
 async function loadPsis() {
@@ -137,38 +188,31 @@ async function loadPsis() {
             preferred_fee_type: '',
         };
     });
-    console.log(psis.length);
-    // await insertIntoPg('psis', psis);
+
+    await insertIntoPg('psis', psis);
 }
 
 function parseDataString(dataString) {
-    // Normalize input to an array format
     let normalizedData;
     if (dataString.startsWith('[')) {
-        // Remove the leading and trailing square brackets and split
         normalizedData = dataString.slice(1, -1).split('}, {');
     } else {
-        // Wrap the single string in an array for uniform processing
         normalizedData = [dataString];
     }
 
     const result = {};
 
     normalizedData.forEach((objStr) => {
-        // Handle empty objects or improperly formatted strings
         if (objStr === '{}' || objStr === '{}}' || !objStr.trim()) return;
 
-        // Ensure each object string is correctly formatted
         const correctedObjStr = `{${objStr.replace(/^\{?|}?$/g, '')}}`;
 
-        // Split into key-value pairs
         correctedObjStr
             .substring(1, correctedObjStr.length - 1)
             .split(', ')
             .forEach((pair) => {
                 let [key, value] = pair.split(/=(.+)/);
 
-                // Clean the key of numeric prefixes
                 key = key.replace(/^\d+(-\d+)*-/, '');
 
                 if (value) {

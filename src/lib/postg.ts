@@ -3,13 +3,13 @@ import { Pool } from 'pg';
 const connectionString = process.env.PG_URL;
 
 if (!connectionString) {
-    throw new Error('Add Postgres URI to .env.local');
+    throw new Error('Add Postgres URI to .env');
 }
 
 const pool = new Pool({
     connectionString,
 });
 
-const clientPromise = pool.connect();
+const pgPromise = pool.connect();
 
-export default clientPromise;
+export default pgPromise;

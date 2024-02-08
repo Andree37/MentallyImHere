@@ -1,5 +1,7 @@
 import clientPromise from '@/lib/mongo';
+import pgPromise from '@/lib/postg';
 import { NextRequest, NextResponse } from 'next/server';
+import { v4 } from 'uuid';
 
 export async function POST(req: Request) {
     const client = await clientPromise;
@@ -8,6 +10,40 @@ export async function POST(req: Request) {
     const data = await req.json();
 
     await db.collection('psi').insertOne(data);
+
+    try {
+        const clientPG = await pgPromise;
+        const psi_id = v4();
+
+        clientPG.query(
+            'INSERT INTO psis (id, name, gender, age, specialization, phone, email, location_district, location_municipality, experience_years, consultation_type, availability, cost_from, cost_to, opp, approved, preferred_fee_type) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, false, $16)',
+            [
+                psi_id,
+                data.name,
+                data.gender,
+                data.age,
+                data.specialization,
+                data.phone,
+                data.email,
+                data.location,
+                data.locationMunicipality,
+                data.experienceYears,
+                data.consultationType,
+                data.availability,
+                data.cost[0],
+                data.cost[1],
+                data.opp,
+                'to-set', // needs to be set afterwards in our backoffice
+            ],
+            (err) => {
+                if (err) {
+                    console.log('error inserting into psis table', err);
+                }
+            },
+        );
+    } catch (e) {
+        console.log('error inserting into psis table', e);
+    }
 
     return NextResponse.json({ data });
 }

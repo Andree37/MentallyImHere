@@ -14,307 +14,7 @@ import { PhoneInput, usePhoneValidation } from 'react-international-phone';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-
-const municipes = [
-    'Abrantes',
-    'Aguiar da Beira',
-    'Alandroal',
-    'Albergaria-a-velha',
-    'Albufeira',
-    'Alcanena',
-    'Alcobaça',
-    'Alcochete',
-    'Alcoutim',
-    'Alcácer do Sal',
-    'Alenquer',
-    'Alfândega da Fé',
-    'Alijó Viseu',
-    'Alijó Vila Real', //Change this on the future to have the districts as well, this form isn't scalable this way
-    'Aljezur',
-    'Aljustrel',
-    'Almada',
-    'Almeida',
-    'Almeirim',
-    'Almodôvar',
-    'Alpiarça',
-    'Alter do Chão',
-    'Alvaiázere',
-    'Alvito',
-    'Amadora',
-    'Amarante',
-    'Amares',
-    'Anadia',
-    'Angra do Heroísmo',
-    'Ansião',
-    'Arcos de Valdevez',
-    'Arganil',
-    'Arouca',
-    'Arraiolos',
-    'Arronches',
-    'Arruda Dos Vinhos',
-    'Aveiro',
-    'Avis',
-    'Azambuja',
-    'Baião',
-    'Barcelos',
-    'Barrancos',
-    'Barreiro',
-    'Batalha',
-    'Beja',
-    'Belmonte',
-    'Benavente',
-    'Bombarral',
-    'Borba',
-    'Boticas',
-    'Boticas',
-    'Braga',
-    'Bragança',
-    'Cabeceiras de Basto',
-    'Cadaval',
-    'Caldas da Rainha',
-    'Calheta',
-    'Calheta de São Jorge',
-    'Caminha',
-    'Campo Maior',
-    'Cantanhede',
-    'Carrazeda de Ansiães',
-    'Cartaxo',
-    'Cascais',
-    'Castanheira de Pêra',
-    'Castelo Branco',
-    'Castelo de Paiva',
-    'Castelo de Vide',
-    'Castro Marim',
-    'Castro Verde',
-    'Celorico da Beira',
-    'Celorico de Basto',
-    'Chamusca',
-    'Chaves',
-    'Chaves',
-    'Coimbra',
-    'Condeixa-a-Nova',
-    'Constância',
-    'Coruche',
-    'Corvo',
-    'Covilhã',
-    'Crato',
-    'Cuba',
-    'Câmara de Lobos',
-    'Elvas',
-    'Entroncamento',
-    'Espinho',
-    'Esposende',
-    'Estarreja',
-    'Estremoz',
-    'Fafe',
-    'Faro',
-    'Felgueiras',
-    'Ferreira do Alentejo',
-    'Ferreira do Zêzere',
-    'Figueira da Foz',
-    'Figueira de Castelo Rodrigo',
-    'Figueiró Dos Vinhos',
-    'Fornos de Algodres',
-    'Freixo de Espada à Cinta',
-    'Fronteira',
-    'Funchal',
-    'Fundão',
-    'Gavião',
-    'Golegã',
-    'Gondomar',
-    'Gouveia',
-    'Grândola',
-    'Guarda',
-    'Guimarães',
-    'Góis',
-    'Horta',
-    'Idanha-a-nova',
-    'Lagoa',
-    'Lagoa (Açores)',
-    'Lagos',
-    'Lajes Das Flores',
-    'Lajes do Pico',
-    'Leiria',
-    'Lisboa',
-    'Loulé',
-    'Loures',
-    'Lourinhã',
-    'Lousada',
-    'Lousã',
-    'Macedo de Cavaleiros',
-    'Machico',
-    'Madalena',
-    'Mafra',
-    'Maia',
-    'Manteigas',
-    'Marco de Canaveses',
-    'Marinha Grande',
-    'Marvão',
-    'Matosinhos',
-    'Mação',
-    'Mealhada',
-    'Melgaço',
-    'Mesão Frio',
-    'Mesão Frio',
-    'Mira',
-    'Miranda do Corvo',
-    'Miranda do Douro',
-    'Mirandela',
-    'Mogadouro',
-    'Moita',
-    'Monchique',
-    'Mondim de Basto',
-    'Mondim de Basto',
-    'Monforte',
-    'Montalegre',
-    'Montalegre',
-    'Montemor-o-Novo',
-    'Montemor-o-Velho',
-    'Montijo',
-    'Monção',
-    'Mora',
-    'Moura',
-    'Mourão',
-    'Murtosa',
-    'Murça',
-    'Murça',
-    'Mértola',
-    'Mêda',
-    'Nazaré',
-    'Nisa',
-    'Nordeste',
-    'Odemira',
-    'Odivelas',
-    'Oeiras',
-    'Oleiros',
-    'Olhão',
-    'Oliveira de Azeméis',
-    'Oliveira do Bairro',
-    'Oliveira do Hospital',
-    'Ourique',
-    'Ourém',
-    'Ovar',
-    'Palmela',
-    'Pampilhosa da Serra',
-    'Paredes',
-    'Paredes de Coura',
-    'Paços de Ferreira',
-    'Pedrógão Grande',
-    'Penacova',
-    'Penafiel',
-    'Penamacor',
-    'Penela',
-    'Peniche',
-    'Peso da Régua',
-    'Peso da Régua',
-    'Pinhel',
-    'Pombal',
-    'Ponta Delgada',
-    'Ponta do Sol',
-    'Ponte da Barca',
-    'Ponte de Lima',
-    'Ponte de Sor',
-    'Portalegre',
-    'Portel',
-    'Portimão',
-    'Porto',
-    'Porto Moniz',
-    'Porto Santo',
-    'Porto de Mós',
-    'Povoação',
-    'Praia da Vitória',
-    'Proença-a-nova',
-    'Póvoa de Lanhoso',
-    'Póvoa de Varzim',
-    'Redondo',
-    'Reguengos de Monsaraz',
-    'Ribeira Brava',
-    'Ribeira Grande',
-    'Ribeira de Pena',
-    'Ribeira de Pena',
-    'Rio Maior',
-    'Sabrosa',
-    'Sabrosa',
-    'Sabugal',
-    'Salvaterra de Magos',
-    'Santa Cruz',
-    'Santa Cruz Das Flores',
-    'Santa Cruz da Graciosa',
-    'Santa Maria da Feira',
-    'Santa Marta de Penaguião',
-    'Santa Marta de Penaguião',
-    'Santana',
-    'Santarém',
-    'Santiago do Cacém',
-    'Santo Tirso',
-    'Sardoal',
-    'Seia',
-    'Seixal',
-    'Serpa',
-    'Sertã',
-    'Sesimbra',
-    'Setúbal',
-    'Sever do Vouga',
-    'Silves',
-    'Sines',
-    'Sintra',
-    'Sobral de Monte Agraço',
-    'Soure',
-    'Sousel',
-    'São Brás de Alportel',
-    'São João da Madeira',
-    'São Roque do Pico',
-    'São Vicente',
-    'Tavira',
-    'Terras de Bouro',
-    'Tomar',
-    'Torre de Moncorvo',
-    'Torres Novas',
-    'Torres Vedras',
-    'Trancoso',
-    'Trofa',
-    'Tábua',
-    'Vagos',
-    'Vale de Cambra',
-    'Valença',
-    'Valongo',
-    'Valpaços',
-    'Valpaços',
-    'Velas',
-    'Vendas Novas',
-    'Viana do Alentejo',
-    'Viana do Castelo',
-    'Vidigueira',
-    'Vieira do Minho',
-    'Vila Flor',
-    'Vila Franca de Xira',
-    'Vila Franca do Campo',
-    'Vila Nova da Barquinha',
-    'Vila Nova de Cerveira',
-    'Vila Nova de Famalicão',
-    'Vila Nova de Foz Côa',
-    'Vila Nova de Gaia',
-    'Vila Nova de Poiares',
-    'Vila Pouca de Aguiar',
-    'Vila Pouca de Aguiar',
-    'Vila Real',
-    'Vila Real',
-    'Vila Real de Santo António',
-    'Vila Velha de Ródão',
-    'Vila Verde',
-    'Vila Viçosa',
-    'Vila de Rei',
-    'Vila do Bispo',
-    'Vila do Conde',
-    'Vila do Porto',
-    'Vimioso',
-    'Vinhais',
-    'Vizela',
-    'Águeda',
-    'Évora',
-    'Ílhavo',
-    'Óbidos',
-];
+import { municipes, portugalCities } from '@/lib/locations';
 
 const userFormSchema = z.object({
     name: z
@@ -340,12 +40,12 @@ const userFormSchema = z.object({
         )
         .optional(),
     email: z.string().email({ message: 'Email inválido.' }),
-    location: z
-        .string()
-        .refine((m) => m.length > 0, {
-            message: 'Pro favor insira a sua localização.',
-        })
-        .optional(),
+    location: z.string().refine((m) => m.length > 0, {
+        message: 'Pro favor insira o seu distrito.',
+    }),
+    locationMunicipality: z.string().refine((m) => m.length > 0, {
+        message: 'Pro favor insira o seu município.',
+    }),
     experienceYears: z
         .number()
         .min(0, { message: 'Anos de experiência mínimo é 0.' })
@@ -369,7 +69,8 @@ const defaultValues: Partial<UserFormValues> = {
     email: '',
     phone: '',
     specialization: '',
-    location: '',
+    location: 'lisboa',
+    locationMunicipality: '',
     experienceYears: 0,
     consultationType: 'Online',
     availability: '',
@@ -662,8 +363,45 @@ export default function PsiForm() {
                                 <FormLabel className="dark:text-white">
                                     Localização
                                     <p className="font-light text-gray-500 mt-2 text-xs">
-                                        Zonas preferenciais de atuação/ realização de sessões presenciais. (Por favor
-                                        indique o munícipio para que possamos localizar os clientes mais próximos de si)
+                                        Zonas preferenciais de atuação/ realização de sessões presenciais.
+                                    </p>
+                                </FormLabel>
+                                <FormControl>
+                                    <Select onValueChange={(v) => field.onChange(v)} defaultValue={field.value}>
+                                        <FormControl className="">
+                                            <SelectTrigger>
+                                                <SelectValue />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent className="">
+                                            {portugalCities.map(({ key, value }) => (
+                                                <SelectItem
+                                                    className="bg-gray-100 cursor-pointer"
+                                                    key={key}
+                                                    value={key}
+                                                >
+                                                    {value}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        disabled={sent}
+                        control={form.control}
+                        name="locationMunicipality"
+                        render={({ field }) => (
+                            <FormItem className="dark:text-white">
+                                <FormLabel className="dark:text-white">
+                                    Localização
+                                    <p className="font-light text-gray-500 mt-2 text-xs">
+                                        Por favor indique o munícipio para que possamos localizar os clientes mais
+                                        próximos de si
                                     </p>
                                 </FormLabel>
                                 <FormControl>
@@ -674,7 +412,9 @@ export default function PsiForm() {
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent className="">
-                                            {municipes.map((value) => (
+                                            {municipes[
+                                                (form.watch('location') as keyof typeof municipes) || 'lisboa'
+                                            ].map((value) => (
                                                 <SelectItem
                                                     className="bg-gray-100 cursor-pointer"
                                                     key={value}

@@ -1,6 +1,8 @@
 import clientPromise from '@/lib/mongo';
 import { NextRequest, NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
+import pgPromise from '@/lib/postg';
+import { v4 } from 'uuid';
 
 export async function POST(req: Request) {
     const client = await clientPromise;
@@ -11,6 +13,22 @@ export async function POST(req: Request) {
     const data = await db
         .collection('advertisers')
         .insertOne({ name, email, phone, iban, socialNetwork, registrationDate: Date.now() });
+
+    try {
+        const pgClient = await pgPromise;
+        const id = v4();
+        pgClient.query(
+            'INSERT INTO advertisers (id, name, email, phone, social_media, iban) VALUES ($1, $2, $3, $4, $5, $6)',
+            [id, name, email, phone, socialNetwork, iban],
+            (err) => {
+                if (err) {
+                    console.log('Error inserting advertiser into Postgres', err);
+                }
+            },
+        );
+    } catch (e) {
+        console.log('Error inserting advertiser into Postgres', e);
+    }
 
     return NextResponse.json({ data });
 }

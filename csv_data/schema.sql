@@ -3,8 +3,11 @@ CREATE TABLE advertisers
     id    UUID primary key NOT NULL,
     name  TEXT             NOT NULL,
     email TEXT             NOT NULL,
-    phone TEXT             NOT NULL
-    -- continue this after
+    phone TEXT             NOT NULL,
+    social_media TEXT NOT NULL,
+    iban TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
 CREATE TABLE clients
@@ -17,9 +20,10 @@ CREATE TABLE clients
     location_district        TEXT NOT NULL,
     location_municipality    TEXT NOT NULL,
     contact_preference       TEXT,
-    auto_describe_gender     TEXT,
     contact_preference_phone TEXT,
-    advertiserID             UUID REFERENCES advertisers (id)
+    advertiser_id             UUID REFERENCES advertisers (id),
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
 CREATE TABLE client_requests
@@ -29,22 +33,24 @@ CREATE TABLE client_requests
     price                          INT                          NOT NULL,
     consultation_for               TEXT,
     motivation                     TEXT                         NOT NULL,
-    previous_experience_therapy    TEXT,
-    immediate_availability         TEXT,
+    had_experience_therapy    BOOLEAN,
+    describe_experience_therapy    TEXT,
+    immediate_availability         BOOLEAN,
+    other_availability              TEXT,
     availability_describe          TEXT                         NOT NULL,
     preferential_consultation_type TEXT,
     professional_gender            TEXT,
-    frequency_for_other            TEXT,
-    consultation_for_other         TEXT,
-    prev_experience_yes            TEXT,
-    immediate_availability_other   TEXT,
-    client_id                      UUID REFERENCES clients (id) NOT NULL
+    additional_info                TEXT                         ,
+    client_id                      UUID REFERENCES clients (id) NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
 
 CREATE TABLE psis
 (
     id                    UUID PRIMARY KEY,
+    name                  TEXT    NOT NULL,
     gender                TEXT    NOT NULL,
     age                   INT     NOT NULL,
     specialization        TEXT    NOT NULL,
@@ -59,7 +65,9 @@ CREATE TABLE psis
     cost_to               INT     NOT NULL,
     opp                   TEXT    NOT NULL,
     approved              BOOLEAN NOT NULL,
-    preferred_fee_type    TEXT    NOT NULL  -- fraction, percentual, fixed-rate
+    preferred_fee_type    TEXT    NOT NULL,  -- fraction, percentual, fixed-rate
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
 
@@ -68,7 +76,9 @@ CREATE TABLE psi_availabilities
     id       UUID PRIMARY KEY,
     psi_id   UUID REFERENCES psis (id) NOT NULL,
     date     TIMESTAMP                 NOT NULL,
-    duration INT                       NOT NULL
+    duration INT                       NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
 
@@ -79,9 +89,33 @@ CREATE TABLE matches
     psi_id             UUID REFERENCES psis (id),
     approved           BOOLEAN                      NOT NULL,
     canceled_by_client BOOLEAN                      NOT NULL,
-    canceled_by_psi    BOOLEAN                      NOT NULL
+    canceled_by_psi    BOOLEAN                      NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );
 
+
+CREATE TABLE fees
+(
+    id           UUID PRIMARY KEY,
+    total_amount DECIMAL NOT NULL, -- 20%
+    paid_status  TEXT    NOT NULL, -- paid, not paid, partially paid
+    type         TEXT    NOT NULL,  -- fraction, percentual, fixed-rate
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
+);
+
+
+CREATE TABLE fee_chunks
+(
+    id      UUID PRIMARY KEY,
+    fee_id  UUID REFERENCES fees (id) NOT NULL,
+    amount  DECIMAL                   NOT NULL,
+    paid    BOOLEAN                   NOT NULL,
+    sent_at TIMESTAMP                 NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
+);
 
 CREATE TABLE appointments
 (
@@ -93,24 +127,7 @@ CREATE TABLE appointments
     canceled_by_psi    BOOLEAN                      NOT NULL,
     completed          BOOLEAN                      NOT NULL,
     appointment_price  DECIMAL                      NOT NULL,
-    fee_id             UUID REFERENCES fees (id)    NOT NULL
-);
-
-
-CREATE TABLE fees
-(
-    id           UUID PRIMARY KEY,
-    total_amount DECIMAL NOT NULL, -- 20%
-    paid_status  TEXT    NOT NULL, -- paid, not paid, partially paid
-    type         TEXT    NOT NULL  -- fraction, percentual, fixed-rate
-);
-
-
-CREATE TABLE fee_chunks
-(
-    id      UUID PRIMARY KEY,
-    fee_id  UUID REFERENCES fees (id) NOT NULL,
-    amount  DECIMAL                   NOT NULL,
-    paid    BOOLEAN                   NOT NULL,
-    sent_at TIMESTAMP                 NOT NULL
+    fee_id             UUID REFERENCES fees (id)    NOT NULL,
+    created_at TIMESTAMP NOT NULL default now(),
+    updated_at TIMESTAMP NOT NULL default now()
 );

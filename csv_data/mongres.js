@@ -15,7 +15,7 @@ const tables = {
         'location_municipality',
         'contact_preference',
         'contact_preference_phone',
-        'advertiserID',
+        'advertiser_id',
     ],
     client_requests: [
         'id',
@@ -34,6 +34,7 @@ const tables = {
     ],
     psis: [
         'id',
+        'name',
         'gender',
         'age',
         'specialization',
@@ -127,7 +128,7 @@ async function loadClients() {
             other_availability: '',
             preferential_consultation_type: pData.consultLocation,
             professional_gender: 'Any',
-            advertiserID: null,
+            advertiser_id: null,
             client_id: id, // used for client_requests
         };
     });
@@ -171,7 +172,7 @@ async function loadClientsQuill() {
             other_availability: pData['immediate-availability-other'],
             preferential_consultation_type: pData['preferential-consultation-type'][0],
             professional_gender: pData['professional-gender'][0],
-            advertiserID: null,
+            advertiser_id: null,
             client_id: id, // used for client_requests
         };
     });
@@ -190,6 +191,7 @@ async function loadPsis() {
 
         return {
             id: uuidv4(),
+            name: data.name,
             gender: data.gender,
             age: +data.age,
             specialization: data.specialization,

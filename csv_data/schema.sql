@@ -30,6 +30,7 @@ CREATE TABLE client_requests
 (
     id                             uuid PRIMARY KEY,
     screened                       BOOLEAN                      NOT NULL default false,
+    notes                          TEXT default '',
     frequency                      TEXT,
     price                          INT                          NOT NULL,
     consultation_for               TEXT,

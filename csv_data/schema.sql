@@ -29,6 +29,7 @@ CREATE TABLE clients
 CREATE TABLE client_requests
 (
     id                             uuid PRIMARY KEY,
+    screened                       BOOLEAN                      NOT NULL default false,
     frequency                      TEXT,
     price                          INT                          NOT NULL,
     consultation_for               TEXT,
@@ -85,7 +86,7 @@ CREATE TABLE psi_availabilities
 CREATE TABLE matches
 (
     id                 UUID PRIMARY KEY,
-    client_id          UUID REFERENCES clients (id) NOT NULL,
+    client_request_id  UUID REFERENCES client_requests (id) NOT NULL,
     psi_id             UUID REFERENCES psis (id),
     approved           BOOLEAN                      NOT NULL,
     canceled_by_client BOOLEAN                      NOT NULL,

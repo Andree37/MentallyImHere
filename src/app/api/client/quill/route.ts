@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         const clientPG = await pgPromise;
         const client_id = v4();
         clientPG.query(
-            'INSERT INTO clients(id, name, gender, age, email, location_district, location_municipality, contact_preference, contact_preference_phone, advertiser_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+            'INSERT INTO patients(id, name, gender, age, email, location_district, location_municipality, contact_preference, contact_preference_phone, advertiser_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
             [
                 client_id,
                 res.data.name,
@@ -31,14 +31,14 @@ export async function POST(request: Request) {
             (err, r) => {
                 if (err) {
                     // error
-                    console.log('error inserting into clients table', err);
+                    console.log('error inserting into patients table', err);
                     return NextResponse.error();
                 }
 
                 // insert into client_requests
                 const client_request_id = v4();
                 clientPG.query(
-                    'INSERT INTO client_requests(id, frequency, price, consultation_for, motivation, had_experience_therapy, describe_experience_therapy, immediate_availability, other_availability, availability_describe, preferential_consultation_type, professional_gender, additional_info, client_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
+                    'INSERT INTO patient_requests(id, frequency, price, consultation_for, motivation, had_experience_therapy, describe_experience_therapy, immediate_availability, other_availability, availability_describe, preferential_consultation_type, professional_gender, additional_info, patient_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
                     [
                         client_request_id,
                         res.data.frequency[0] === 'other' ? res.data['frequency-for-other'] : res.data.frequency[0],
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
                     (err) => {
                         if (err) {
                             // error
-                            console.log('error inserting into client_requests table', err);
+                            console.log('error inserting into patient_requests table', err);
                         }
                     },
                 );

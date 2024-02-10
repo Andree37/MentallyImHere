@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
 const tables = {
-    clients: [
+    patients: [
         'id',
         'name',
         'gender',
@@ -17,7 +17,7 @@ const tables = {
         'contact_preference_phone',
         'advertiser_id',
     ],
-    client_requests: [
+    patient_requests: [
         'id',
         'frequency',
         'price',
@@ -30,7 +30,7 @@ const tables = {
         'availability_describe',
         'preferential_consultation_type',
         'professional_gender',
-        'client_id',
+        'patient_id',
     ],
     psis: [
         'id',
@@ -129,12 +129,12 @@ async function loadClients() {
             preferential_consultation_type: pData.consultLocation,
             professional_gender: 'Any',
             advertiser_id: null,
-            client_id: id, // used for client_requests
+            patient_id: id, // used for client_requests
         };
     });
 
-    await insertIntoPg('clients', clients);
-    await insertIntoPg('client_requests', clients);
+    await insertIntoPg('patients', clients);
+    await insertIntoPg('patient_requests', clients);
 }
 
 async function loadClientsQuill() {
@@ -173,12 +173,12 @@ async function loadClientsQuill() {
             preferential_consultation_type: pData['preferential-consultation-type'][0],
             professional_gender: pData['professional-gender'][0],
             advertiser_id: null,
-            client_id: id, // used for client_requests
+            patient_id: id, // used for client_requests
         };
     });
 
-    await insertIntoPg('clients', clients);
-    await insertIntoPg('client_requests', clients);
+    await insertIntoPg('patients', clients);
+    await insertIntoPg('patient_requests', clients);
 }
 
 async function loadPsis() {

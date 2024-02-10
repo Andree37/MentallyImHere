@@ -10,7 +10,7 @@ CREATE TABLE advertisers
     updated_at TIMESTAMP NOT NULL default now()
 );
 
-CREATE TABLE clients
+CREATE TABLE patients
 (
     id                       UUID PRIMARY KEY,
     name                     TEXT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE clients
     updated_at TIMESTAMP NOT NULL default now()
 );
 
-CREATE TABLE client_requests
+CREATE TABLE patient_requests
 (
     id                             uuid PRIMARY KEY,
     screened                       BOOLEAN                      NOT NULL default false,
@@ -43,7 +43,7 @@ CREATE TABLE client_requests
     preferential_consultation_type TEXT,
     professional_gender            TEXT,
     additional_info                TEXT                         ,
-    client_id                      UUID REFERENCES clients (id) NOT NULL,
+    patient_id                      UUID REFERENCES patients (id) NOT NULL,
     created_at TIMESTAMP NOT NULL default now(),
     updated_at TIMESTAMP NOT NULL default now()
 );
@@ -87,10 +87,10 @@ CREATE TABLE psi_availabilities
 CREATE TABLE matches
 (
     id                 UUID PRIMARY KEY,
-    client_request_id  UUID REFERENCES client_requests (id) NOT NULL,
+    patient_request_id  UUID REFERENCES patient_requests (id) NOT NULL,
     psi_id             UUID REFERENCES psis (id),
     approved           BOOLEAN                      NOT NULL,
-    canceled_by_client BOOLEAN                      NOT NULL,
+    canceled_by_patient BOOLEAN                      NOT NULL,
     canceled_by_psi    BOOLEAN                      NOT NULL,
     created_at TIMESTAMP NOT NULL default now(),
     updated_at TIMESTAMP NOT NULL default now()
@@ -125,7 +125,7 @@ CREATE TABLE appointments
     match_id           UUID REFERENCES matches (id) NOT NULL,
     date               TIMESTAMP                    NOT NULL,
     duration           INT                          NOT NULL,
-    canceled_by_client BOOLEAN                      NOT NULL,
+    canceled_by_patient BOOLEAN                      NOT NULL,
     canceled_by_psi    BOOLEAN                      NOT NULL,
     completed          BOOLEAN                      NOT NULL,
     appointment_price  DECIMAL                      NOT NULL,

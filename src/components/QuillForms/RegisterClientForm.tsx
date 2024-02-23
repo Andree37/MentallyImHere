@@ -329,7 +329,7 @@ export default function RegisterClientForm() {
                                 required: true,
                                 multiple: false,
                                 verticalAlign: true,
-                                label: 'Já teve <strong>acompanhamento</strong> em consultas de piscologia ou de psicoterapia?',
+                                label: 'Já teve <strong>acompanhamento</strong> em consultas de psicologia ou de psicoterapia?',
                                 choices: [
                                     {
                                         label: 'Sim',

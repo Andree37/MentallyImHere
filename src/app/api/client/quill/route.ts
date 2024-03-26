@@ -67,7 +67,7 @@ export async function POST(request: Request) {
             },
         );
     } catch (e) {
-        console.log('error inserting into PG', e);
+        console.error('error inserting into PG', e);
     }
 
     return NextResponse.json({ document });

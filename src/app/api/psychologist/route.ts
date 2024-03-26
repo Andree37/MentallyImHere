@@ -42,7 +42,7 @@ export async function POST(req: Request) {
             },
         );
     } catch (e) {
-        console.log('error inserting into psis table', e);
+        console.error('error inserting into psis table', e);
     }
 
     return NextResponse.json({ data });

@@ -27,7 +27,7 @@ export async function POST(req: Request) {
             },
         );
     } catch (e) {
-        console.log('Error inserting advertiser into Postgres', e);
+        console.error('Error inserting advertiser into Postgres', e);
     }
 
     return NextResponse.json({ data });

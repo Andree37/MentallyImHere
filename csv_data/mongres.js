@@ -82,7 +82,6 @@ async function insertIntoPg(table, data) {
         });
 
         const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES ${values.join(',')} ON CONFLICT DO NOTHING;`;
-        console.log(query);
         await client.query(query);
     } finally {
         client.release();

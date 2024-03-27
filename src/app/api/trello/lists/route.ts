@@ -23,7 +23,5 @@ export async function GET(_: Request) {
         return NextResponse.json({ data: [] });
     }
 
-    console.log(data);
-
     return NextResponse.json({ data });
 }

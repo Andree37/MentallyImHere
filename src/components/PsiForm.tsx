@@ -156,7 +156,7 @@ export default function PsiForm() {
     );
 
     const onErrors = useCallback((e: any) => {
-        console.log(e);
+        console.error(e);
     }, []);
 
     return (

@@ -31,7 +31,7 @@ export async function POST(request: Request) {
             (err, r) => {
                 if (err) {
                     // error
-                    console.log('error inserting into patients table', err);
+                    console.error('error inserting into patients table', err);
                     return NextResponse.error();
                 }
 
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
                     (err) => {
                         if (err) {
                             // error
-                            console.log('error inserting into patient_requests table', err);
+                            console.error('error inserting into patient_requests table', err);
                         }
                     },
                 );

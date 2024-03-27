@@ -37,7 +37,7 @@ export async function POST(req: Request) {
             ],
             (err) => {
                 if (err) {
-                    console.log('error inserting into psis table', err);
+                    console.error('error inserting into psis table', err);
                 }
             },
         );

@@ -188,7 +188,7 @@ export default function InfoForm() {
             // fetch advertiser information
             const advertiserID = params.get('adv');
             const adv = await getAdvertiser(advertiserID);
-            console.log(adv);
+            console.log(`Advertiser found with id: ${adv}`);
 
             const advertiserObj = adv ? { advertiserID: adv?.data._id } : { advertiserID: 'Unknown' };
 
@@ -221,7 +221,7 @@ export default function InfoForm() {
     );
 
     const onErrors = useCallback((e: any) => {
-        console.log(e);
+        console.error(e);
     }, []);
     return (
         <ChakraProvider>

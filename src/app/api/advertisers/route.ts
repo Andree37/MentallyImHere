@@ -22,7 +22,7 @@ export async function POST(req: Request) {
             [id, name, email, phone, socialNetwork, iban],
             (err) => {
                 if (err) {
-                    console.log('Error inserting advertiser into Postgres', err);
+                    console.error('Error inserting advertiser into Postgres', err);
                 }
             },
         );

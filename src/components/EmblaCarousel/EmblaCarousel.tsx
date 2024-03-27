@@ -34,8 +34,8 @@ export default function EmblaCarousel({ slides, options, title }: EmblaCarouselT
                                 <CardContent className="grid gap-4">
                                     <Form {...form}>
                                         <form
-                                            onSubmit={form.handleSubmit((e) => {
-                                                console.log(e);
+                                            onSubmit={form.handleSubmit((v) => {
+                                                console.log(v);
                                             })}
                                             className="w-2/3 space-y-6"
                                         >

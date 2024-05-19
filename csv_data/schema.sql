@@ -1,135 +1,175 @@
-CREATE TABLE advertisers
+create table advertisers
 (
-    id    UUID primary key NOT NULL,
-    name  TEXT             NOT NULL,
-    email TEXT             NOT NULL,
-    phone TEXT             NOT NULL,
-    social_media TEXT NOT NULL,
-    iban TEXT NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id           uuid                       not null
+        primary key,
+    name         text                       not null,
+    email        text                       not null,
+    phone        text                       not null,
+    social_media text                       not null,
+    iban         text                       not null,
+    created_at   timestamp(3) default now() not null,
+    updated_at   timestamp(3) default now() not null
 );
 
-CREATE TABLE patients
+alter table advertisers
+    owner to postgres;
+
+create table patients
 (
-    id                       UUID PRIMARY KEY,
-    name                     TEXT NOT NULL,
-    gender                   TEXT,
-    age                      INT  NOT NULL,
-    email                    TEXT NOT NULL,
-    location_district        TEXT NOT NULL,
-    location_municipality    TEXT NOT NULL,
-    contact_preference       TEXT,
-    contact_preference_phone TEXT,
-    advertiser_id             UUID REFERENCES advertisers (id),
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id                       uuid                       not null
+        primary key,
+    name                     text                       not null,
+    gender                   text,
+    age                      integer                    not null,
+    email                    text                       not null,
+    location_district        text                       not null,
+    location_municipality    text                       not null,
+    contact_preference       text,
+    contact_preference_phone text,
+    advertiser_id            uuid
+        references advertisers,
+    created_at               timestamp(3) default now() not null,
+    updated_at               timestamp(3) default now() not null
 );
 
-CREATE TABLE patient_requests
+alter table patients
+    owner to postgres;
+
+create table patient_requests
 (
-    id                             uuid PRIMARY KEY,
-    screened                       BOOLEAN                      NOT NULL default false,
-    notes                          TEXT default '',
-    frequency                      TEXT,
-    price                          INT                          NOT NULL,
-    consultation_for               TEXT,
-    motivation                     TEXT                         NOT NULL,
-    had_experience_therapy    BOOLEAN,
-    describe_experience_therapy    TEXT,
-    immediate_availability         BOOLEAN,
-    other_availability              TEXT,
-    availability_describe          TEXT                         NOT NULL,
-    preferential_consultation_type TEXT,
-    professional_gender            TEXT,
-    additional_info                TEXT                         ,
-    patient_id                      UUID REFERENCES patients (id) NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id                             uuid                       not null
+        primary key,
+    screened                       boolean      default false not null,
+    notes                          text         default ''::text,
+    frequency                      text,
+    price                          integer                    not null,
+    consultation_for               text,
+    motivation                     text                       not null,
+    had_experience_therapy         boolean,
+    describe_experience_therapy    text,
+    immediate_availability         boolean,
+    other_availability             text,
+    availability_describe          text                       not null,
+    preferential_consultation_type text,
+    professional_gender            text,
+    additional_info                text,
+    patient_id                     uuid                       not null
+        references patients,
+    created_at                     timestamp(3) default now() not null,
+    updated_at                     timestamp(3) default now() not null
 );
 
+alter table patient_requests
+    owner to postgres;
 
-CREATE TABLE psis
+create table psis
 (
-    id                    UUID PRIMARY KEY,
-    name                  TEXT    NOT NULL,
-    gender                TEXT    NOT NULL,
-    age                   INT     NOT NULL,
-    specialization        TEXT    NOT NULL,
-    phone                 TEXT    NOT NULL,
-    email                 TEXT    NOT NULL,
-    location_district     TEXT    NOT NULL,
-    location_municipality TEXT    NOT NULL,
-    experience_years      INT     NOT NULL,
-    consultation_type     TEXT    NOT NULL,
-    availability          TEXT    NOT NULL, -- we have to remove this in a way
-    cost_from             INT     NOT NULL,
-    cost_to               INT     NOT NULL,
-    opp                   TEXT    NOT NULL,
-    approved              BOOLEAN NOT NULL,
-    preferred_fee_type    TEXT    NOT NULL,  -- fraction, percentual, fixed-rate
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id                    uuid                       not null
+        primary key,
+    name                  text                       not null,
+    gender                text                       not null,
+    age                   integer                    not null,
+    specialization        text                       not null,
+    phone                 text                       not null,
+    email                 text                       not null,
+    location_district     text                       not null,
+    location_municipality text                       not null,
+    experience_years      integer                    not null,
+    consultation_type     text                       not null,
+    availability          text                       not null,
+    cost_from             integer                    not null,
+    cost_to               integer                    not null,
+    opp                   text                       not null,
+    approved              boolean                    not null,
+    preferred_fee_type    text                       not null,
+    created_at            timestamp(3) default now() not null,
+    updated_at            timestamp(3) default now() not null
 );
 
+alter table psis
+    owner to postgres;
 
-CREATE TABLE psi_availabilities
+create table psi_availabilities
 (
-    id       UUID PRIMARY KEY,
-    psi_id   UUID REFERENCES psis (id) NOT NULL,
-    date     TIMESTAMP                 NOT NULL,
-    duration INT                       NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id         uuid                       not null
+        primary key,
+    psi_id     uuid                       not null
+        references psis,
+    date       timestamp(3)               not null,
+    duration   integer                    not null,
+    created_at timestamp(3) default now() not null,
+    updated_at timestamp(3) default now() not null
 );
 
+alter table psi_availabilities
+    owner to postgres;
 
-CREATE TABLE matches
+create table matches
 (
-    id                 UUID PRIMARY KEY,
-    patient_request_id  UUID REFERENCES patient_requests (id) NOT NULL,
-    psi_id             UUID REFERENCES psis (id),
-    approved           BOOLEAN                      NOT NULL,
-    canceled_by_patient BOOLEAN                      NOT NULL,
-    canceled_by_psi    BOOLEAN                      NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id                  uuid                       not null
+        primary key,
+    patient_request_id  uuid                       not null
+        references patient_requests,
+    psi_id              uuid
+        references psis,
+    approved            boolean                    not null,
+    canceled_by_patient boolean                    not null,
+    canceled_by_psi     boolean                    not null,
+    created_at          timestamp(3) default now() not null,
+    updated_at          timestamp(3) default now() not null,
+    open                boolean      default true
 );
 
+alter table matches
+    owner to postgres;
 
-CREATE TABLE fees
+create table fees
 (
-    id           UUID PRIMARY KEY,
-    total_amount DECIMAL NOT NULL, -- 20%
-    paid_status  TEXT    NOT NULL, -- paid, not paid, partially paid
-    type         TEXT    NOT NULL,  -- fraction, percentual, fixed-rate
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id           uuid                       not null
+        primary key,
+    total_amount numeric                    not null,
+    paid_status  text                       not null,
+    type         text                       not null,
+    created_at   timestamp(3) default now() not null,
+    updated_at   timestamp(3) default now() not null
 );
 
+alter table fees
+    owner to postgres;
 
-CREATE TABLE fee_chunks
+create table fee_chunks
 (
-    id      UUID PRIMARY KEY,
-    fee_id  UUID REFERENCES fees (id) NOT NULL,
-    amount  DECIMAL                   NOT NULL,
-    paid    BOOLEAN                   NOT NULL,
-    sent_at TIMESTAMP                 NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id         uuid                       not null
+        primary key,
+    fee_id     uuid                       not null
+        references fees,
+    amount     numeric                    not null,
+    paid       boolean                    not null,
+    sent_at    timestamp(3)               not null,
+    created_at timestamp(3) default now() not null,
+    updated_at timestamp(3) default now() not null
 );
 
-CREATE TABLE appointments
+alter table fee_chunks
+    owner to postgres;
+
+create table appointments
 (
-    id                 UUID PRIMARY KEY,
-    match_id           UUID REFERENCES matches (id) NOT NULL,
-    date               TIMESTAMP                    NOT NULL,
-    duration           INT                          NOT NULL,
-    canceled_by_patient BOOLEAN                      NOT NULL,
-    canceled_by_psi    BOOLEAN                      NOT NULL,
-    completed          BOOLEAN                      NOT NULL,
-    appointment_price  DECIMAL                      NOT NULL,
-    fee_id             UUID REFERENCES fees (id)    NOT NULL,
-    created_at TIMESTAMP NOT NULL default now(),
-    updated_at TIMESTAMP NOT NULL default now()
+    id                  uuid                       not null
+        primary key,
+    match_id            uuid                       not null
+        references matches,
+    date                timestamp(3)               not null,
+    duration            integer                    not null,
+    canceled_by_patient boolean                    not null,
+    canceled_by_psi     boolean                    not null,
+    completed           boolean                    not null,
+    appointment_price   numeric                    not null,
+    fee_id              uuid                       not null
+        references fees,
+    created_at          timestamp(3) default now() not null,
+    updated_at          timestamp(3) default now() not null
 );
+
+alter table appointments
+    owner to postgres;

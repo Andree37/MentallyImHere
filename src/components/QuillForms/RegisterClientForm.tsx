@@ -2,12 +2,13 @@
 import { Form, useFieldAnswer } from '@quillforms/renderer-core';
 import '@quillforms/renderer-core/build-style/style.css';
 // @ts-ignore
-import { registerCoreBlocks } from '@quillforms/react-renderer-utils';
-import { InsertOneResult, ObjectId } from 'mongodb';
-import mixpanel from 'mixpanel-browser';
-import { v4 as uuidv4 } from 'uuid';
-import { useSearchParams } from 'next/navigation';
 import { municipes, portugalCities } from '@/lib/locations';
+// @ts-ignore
+import { registerCoreBlocks } from '@quillforms/react-renderer-utils';
+import mixpanel from 'mixpanel-browser';
+import { InsertOneResult, ObjectId } from 'mongodb';
+import { useSearchParams } from 'next/navigation';
+import { v4 as uuidv4 } from 'uuid';
 
 type Answers = {
     [key: string]: {
@@ -119,9 +120,22 @@ export default function RegisterClientForm() {
         <div className="h-[80vh] w-full">
             <Form
                 formId={1}
-                beforeGoingNext={({ currentBlockId, goNext }) => {
+                beforeGoingNext={({ currentBlockId, goNext, answers }) => {
+                    const parsedAnswers = Object.entries(answers)
+                        .filter(([key, value]) => {
+                            // @ts-ignore
+                            return (value.isAnswered && value.isValid) || key == '0-7-price'; // because price doesnt have the others
+                        })
+                        .map(([key, value]) => {
+                            return {
+                                // @ts-ignore
+                                [key]: value?.value,
+                            };
+                        });
+
                     mixpanel.track('Answer on Form', {
                         Step: currentBlockId,
+                        Answers: parsedAnswers,
                     });
                     goNext();
                 }}

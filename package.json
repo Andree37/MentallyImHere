@@ -15,7 +15,7 @@
         "@headlessui/react": "^1.7.15",
         "@headlessui/tailwindcss": "^0.1.3",
         "@hookform/resolvers": "^3.1.0",
-        "@quillforms/react-renderer-utils": "^5.9.1",
+        "@quillforms/react-renderer-utils": "^5.11.0",
         "@quillforms/renderer-core": "^5.7.0",
         "@quillforms/types": "^3.0.16",
         "@radix-ui/react-accessible-icon": "^1.0.3",
@@ -88,6 +88,7 @@
         "eslint": "^8.56.0",
         "eslint-config-next": "^14.1.0",
         "prettier": "^2.8.8",
+        "react-renderer-utils": "link:@types/quillforms/react-renderer-utils",
         "typescript": "5.0.4"
     }
 }

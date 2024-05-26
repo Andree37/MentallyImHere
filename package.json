@@ -87,7 +87,6 @@
         "eslint": "^8.56.0",
         "eslint-config-next": "^14.1.0",
         "prettier": "^2.8.8",
-        "react-renderer-utils": "link:@types/quillforms/react-renderer-utils",
         "typescript": "5.0.4"
     }
 }

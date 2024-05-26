@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { PhoneInput, usePhoneValidation } from 'react-international-phone';
+import { PhoneInput } from 'react-international-phone';
 
 const zodObject = z.object({
     name: z
@@ -31,8 +31,7 @@ const zodObject = z.object({
         .string()
         .refine(
             (m) => {
-                const validPhone = usePhoneValidation(m);
-                return validPhone.isValid;
+                return m.length <= 15 && m.length >= 9;
             },
             { message: 'Número de telemóvel inválido.' },
         )

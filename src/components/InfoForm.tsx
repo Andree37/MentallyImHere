@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { PhoneInput, usePhoneValidation } from 'react-international-phone';
+import { PhoneInput } from 'react-international-phone';
 import { Textarea } from '@/components/ui/textarea';
 import { InsertOneResult } from 'mongodb';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -40,8 +40,7 @@ const userFormSchema = z
         (schema) => {
             if (schema.contactFrom !== 'Email') {
                 if (!schema.phone) return false;
-                const validPhone = usePhoneValidation(schema.phone);
-                return validPhone.isValid;
+                schema.phone?.length <= 15 && schema.phone?.length >= 9;
             } else {
                 if (!schema.email) return false;
             }

@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { PhoneInput, usePhoneValidation } from 'react-international-phone';
+import { PhoneInput } from 'react-international-phone';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
@@ -33,8 +33,7 @@ const userFormSchema = z.object({
         .string()
         .refine(
             (m) => {
-                const validPhone = usePhoneValidation(m);
-                return validPhone.isValid;
+                return m.length <= 15 && m.length >= 9;
             },
             { message: 'Número de telemóvel inválido.' },
         )

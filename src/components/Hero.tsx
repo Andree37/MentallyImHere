@@ -30,7 +30,7 @@ export default function Hero() {
                                 />
                             </svg>
                             <div className="inline relative bg-gradient-to-r from-primary to-secondaryLight bg-clip-text text-transparent md:px-2">
-                                Psicólogo/a
+                                <GenderText text={'Psicólog@'} />
                             </div>
                         </span>
                     </h1>

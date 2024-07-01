@@ -61,16 +61,17 @@ tabs.forEach((tab) => {
             <section id="solutions" className="pt-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
                     <div className="text-center">
-                        <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">
-                            Inicie o seu processo terapêutico.
-                        </h3>
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">
                             Como funciona?
                         </h2>
+                        <h3 className="mx-auto font-bold color-gray-300 mt-2 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">
+                            Inicie o seu processo terapêutico.
+                        </h3>
                         <div className="mx-auto mt-6 text-gray-700 dark:text-gray-300 md:w-3/4 lg:w-3/5">
-                            Sabemos que iniciar um processo de consultas psicológicas pode ser difícil. Entre outras
-                            razões, uma das dificuldades é encontrar um psicólogo que se adeque às nossas necessidades
-                            individuais. Nós simplificamos este processo e ajudamo-lo a encontrar o que necessita.
+                            Em apenas 3 passos, garantimos que tem acesso a{' '}
+                            <TextTransition key={'o'} className={`inline`} prefix={'um'} text1={''} text2={'a'} />{' '}
+                            <GenderText text="psicólog@" /> mais adequado às suas necessidades. Navegue nos botões
+                            abaixo para saber mais.
                         </div>
                         <div
                             role="tablist"
@@ -125,14 +126,7 @@ tabs.forEach((tab) => {
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
                                             Indique as suas preferências e necessidades para que nós possamos analisar
-                                            de forma cuidada e <GenderText text={'conectá-l@'} /> a{' '}
-                                            <TextTransition
-                                                className={'inline'}
-                                                prefix={''}
-                                                text1={'um'}
-                                                text2={'uma'}
-                                            />{' '}
-                                            <GenderText text={'psicólog@ adaptad@'} /> às mesmas.
+                                            de forma cuidada.
                                         </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
@@ -168,10 +162,15 @@ tabs.forEach((tab) => {
                                             Passo 2: Nós Analisamos e Conectamos
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
-                                            Faremos uma análise cuidada das suas preferências e necessidades e{' '}
-                                            <GenderText text={'conectá-l@'} /> a{' '}
-                                            <TextTransition className={'inline'} prefix={''} text1={'ao'} text2={'à'} />{' '}
-                                            <GenderText text={'psicólog@ adaptad@'} /> melhor para si.
+                                            Após a nossa análise, <GenderText text="conectamo-l@" />{' '}
+                                            <TextTransition
+                                                key={'o'}
+                                                className={`inline`}
+                                                prefix={''}
+                                                text1={'ao'}
+                                                text2={'à'}
+                                            />{' '}
+                                            <GenderText text="psicólog@ adequad@" /> às suas necessidades
                                         </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
@@ -190,9 +189,8 @@ tabs.forEach((tab) => {
                                                         Receba as Informações
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Após receber toda a informação necessária estará em condições
-                                                        para agendar a sua 1ª sessão e iniciar o seu processo
-                                                        terapêutico!
+                                                        Irá receber, pela via que nos facultou no formulário do Passo 1,
+                                                        informação necessária para iniciar o seu processo terapêutico!
                                                     </p>
                                                 </div>
                                             </div>
@@ -231,16 +229,9 @@ tabs.forEach((tab) => {
                                             Passo 3: Inicie o seu Processo Terapêutico
                                         </h3>
                                         <div className="mt-8 text-gray-600 dark:text-gray-300">
-                                            Após <GenderText text={'@'} /> termos conectado{' '}
-                                            <TextTransition className={'inline'} prefix={''} text1={'ao'} text2={'à'} />{' '}
-                                            <TextTransition
-                                                className={'inline'}
-                                                prefix={''}
-                                                text1={'seu'}
-                                                text2={'sua'}
-                                            />{' '}
-                                            <GenderText text={'psicólog@'} />, irá receber informações acerca{' '}
-                                            <GenderText text={'d@ mesm@'} /> e da sua primeira sessão
+                                            Após a sua confirmação no passo anterior, receberá toda a informação
+                                            necessária para poder comparecer à 1ª sessão, como morada exata e nome{' '}
+                                            <GenderText text={'d@'} /> <GenderText text="psicólog@" />.
                                         </div>
                                         <div className="mt-12 space-y-6">
                                             <div className="flex items-center gap-6">
@@ -259,9 +250,8 @@ tabs.forEach((tab) => {
                                                         Agendamento
                                                     </h4>
                                                     <div className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        O agendamento é articulado diretamente com{' '}
-                                                        <GenderText text={'@ psicólog@ após ser conectad@'} /> e receber
-                                                        as informações necessárias para tal.
+                                                        Com base na sua disponibilidade, nós articulamos o agendamento
+                                                        com <GenderText text="@ psicólog@" />.
                                                     </div>
                                                 </div>
                                             </div>
@@ -282,7 +272,8 @@ tabs.forEach((tab) => {
                                                         Pagamento
                                                     </h4>
                                                     <p className="mt-1 text-gray-600 dark:text-gray-400">
-                                                        Acompanhe o seu progresso para atingir o bem-estar.
+                                                        O pagamento, dentro do intervalo que nos indicou, é articulado
+                                                        entre si e <GenderText text="@ psicólog@" /> na 1ª sessão.
                                                     </p>
                                                 </div>
                                             </div>

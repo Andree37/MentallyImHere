@@ -82,6 +82,7 @@ const consultationTypes = ['Presencial', 'Online', 'Ambos'];
 const genderTypes = [
     { label: 'Masculino', value: 'male' },
     { label: 'Feminino', value: 'female' },
+    { label: 'Outro', value: 'other' },
 ];
 
 async function trelloPsychologistCard(data: UserFormValues) {

@@ -7,10 +7,51 @@ const initialState = {};
 const content = {
     faqs: [
         {
+            question: 'Como funciona a rede Psiplexus para Clientes?',
+            answer: (
+                <>
+                    Em apenas 3 passos, garantimos que tem acesso a um/a psicólogo/a mais adequado para si:
+                    <br />• <strong>Passo 1</strong>:Partilhe connosco as suas preferências e necessidades, respondendo
+                    a um breve formulário.
+                    <br />• <strong>Passo 2</strong>: Nós realizamos uma análise cuidada das suas respostas e
+                    conectamo-lo/a o/a psicólogo/a mais adequado/a às suas necessidades.
+                    <br />• <strong>Passo 3</strong>: Receba as informações que necessita para a 1ª sessão com o/a
+                    psicólogo/a e inicie o seu processo terapêutico.
+                    <br />
+                    <br />
+                    Explore o site para mais detalhes sobre os 3 passos para Cliente: Partilhar, Conectar e Iniciar.
+                </>
+            ),
+        },
+        {
+            question: 'Como funciona a rede Psiplexus para Profissionais?',
+            answer: (
+                <>
+                    Se é Psicólogo/a, a rede Psiplexus proporciona um espaço onde pode encontrar clientes de forma mais
+                    fácil, segura e com significado.
+                    <br />
+                    Estamos empenhados em facilitar o acesso a cuidados de saúde mental a todas as pessoas que procurem
+                    ajuda psicológica.
+                    <br />
+                    Basta registar-se na nossa plataforma, fornecer algumas informações relevantes para o nosso processo
+                    interno. Após o seu pré-registo, será contactado por um membro da Equipa Psiplexus para iniciarmos o
+                    processo de alocação cliente-psicólogo.
+                    <br />
+                    Após  analisarmos de forma cuidada as necessidades e preferências dos/as clientes e de conectarmos
+                    cliente-psicólogo, irá receber todas as informações necessárias para iniciar o processo terapêutico
+                    do/a cliente.
+                    <br />
+                    <br />
+                    Explore o site na Área de Psicólogo/a para mais detalhes sobre os 3 passos para Profissional:
+                    Partilhar, Conectar e Iniciar.
+                </>
+            ),
+        },
+        {
             question: 'Como posso entrar em contacto, caso tenha alguma questão, sugestão ou reclamação?',
             answer: (
                 <>
-                    Para entrar em contacto connosco, envie e-mail com o seu assunto para o endereço{' '}
+                    Envie e-mail com o seu assunto para o endereço{' '}
                     <a href="mailto:help@psiplexus.com">help@psiplexus.com</a>. Responderemos o mais rapidamente
                     possível até 48h depois do seu contacto inicial.
                 </>
@@ -18,7 +59,7 @@ const content = {
         },
         {
             question: 'Como encontram o/a psicólogo/a mais adequado/a para mim?',
-            answer: 'Com base nas preferências e necessidades partilhadas por si, realizamos um processo de triagem através de uma análise cuidada das mesmas. Este processo permite conectá-lo/a ao/à psicólogo/a mais adaptado para a sua realidade.',
+            answer: 'Com base nas preferências e necessidades partilhadas por si, realizamos um processo de triagem através de uma análise cuidada das mesmas.',
         },
     ],
 };

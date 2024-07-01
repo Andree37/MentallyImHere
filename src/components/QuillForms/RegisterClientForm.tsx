@@ -113,11 +113,12 @@ export default function RegisterClientForm() {
     const immediateAvailabilityAnswer = useFieldAnswer('1-1-immediate-availability') as string;
     const contactPreferenceAnswer = useFieldAnswer('1-6-contact-preference') as string;
     const locationAnswer = useFieldAnswer('1-3-location') as string;
+    const preferentialConsultationType = useFieldAnswer('1-2-preferential-consultation-type') as string;
 
     const params = useSearchParams();
 
     return (
-        <div className="h-[80vh] w-full">
+        <div className="h-[80vh] w-full" id={'triage-form'}>
             <Form
                 formId={1}
                 beforeGoingNext={({ currentBlockId, goNext, answers }) => {
@@ -146,7 +147,7 @@ export default function RegisterClientForm() {
                             id: '0-welcome',
                             attributes: {
                                 label: 'Bem vind@!',
-                                description: 'Este questionário ajuda-nos a conhecer-te um pouco melhor.',
+                                description: 'Este questionário ajuda-nos a conhecê-lo(a) um pouco melhor.',
                                 buttonText: 'Começar',
                                 attachment: {
                                     type: 'image',
@@ -158,18 +159,10 @@ export default function RegisterClientForm() {
                             id: '0-1-welcome-statement',
                             name: 'statement',
                             attributes: {
-                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para ti.',
+                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para si.',
                                 description: '(2 minutos)',
                                 buttonText: 'Continuar',
                                 quotationMarks: false,
-                            },
-                        },
-                        {
-                            name: 'short-text',
-                            id: '0-2-name',
-                            attributes: {
-                                required: true,
-                                label: 'Indique o seu <strong>nome e apelido</strong>',
                             },
                         },
                         {
@@ -182,11 +175,11 @@ export default function RegisterClientForm() {
                                 label: 'Qual é o seu <strong>género</strong>?',
                                 choices: [
                                     {
-                                        label: 'Masculino',
+                                        label: 'Homem',
                                         value: 'masculino',
                                     },
                                     {
-                                        label: 'Feminino',
+                                        label: 'Mulher',
                                         value: 'feminino',
                                     },
                                     {
@@ -228,20 +221,6 @@ export default function RegisterClientForm() {
                             },
                         },
                         {
-                            id: '0-5-after-statement',
-                            name: 'statement',
-                            attributes: {
-                                label:
-                                    'Neste momento, os valores das consultas com os profissionais de saúde mental disponíveis na plataforma estão compreendidos entre <strong>30€ e 60€</strong> por sessão.\n\n\n\n' +
-                                    'Em média, <strong>os processos terapêuticos</strong> compreendem 1 sessão por semana ou 1 sessão de duas em duas semanas.\n\n\n\n' +
-                                    'A <strong>PsiPlexus</strong> pede esta informação no sentido de agilizar o contacto com o profissional.',
-                                description:
-                                    'Carregue em <strong>Continuar</strong> para responder à periodicidade e valor por consulta.',
-                                buttonText: 'Continuar',
-                                quotationMarks: false,
-                            },
-                        },
-                        {
                             name: 'multiple-choice',
                             id: '0-6-frequency',
                             attributes: {
@@ -249,13 +228,15 @@ export default function RegisterClientForm() {
                                 multiple: false,
                                 verticalAlign: false,
                                 label: 'Indique a <strong>periodicidade</strong> preferida em relação às sessões.',
+                                description:
+                                    'Em média, os processos terapêuticos compreendem 1 sessão por semana ou 1 sessão de duas em duas semanas. \n  A PsiPlexus pede esta informação no sentido de agilizar o contacto com o profissional.',
                                 choices: [
                                     {
                                         label: '1 vez por semana',
                                         value: 'once-a-week',
                                     },
                                     {
-                                        label: 'Duas em duas semanas',
+                                        label: '15 em 15 dias',
                                         value: 'two-in-two-weeks',
                                     },
                                     {
@@ -283,6 +264,8 @@ export default function RegisterClientForm() {
                             name: 'slider',
                             attributes: {
                                 label: 'Indique o <strong>valor máximo em euros</strong> que estaria disponível para pagar por cada sessão.',
+                                description:
+                                    'Neste momento, os valores das consultas com os profissionais de saúde mental disponíveis na plataforma estão compreendidos entre 30€ e 60€ por sessão. \n A PsiPlexus pede esta informação no sentido de agilizar o contacto com o profissional.',
                                 min: 30,
                                 step: 5,
                                 max: 60,
@@ -306,6 +289,14 @@ export default function RegisterClientForm() {
                                     {
                                         label: 'Para casal',
                                         value: 'couple',
+                                    },
+                                    {
+                                        label: 'Para outra pessoa adulta',
+                                        value: 'adult',
+                                    },
+                                    {
+                                        label: 'Para outra pessoa menor de idade',
+                                        value: 'children',
                                     },
                                     {
                                         label: 'Outro',
@@ -333,7 +324,7 @@ export default function RegisterClientForm() {
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
-                                label: 'Indique o <strong>motivo</strong> do pedido de consulta',
+                                label: 'Indique o <strong>motivo</strong> do pedido de consulta.',
                             },
                         },
                         {
@@ -398,7 +389,7 @@ export default function RegisterClientForm() {
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
-                                          label: 'Quando poderia começar?',
+                                          label: 'Em que mês gostaria de ser contactado pela Psiplexus para marcar a sua consulta?',
                                       },
                                   },
                               ]
@@ -441,24 +432,28 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
-                        {
-                            id: '1-3-location',
-                            name: 'dropdown',
-                            attributes: {
-                                label: 'Indique o <strong>distrito</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
-                                required: true,
-                                choices: portugalCities.map((p) => {
-                                    return { value: p.key, label: p.value };
-                                }),
-                            },
-                        },
+                        ...(!preferentialConsultationType?.includes('online')
+                            ? [
+                                  {
+                                      id: '1-3-location',
+                                      name: 'dropdown',
+                                      attributes: {
+                                          label: 'Indique o <strong>distrito</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
+                                          required: true,
+                                          choices: portugalCities.map((p) => {
+                                              return { value: p.key, label: p.value };
+                                          }),
+                                      },
+                                  },
+                              ]
+                            : []),
                         ...(Object.keys(municipes).includes(locationAnswer)
                             ? [
                                   {
                                       id: '1-3-1-location-municipe',
-                                      name: 'dropdown',
+                                      name: 'multiple-choice',
                                       attributes: {
-                                          label: 'Indique o <strong>município</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
+                                          label: 'Indique o <strong>concelho</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
                                           required: true,
                                           choices: (municipes as Record<string, string[]>)[locationAnswer].map((p) => ({
                                               value: p,
@@ -492,11 +487,13 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+
                         {
                             id: '1-5-email',
                             name: 'email',
                             attributes: {
                                 label: 'Indique o seu <strong>email</strong>.',
+                                placeholder: 'Escreva o seu email aqui',
                             },
                         },
                         {
@@ -527,11 +524,19 @@ export default function RegisterClientForm() {
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
-                                          label: 'Por favor indique o seu numero de telefone para ser contactado.',
+                                          label: 'Por favor indique o seu número de telefone para ser contactado.',
                                       },
                                   },
                               ]
                             : []),
+                        {
+                            name: 'short-text',
+                            id: '0-2-name',
+                            attributes: {
+                                required: true,
+                                label: 'Indique o seu <strong>nome e apelido</strong>',
+                            },
+                        },
                         {
                             name: 'short-text',
                             id: '1-7-additional-information',

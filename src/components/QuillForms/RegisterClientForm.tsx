@@ -498,11 +498,11 @@ export default function RegisterClientForm() {
                                 label: 'Tem alguma preferência em relação ao <strong>género</strong> do profissional de saúde mental?',
                                 choices: [
                                     {
-                                        label: 'Masculino',
+                                        label: 'Homem',
                                         value: 'male',
                                     },
                                     {
-                                        label: 'Feminino',
+                                        label: 'Mulher',
                                         value: 'female',
                                     },
                                     {

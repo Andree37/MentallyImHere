@@ -142,32 +142,38 @@ export default function RegisterClientForm() {
                 }}
                 formObj={{
                     blocks: [
-                        {
-                            name: 'welcome-screen',
-                            id: '0-welcome',
-                            attributes: {
-                                label: 'Bem vind@!',
-                                description: 'Este questionário ajuda-nos a conhecê-lo(a) um pouco melhor.',
-                                buttonText: 'Começar',
-                                attachment: {
-                                    type: 'image',
-                                    url: '/images/therapists/sittingonline.jpg',
-                                },
-                            },
-                        },
-                        {
-                            id: '0-1-welcome-statement',
-                            name: 'statement',
-                            attributes: {
-                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para si.',
-                                description: '(2 minutos)',
-                                buttonText: 'Continuar',
-                                quotationMarks: false,
-                            },
-                        },
+                        //@ts-expect-error
+                        ...(!Boolean(params.get('display_form'))
+                            ? [
+                                  {
+                                      name: 'welcome-screen',
+                                      id: '0-welcome',
+                                      attributes: {
+                                          label: 'Bem vind@!',
+                                          description: 'Este questionário ajuda-nos a conhecê-lo(a) um pouco melhor.',
+                                          buttonText: 'Começar',
+                                          attachment: {
+                                              type: 'image',
+                                              url: '/images/therapists/sittingonline.jpg',
+                                          },
+                                      },
+                                  },
+                                  {
+                                      id: '0-1-welcome-statement',
+                                      name: 'statement',
+                                      attributes: {
+                                          label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para si.',
+                                          description: '(2 minutos)',
+                                          buttonText: 'Continuar',
+                                          quotationMarks: false,
+                                      },
+                                  },
+                              ]
+                            : []),
                         {
                             name: 'multiple-choice',
                             id: '0-3-gender',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -197,6 +203,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(genderAnswer?.includes('prefer-auto-describe')
                             ? [
                                   {
@@ -213,6 +220,7 @@ export default function RegisterClientForm() {
                         {
                             id: '0-4-age',
                             name: 'number',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique a sua <strong>idade</strong>',
                                 required: true,
@@ -223,6 +231,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '0-6-frequency',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -246,6 +255,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(frequencyAnswer?.includes('other')
                             ? [
                                   {
@@ -262,6 +272,7 @@ export default function RegisterClientForm() {
                         {
                             id: '0-7-price',
                             name: 'slider',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique o <strong>valor máximo em euros</strong> que estaria disponível para pagar por cada sessão.',
                                 description:
@@ -276,6 +287,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '0-8-consultation-for',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -305,6 +317,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(consultationForAnswer?.includes('other')
                             ? [
                                   {
@@ -321,6 +334,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '0-9-motivation',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
@@ -330,6 +344,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-0-previous-experience-therapy',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -347,6 +362,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(prevExperienceAnswer?.includes('yes')
                             ? [
                                   {
@@ -364,6 +380,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-1-immediate-availability',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -381,6 +398,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(immediateAvailabilityAnswer?.includes('other')
                             ? [
                                   {
@@ -397,6 +415,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '1-1-2-availability-describe',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
@@ -407,6 +426,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-2-preferential-consultation-type',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -432,6 +452,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(!preferentialConsultationType?.includes('online')
                             ? [
                                   {
@@ -447,12 +468,15 @@ export default function RegisterClientForm() {
                                   },
                               ]
                             : []),
+                        //@ts-expect-error
                         ...(Object.keys(municipes).includes(locationAnswer)
                             ? [
                                   {
                                       id: '1-3-1-location-municipe',
                                       name: 'multiple-choice',
+
                                       attributes: {
+                                          multiple: true,
                                           label: 'Indique o <strong>concelho</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
                                           required: true,
                                           choices: (municipes as Record<string, string[]>)[locationAnswer].map((p) => ({
@@ -466,6 +490,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-4-professional-gender',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -491,6 +516,7 @@ export default function RegisterClientForm() {
                         {
                             id: '1-5-email',
                             name: 'email',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique o seu <strong>email</strong>.',
                                 placeholder: 'Escreva o seu email aqui',
@@ -499,6 +525,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-6-contact-preference',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -516,6 +543,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(contactPreferenceAnswer?.includes('call') || contactPreferenceAnswer?.includes('whatsapp')
                             ? [
                                   {
@@ -532,6 +560,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '0-2-name',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 label: 'Indique o seu <strong>nome e apelido</strong>',
@@ -540,6 +569,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '1-7-additional-information',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: false,
@@ -639,7 +669,7 @@ export default function RegisterClientForm() {
                         answerData['preferential-consultation-type'][0],
                     );
 
-                    const addPsys = psychologists.data.map((p: Object) => {
+                    const addPsys = psychologists?.data?.map((p: Object) => {
                         addPsysSuggestions(trelloRes?.data?.id, JSON.stringify(p, null, 2));
                     });
 

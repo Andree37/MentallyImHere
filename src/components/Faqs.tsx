@@ -67,7 +67,7 @@ const content = {
 export default function Faqs() {
     return (
         <>
-            <section id="faqs" className="my-32">
+            <section id="faqs" className="pt-32">
                 <div className="mx-auto px-4 sm:px-12 xl:max-w-5xl xl:px-0">
                     <h2 className="mb-12 text-center text-3xl font-bold text-gray-800 dark:text-white md:text-4xl xl:text-5xl">
                         Perguntas Frequentes

@@ -15,7 +15,7 @@ export default function Navbar() {
                     <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0 lg:py-4">
                         <div className="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
                             <a href={'/'} aria-label="psiplexus logo" className="nav-link flex items-center space-x-2">
-                                <Image src={'/images/logo.png'} alt="logo" width={130} height={130} />
+                                <Image src={'/images/logo.png'} alt="logo" width={150} height={150} />
                             </a>
 
                             <button aria-label="humburger" id="hamburger" className="relative -mr-6 p-6 lg:hidden">

@@ -52,6 +52,14 @@ export default function Navbar() {
                                     </li>
                                     <li>
                                         <a
+                                            href="#testimonials"
+                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4"
+                                        >
+                                            <span>Testemunhos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
                                             href="#faqs"
                                             className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4"
                                         >

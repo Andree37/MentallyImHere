@@ -4,6 +4,7 @@ import Solution from '@/components/Solution';
 import EmailCTA from '@/components/EmailCTA';
 import { JoinUs } from '@/components/JoinUs';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import Testimonials from '@/components/Testimonials';
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 
@@ -14,6 +15,7 @@ export default function Home() {
             <Hero />
             <EmailCTA />
             <Solution />
+            <Testimonials />
             <Faqs />
             <JoinUs />
         </div>

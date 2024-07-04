@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const autoprefixer = require('autoprefixer');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {

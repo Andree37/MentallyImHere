@@ -600,7 +600,7 @@ export default function RegisterClientForm() {
                         'label.errorAlert.number': 'Apenas números',
                     },
                     theme: {
-                        buttonsBgColor: '#1664C0',
+                        buttonsBgColor: '#D7772D',
                         answersColor: 'black',
                         questionsLabelFontSize: { lg: '20px', sm: '15px' },
                         buttonsFontSize: { lg: '22px', sm: '13px' },

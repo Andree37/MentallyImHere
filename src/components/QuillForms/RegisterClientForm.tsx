@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import { Form, useFieldAnswer } from '@quillforms/renderer-core';
 import '@quillforms/renderer-core/build-style/style.css';
 // @ts-ignore
@@ -106,6 +107,7 @@ mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN!!, {
 mixpanel.identify(uuidv4());
 
 export default function RegisterClientForm() {
+    const triageFormRef = useRef<HTMLDivElement>(null);
     const genderAnswer = useFieldAnswer('0-3-gender') as string;
     const consultationForAnswer = useFieldAnswer('0-8-consultation-for') as string;
     const prevExperienceAnswer = useFieldAnswer('1-0-previous-experience-therapy') as string;
@@ -117,8 +119,14 @@ export default function RegisterClientForm() {
 
     const params = useSearchParams();
 
+    useEffect(() => {
+        if (triageFormRef.current && Boolean(params.get('display_form'))) {
+            triageFormRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
     return (
-        <div className="h-[80vh] w-full" id={'triage-form'}>
+        <div className="h-[80vh] w-full" id={'triage-form'} ref={triageFormRef}>
             <Form
                 formId={1}
                 beforeGoingNext={({ currentBlockId, goNext, answers }) => {

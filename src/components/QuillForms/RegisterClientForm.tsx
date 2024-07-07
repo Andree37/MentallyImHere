@@ -121,13 +121,21 @@ export default function RegisterClientForm() {
 
     useEffect(() => {
         if (triageFormRef.current && Boolean(params.get('display_form'))) {
-            triageFormRef.current.scrollIntoView({ behavior: 'smooth' });
+            console.log('ENTER HERE');
+            window.requestAnimationFrame(() =>
+                triageFormRef.current?.scrollIntoView({
+                    block: 'nearest',
+                    inline: 'center',
+                    behavior: 'smooth',
+                }),
+            );
         }
     }, []);
 
     return (
         <div className="h-[80vh] w-full" id={'triage-form'} ref={triageFormRef}>
             <Form
+                ref={triageFormRef}
                 formId={1}
                 beforeGoingNext={({ currentBlockId, goNext, answers }) => {
                     const parsedAnswers = Object.entries(answers)

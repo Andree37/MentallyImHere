@@ -19,7 +19,7 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                         <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
                         <p>
                             Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu
-                            psicólogo. Clique em `&quot;`
+                            psicólogo. Clique em &quot;
                             <a href="#triage-form" className="text-primary">
                                 Começar
                             </a>
@@ -42,11 +42,11 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                     <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
                     <p>
                         Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.
-                        Clique em `&quot;`
+                        Clique em &quot;
                         <a href="#triage-form" className="text-primary">
                             Começar
                         </a>
-                        `&quot;` .
+                        &quot; .
                     </p>
                 </div>
             </>;

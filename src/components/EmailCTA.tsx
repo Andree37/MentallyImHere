@@ -15,12 +15,16 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                         A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses,
                         escolhemos aquele que mais se adequa às suas necessidades. Escolhemos o seu psicólogo
                         baseando-nos nas suas preferências de horário, localização geográfica (presencial ou online),
-                        custo por sessão, e na razão pela qual procura apoio psicológico. Apenas tem de responder a
-                        algumas questões de seguida, para podermos encontrar o seu psicólogo. Clique em "
-                        <a href="#triage-form" className="text-primary">
-                            Começar
-                        </a>
-                        " .
+                        custo por sessão, e na razão pela qual procura apoio psicológico.{' '}
+                        <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
+                        <p>
+                            Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu
+                            psicólogo. Clique em "
+                            <a href="#triage-form" className="text-primary">
+                                Começar
+                            </a>
+                            " .
+                        </p>
                     </div>
                 </>
             );
@@ -34,12 +38,16 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                     A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses, escolhemos
                     aquele que mais se adequa às suas necessidades. Escolhemos o seu psicólogo baseando-nos nas suas
                     preferências de horário, localização geográfica (presencial ou online), custo por sessão, e na razão
-                    pela qual procura apoio psicológico. Apenas tem de responder a algumas questões de seguida, para
-                    podermos encontrar o seu psicólogo. Clique em "
-                    <a href="#triage-form" className="text-primary">
-                        Começar
-                    </a>
-                    " .
+                    pela qual procura apoio psicológico.{' '}
+                    <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
+                    <p>
+                        Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.
+                        Clique em "
+                        <a href="#triage-form" className="text-primary">
+                            Começar
+                        </a>
+                        " .
+                    </p>
                 </div>
             </>;
         } else {

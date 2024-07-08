@@ -121,7 +121,6 @@ export default function RegisterClientForm() {
 
     useEffect(() => {
         if (triageFormRef.current && Boolean(params.get('display_form'))) {
-            console.log('ENTER HERE');
             window.requestAnimationFrame(() =>
                 triageFormRef.current?.scrollIntoView({
                     block: 'nearest',

@@ -23,7 +23,7 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                             <a href="#triage-form" className="text-primary">
                                 Começar
                             </a>
-                            `&quot;`.
+                            &quot;.
                         </p>
                     </div>
                 </>

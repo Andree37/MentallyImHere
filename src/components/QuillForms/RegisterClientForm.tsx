@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Form, useFieldAnswer } from '@quillforms/renderer-core';
 import '@quillforms/renderer-core/build-style/style.css';
 // @ts-ignore
@@ -106,7 +106,8 @@ mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN!!, {
 
 mixpanel.identify(uuidv4());
 
-export default function RegisterClientForm() {
+export default function RegisterClientForm({ source }: { source: string | string[] | undefined }) {
+    const [goToForm, setGoToForm] = useState(true);
     const triageFormRef = useRef<HTMLDivElement>(null);
     const genderAnswer = useFieldAnswer('0-3-gender') as string;
     const consultationForAnswer = useFieldAnswer('0-8-consultation-for') as string;
@@ -120,16 +121,45 @@ export default function RegisterClientForm() {
     const params = useSearchParams();
 
     useEffect(() => {
-        if (triageFormRef.current && Boolean(params.get('display_form'))) {
-            window.requestAnimationFrame(() =>
-                triageFormRef.current?.scrollIntoView({
-                    block: 'nearest',
-                    inline: 'center',
-                    behavior: 'smooth',
-                }),
-            );
+        if (source) {
+            setGoToForm(false);
         }
     }, []);
+
+    if (!goToForm && source) {
+        return (
+            <div className="h-[80vh] w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 p-6">
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl text-center">
+                    <span className="text-orange-400">Encontra</span> o Psicólogo mais adequado para si, em 3 minutos
+                </h2>
+
+                <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300 text-center max-w-2xl">
+                    <p className="mb-4 leading-relaxed">
+                        A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses,
+                        escolhemos aquele que mais se adequa às suas necessidades.
+                    </p>
+                    <p className="mb-4 leading-relaxed">
+                        Escolhemos o seu psicólogo baseando-nos nas suas preferências de horário, localização geográfica
+                        (presencial ou online), custo por sessão, e na razão pela qual procura apoio psicológico.
+                    </p>
+                    <p className="mb-4 leading-relaxed">
+                        Assim, procuramos que tenha uma boa experiência sem perder tempo.
+                    </p>
+                    <p className="mb-4 leading-relaxed">
+                        Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.
+                        Clique em <span className="text-orange-400 font-bold">Começar</span>.
+                    </p>
+                </div>
+
+                <button
+                    className="bg-orange-400 text-white font-bold py-3 px-8 text-lg rounded-full hover:bg-orange-500"
+                    onClick={() => setGoToForm(true)}
+                >
+                    Começar
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="h-[80vh] w-full" id={'triage-form'} ref={triageFormRef}>
@@ -158,7 +188,7 @@ export default function RegisterClientForm() {
                 formObj={{
                     blocks: [
                         //@ts-expect-error
-                        ...(!Boolean(params.get('display_form'))
+                        ...(!Boolean(params.get('source'))
                             ? [
                                   {
                                       name: 'welcome-screen',

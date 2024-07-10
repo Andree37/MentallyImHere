@@ -4,52 +4,8 @@ import { Suspense } from 'react';
 
 export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: string | string[] | undefined } }) {
     const renderTextBySearchParams = () => {
-        if (urlParam?.source === 'insta') {
-            return (
-                <>
-                    <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl mt-8">
-                        Encontre o Psicólogo mais adequado para si, em 3 minutos.
-                    </h2>
-
-                    <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300">
-                        A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses,
-                        escolhemos aquele que mais se adequa às suas necessidades. Escolhemos o seu psicólogo
-                        baseando-nos nas suas preferências de horário, localização geográfica (presencial ou online),
-                        custo por sessão, e na razão pela qual procura apoio psicológico.{' '}
-                        <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
-                        <p>
-                            Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu
-                            psicólogo. Clique em &quot;
-                            <a href="#triage-form" className="text-primary">
-                                Começar
-                            </a>
-                            &quot;.
-                        </p>
-                    </div>
-                </>
-            );
-        } else if (urlParam?.source === 'linkedin') {
-            <>
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl mt-8">
-                    Encontre o Psicólogo mais adequado para si, em 3 minutos.
-                </h2>
-
-                <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300">
-                    A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses, escolhemos
-                    aquele que mais se adequa às suas necessidades. Escolhemos o seu psicólogo baseando-nos nas suas
-                    preferências de horário, localização geográfica (presencial ou online), custo por sessão, e na razão
-                    pela qual procura apoio psicológico.{' '}
-                    <p> Assim, procuramos que tenha uma boa experiência sem perder tempo. </p>
-                    <p>
-                        Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.
-                        Clique em &quot;
-                        <a href="#triage-form" className="text-primary">
-                            Começar
-                        </a>
-                        &quot; .
-                    </p>
-                </div>
-            </>;
+        if (urlParam?.source) {
+            return <></>;
         } else {
             return (
                 <>
@@ -77,7 +33,7 @@ export default function EmailCTA({ urlParam }: { urlParam?: { [key: string]: str
                             <div className="text-center md:text-left">
                                 {renderTextBySearchParams()}
                                 <Suspense>
-                                    <RegisterClientForm />
+                                    <RegisterClientForm source={urlParam?.source} />
                                 </Suspense>
                             </div>
                         </div>

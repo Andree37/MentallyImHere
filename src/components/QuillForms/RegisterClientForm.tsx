@@ -135,16 +135,15 @@ export default function RegisterClientForm({ source }: { source: string | string
 
                 <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300 text-center max-w-2xl">
                     <p className="mb-4 leading-relaxed">
-                        A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses,
-                        escolhemos aquele que mais se adequa às suas necessidades.
+                        Escolhemos o seu psicólogo baseando-nos nas suas preferências pessoais.
                     </p>
                     <p className="mb-4 leading-relaxed">
                         Escolhemos o seu psicólogo baseando-nos nas suas preferências de horário, localização geográfica
                         custo por sessão, e na razão pela qual procura apoio psicológico.
                     </p>
                     <p className="mb-4 leading-relaxed">
-                        Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.
-                        Clique em <span className="text-orange-400 font-bold">Começar</span>.
+                        Apenas tem de responder a algumas questões de seguida. Clique em{' '}
+                        <span className="text-orange-400 font-bold">Começar</span>.
                     </p>
                 </div>
 

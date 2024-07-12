@@ -128,7 +128,7 @@ export default function RegisterClientForm({ source }: { source: string | string
 
     if (!goToForm && source) {
         return (
-            <div className="h-[100vh] w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 p-6">
+            <div className="h-[80vh] w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 p-6">
                 <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl text-center">
                     <span className="text-orange-400">Encontra</span> o Psicólogo mais adequado para si, em 3 minutos
                 </h2>

@@ -140,10 +140,7 @@ export default function RegisterClientForm({ source }: { source: string | string
                     </p>
                     <p className="mb-4 leading-relaxed">
                         Escolhemos o seu psicólogo baseando-nos nas suas preferências de horário, localização geográfica
-                        (presencial ou online), custo por sessão, e na razão pela qual procura apoio psicológico.
-                    </p>
-                    <p className="mb-4 leading-relaxed">
-                        Assim, procuramos que tenha uma boa experiência sem perder tempo.
+                        custo por sessão, e na razão pela qual procura apoio psicológico.
                     </p>
                     <p className="mb-4 leading-relaxed">
                         Apenas tem de responder a algumas questões de seguida, para podermos encontrar o seu psicólogo.

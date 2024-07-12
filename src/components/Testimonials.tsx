@@ -13,7 +13,7 @@ const testimonials = [
             author: {
                 name: 'RG',
                 role: '32 anos',
-                image: avatarImage4,
+                image: avatarImage5,
             },
         },
     ],
@@ -31,11 +31,11 @@ const testimonials = [
     [
         {
             content:
-                'A cada sessão com o psicólogo que a Psiplexus encontrou me sinto mais compreendida e segura para enfrentar os meus desafios. A frase "Aqui pode-se tudo" realmente se aplica – é um espaço onde posso ser verdadeira.. A Psiplexus simplificou um processo que eu achava complicado, e agora sinto-me melhor.',
+                'A cada sessão com o psicólogo que a Psiplexus encontrou sinto-me mais compreendida e segura para enfrentar os meus desafios. A frase "Aqui pode-se tudo" realmente se aplica – é um espaço onde posso ser verdadeira.. A Psiplexus simplificou um processo que eu achava complicado, e agora sinto-me melhor.',
             author: {
                 name: 'MM',
                 role: '27 anos',
-                image: avatarImage5,
+                image: avatarImage4,
             },
         },
     ],

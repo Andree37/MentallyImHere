@@ -133,20 +133,6 @@ export default function RegisterClientForm({ source }: { source: string | string
                     <span className="text-orange-400">Encontra</span> o Psicólogo mais adequado para si, em 3 minutos
                 </h2>
 
-                <div className="mb-8 mt-6 text-gray-600 dark:text-gray-300 text-center max-w-2xl">
-                    <p className="mb-4 leading-relaxed">
-                        A partir da nossa rede de psicólogos certificados pela Ordem dos Psicólogos Portugueses,
-                        escolhemos aquele que mais se adequa às suas necessidades.
-                    </p>
-                    <p className="mb-4 leading-relaxed">
-                        Escolhemos o seu psicólogo baseando-nos nas suas preferências pessoais.
-                    </p>
-                    <p className="mb-4 leading-relaxed">
-                        Apenas tem de responder a algumas questões de seguida. Clique em{' '}
-                        <span className="text-orange-400 font-bold">Começar</span>.
-                    </p>
-                </div>
-
                 <button
                     className="bg-orange-400 text-white font-bold py-3 px-8 text-lg rounded-full hover:bg-orange-500"
                     onClick={() => setGoToForm(true)}

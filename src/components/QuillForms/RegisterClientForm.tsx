@@ -134,7 +134,7 @@ export default function RegisterClientForm({ source }: { source: string | string
                 </h2>
 
                 <button
-                    className="bg-orange-400 text-white font-bold py-3 px-8 text-lg rounded-full hover:bg-orange-500"
+                    className="bg-orange-400 text-white font-bold py-3 px-8 text-lg rounded-full hover:bg-orange-500 mt-6"
                     onClick={() => setGoToForm(true)}
                 >
                     Começar

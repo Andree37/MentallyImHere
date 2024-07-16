@@ -1,17 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import psysImage from '@/images/psys.png';
 
 export function JoinUs() {
     return (
         <div id="joinus" className="relative bg-gray-600">
             <div className="relative h-80 overflow-hidden bg-indigo-300 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-                <Image
-                    width={1920}
-                    height={1280}
-                    className="h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&blend=8487E6&sat=-100&blend-mode=multiply"
-                    alt=""
-                />
+                <Image width={1920} height={1280} className="h-full w-full object-cover" src={psysImage} alt="" />
                 <svg
                     viewBox="0 0 926 676"
                     aria-hidden="true"
@@ -41,10 +36,10 @@ export function JoinUs() {
                 <div className="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
                     <h2 className="text-base font-semibold leading-7 text-primaryLight">Junte-se a Nós!</h2>
                     <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                        É um profissional de saúde mental?
+                        É profissional de saúde mental?
                     </p>
                     <p className="mt-6 text-base leading-7 text-gray-300">
-                        Faça a pré-registo na plataforma Psiplexus e junte-se à nossa rede de profissionais de saúde
+                        Faça o pré-registo na plataforma Psiplexus e junte-se à nossa rede de profissionais de saúde
                         mental.
                     </p>
                     <div className="mt-8">

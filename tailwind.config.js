@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const autoprefixer = require('autoprefixer');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
@@ -22,10 +23,10 @@ module.exports = {
             inherit: colors.inherit,
             current: colors.current,
             transparent: colors.transparent,
-            primary: '#1565c0',
-            primaryLight: '#42a5f5',
-            secondary: '#7161ef',
-            secondaryLight: '#957fef',
+            primary: '#D7772D',
+            primaryLight: '#F1AE68',
+            secondary: '#002153',
+            secondaryLight: '#002153',
             dark: '#0A101E',
             darker: '#090E1A',
             black: colors.black,
@@ -47,7 +48,7 @@ module.exports = {
             zinc: colors.zinc,
             neutral: colors.neutral,
             stone: colors.stone,
-            red: colors.red,
+            red: '#FF2B17',
             orange: colors.orange,
             amber: colors.amber,
             yellow: colors.yellow,
@@ -371,33 +372,7 @@ module.exports = {
             DEFAULT: '1',
         },
         fontFamily: {
-            sans: [
-                'ui-sans-serif',
-                'system-ui',
-                '-apple-system',
-                'BlinkMacSystemFont',
-                '"Segoe UI"',
-                'Roboto',
-                '"Helvetica Neue"',
-                'Arial',
-                '"Noto Sans"',
-                'sans-serif',
-                '"Apple Color Emoji"',
-                '"Segoe UI Emoji"',
-                '"Segoe UI Symbol"',
-                '"Noto Color Emoji"',
-            ],
-            serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-            mono: [
-                'ui-monospace',
-                'SFMono-Regular',
-                'Menlo',
-                'Monaco',
-                'Consolas',
-                '"Liberation Mono"',
-                '"Courier New"',
-                'monospace',
-            ],
+            poppins: ['var(--font-poppins)'],
         },
         fontSize: {
             xs: ['0.75rem', { lineHeight: '1rem' }],

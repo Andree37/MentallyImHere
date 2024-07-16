@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useRef, useState } from 'react';
 import { Form, useFieldAnswer } from '@quillforms/renderer-core';
 import '@quillforms/renderer-core/build-style/style.css';
 // @ts-ignore
@@ -105,7 +106,9 @@ mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN!!, {
 
 mixpanel.identify(uuidv4());
 
-export default function RegisterClientForm() {
+export default function RegisterClientForm({ source }: { source: string | string[] | undefined }) {
+    const [goToForm, setGoToForm] = useState(true);
+    const triageFormRef = useRef<HTMLDivElement>(null);
     const genderAnswer = useFieldAnswer('0-3-gender') as string;
     const consultationForAnswer = useFieldAnswer('0-8-consultation-for') as string;
     const prevExperienceAnswer = useFieldAnswer('1-0-previous-experience-therapy') as string;
@@ -113,12 +116,37 @@ export default function RegisterClientForm() {
     const immediateAvailabilityAnswer = useFieldAnswer('1-1-immediate-availability') as string;
     const contactPreferenceAnswer = useFieldAnswer('1-6-contact-preference') as string;
     const locationAnswer = useFieldAnswer('1-3-location') as string;
+    const preferentialConsultationType = useFieldAnswer('1-2-preferential-consultation-type') as string;
 
     const params = useSearchParams();
 
+    useEffect(() => {
+        if (source) {
+            setGoToForm(false);
+        }
+    }, []);
+
+    if (!goToForm && source) {
+        return (
+            <div className="h-[80vh] w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 p-6">
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white md:w-max md:text-4xl xl:text-5xl text-center">
+                    <span className="text-orange-400">Encontra</span> o Psicólogo mais adequado para si, em 3 minutos
+                </h2>
+
+                <button
+                    className="bg-orange-400 text-white font-bold py-3 px-8 text-lg rounded-full hover:bg-orange-500 mt-6"
+                    onClick={() => setGoToForm(true)}
+                >
+                    Começar
+                </button>
+            </div>
+        );
+    }
+
     return (
-        <div className="h-[80vh] w-full">
+        <div className="h-[80vh] w-full" id={'triage-form'} ref={triageFormRef}>
             <Form
+                ref={triageFormRef}
                 formId={1}
                 beforeGoingNext={({ currentBlockId, goNext, answers }) => {
                     const parsedAnswers = Object.entries(answers)
@@ -141,40 +169,38 @@ export default function RegisterClientForm() {
                 }}
                 formObj={{
                     blocks: [
-                        {
-                            name: 'welcome-screen',
-                            id: '0-welcome',
-                            attributes: {
-                                label: 'Bem vind@!',
-                                description: 'Este questionário ajuda-nos a conhecer-te um pouco melhor.',
-                                buttonText: 'Começar',
-                                attachment: {
-                                    type: 'image',
-                                    url: '/images/therapists/sittingonline.jpg',
-                                },
-                            },
-                        },
-                        {
-                            id: '0-1-welcome-statement',
-                            name: 'statement',
-                            attributes: {
-                                label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para ti.',
-                                description: '(2 minutos)',
-                                buttonText: 'Continuar',
-                                quotationMarks: false,
-                            },
-                        },
-                        {
-                            name: 'short-text',
-                            id: '0-2-name',
-                            attributes: {
-                                required: true,
-                                label: 'Indique o seu <strong>nome e apelido</strong>',
-                            },
-                        },
+                        //@ts-expect-error
+                        ...(!Boolean(params.get('source'))
+                            ? [
+                                  {
+                                      name: 'welcome-screen',
+                                      id: '0-welcome',
+                                      attributes: {
+                                          label: 'Bem vind@!',
+                                          description: 'Este questionário ajuda-nos a conhecê-lo(a) um pouco melhor.',
+                                          buttonText: 'Começar',
+                                          attachment: {
+                                              type: 'image',
+                                              url: '/images/therapists/sittingonline.jpg',
+                                          },
+                                      },
+                                  },
+                                  {
+                                      id: '0-1-welcome-statement',
+                                      name: 'statement',
+                                      attributes: {
+                                          label: 'Este questionário ajuda-nos a encontrar o profissional mais adequado para si.',
+                                          description: '(2 minutos)',
+                                          buttonText: 'Continuar',
+                                          quotationMarks: false,
+                                      },
+                                  },
+                              ]
+                            : []),
                         {
                             name: 'multiple-choice',
                             id: '0-3-gender',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -182,11 +208,11 @@ export default function RegisterClientForm() {
                                 label: 'Qual é o seu <strong>género</strong>?',
                                 choices: [
                                     {
-                                        label: 'Masculino',
+                                        label: 'Homem',
                                         value: 'masculino',
                                     },
                                     {
-                                        label: 'Feminino',
+                                        label: 'Mulher',
                                         value: 'feminino',
                                     },
                                     {
@@ -204,6 +230,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(genderAnswer?.includes('prefer-auto-describe')
                             ? [
                                   {
@@ -220,6 +247,7 @@ export default function RegisterClientForm() {
                         {
                             id: '0-4-age',
                             name: 'number',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique a sua <strong>idade</strong>',
                                 required: true,
@@ -228,34 +256,23 @@ export default function RegisterClientForm() {
                             },
                         },
                         {
-                            id: '0-5-after-statement',
-                            name: 'statement',
-                            attributes: {
-                                label:
-                                    'Neste momento, os valores das consultas com os profissionais de saúde mental disponíveis na plataforma estão compreendidos entre <strong>30€ e 60€</strong> por sessão.\n\n\n\n' +
-                                    'Em média, <strong>os processos terapêuticos</strong> compreendem 1 sessão por semana ou 1 sessão de duas em duas semanas.\n\n\n\n' +
-                                    'A <strong>PsiPlexus</strong> pede esta informação no sentido de agilizar o contacto com o profissional.',
-                                description:
-                                    'Carregue em <strong>Continuar</strong> para responder à periodicidade e valor por consulta.',
-                                buttonText: 'Continuar',
-                                quotationMarks: false,
-                            },
-                        },
-                        {
                             name: 'multiple-choice',
                             id: '0-6-frequency',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
                                 verticalAlign: false,
                                 label: 'Indique a <strong>periodicidade</strong> preferida em relação às sessões.',
+                                description:
+                                    'Em média, os processos terapêuticos compreendem 1 sessão por semana ou 1 sessão de duas em duas semanas. \n  A PsiPlexus pede esta informação no sentido de agilizar o contacto com o profissional.',
                                 choices: [
                                     {
                                         label: '1 vez por semana',
                                         value: 'once-a-week',
                                     },
                                     {
-                                        label: 'Duas em duas semanas',
+                                        label: '15 em 15 dias',
                                         value: 'two-in-two-weeks',
                                     },
                                     {
@@ -265,6 +282,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(frequencyAnswer?.includes('other')
                             ? [
                                   {
@@ -281,8 +299,11 @@ export default function RegisterClientForm() {
                         {
                             id: '0-7-price',
                             name: 'slider',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique o <strong>valor máximo em euros</strong> que estaria disponível para pagar por cada sessão.',
+                                description:
+                                    'Neste momento, os valores das consultas com os profissionais de saúde mental disponíveis na plataforma estão compreendidos entre 30€ e 60€ por sessão. \n A PsiPlexus pede esta informação no sentido de agilizar o contacto com o profissional.',
                                 min: 30,
                                 step: 5,
                                 max: 60,
@@ -293,6 +314,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '0-8-consultation-for',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -308,12 +330,21 @@ export default function RegisterClientForm() {
                                         value: 'couple',
                                     },
                                     {
+                                        label: 'Para outra pessoa adulta',
+                                        value: 'adult',
+                                    },
+                                    {
+                                        label: 'Para outra pessoa menor de idade',
+                                        value: 'children',
+                                    },
+                                    {
                                         label: 'Outro',
                                         value: 'other',
                                     },
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(consultationForAnswer?.includes('other')
                             ? [
                                   {
@@ -330,15 +361,17 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '0-9-motivation',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
-                                label: 'Indique o <strong>motivo</strong> do pedido de consulta',
+                                label: 'Indique o <strong>motivo</strong> do pedido de consulta.',
                             },
                         },
                         {
                             name: 'multiple-choice',
                             id: '1-0-previous-experience-therapy',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -356,6 +389,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(prevExperienceAnswer?.includes('yes')
                             ? [
                                   {
@@ -373,6 +407,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-1-immediate-availability',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -390,6 +425,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(immediateAvailabilityAnswer?.includes('other')
                             ? [
                                   {
@@ -398,7 +434,7 @@ export default function RegisterClientForm() {
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
-                                          label: 'Quando poderia começar?',
+                                          label: 'Em que mês gostaria de ser contactado pela Psiplexus para marcar a sua consulta?',
                                       },
                                   },
                               ]
@@ -406,6 +442,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'short-text',
                             id: '1-1-2-availability-describe',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: true,
@@ -416,6 +453,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-2-preferential-consultation-type',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -441,24 +479,32 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
-                        {
-                            id: '1-3-location',
-                            name: 'dropdown',
-                            attributes: {
-                                label: 'Indique o <strong>distrito</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
-                                required: true,
-                                choices: portugalCities.map((p) => {
-                                    return { value: p.key, label: p.value };
-                                }),
-                            },
-                        },
+                        //@ts-expect-error
+                        ...(!preferentialConsultationType?.includes('online')
+                            ? [
+                                  {
+                                      id: '1-3-location',
+                                      name: 'dropdown',
+                                      attributes: {
+                                          label: 'Indique o <strong>distrito</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
+                                          required: true,
+                                          choices: portugalCities.map((p) => {
+                                              return { value: p.key, label: p.value };
+                                          }),
+                                      },
+                                  },
+                              ]
+                            : []),
+                        //@ts-expect-error
                         ...(Object.keys(municipes).includes(locationAnswer)
                             ? [
                                   {
                                       id: '1-3-1-location-municipe',
-                                      name: 'dropdown',
+                                      name: 'multiple-choice',
+
                                       attributes: {
-                                          label: 'Indique o <strong>município</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
+                                          multiple: true,
+                                          label: 'Indique o <strong>concelho</strong> da sua <strong>localização preferencial</strong> para a realização das consultas?',
                                           required: true,
                                           choices: (municipes as Record<string, string[]>)[locationAnswer].map((p) => ({
                                               value: p,
@@ -471,6 +517,7 @@ export default function RegisterClientForm() {
                         {
                             name: 'multiple-choice',
                             id: '1-4-professional-gender',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -478,11 +525,11 @@ export default function RegisterClientForm() {
                                 label: 'Tem alguma preferência em relação ao <strong>género</strong> do profissional de saúde mental?',
                                 choices: [
                                     {
-                                        label: 'Masculino',
+                                        label: 'Homem',
                                         value: 'male',
                                     },
                                     {
-                                        label: 'Feminino',
+                                        label: 'Mulher',
                                         value: 'female',
                                     },
                                     {
@@ -492,16 +539,20 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+
                         {
                             id: '1-5-email',
                             name: 'email',
+                            //@ts-expect-error
                             attributes: {
                                 label: 'Indique o seu <strong>email</strong>.',
+                                placeholder: 'Escreva o seu email aqui',
                             },
                         },
                         {
                             name: 'multiple-choice',
                             id: '1-6-contact-preference',
+                            //@ts-expect-error
                             attributes: {
                                 required: true,
                                 multiple: false,
@@ -519,6 +570,7 @@ export default function RegisterClientForm() {
                                 ],
                             },
                         },
+                        //@ts-expect-error
                         ...(contactPreferenceAnswer?.includes('call') || contactPreferenceAnswer?.includes('whatsapp')
                             ? [
                                   {
@@ -527,14 +579,24 @@ export default function RegisterClientForm() {
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
-                                          label: 'Por favor indique o seu numero de telefone para ser contactado.',
+                                          label: 'Por favor indique o seu número de telefone para ser contactado.',
                                       },
                                   },
                               ]
                             : []),
                         {
                             name: 'short-text',
+                            id: '0-2-name',
+                            //@ts-expect-error
+                            attributes: {
+                                required: true,
+                                label: 'Indique o seu <strong>nome e apelido</strong>',
+                            },
+                        },
+                        {
+                            name: 'short-text',
                             id: '1-7-additional-information',
+                            //@ts-expect-error
                             attributes: {
                                 classnames: 'first-block',
                                 required: false,
@@ -565,7 +627,7 @@ export default function RegisterClientForm() {
                         'label.errorAlert.number': 'Apenas números',
                     },
                     theme: {
-                        buttonsBgColor: '#1664C0',
+                        buttonsBgColor: '#D7772D',
                         answersColor: 'black',
                         questionsLabelFontSize: { lg: '20px', sm: '15px' },
                         buttonsFontSize: { lg: '22px', sm: '13px' },
@@ -634,7 +696,7 @@ export default function RegisterClientForm() {
                         answerData['preferential-consultation-type'][0],
                     );
 
-                    const addPsys = psychologists.data.map((p: Object) => {
+                    const addPsys = psychologists?.data?.map((p: Object) => {
                         addPsysSuggestions(trelloRes?.data?.id, JSON.stringify(p, null, 2));
                     });
 

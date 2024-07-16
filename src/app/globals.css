@@ -10,14 +10,16 @@
 
 * {
     box-sizing: border-box;
+    scroll-padding-top: 4.5rem;
 }
 
-body {
+@supports (color: rgb(0 0 0 / 0)) body {
+    --tw-gradient-to: rgb(59 130 246 / 0);
     font-family: 'Urbanist', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     -webkit-text-size-adjust: none;
     touch-action: manipulation;
 }

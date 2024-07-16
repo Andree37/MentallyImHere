@@ -32,7 +32,7 @@ export default function TextTransition({ prefix, text1, text2, className }: Prop
     }, [rightMargin]);
 
     return (
-        <div className={`relative ` + className}>
+        <span className={`block relative ` + className}>
             {prefix}
             <span
                 ref={text1Ref}
@@ -42,6 +42,6 @@ export default function TextTransition({ prefix, text1, text2, className }: Prop
             >
                 {!show ? text1 : text2}
             </span>
-        </div>
+        </span>
     );
 }

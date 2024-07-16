@@ -15,7 +15,7 @@ export default function Navbar() {
                     <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0 lg:py-4">
                         <div className="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
                             <a href={'/'} aria-label="psiplexus logo" className="nav-link flex items-center space-x-2">
-                                <Image src={'/images/logo.png'} alt="logo" width={130} height={130} />
+                                <Image src={'/images/logo.png'} alt="logo" width={150} height={150} />
                             </a>
 
                             <button aria-label="humburger" id="hamburger" className="relative -mr-6 p-6 lg:hidden">
@@ -52,6 +52,14 @@ export default function Navbar() {
                                     </li>
                                     <li>
                                         <a
+                                            href="#testimonials"
+                                            className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4"
+                                        >
+                                            <span>Testemunhos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
                                             href="#faqs"
                                             className="nav-link block transition hover:text-primary dark:hover:text-primaryLight md:px-4"
                                         >
@@ -63,11 +71,11 @@ export default function Navbar() {
 
                             <div className="mt-12 -ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:mt-0 lg:mr-6 lg:space-y-0 lg:border-l lg:pl-6">
                                 <a
-                                    href="#email-cta"
+                                    href="#triage-form"
                                     className="nav-link relative ml-auto flex h-9 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-primaryLight sm:px-4 lg:before:border lg:before:border-gray-200 lg:before:bg-gray-100 lg:dark:before:bg-gray-800"
                                 >
                                     <span className="relative text-sm font-semibold text-white dark:text-gray-900 lg:text-primary lg:dark:text-white">
-                                        Comece Aqui
+                                        Encontrar
                                     </span>
                                 </a>
                             </div>

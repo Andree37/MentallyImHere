@@ -604,7 +604,7 @@ export default function RegisterClientForm({ source }: { source: string | string
                                 description:
                                     'Deixe em branco se não tiver outra preferência.' +
                                     '\n\n' +
-                                    ' Pressione submeter para recebermos as suas repostas.',
+                                    '<strong>Pressione submeter</strong> para registarmos a sua resposta.',
                             },
                         },
                     ],

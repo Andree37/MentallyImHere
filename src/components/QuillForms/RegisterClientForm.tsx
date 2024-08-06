@@ -574,12 +574,15 @@ export default function RegisterClientForm({ source }: { source: string | string
                         ...(contactPreferenceAnswer?.includes('call') || contactPreferenceAnswer?.includes('whatsapp')
                             ? [
                                   {
-                                      name: 'number',
+                                      name: 'short-text',
                                       id: '1-6-1-contact-preference-phone',
                                       attributes: {
                                           classnames: 'first-block',
                                           required: true,
                                           label: 'Por favor indique o seu número de telefone para ser contactado.',
+                                          setMinCharacters: true,
+                                          setMin: true,
+                                          minCharacters: 9,
                                       },
                                   },
                               ]
@@ -621,6 +624,8 @@ export default function RegisterClientForm({ source }: { source: string | string
                         'block.shortText.placeholder': 'Escreva aqui a sua resposta',
                         'block.number.placeholder': 'Escreva aqui a sua resposta',
                         'label.errorAlert.minNum': 'Por favor, introduza um número maior do que {{attribute:min}}',
+                        'label.errorAlert.minCharacters':
+                            'Por favor insira mais do que {{attribute:minCharacters}} caracteres',
                         'label.hintText.key': 'Letra',
                         'block.defaultThankYouScreen.label':
                             'Obrigado pela resposta.\n\nEm breve, irá receber pelo seu método de contacto preferencial as informações dos próximos passos.',
@@ -639,6 +644,7 @@ export default function RegisterClientForm({ source }: { source: string | string
                     },
                 }}
                 onSubmit={async (data, { completeForm, setIsSubmitting }) => {
+                    setIsSubmitting(true);
                     const tclienteResponseDataData = data as ClienteResponseData;
                     // ensure we remove the previously set fields
                     if (tclienteResponseDataData.answers['0-3-gender'].value?.[0] !== 'prefer-auto-describe') {

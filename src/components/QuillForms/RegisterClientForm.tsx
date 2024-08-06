@@ -601,7 +601,10 @@ export default function RegisterClientForm({ source }: { source: string | string
                                 classnames: 'first-block',
                                 required: false,
                                 label: 'Caso tenha outra preferência, consideração ou informação que gostasse de partilhar, faça-o aqui.',
-                                description: 'Deixe em branco se não tiver',
+                                description:
+                                    'Deixe em branco se não tiver outra preferência.' +
+                                    '\n\n' +
+                                    '<strong>Pressione submeter</strong> para registarmos a sua resposta.',
                             },
                         },
                     ],

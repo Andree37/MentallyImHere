@@ -23,9 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <div className={`${poppins.variable}`}>
             <ToggleProvider>
-                <Navbar />
+                {/* <Navbar /> */}
                 {children}
-                <Footer />
+                {/* <Footer /> */}
             </ToggleProvider>
         </div>
     );

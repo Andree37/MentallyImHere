@@ -1,20 +1,21 @@
 "use client"
 import { motion } from "framer-motion"
 
-export default function Goodbye() {
+export default function MensagemDeEncerramento() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex flex-col items-center justify-center p-4 text-center">
+    <div className="h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto"
+        className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center h-full"
       >
         <svg
-          className="w-64 h-64 mx-auto mb-8"
+          className="w-1/4 max-w-[128px] mb-4 sm:mb-6"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
@@ -46,16 +47,16 @@ export default function Goodbye() {
           />
         </svg>
 
-        <h1 className="text-4xl font-bold text-gray-800 mb-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
           Agradecemos o Vosso Apoio
         </h1>
-        <p className="text-xl text-gray-700 leading-relaxed mb-8">
+        <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6">
           Foi bom ter-vos connosco. Obrigado por acreditarem na importância da saúde mental.
         </p>
-        <p className="text-lg text-gray-600">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-2 sm:mb-4">
           O vosso compromisso com o bem-estar mental fez a diferença.
         </p>
-        <p className="text-lg text-gray-600 mt-4">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600">
           Continuem a dar prioridade à vossa saúde mental.
         </p>
       </motion.div>

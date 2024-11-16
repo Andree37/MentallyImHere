@@ -48,7 +48,7 @@ export default function MensagemDeEncerramento() {
         </svg>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Agradecemos o Vosso Apoio
+          Agradecemos o vosso Apoio
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6">
           Foi bom ter-vos connosco. Obrigado por acreditarem na importância da saúde mental.

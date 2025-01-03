@@ -1,0 +1,1960 @@
+[
+  {
+    "_id": "65197553f8b16742fcc6c112",
+    "name": "asd",
+    "age": 12,
+    "specialization": "as",
+    "phone": "+351 2132312321",
+    "email": "asd@email.com",
+    "location": "asd",
+    "experienceYears": 12,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": 5,
+    "opp": false
+  },
+  {
+    "_id": "65197645f8b16742fcc6c120",
+    "otherData": {
+      "name": "userasd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 123213213",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "65197645f8b16742fcc6c11f"
+  },
+  {
+    "_id": "651d82a5df1a5121d10d4a2c",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d82a5df1a5121d10d4a2b"
+  },
+  {
+    "_id": "651d82e6df1a5121d10d4a3a",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d82e6df1a5121d10d4a39"
+  },
+  {
+    "_id": "651d82f9df1a5121d10d4a48",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d82f9df1a5121d10d4a47"
+  },
+  {
+    "_id": "651d832fdf1a5121d10d4a56",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d832fdf1a5121d10d4a55"
+  },
+  {
+    "_id": "651d834edf1a5121d10d4a64",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d834edf1a5121d10d4a63"
+  },
+  {
+    "_id": "651d83c0df1a5121d10d4a72",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d83c0df1a5121d10d4a71"
+  },
+  {
+    "_id": "651d83e9df1a5121d10d4a80",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d83e9df1a5121d10d4a7f"
+  },
+  {
+    "_id": "651d83fedf1a5121d10d4a8e",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d83fedf1a5121d10d4a8d"
+  },
+  {
+    "_id": "651d85acdf1a5121d10d4a9c",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d85acdf1a5121d10d4a9b"
+  },
+  {
+    "_id": "651d85c8df1a5121d10d4aaa",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d85c8df1a5121d10d4aa9"
+  },
+  {
+    "_id": "651d85f7df1a5121d10d4ab8",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d85f7df1a5121d10d4ab7"
+  },
+  {
+    "_id": "651d864cdf1a5121d10d4ac6",
+    "otherData": {
+      "name": "potatman",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 123123123",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d864cdf1a5121d10d4ac5"
+  },
+  {
+    "_id": "651d8695df1a5121d10d4acb",
+    "otherData": {
+      "name": "xxxx",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 12312321312",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "651d8695df1a5121d10d4aca"
+  },
+  {
+    "_id": "65201aef5350dd7173f9e002",
+    "otherData": {
+      "name": "asd",
+      "age": 12,
+      "specialization": "asdasd",
+      "phone": "+351 123213213",
+      "email": "andre@email.com",
+      "location": "dsa",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "65201aef5350dd7173f9e001"
+  },
+  {
+    "_id": "65242e117c71aa0d7579a891",
+    "otherData": {
+      "name": "Alexandre Vieira",
+      "age": 27,
+      "specialization": "Psicólogo\nPsicoterapeuta Existencial",
+      "phone": "+351 962005875",
+      "email": "alex@laicos.pt",
+      "location": "Lisboa, Aveiro",
+      "experienceYears": 20,
+      "consultationType": "Ambos",
+      "availability": "Todas as quartas-feiras",
+      "cost": 50,
+      "opp": false
+    },
+    "opp": "65242e117c71aa0d7579a890"
+  },
+  {
+    "_id": "65268e2188ba79a2bf01f012",
+    "otherData": {
+      "name": "teste1",
+      "contactFrom": "Email",
+      "age": 12,
+      "specialization": "potato",
+      "phone": "",
+      "email": "asd@email.com",
+      "location": "lisboa",
+      "experienceYears": 2,
+      "consultationType": "Ambos",
+      "availability": "de manha",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "65268e2188ba79a2bf01f011"
+  },
+  {
+    "_id": "65268f6188ba79a2bf01f017",
+    "otherData": {
+      "name": "asd",
+      "contactFrom": "Email",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "65268f6188ba79a2bf01f016"
+  },
+  {
+    "_id": "6526941788ba79a2bf01f01c",
+    "otherData": {
+      "name": "asd",
+      "contactFrom": "Chamada",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 12321321",
+      "location": "asd",
+      "experienceYears": 2,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "6526941788ba79a2bf01f01b"
+  },
+  {
+    "_id": "6526944a88ba79a2bf01f021",
+    "otherData": {
+      "name": "test3",
+      "contactFrom": "Chamada",
+      "age": 41,
+      "specialization": "asd",
+      "phone": "+351 21321321",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "6526944a88ba79a2bf01f020"
+  },
+  {
+    "_id": "6526946488ba79a2bf01f026",
+    "otherData": {
+      "name": "test4",
+      "contactFrom": "Email",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "",
+      "email": "asd@email.com",
+      "location": "asd",
+      "experienceYears": 12,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "6526946488ba79a2bf01f025"
+  },
+  {
+    "_id": "6526c21eae70613810f9c8a3",
+    "otherData": {
+      "name": "psiteste",
+      "age": 12,
+      "specialization": "asd",
+      "phone": "+351 12312312",
+      "email": "asd@email.com",
+      "location": "12",
+      "experienceYears": 4,
+      "consultationType": "Online",
+      "availability": "asd",
+      "cost": 5,
+      "opp": false
+    },
+    "opp": "6526c21eae70613810f9c8a2"
+  },
+  {
+    "_id": "655294bc3f7f05949e2f9fbb",
+    "name": "potato",
+    "age": 12,
+    "specialization": "potatoing",
+    "phone": "+351 2123212321",
+    "email": "potato@email.com",
+    "location": "lisboa",
+    "experienceYears": 12,
+    "consultationType": "Ambos",
+    "availability": "sempre",
+    "cost": 20,
+    "opp": "nao sei bem"
+  },
+  {
+    "_id": "65529c71e8d5b5a7889bde5c",
+    "name": "another potato",
+    "age": 12,
+    "specialization": "asd",
+    "phone": "+351 12321321",
+    "email": "asd@email.com",
+    "location": "asd",
+    "experienceYears": 12,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      10,
+      50
+    ],
+    "opp": "12312321"
+  },
+  {
+    "_id": "65539f3987f60eb4558065aa",
+    "name": "Beatriz Pires",
+    "age": 26,
+    "specialization": "Formação especializada e experiência em intervenção na gravidez e parentalidade, infertilidade e luto (foco no luto perinatal), em aconselhamento em saúde sexual e reprodutiva, e em intervenção com vítimas de violência doméstica. Atendimento exclusivo de mulheres.",
+    "phone": "+351 914550450",
+    "email": "beatrizpires.psi@hotmail.com",
+    "location": "Coimbra",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Dias úteis, das 15h30 às 21h00. Agenda de novembro com poucas vagas. ",
+    "cost": [
+      30,
+      50
+    ],
+    "opp": "26235",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "65539f7187f60eb4558065ab",
+    "name": "Luís Chambel Martins",
+    "age": 32,
+    "specialization": "Formação Académica em Psicologia Clínica (por ora sem Especialização/Formação adicional na área). ",
+    "phone": "+351 916685497",
+    "email": "lchambelmartins@gmail.com",
+    "location": "Évora",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Teria disponibilidade imediata para receber novos clientes em qualquer dia da semana entre as 11h00 e as 20h00, dependendo do regime (semanal ou quinzenal), da modalidade (online ou presencial) e da possibilidade de conjugação prévia do dia/horário pretendido com o das pessoas que atualmente acompanho, apenas com exceções pontuais (por exemplo, estou indisponível nas manhãs de segunda-feira).",
+    "cost": [
+      30,
+      60
+    ],
+    "opp": "27308",
+    "gender": "male",
+    "approved": true
+  },
+  {
+    "_id": "6553a46787f60eb4558065ac",
+    "name": "Cláudia Silva",
+    "age": 25,
+    "specialization": "1 - Mestrado Integrado em Psicologia Clínica e da Saúde - Área de especialização em Psicologia Clínica Dinâmica. \n2 - Formação em Intervenção Psicológica com Pessoas LGBTQIA+ - Ordem dos Psicólogos \n3 - Formação em Intervenção com Crianças e Jovens em Risco - Ordem dos Psicólogos \n4 - Formação em Intervenção Psicológica com Pessoas Refugiadas e Requerentes de Asilo - Ordem dos Psicólogos",
+    "phone": "+351 912758088",
+    "email": "claudiaabarrocasilva@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Terças e Sextas das 14h30 ás 19h \nPossibilidade de outros horários \nDisponibilidade imediata ",
+    "cost": [
+      20,
+      55
+    ],
+    "opp": "28180",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "6553ad0b87f60eb4558065ad",
+    "name": "Madalena Wiborg",
+    "age": 27,
+    "specialization": "Comecei a minha formação académica no ISCTE, tendo concluído a minha licenciatura em Psicologia. Em seguida, concluí o Mestrado em Psicologia Clínica pelo ISPA.\n\nFiz o meu estágio curricular no Centro de Saúde de Carnaxide, tendo acompanhado crianças e jovens, individualmente. \n\nNeste momento, encontro-me a concluir o meu estágio profissional para a Ordem dos Psicólogos Portugueses (termina em Janeiro de 2024), em consultório privado, onde acompanho crianças, jovens e adultos. \n\nNeste momento, estou a fazer a Especialização Avançada em Psicoterapia, no ISPA, que se foca nos factores transversais e princípios transteóricos em psicoterapia e permite o acesso direto à especialidade, no decorrer da sua conclusão. ",
+    "phone": "+351 910352440",
+    "email": "madalena.wiborg@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 1,
+    "consultationType": "Ambos",
+    "availability": "Para sessões presenciais: Quintas-feiras das 16h às 16h50 e/ou das 18h às 18h50. \n\nPara sessões online: Terças-feiras das 16h-16h50, e das 17h-17h50.\n\n(provavelmente terei mais horários disponíveis a partir de Janeiro/Fevereiro).",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "131660",
+    "gender": "female",
+    "approved": false
+  },
+  {
+    "_id": "6555de0a87f60eb4558065ae",
+    "name": "Bruno Pereira Gomes",
+    "age": 46,
+    "specialization": "Psicólogo Clínico, Educacional e Psicoterapeuta de Orientação Integrativa",
+    "phone": "+351 961213055",
+    "email": "bruno.psi@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 22,
+    "consultationType": "Online",
+    "availability": "Disponibilidade imediata, de segunda a sexta e sábado de manhã",
+    "cost": [
+      30,
+      50
+    ],
+    "opp": "04353",
+    "gender": "male"
+  },
+  {
+    "_id": "6555feff87f60eb4558065af",
+    "name": "Andreia Ramos",
+    "age": 26,
+    "specialization": "Mestrado Integrado em Psicologia na Universidade do Minho\nCurso Atendimento a Vítimas de Crime\nEspecialização avançada em Terapias Cognitivo-Comportamentais\nCursos Avançados em Terapia do Esquema (nível 1 e 2)",
+    "phone": "+351 962058907",
+    "email": "andreiia_ramoss@hotmail.com",
+    "location": "Viana do Castelo",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Presencial - disponibilidade limitada (quartas e quintas às 14h)\nOnline - segundas de manhã e à tarde e quarta e quinta de manhã",
+    "cost": [
+      45,
+      50
+    ],
+    "opp": "25730",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "6557b51287f60eb4558065b2",
+    "name": "Francisco Ribeiro",
+    "age": 26,
+    "specialization": "Psicologia Clínica Dinâmica",
+    "phone": "+351 910881322",
+    "email": "franciscoribeiro.psicologia@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Presencial",
+    "availability": "Segundas feiras à tarde",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "27040",
+    "gender": "male",
+    "approved": true
+  },
+  {
+    "_id": "655b604490831ae53a661197",
+    "name": "Débora Duarte",
+    "age": 32,
+    "specialization": "- Mestre em Psicologia Clínica e de Aconselhamento\n- Pós-Graduação em Psicoterapia Comportamental, Cognitiva e Integrativa: APTCCI - Associação Portuguesa de Terapias Comportamental, Cognitiva e Integrativa (em curso)",
+    "phone": "+351 919017719",
+    "email": "deboravduarte.psi@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 1,
+    "consultationType": "Online",
+    "availability": "- Disponibilidade imediata;\n- Horários: segunda e terça-feira (dia completo)",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": " 27433",
+    "gender": "female"
+  },
+  {
+    "_id": "655b61e090831ae53a661198",
+    "name": "Sara Geraldes",
+    "age": 31,
+    "specialization": "Mestrado Psicologia Clínica e de Aconselhamento;\nPós-graduação terapia comportamental, cognitiva e integrativa (em curso) - APTCCI\nCurso Avançado de Aconselhamento em Saúde Sexual e Reprodutiva - APF",
+    "phone": "+351 913557867",
+    "email": "sarasaramagogeraldes@gmail.com",
+    "location": "Lisboa ",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Disponibilidade imediata\nSegunda-feira dia completo;\nSexta-feira manhã e final dia.",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "025739",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "655bb35d5d29c84f60a4d09f",
+    "name": "Cátia Sebastião",
+    "age": 34,
+    "specialization": "Psicologia Clínica e da saúde ",
+    "phone": "+351 914321914",
+    "email": "Catia-sebastian@hotmail.com",
+    "location": "São Miguel AÇORES ",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Imediata. Segunda, terça e quinta todo do dia,  quarta e sexta de manhã e sábado de tarde",
+    "cost": [
+      20,
+      35
+    ],
+    "opp": "27463",
+    "gender": "female"
+  },
+  {
+    "_id": "655c659a5d29c84f60a4d0a1",
+    "name": "Catarina Cabanelas Pereira",
+    "age": 50,
+    "specialization": "Psicologa Social e das organizações.\nPós graduada em orientação de carreira\nEspecialização avançada  em terapias cognitivo-comportamentais\nPós graduada em terapias expressivas através do drama e arte ",
+    "phone": "+351 965126623",
+    "email": "catarina.cabanelas@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 20,
+    "consultationType": "Ambos",
+    "availability": "A partir de Dezembro",
+    "cost": [
+      50,
+      60
+    ],
+    "opp": "07180",
+    "gender": "female"
+  },
+  {
+    "_id": "655c8e115d29c84f60a4d0a2",
+    "name": "Susana Amaral",
+    "age": 51,
+    "specialization": "Psicologia Clínica inscrita na OPP",
+    "phone": "+351 918739666",
+    "email": "samaralgest@gmail.com",
+    "location": "Oeiras",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "2a, 3a -10h-20h, 5af 16h-20h, 6af 10h-15h",
+    "cost": [
+      25,
+      40
+    ],
+    "opp": "26243",
+    "gender": "female"
+  },
+  {
+    "_id": "655ccc145d29c84f60a4d0a4",
+    "name": "Bruno Rocha Almeida",
+    "age": 31,
+    "specialization": "Psicologia Educacional | Formador Certificado\n\n\nSERVIÇOS\nAdultos\n•\tFormação de Professores (ex: tecnologias na educação);\n•\tAconselhamento Parental;\n•\tAvaliação Psicológica de Condutores.\n\nCrianças, Jovens e Jovens-Adultos\n•\tApoio Psicopedagógico;\n•\tMentoria no Estudo;\n•\tAconselhamento/Orientação Vocacional;\n•\tDesenvolvimento de Competências Socioemocionais;\n•\tApoio em Dificuldades de Aprendizagem.",
+    "phone": "+351 914521107",
+    "email": "psi.bruno.almeida@gmail.com",
+    "location": "Lisboa (Concelho), Barreiro",
+    "experienceYears": 4,
+    "consultationType": "Ambos",
+    "availability": "Dias de semana - 10h-13h; 14h30-19h\nSábado - negociável.\n\nDisponibilidade imediata (com variações dependendo do serviço pretendido)",
+    "cost": [
+      20,
+      50
+    ],
+    "opp": "25357",
+    "gender": "male",
+    "approved": true
+  },
+  {
+    "_id": "655ccdbe5d29c84f60a4d0a5",
+    "name": "Francisco Mano",
+    "age": 26,
+    "specialization": "Psicologia Clínica Cognitiva-Comportamental",
+    "phone": "+351 914807017",
+    "email": "flm.psic@gmail.com",
+    "location": "Agualva-Cacém ou Lisboa (Saldanha)",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Manhãs (todas de terça a sexta) - 10h às 13h\nTardes: terça e quinta (14h às 20h) e quarta e sexta (alguns horários das 14h às 17h)",
+    "cost": [
+      20,
+      40
+    ],
+    "opp": "27949",
+    "gender": "male",
+    "approved": true
+  },
+  {
+    "_id": "655ccf8b5d29c84f60a4d0a6",
+    "name": "Daniela Mancebo",
+    "age": 25,
+    "specialization": "Mestre em Psicologia Clínica e da Saúde na área de especialização Psicologia Clinica Dinâmica pela Faculdade de Psicologia da Universidade de Lisboa",
+    "phone": "+351 961849002",
+    "email": "danielamancebo.psicologia@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 1,
+    "consultationType": "Ambos",
+    "availability": "Segunda-Feira das 17h às 21h (Presencial/Online)\nTerça-Feira das 14h às 16h (Online)\nQuinta-Feira 14h às 21h (Online)\nSexta- Feira das 14h às 17h (Online)",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "131735",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "655cfdf65d29c84f60a4d0a7",
+    "name": "Cátia Molho",
+    "age": 26,
+    "specialization": "TCC e Mindfulness",
+    "phone": "+351 91102854",
+    "email": "catiamolho965@gmail.com",
+    "location": "Póvoa de Varzim",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Manhãs e início da tarde, de segunda à sexta. \nImediata",
+    "cost": [
+      35,
+      40
+    ],
+    "opp": "25565",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "655fdbea5dded0ca3af6be27",
+    "name": "Tomás Santos test",
+    "age": 24,
+    "specialization": "Especialização test",
+    "phone": "+351 913060881",
+    "email": "tommasini15@gmail.com",
+    "location": "Alhos Vedros",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "test",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "2"
+  },
+  {
+    "_id": "655fdedb9d2427659921a856",
+    "name": "asdasd",
+    "age": 12,
+    "specialization": "potato",
+    "phone": "+351 123123123123",
+    "email": "asd@email.com",
+    "location": "asd",
+    "experienceYears": 12,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "123"
+  },
+  {
+    "_id": "65607b3887d179d1e05cf385",
+    "name": "Alex test",
+    "age": 27,
+    "specialization": "assadas",
+    "phone": "+351 91000000",
+    "email": "alex@laicos.pt",
+    "location": "Lisboa",
+    "experienceYears": 7,
+    "consultationType": "Ambos",
+    "availability": "",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": ""
+  },
+  {
+    "_id": "65611473b264004c1587d8a5",
+    "name": "Raquel Santos Sousa",
+    "age": 27,
+    "specialization": "Psicologia clínica e da saúde ",
+    "phone": "+351 960497356",
+    "email": "raquelsantossousa.psicologia@gmail.com",
+    "location": "Almada ",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Segundas-feiras, quintas-feiras e sextas-feiras ao final do dia,\nSábados de manhã ",
+    "cost": [
+      40,
+      45
+    ],
+    "opp": "26536",
+    "gender": "female"
+  },
+  {
+    "_id": "65631712315fd862829d012a",
+    "name": "Andreia Dias",
+    "age": 30,
+    "specialization": "- Especialidade em Psicologia Clínica e da Saúde pela OPP\n- Especialidade em Neuropsicologia pela OPP",
+    "phone": "+351 910931759",
+    "email": "psi.andreiadias@gmail.com",
+    "location": "Moita (Setúbal)/ Online",
+    "experienceYears": 8,
+    "consultationType": "Ambos",
+    "availability": "- Segunda a Sexta das 8h00 às 20h00 (depende do horário pretendido)\n- Imediata ",
+    "cost": [
+      50,
+      60
+    ],
+    "opp": "22658",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "65651035315fd862829d012b",
+    "name": "Sara Neves",
+    "age": 28,
+    "specialization": "Sou psicóloga clínica e foco o meu trabalho numa abordagem integrativa. Ser uma psicóloga integrativa significa que uso os pontos fortes de várias abordagens e aplico-as em função das especificidades dos meus pacientes. Compreendo que cada pessoa tem necessidades diferentes pelo que as técnicas não devem ser usadas de forma estandardizada. Hoje as escolas psicoterapêuticas mais basilares no meu trabalho é a terapia focada nas emoções, terapia dos sistemas familiares internos, teorias da multiplicidade do self e dissociação estrutural da personalidade, terapia cognitivo-comportamental entre algumas outras. E conduzo o meu trabalho à luz do modelo da complementaridade paradigmática. Os meus temas de maior interesse são o trauma, luto, perturbações de personalidade, desenvolvimento pessoal e trabalho experiencial.",
+    "phone": "+351 91307084",
+    "email": "saranevespsicologa@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 4,
+    "consultationType": "Ambos",
+    "availability": "Para já, disponibilidade para consultas presenciais a partir das 17h. Maior flexibilidade para consultas online",
+    "cost": [
+      35,
+      45
+    ],
+    "opp": "25582",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "656b8386ec7d6074ceea865f",
+    "name": "Francisca Moura do Carmo",
+    "age": 27,
+    "specialization": "Membro Efetivo da Ordem dos Psicólogos Portugueses\nFrequenta a Formação Especializada em Psicoterapia pelo ISPA- Instituto Universitário\nTrabalhou com crianças e adolescentes tanto em contexto escolar como clínico.\nAcompanhamento Psicológico de Adultos\nMestrado Integrado em Psicologia Clínica pelo ISPA- Instituto Universitário\nAcompanhamento semanal\nNão estou a acompanhar pacientes suicidas",
+    "phone": "+351 929129428",
+    "email": "fmouradocarmo@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Terça-feira: 13:00 às 20:00 (se online das 12:15 às 20:00)\nQuarta-feira: 17.00 às 20:00\nQuinta-feira: 15:00 às 20:00",
+    "cost": [
+      40,
+      50
+    ],
+    "opp": "27186",
+    "gender": "female",
+    "approved": false
+  },
+  {
+    "_id": "656fb74f5e9f5a8f964f08ae",
+    "name": "tomas test",
+    "age": 23,
+    "specialization": "asd",
+    "phone": "+351 913060881",
+    "email": "tommasini15@gmail.com",
+    "location": "asd",
+    "experienceYears": 4,
+    "consultationType": "Online",
+    "availability": "ageqsda",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "1",
+    "gender": "male",
+    "approved": false
+  },
+  {
+    "_id": "657082ece642c3cc4131cce6",
+    "name": "Inês Ribeiro ",
+    "age": 26,
+    "specialization": "Psicóloga Clínica e da Saúde\nAcompanhamento de crianças e jovens \nOrientação parental ",
+    "phone": "+351 926653679",
+    "email": "inessauderibeiro1@gmail.com",
+    "location": "Lisboa ",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Disponibilidade imediata \nSábados (13:30-17:00)",
+    "cost": [
+      45,
+      75
+    ],
+    "opp": "28312",
+    "gender": "female",
+    "approved": true
+  },
+  {
+    "_id": "6570a92de642c3cc4131cce7",
+    "name": "Orlando Antunes",
+    "age": 32,
+    "specialization": "- Mestrado em psicologia clínica e da saúde.\n- Formações em destaque:\n> Terapia focada nos esquemas\n> EMDR\n> IFS (a decorrer)",
+    "phone": "+351 912275699",
+    "email": "orlandoantunes.psi@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 7,
+    "consultationType": "Ambos",
+    "availability": "Dias úteis (09:00 - 21:00)\nSábados (09:00 - 13:00)",
+    "cost": [
+      45,
+      60
+    ],
+    "opp": "22188",
+    "gender": "male",
+    "approved": false
+  },
+  {
+    "_id": "65749a356e6869fce3a7ad8e",
+    "name": "Liliana Correia de Matos",
+    "age": 43,
+    "specialization": "Psicologia Clínica e da Saúde e Neuropsicologia Clínica",
+    "phone": "+351 917647124",
+    "email": "lilianacorreia80@hotmail.com",
+    "location": "Vila do Conde, Maia, Porto",
+    "experienceYears": 8,
+    "consultationType": "Ambos",
+    "availability": "Segunda a Sexta feira",
+    "cost": [
+      50,
+      60
+    ],
+    "opp": "27144",
+    "gender": "female"
+  },
+  {
+    "_id": "657b378f6e6869fce3a7ad8f",
+    "name": "Tânia Aparício Moleiro",
+    "age": 31,
+    "specialization": "Mestrado Integrado em Psicologia Clínica e da Saúde - Cognitivo-Comportamental e Integrativa",
+    "phone": "+351 926798955",
+    "email": "taniaapariciomoleiro@gmail.com",
+    "location": "-",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Disponibilidade: a partir de 27/12/2023\n4ª feira - 5ª feira\n14h - 19h",
+    "cost": [
+      25,
+      50
+    ],
+    "opp": "27596",
+    "gender": "female",
+    "approved": false
+  },
+  {
+    "_id": "65844e2c1c293575127ea45c",
+    "name": "Catarina Batista",
+    "age": 28,
+    "specialization": "Licenciatura em Psicologia pela Universidade de Évora e Mestrado em Psicologia da Educação e do Desenvolvimento pela Universidade de Trás-os-Montes e Alto Douro.",
+    "phone": "+351 966984539",
+    "email": "catarinabatistapsicologia@gmail.com",
+    "location": "Online",
+    "experienceYears": 0,
+    "consultationType": "Online",
+    "availability": "Tenho disponibilidade imediata de segunda a sexta-feira, entre as 09h00 e as 17h00.",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "28525",
+    "gender": "female"
+  },
+  {
+    "_id": "658e9281a0b4977a0c6a798c",
+    "name": "Tiago Magalhães",
+    "age": 30,
+    "specialization": "Licenciatura em Ciências Psicológicas\nMestrado Integrado em Psicologia Clínica e da Saúde de Orientação Psicodinâmica\nFormação em Psicoterapia Existencial pela Sociedade Portuguesa de Psicoterapia Existencial",
+    "phone": "+351 914046715",
+    "email": "tiagofmag.psi@gmail.com",
+    "location": "Qualquer zona (online)",
+    "experienceYears": 6,
+    "consultationType": "Online",
+    "availability": "Sexta-feira: 9h - 12h / 17h30 - 19h\n\nDisponibilidade a partir de 3 de Janeiro.",
+    "cost": [
+      40,
+      50
+    ],
+    "opp": "25314",
+    "gender": "male"
+  },
+  {
+    "_id": "6592afc307e7a79213bdd3f3",
+    "name": "Isabel Lage",
+    "age": 49,
+    "specialization": "Psicologia Clínica e da Saúde\nPsicologia Educacional ",
+    "phone": "+351 912507640",
+    "email": "isabellage.psi@gmail.com",
+    "location": "Porto",
+    "experienceYears": 26,
+    "consultationType": "Ambos",
+    "availability": "Estou disponível em quase todos os dias. \nPara manhãs e início da tarde tenho disponibilidade quase imediata (2 semanas). \nPara finais de tarde só a partir do final de janeiro. ",
+    "cost": [
+      60,
+      100
+    ],
+    "opp": "8310",
+    "gender": "female"
+  },
+  {
+    "_id": "65958ed607e7a79213bdd3f5",
+    "name": "Maria Beatriz Henriques",
+    "age": 27,
+    "specialization": "Tenho Mestrado Integrado de Psicologia Clínica e da Saúde - área de Dinâmica. \n\nRealizei diversas formações e workshops, como: \n- “Perturbações da Personalidade: Avaliar e Intervir” (2020);\n- “Luto: Avaliar e Intervir” (2020);\n- “Consulta Psicológica no Adulto: Entrevista e Métodos de Avaliação” (2021);\n- “Psicopatologia Dinâmica: da Criança ao Adulto” (2022);\n- Formação “Apoio Emocional e Prevenção do Suicídio” (2023).",
+    "phone": "+351 917924110",
+    "email": "mariabeatrizmelo@hotmail.com",
+    "location": "Cascais",
+    "experienceYears": 0,
+    "consultationType": "Online",
+    "availability": "A minha disponibilidade é imediata. Tenho o dia de segunda-feira e a tarde de sexta-feira livres. ",
+    "cost": [
+      25,
+      35
+    ],
+    "opp": "28353",
+    "gender": "female"
+  },
+  {
+    "_id": "65a934c20662f99b588050fd",
+    "name": "Marta Pedreira",
+    "age": 32,
+    "specialization": "Terapia Cognitivo Comportamental - frequentar APTCCI\nMestrado no Ispa\nPós-graduçaõ em terapias de terceira geração cognitivas comportamentias (terapia)\nOrientação vocacional e de carreira (Pós-graduação)\nDesde crianças (a partir dos 6 anos), adolescentes, jovens adultos, adultos\n\nEstágios em contexto hospitalar\nExperiência em clínicas, contexto educacional\n\nTrabalho de forma independente\nInserida na plataforma na PsiOnline\n\nTemáticas com a qual não trabalha: Casos em que a pessoa foi agressor sexual ou violador, comportamentos aditivos e toxicodependência",
+    "phone": "+351 968025161",
+    "email": "geral@martapedreira.com",
+    "location": "Lisboa, Avenidas Novas",
+    "experienceYears": 7,
+    "consultationType": "Ambos",
+    "availability": "Quinta e Sexta de manhã 10-13h",
+    "cost": [
+      40,
+      50
+    ],
+    "opp": "20823",
+    "gender": "female"
+  },
+  {
+    "_id": "65b130c78dc11708afdb4d57",
+    "name": "Sónia Pereira",
+    "age": 28,
+    "specialization": "Psicologia Clínica e Saúde\nPós-graduação em Perturbações do Neurodesenvolvimento\nPós-graduação em Intervenção Psicológica no Luto",
+    "phone": "+351 910986837",
+    "email": "sonia.pereira.psicologia@gmail.com",
+    "location": "Porto",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Disponibilidade imediata\nDisponibilidade de segunda-feira às sextas-feiras das 14h00 às 18h00 e aos sábados das 9h00 às 12h00. ",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "27437",
+    "gender": "female"
+  },
+  {
+    "_id": "65b184c78dc11708afdb4d58",
+    "name": "Patrícia Oliveira",
+    "age": 26,
+    "specialization": "Formação em Psicologia Clínica e da Saúde, com Mestrado em Psicoterapia Cognitivo-comportamental e integrativa.\nAtualmente a frequentar Pós-graduação em Terapias de Terceira Geração.",
+    "phone": "+351 910162161",
+    "email": "patriciafilipaoliveira.psi@gmail.com",
+    "location": "Cadaval",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata \nSábados de manhã (9h-13h)\nQuintas-feiras (dia inteiro, com possibilidade de pós laboral)\nSexta-feira (16h-21h)",
+    "cost": [
+      40,
+      45
+    ],
+    "opp": "26895",
+    "gender": "female"
+  },
+  {
+    "_id": "65c25f3c581da2928e94098b",
+    "name": "Sara Maria Assunção Guelha",
+    "age": 42,
+    "specialization": "Psicoterapia cognitivo -comportamental \nLuto e trauma \nPsico-oncologia ",
+    "phone": "+351 968474824",
+    "email": "sguelha@gmail.com",
+    "location": "Lisboa",
+    "experienceYears": 18,
+    "consultationType": "Ambos",
+    "availability": "Pós laboral ",
+    "cost": [
+      50,
+      60
+    ],
+    "opp": "2456",
+    "gender": "female"
+  },
+  {
+    "_id": "65c28a67581da2928e94098c",
+    "name": "Ana Conceição ",
+    "age": 42,
+    "specialization": "Licenciatura pré-Bolonha em Psicologia Clínica e do Aconselhamento\nPós-graduação em Gestão de Recursos Humanos\nA concluir Especialização em Psicoterapias Cognitivo-Comportamentais",
+    "phone": "+351 914049292",
+    "email": "anampcconceicao@outlook.com",
+    "location": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Segunda a Sábado das 09h às 18h",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "28827",
+    "gender": "female"
+  },
+  {
+    "_id": "65c54beb81f0c9f493466609",
+    "name": "teste",
+    "age": 22,
+    "specialization": "teste",
+    "phone": "+351 32132132",
+    "email": "teste@email.com",
+    "location": "coimbra",
+    "locationMunicipality": "Figueira da Foz",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "teste",
+    "cost": [
+      45,
+      75
+    ],
+    "opp": "1233",
+    "gender": "male"
+  },
+  {
+    "_id": "65c54eae81f0c9f49346660a",
+    "name": "teste",
+    "age": 22,
+    "specialization": "asd",
+    "phone": "+351 213231123",
+    "email": "teste@email.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cadaval",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      25,
+      70
+    ],
+    "opp": "321",
+    "gender": "male"
+  },
+  {
+    "_id": "65c54ed581f0c9f49346660b",
+    "name": "teste",
+    "age": 22,
+    "specialization": "asd",
+    "phone": "+351 12323132",
+    "email": "asd@email.com",
+    "location": "lisboa",
+    "locationMunicipality": "Arruda Dos Vinhos",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "22",
+    "gender": "male"
+  },
+  {
+    "_id": "65c54f1b81f0c9f49346660c",
+    "name": "teste",
+    "age": 22,
+    "specialization": "asd",
+    "phone": "+351 1232132",
+    "email": "asd@email.com",
+    "location": "lisboa",
+    "locationMunicipality": "Amadora",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "33",
+    "gender": "male"
+  },
+  {
+    "_id": "65c54f6f81f0c9f49346660d",
+    "name": "teste",
+    "age": 22,
+    "specialization": "asd",
+    "phone": "+351 3213213",
+    "email": "asd@email.com",
+    "location": "lisboa",
+    "locationMunicipality": "Amadora",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "asd",
+    "cost": [
+      30,
+      75
+    ],
+    "opp": "22",
+    "gender": "male"
+  },
+  {
+    "_id": "65c799ab5931c9edd5eb2970",
+    "name": "teste",
+    "age": 22,
+    "specialization": "teste",
+    "phone": "+351 12323123",
+    "email": "teste@email.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "teste",
+    "cost": [
+      35,
+      75
+    ],
+    "opp": "22",
+    "gender": "male"
+  },
+  {
+    "_id": "65c7fac5e4d1dd42e7fcf662",
+    "name": "João Lino",
+    "age": 42,
+    "specialization": "Psicologia Clínica, Psicologia do Comportamento Desviante",
+    "phone": "+351 910846345",
+    "email": "jmflinosantos@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 15,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata. 2ª a 5ª das 10:00 às 20:00.",
+    "cost": [
+      25,
+      50
+    ],
+    "opp": "13402",
+    "gender": "male"
+  },
+  {
+    "_id": "65c9523ce4d1dd42e7fcf663",
+    "name": "Nadine Amaro",
+    "age": 30,
+    "specialization": "Mestrado Integrado em Psicoterapia Cognitiva-Comportamental e Integrativa\nFormação em Cuidados Paliativos\nFormação em Inteligência Emocional Aplicada\nFormação em Entrevista Motivacional\nFormação em Intervenção com LGBTQ\nFormação em Intervenção ligada ao Alcoolismo\nFormação em Avaliação Psicológica de Condutores\nIntervenção com Crianças, Adolescentes e Adultos\n",
+    "phone": "+351 967767634",
+    "email": "nadine_amaro@hotmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Por enquanto, a disponibilidade é total de 2a a 6a",
+    "cost": [
+      10,
+      30
+    ],
+    "opp": "25577",
+    "gender": "female"
+  },
+  {
+    "_id": "66114d8a79ca5efdc6196423",
+    "name": "Carina Ferreira",
+    "age": 32,
+    "specialization": "Mestre em Psicologia Clínica e da Saúde - subespecialização em Terapias Cognitivo-Comportamentais nas Perturbações Psicológicas e na Saúde (FPCEUC)\nEspecialização Avançada em Terapias de Terceira Geração (CRIAP)\nEspecialização Avançada em Terapia Cognitivo Comportamental na Depressão e Ansiedade (CRIAP)",
+    "phone": "+351 914215500",
+    "email": "carinaferreira.psicologia@gmail.com",
+    "location": "porto",
+    "locationMunicipality": "Porto",
+    "experienceYears": 3,
+    "consultationType": "Online",
+    "availability": "Imediata\nSegunda-feira das 14h às 20\nQuarta-feira das 10h às 13h",
+    "cost": [
+      45,
+      50
+    ],
+    "opp": "24777",
+    "gender": "female"
+  },
+  {
+    "_id": "6614347579ca5efdc6196424",
+    "name": "Ricardo Linhares",
+    "age": 31,
+    "specialization": "Mestrado em Psicologia do Trabalho, especialização avançada em Psicologia Clínica e da Saúde.\n\nDiversas formações em Terapia Cognitiva e Comportamental e Terapia de Aceitação e Compromisso",
+    "phone": "+351 918562032",
+    "email": "ricardolinharespsicologo@gmail.com",
+    "location": "braga",
+    "locationMunicipality": "Barcelos",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "disponibilidade imediata, às segundas feiras entre as 14:30 e as 19:30\n",
+    "cost": [
+      35,
+      45
+    ],
+    "opp": "27338",
+    "gender": "male"
+  },
+  {
+    "_id": "66150e3a79ca5efdc6196425",
+    "name": "Beatriz Freitas",
+    "age": 25,
+    "specialization": "Mestrado Integrado em Psicologia Clínica\nCurso Avançado em Desenvolvimento de Competências de Relação Terapêutica \nFormação: Perturbações da Personalidade na Adolescência: do diagnóstico à intervenção\nFormação: Recursos Simbólicos na Avaliação Psicológica da Criança e do Adolescente\nFormação: Recursos Arte-terapêuticos na Prática da Psicoterapia com Crianças e Adolescentes",
+    "phone": "+351 964017880",
+    "email": "beatrizdf.psi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Imediata, horário flexível ",
+    "cost": [
+      40,
+      50
+    ],
+    "opp": "131890",
+    "gender": "female"
+  },
+  {
+    "_id": "66157e4979ca5efdc6196426",
+    "name": "Inês Serôdio ",
+    "age": 27,
+    "specialization": "Psicologia Clínica Cognitivo Comportamental Integrativa",
+    "phone": "+351 928157139",
+    "email": "inesserodio.psicologia@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Não tenho disponibilidade para horários pós laboral (18-21). Tenho disponibilidade para horários da manhã, hora de almoço ou início da tarde de 2.ª a 5.ª ",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "26802",
+    "gender": "female"
+  },
+  {
+    "_id": "66282d4079ca5efdc6196429",
+    "name": "Andreia Martins",
+    "age": 29,
+    "specialization": "Psicologia Clínica, tenho várias formações na área de crianças e jovens e a terminar uma pós-graduação em psicologia da gravidez e da Parentalidade",
+    "phone": "+351 917664805",
+    "email": "andreiavalentemartins@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Sintra",
+    "experienceYears": 6,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata\nSegunda-feira às 9h, 11h30, 12h30, 13h00, 14h00, 15h30 e 18h\nTerça-feira às 9h, 10h30, 11h30, 12h30, 13h, 14h, 15h30, 16h30, 19h00, 20h00 e 21h00\nQuarta-feira às 9h, 10h30, 11h30, 12h30, 13h, 14h, 15h, 17h e 21h\nQuinta-feira às 9h, 10h00, 11h, 13h15, 14h15, 15h15, 16h15, 20h15, 21h15\nSexta-feira às 9h, 10h, 11h, 12h, 13h, 14h e 21h",
+    "cost": [
+      40,
+      50
+    ],
+    "opp": "23660",
+    "gender": "female"
+  },
+  {
+    "_id": "665118dd0adc6d73bc6b010e",
+    "name": "Catarina Santos Manha",
+    "age": 28,
+    "specialization": "Mestrado em Psicologia Clínica (Abordagem Cognitivo-Comportamental).\n\nCursos de Avaliação Psicológica nas Dificuldades de Aprendizagem e de Avaliação Multiaxial de Achenbach: CBCL, TRF, YSR, SCICA.",
+    "phone": "+351 932054673",
+    "email": "catarisabel@hotmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 4,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade Imediata (a combinar) ",
+    "cost": [
+      40,
+      45
+    ],
+    "opp": "26659",
+    "gender": "female"
+  },
+  {
+    "_id": "6652f84c0adc6d73bc6b010f",
+    "name": "Raquel Santos Sousa",
+    "age": 28,
+    "specialization": "Tenho mestrado em psicologia clínica sistémica, mas também tenho feito formações em terapia cognitivo comportamental e psicanálise ",
+    "phone": "+351 960497356",
+    "email": "raquelsantossousa.psicologia@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Almada",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Segundas e sábados das 10h às 18h",
+    "cost": [
+      40,
+      45
+    ],
+    "opp": "26536",
+    "gender": "female"
+  },
+  {
+    "_id": "66644f81066b79b508b55b5b",
+    "name": "Ana Isabel Teixeira",
+    "age": 29,
+    "specialization": "Mestrado integrado em psicologia clínica e da saúde pela FPCEUP.\nEspecialização avançada em psicopatologia do adulto ao idoso pelo CRIAP\nEspecialização avançada em terapia de casal pelo INSPSIC.\nFormadora\nSupervisora",
+    "phone": "+351 911189859",
+    "email": "anateixeira.psicologia@gmail.com",
+    "location": "porto",
+    "locationMunicipality": "Porto",
+    "experienceYears": 6,
+    "consultationType": "Ambos",
+    "availability": "Segundas feiras: 9h às 19h para consulta online\nQuartas feiras: 9h às 19h para consulta online\nQuintas feiras: 9.30h às 19h para consulta presencial\nSextas feiras: das 9.30h às 12h para consulta online e das 13h às 19h para consulta presencial\n",
+    "cost": [
+      45,
+      80
+    ],
+    "opp": "23550",
+    "gender": "female"
+  },
+  {
+    "_id": "6674524a066b79b508b55b60",
+    "name": "Anaísa Garcia",
+    "age": 41,
+    "specialization": "Licenciatura Pré Bolonha em Psicologia Clínica\nEm formação como Psicoterapeuta Psicanalítica através da Sociedade Portuguesa de Psicologia Psicanalítica\n",
+    "phone": "+351 934095811",
+    "email": "anaisagarcia@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Loures",
+    "experienceYears": 10,
+    "consultationType": "Ambos",
+    "availability": "2feira e 3feira\nDisponibilidade imediata",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": "8578",
+    "gender": "female"
+  },
+  {
+    "_id": "66a14ac3c2ea921d51fe8146",
+    "name": "Joana Teixeira",
+    "age": 25,
+    "specialization": "Psicóloga Clínica de abordagem cognitivo-comportamental formada pela Universidade de Lisboa.\nIntervenção em: comportamento alimentar; depressão; avaliação e intervenção de PHDA no adulto.\nIntervenção com crianças, jovens e adultos.",
+    "phone": "+351 912092818",
+    "email": "joananobreteixeira@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 1,
+    "consultationType": "Ambos",
+    "availability": "Segunda a quinta.",
+    "cost": [
+      35,
+      65
+    ],
+    "opp": "29622",
+    "gender": "female"
+  },
+  {
+    "_id": "66a244f1c2ea921d51fe8147",
+    "name": "Joana Pereira",
+    "age": 27,
+    "specialization": "Psicologia Clínica Sistémica, Familiar e Comunitária. Experiência clínica em contexto escolar/ contextos socioeconómicos de risco ",
+    "phone": "+351 960139318",
+    "email": "joanapereira.psi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Presencial",
+    "availability": "imediata - consultas ao fim do dia (horário das 17h-20) e sábados de manhã. ",
+    "cost": [
+      35,
+      45
+    ],
+    "opp": "28819",
+    "gender": "female"
+  },
+  {
+    "_id": "66a40e5cc2ea921d51fe814a",
+    "name": "Pedro Marques Freitas",
+    "age": 24,
+    "specialization": "Licenciatura em Ciências Psicológicas e Mestrado em Psicologia Clínica e da Saúde pela FPUL\nMembro efetivo OPP \nEstou neste momento a frequentar um curso avançado em terapia focada nos esquemas e uma pós-graduação em terapia familiar e de casal no Instituto CRIAP\nEstou também a frequentar o nível II do Training in Unified Psychotherapy pelos EUA, ministrado pelo Dr. Jeff Harris\nConsidero ter uma abordagem integrativa e eclética em psicoterapia\nPsicoterapia individual, de casal ou familiar",
+    "phone": "+351 917647121",
+    "email": "pedromarquesfreitas.psi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Horários variáveis, de segunda a sexta, mas tenho alguma preferência pelas manhãs. Disponibilidade imediata.",
+    "cost": [
+      30,
+      70
+    ],
+    "opp": "28840",
+    "gender": "male"
+  },
+  {
+    "_id": "66a54f4cc2ea921d51fe814b",
+    "name": "Luis Felix Marques",
+    "age": 70,
+    "specialization": "Psicologo clinico\nPsicoterapeuta orientaçao dinamica, ludoterapia. pos graduado em tecnicas projetivas, ",
+    "phone": "+351 938450801",
+    "email": "luisfelixmarques@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 20,
+    "consultationType": "Presencial",
+    "availability": "todas as manhas incluindo sabados e durante a semana das 14 as 15 e sexta das 19 as 21h.",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": "10990",
+    "gender": "male"
+  },
+  {
+    "_id": "66a7848cc2ea921d51fe814c",
+    "name": "Beatriz Santos",
+    "age": 26,
+    "specialization": "- Mestrado Integrado em Psicologia, vertente de Psicologia Clínica e da Saúde, núcleo de Psicologia Clínica Sistémica (2021)\n\n- Certificado do curso de formação profissional de “Intervenção Psicológica Com Pessoas LGBTQ” pela Ordem dos Psicólogos Portugueses (2023)\n\n- Certificado do curso de formação profissional de “Prestação De Serviços De Psicologia \nMediados Por Tecnologias Da Informação E Da Comunicação” pela Ordem dos Psicólogos \nPortugueses (2023)\n\n- Certificado do curso de formação profissional de “Intervenção Psicológica Com Adultos \nMais Velhos” pela Ordem dos Psicólogos Portugueses (2024)\n\n- Certificado de participação no Workshop dinamizado pela DRC denominado “Luto: \nIntervenção com Adultos”, da Ordem dos Psicólogos Portugueses\n\n- Certificado de conclusão do “Curso de Formação Profissional de Curso Avançado de Intervenção no Luto no Ciclo de Vida: Abordagem Integrativa”, pelo Instituto CRIAP (2024)",
+    "phone": "+351 918194538",
+    "email": "beatrizsantos.psicologia@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Presencialmente aos sábados de manhã, das 9h às 13h.\n\nTenho um horário flexível de terça a sexta feira, sendo que não tenho disponibilidade à segunda feira. A minha disponibilidade varia consoante os dias e as disponibilidades dos próprios clientes. \n\nDe momento, de modo geral, o meu horário de atendimento (quer presencial quer online) vai desde as 9h às 13h de manhã, e das 14h30 às 18h30 às quartas e às 19h nos restantes dias. Ocasionalmente, pode ainda estender-se no máximo até às 19h30 ou 20h às terças, quintas e sextas. ",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "28134",
+    "gender": "female"
+  },
+  {
+    "_id": "66af8c19c2ea921d51fe814e",
+    "name": "Cláudia Simões ",
+    "age": 30,
+    "specialization": "Mestrado em Psicologia da Educação; \nEspecialização Avançada em Psicologia Clínica e da Saúde; \nFormação em Terapia focada nos Esquemas. ",
+    "phone": "+351 961129817",
+    "email": "claudias.a.simoes@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 1,
+    "consultationType": "Online",
+    "availability": "Segunda-sexta 19h\nSábados 9h-13h ",
+    "cost": [
+      50,
+      60
+    ],
+    "opp": "29353",
+    "gender": "female"
+  },
+  {
+    "_id": "66b502b64a531f0d83fec782",
+    "name": "Carolina Tendinha Silva",
+    "age": 28,
+    "specialization": "Licenciatura e Mestrado Integrado no ISPA em Psicologia Clínica. \nArte-Terapeuta e Psicoterapeuta pela Sociedade Portugusa de Arte-Terapia e Psicoterapia (em formação)\nFormações avançadas (destaque para: Psicofarmacologia, Dependências com e Sem Substâncias;  Avaliação Psicológica com Crianças; Perturbações de Neurodesenvolvimento; Adoção; Acolhimento de Emergência de Crianças e Jovens em Perigo",
+    "phone": "+963 656194",
+    "email": "carolinatendinha@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 4,
+    "consultationType": "Ambos",
+    "availability": "Imediata\n8h-21h dias úteis (exceto 4f, apenas até 17h)",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": "26646",
+    "gender": "female"
+  },
+  {
+    "_id": "66bf8ea74a531f0d83fec784",
+    "name": "Bruna Ferreira Márquez",
+    "age": 30,
+    "specialization": "Psicologia clínica da saúde e da doença, base teórica cognitivo-comportamental integrativa.\nPsicopatologia da criança e do adolescente\nNeurodesenvolvimento",
+    "phone": "+351 967021663",
+    "email": "brunafmarquez@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Oeiras",
+    "experienceYears": 6,
+    "consultationType": "Ambos",
+    "availability": "Todos os dias ao fim da tarde 18h-20h \nSabado de manhã 9h-12h",
+    "cost": [
+      50,
+      70
+    ],
+    "opp": "24647",
+    "gender": "female"
+  },
+  {
+    "_id": "66bf8ea64a531f0d83fec783",
+    "name": "Bruna Ferreira Márquez",
+    "age": 30,
+    "specialization": "Psicologia clínica da saúde e da doença, base teórica cognitivo-comportamental integrativa.\nPsicopatologia da criança e do adolescente\nNeurodesenvolvimento",
+    "phone": "+351 967021663",
+    "email": "brunafmarquez@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Oeiras",
+    "experienceYears": 6,
+    "consultationType": "Ambos",
+    "availability": "Todos os dias ao fim da tarde 18h-20h \nSabado de manhã 9h-12h",
+    "cost": [
+      50,
+      70
+    ],
+    "opp": "24647",
+    "gender": "female"
+  },
+  {
+    "_id": "66bf917a4a531f0d83fec785",
+    "name": "Maria Melro",
+    "age": 30,
+    "specialization": "Mestrado integrado em Psicologia Clínica e da Saúde, área de especialização em Psicologia Clínica Sistémica.\nPós-graduação em Psicologia Comunitária. \nPós-graduação em Terapias Cognitivo-Comportamentais (a decorrer).",
+    "phone": "+351 915875211",
+    "email": "mariamelropsi@outlook.com",
+    "location": "leiria",
+    "locationMunicipality": "Leiria",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Segundas, quartas e sextas-feiras para consulta online, com grande disponibilidade de horários; terças-feiras para consulta presencial, durante todo o dia. Disponibilidade imediata.",
+    "cost": [
+      30,
+      50
+    ],
+    "opp": "26059",
+    "gender": "female"
+  },
+  {
+    "_id": "66c0d84e4a531f0d83fec786",
+    "name": "Beatriz Honório",
+    "age": 29,
+    "specialization": "Mestrado em Psicologia Educacional\nDupla Especialização em Sexologia e Terapia de Casal\n",
+    "phone": "+351 911937444",
+    "email": "abeatrizphonorio@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 4,
+    "consultationType": "Ambos",
+    "availability": "Quarta e Quinta a partir das 18h\nSábados entre as 9h e as 13h ",
+    "cost": [
+      30,
+      45
+    ],
+    "opp": "26266",
+    "gender": "female"
+  },
+  {
+    "_id": "66dee6214a531f0d83fec788",
+    "name": "Inês Serôdio",
+    "age": 27,
+    "specialization": "Mestrado em Psicologia Clínica e da Saúde com orientação Cognitivo-Comportamental e Integrativa. Especialização Avançada em Terapias Cognitivo Comportamentais em Adultos. Curso Avançado em Psicofarmacologia para Psicólogos. Curso Avançado de intervenção em Perturbações de Personaldiade.",
+    "phone": "+351 928157139",
+    "email": "inesserodio97@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata para horários da manhã (9h-13h) e início de tarde (14h-17h). ",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "26802",
+    "gender": "female"
+  },
+  {
+    "_id": "66e08caa4a531f0d83fec789",
+    "name": "Rita Pinto",
+    "age": 27,
+    "specialization": "Formação em Psicologia Clínica e da Saúde pela Faculdade de Psicologia da Universidade de Lisboa. Frequento o Curso de Especialização Winnicottiana da Associação Winnicottiana Portuguesa - realizei no ano passado o ano zero e estou este ano a frequentar o 1º ano. Realizado supervisão clínica de inspiração psicanalítica com frequência semanal.",
+    "phone": "+351 912660895",
+    "email": "ritapintopsi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Odivelas",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata às segundas-feiras das 9h às 19h.",
+    "cost": [
+      45,
+      55
+    ],
+    "opp": "026463",
+    "gender": "female"
+  },
+  {
+    "_id": "66e1936c4a531f0d83fec78b",
+    "name": "Sther Oliveira",
+    "age": 49,
+    "specialization": "Sou mestre em Psicologia Forense",
+    "phone": "+351 915598833",
+    "email": "stherfpoliveira@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 4,
+    "consultationType": "Online",
+    "availability": "Disponibilidade na segunda-feira 19h e 20h, 21h e quinta- feira 17h, 18h",
+    "cost": [
+      25,
+      50
+    ],
+    "opp": " 27925 ",
+    "gender": "female"
+  },
+  {
+    "_id": "66e1bf854a531f0d83fec78c",
+    "name": "Patrícia Cardeira",
+    "age": 25,
+    "specialization": "Tenho o mestrado em psicologia clinica pelo ISPA e tenho feito várias formações aos longo da minha carreira  ",
+    "phone": "+351 933707597",
+    "email": "patriciacardeira2@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Seixal",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Tenho disponibilidade imediata às segundas de manhã, terças durante todo o dia e sextas até às 17h. ",
+    "cost": [
+      35,
+      40
+    ],
+    "opp": "28862",
+    "gender": "female"
+  },
+  {
+    "_id": "66e369a54a531f0d83fec790",
+    "name": "Maria João Ferreira",
+    "age": 25,
+    "specialization": "Licenciatura na Universidade Católica Portuguesa e Mestrado em Psicologia Clínica no ISPA ",
+    "phone": "+351 934205656",
+    "email": "mariajoaoferreira009@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Tenho disponibilidade de segunda a sexta das 8h10 ao 12h e sábado das 15h às 20h",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": "29260",
+    "gender": "female"
+  },
+  {
+    "_id": "66e434d14a531f0d83fec792",
+    "name": "Márcia Amado ",
+    "age": 30,
+    "specialization": "Psicologia clínica e da saúde ",
+    "phone": "+351 914680387",
+    "email": "spbrainstorming@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Barreiro",
+    "experienceYears": 7,
+    "consultationType": "Ambos",
+    "availability": "Presencial - quartas e quintas-feiras dia todo (à quinta às consultas são na baixa da banheira)\nOnline - segundas-feiras dia todo ",
+    "cost": [
+      35,
+      50
+    ],
+    "opp": "023325",
+    "gender": "female"
+  },
+  {
+    "_id": "66e4c0644a531f0d83fec793",
+    "name": "Sara Cabaço",
+    "age": 39,
+    "specialization": "Formação pós-graduada em Psicoterapia (adultos) na Associação Portuguesa de Terapias Comportamental, Cognitiva e Integrativa (APTCCI)",
+    "phone": "+351 961892351",
+    "email": "sara.cabaco@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Almada",
+    "experienceYears": 10,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade a partir de 1 de outubro: 2a feira das 9h-21h; 3a feira das 9h-18h; 4a feira das 9h-18h; 5a feira das 9h-13h; 6a feira das 11h-17h30.",
+    "cost": [
+      30,
+      50
+    ],
+    "opp": "12844",
+    "gender": "female"
+  },
+  {
+    "_id": "66e4cd834a531f0d83fec794",
+    "name": "Marta Marujo",
+    "age": 44,
+    "specialization": "Psicologia Clínica \n\nMestre em psicologia, aconselhamento e psicoterapia \n\nAdolescentes e Adultos ",
+    "phone": "+351 966131844",
+    "email": "martamarujo79@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Loures",
+    "experienceYears": 20,
+    "consultationType": "Online",
+    "availability": "Todos os dias úteis, a partir das 17:30.\nSábado em horário a definir.",
+    "cost": [
+      40,
+      60
+    ],
+    "opp": "4231",
+    "gender": "female"
+  },
+  {
+    "_id": "66e6b4ab4a531f0d83fec798",
+    "name": "Rita Leal",
+    "age": 48,
+    "specialization": "Sou psicóloga clínica, sou pós graduada em Psicologia clínica e da saúde , tenho cédula profissional da ordem dia psicólogos portugueses ",
+    "phone": "+351 911905646",
+    "email": "ritalelloleal@hotmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Oeiras",
+    "experienceYears": 20,
+    "consultationType": "Online",
+    "availability": "Das 10/13h  todos os dias da semana e sábados de manhã (quinzenal)",
+    "cost": [
+      10,
+      35
+    ],
+    "opp": "000344",
+    "gender": "female"
+  },
+  {
+    "_id": "66e709184a531f0d83fec79a",
+    "name": "Mónica Florêncio",
+    "age": 37,
+    "specialization": "Psicologia Clínica e de Aconselhamento\nOrientação Vocacional e Profissional\n",
+    "phone": "+351 933753660",
+    "email": "monicapflorencio@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Sintra",
+    "experienceYears": 7,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata\nSegunda de manhã\nQuinta à tarde\nSexta dia todo\nSábado das 9h às 17h",
+    "cost": [
+      35,
+      40
+    ],
+    "opp": "21125",
+    "gender": "male"
+  },
+  {
+    "_id": "66e81ec64a531f0d83fec79c",
+    "name": "Vanda Cabaço Silva",
+    "age": 52,
+    "specialization": "Psicóloga Clínica",
+    "phone": "+351 914934076",
+    "email": "vandacabacosilva@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 26,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata ás Terças, Quartas e Quintas. Horários a combinar nestes dias.\n ",
+    "cost": [
+      40,
+      80
+    ],
+    "opp": "014164",
+    "gender": "female"
+  },
+  {
+    "_id": "66e87f974a531f0d83fec79e",
+    "name": "Margarida Madeira Paulino",
+    "age": 25,
+    "specialization": "Psicologia Clínica e da Saúde - Área de especialização em\nPsicologia Clínica Dinâmica",
+    "phone": "+351 915963807",
+    "email": "margaridappsi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 2,
+    "consultationType": "Online",
+    "availability": "Segunda-feira - 19h00\nTerça-feira - 19h00\nQuarta-feira - 19h00",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "28224",
+    "gender": "female"
+  },
+  {
+    "_id": "66ec45484a531f0d83fec79f",
+    "name": "Sofia Knittel",
+    "age": 25,
+    "specialization": "Sou Psicóloga membro efectivo da OPP, com a especialidade em Psicologia Clínica e da Saúde e com experiência sobretudo no acompanhamento a jovens adultos.",
+    "phone": "+351 924002697",
+    "email": "sofiaknittelpsi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Lisboa",
+    "experienceYears": 2,
+    "consultationType": "Ambos",
+    "availability": "Tenho disponibilidade para receber novos clientes às segundas-feiras e às sextas-feiras, sendo a minha disponibilidade imediata",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "29496",
+    "gender": "female"
+  },
+  {
+    "_id": "66f212fa4a531f0d83fec7a1",
+    "name": "André Gonçalves",
+    "age": 38,
+    "specialization": "Formação em Psicologia Cognitivo-Comportamental\nFormação em Psicologia Positiva e Mindfulness\nIntervenção em Crise e Catástrofe (luto/perda, pânico, perturbações da personalidade)\nIntervenção com População LGBT+\nIntervenção em Ansiedade e Perturbação de pânico\n\n",
+    "phone": "+351 938224544",
+    "email": "andregoncalves8686@gmail.com",
+    "location": "braga",
+    "locationMunicipality": "Braga",
+    "experienceYears": 13,
+    "consultationType": "Ambos",
+    "availability": "Segunda a sábado das 9h00 às 20h00, mediante disponibilidade.",
+    "cost": [
+      30,
+      40
+    ],
+    "opp": "19607",
+    "gender": "male"
+  },
+  {
+    "_id": "66f847904a531f0d83fec7a3",
+    "name": "Rita Lima de Sá",
+    "age": 46,
+    "specialization": "Licenciatura em Psicologia;\nA frequentar a especialização avançada em Mediação Familiar",
+    "phone": "+351 910220816",
+    "email": "ritalimadesa.psicologa@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Cascais",
+    "experienceYears": 20,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata, todos os dias úteis.",
+    "cost": [
+      25,
+      50
+    ],
+    "opp": "15860",
+    "gender": "female"
+  },
+  {
+    "_id": "670fb4eb4a531f0d83fec7a6",
+    "name": "Rita Pinto",
+    "age": 27,
+    "specialization": "Mestrado em Psicologia Clínica da Saúde pela Faculdade de Psicologia da Universidade de Lisboa\n\nEstou a frequentar a especialização em Psicanálise Winnicottiana pela Associação Winnicottiana Portuguesa e faço supervisão regularmente com abordagem psicanalitica. ",
+    "phone": "+351 912660895",
+    "email": "ritapintopsi@gmail.com",
+    "location": "lisboa",
+    "locationMunicipality": "Odivelas",
+    "experienceYears": 3,
+    "consultationType": "Ambos",
+    "availability": "Disponibilidade imediata para segundas-feiras das 14h30 às 18h30 \nDisponibilidade a partir de Dezembro às quartas-feiras das 14h às 18h",
+    "cost": [
+      45,
+      55
+    ],
+    "opp": "026463",
+    "gender": "female"
+  },
+  {
+    "_id": "676d30344a531f0d83fec7aa",
+    "name": "Cláudia de  Brito",
+    "age": 39,
+    "specialization": "Psicóloga Clínica,\nExperiência com a  fase da Adolescência\nExperiência em Relacionamentos abusivos",
+    "phone": "+351 936393199",
+    "email": "claudiaraposodebrito@gmail.com",
+    "location": "setubal",
+    "locationMunicipality": "Almada",
+    "experienceYears": 7,
+    "consultationType": "Online",
+    "availability": "Disponiblidade imediata. Dias da semana após as 18h00 até as 21h00. Sábado e domingo das 10h00 às 18h00",
+    "cost": [
+      10,
+      40
+    ],
+    "opp": "023372",
+    "gender": "male"
+  }
+]

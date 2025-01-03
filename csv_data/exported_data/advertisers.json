@@ -1,0 +1,68 @@
+[
+  {
+    "_id": "654ab83fd24bc53ce8c309ed",
+    "name": "batata",
+    "email": "batata@email.com",
+    "phone": "+351 123123123",
+    "iban": "98i1273981723131",
+    "socialNetwork": "@potato"
+  },
+  {
+    "_id": "654aba15d24bc53ce8c309ee",
+    "name": "asd",
+    "email": "asd@email.com",
+    "phone": "+351 123123123",
+    "iban": 123123123123123,
+    "socialNetwork": "asd"
+  },
+  {
+    "_id": "654abaa9d24bc53ce8c309ef",
+    "name": "asd",
+    "email": "asd@email.com",
+    "phone": "+351 123123123",
+    "iban": "12312318723618723612836182371628371623123",
+    "socialNetwork": "asd"
+  },
+  {
+    "_id": "654ac32c1f97677ea2b2af41",
+    "name": "Test",
+    "email": "test@test.com",
+    "phone": "+351 913060881",
+    "iban": "543252352",
+    "socialNetwork": "@tommasini"
+  },
+  {
+    "_id": "654ac4cc75532166ff3686a2",
+    "name": "link",
+    "email": "link@email.com",
+    "phone": "+351 123123123123",
+    "iban": "123123",
+    "socialNetwork": "asd",
+    "link": null
+  },
+  {
+    "_id": "654ac51575532166ff3686a3",
+    "name": "asd",
+    "email": "asd@email.com",
+    "phone": "+351 123123123",
+    "iban": "123",
+    "socialNetwork": "asd"
+  },
+  {
+    "_id": "654b5f494e06653dae9836c5",
+    "name": "Alenxadre influencer",
+    "email": "tommasini15@gmail.com",
+    "phone": "+351 913060881",
+    "iban": "2395u8924352",
+    "socialNetwork": "tommasini"
+  },
+  {
+    "_id": "65c64537d79d4ae5fd39b8e2",
+    "name": "teste",
+    "email": "teste@email.com",
+    "phone": "+351 2313213",
+    "iban": "123321",
+    "socialNetwork": "teste",
+    "registrationDate": 1707492663604
+  }
+]

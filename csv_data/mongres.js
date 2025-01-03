@@ -132,8 +132,8 @@ async function loadClients() {
         };
     });
 
-    await insertIntoPg('patients', clients);
-    await insertIntoPg('patient_requests', clients);
+    // await insertIntoPg('patients', clients);
+    // await insertIntoPg('patient_requests', clients);
 }
 
 async function loadClientsQuill() {
@@ -176,8 +176,8 @@ async function loadClientsQuill() {
         };
     });
 
-    await insertIntoPg('patients', clients);
-    await insertIntoPg('patient_requests', clients);
+    // await insertIntoPg('patients', clients);
+    // await insertIntoPg('patient_requests', clients);
 }
 
 async function loadPsis() {
@@ -209,7 +209,7 @@ async function loadPsis() {
         };
     });
 
-    await insertIntoPg('psis', psis);
+    // await insertIntoPg('psis', psis);
 }
 
 function parseDataString(dataString) {
@@ -252,9 +252,9 @@ function parseDataString(dataString) {
 
 async function run() {
     try {
-        // await loadClients();
-        // await loadClientsQuill();
-        // await loadPsis();
+        await loadClients();
+        await loadClientsQuill();
+        await loadPsis();
     } catch (e) {
         console.error(e);
     } finally {
